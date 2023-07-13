@@ -233,7 +233,11 @@
         </div>
         <div class="block1">
             <img src="https://1is-new.netlify.app/images/menu-block.png" alt="">
-            <p>{{count($allcategories)}} <br> @lang('front.cats')</p>
+            <p>
+                
+                  {{count($allcategories)}} <br> @lang('front.cats')
+                
+        </p>
         </div>
     </div>
 </div>
