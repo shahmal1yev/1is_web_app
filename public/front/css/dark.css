@@ -47,6 +47,10 @@
   color: #fdfdfd;
 }
 
+.dark .text-field p a{
+  color: #fdfdfd;
+}
+
 .dark .vac-card {
   background-color: #131313;
 }
