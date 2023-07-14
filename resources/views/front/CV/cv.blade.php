@@ -73,6 +73,9 @@
                     <a class="nav-link nav-link-2 trending-nav-link2" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                         <img id="training_icon2" src="{{asset('back/assets/images/icons/training-list-purple1.png')}}" alt="training-list-purple" /> @lang('front.cvler')
                     </a>
+                    <a class="nav-link nav-link-2 trending-nav-link3" id="v-pills-liked-cv-tab" data-toggle="pill" href="#v-pills-liked-cv" role="tab" aria-controls="v-pills-liked-cv" aria-selected="false">
+                        <img id="training_icon3" src="{{asset('back/assets/images/icons/training-list-purple1.png')}}" alt="training-list-purple" /> Bəyəndiyim CV-lər
+                    </a>
                 </div>
                 <div class="tab-content col-lg-8" id="v-pills-tabContent">
                     <form class="tab-pane row create-cv-form fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" method="POST" action="{{route('cvPost')}}" enctype="multipart/form-data">
@@ -350,10 +353,6 @@
                             <button type="submit">@lang('front.elaveet')</button>
                         </div>
                     </form>
-
-
-
-                    
                     <div class="tab-pane create-cv-card-wrapper fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                         <h4 class="create-cv-header">@lang('front.cvler')</h4>
                         <div class="row">
@@ -379,6 +378,104 @@
                             </div>
                             @endforeach
                             <div class="add-training-card-more-button">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane row cv-liked-card-wrapper fade" id="v-pills-liked-cv" role="tabpanel" aria-labelledby="v-pills-liked-cv-tab">
+                        <div class="col-lg-6 jobsearch-card-col mt-3">
+                            <div class="job-search-card">
+                                <img class="job-search-avatar" src="" alt="job-search-card1">
+                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
+                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <div class="jobsearch-card-information">
+                                    <a href="#"><h4>Jane Cooper</h4></a>
+                                    <p>Web Designer</p>
+                                    <h3>~2800₼</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 jobsearch-card-col mt-3">
+                            <div class="job-search-card">
+                                <img class="job-search-avatar" src="" alt="job-search-card1">
+                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
+                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <div class="jobsearch-card-information">
+                                    <a href="#"><h4>Jane Cooper</h4></a>
+                                    <p>Web Designer</p>
+                                    <h3>~2800₼</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 jobsearch-card-col mt-3">
+                            <div class="job-search-card">
+                                <img class="job-search-avatar" src="" alt="job-search-card1">
+                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
+                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <div class="jobsearch-card-information">
+                                    <a href="#"><h4>Jane Cooper</h4></a>
+                                    <p>Web Designer</p>
+                                    <h3>~2800₼</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 jobsearch-card-col mt-3">
+                            <div class="job-search-card">
+                                <img class="job-search-avatar" src="" alt="job-search-card1">
+                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
+                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <div class="jobsearch-card-information">
+                                    <a href="#"><h4>Jane Cooper</h4></a>
+                                    <p>Web Designer</p>
+                                    <h3>~2800₼</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 jobsearch-card-col mt-3">
+                            <div class="job-search-card">
+                                <img class="job-search-avatar" src="" alt="job-search-card1">
+                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
+                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <div class="jobsearch-card-information">
+                                    <a href="#"><h4>Jane Cooper</h4></a>
+                                    <p>Web Designer</p>
+                                    <h3>~2800₼</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 jobsearch-card-col mt-3">
+                            <div class="job-search-card">
+                                <img class="job-search-avatar" src="" alt="job-search-card1">
+                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
+                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <div class="jobsearch-card-information">
+                                    <a href="#"><h4>Jane Cooper</h4></a>
+                                    <p>Web Designer</p>
+                                    <h3>~2800₼</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 jobsearch-card-col mt-3">
+                            <div class="job-search-card">
+                                <img class="job-search-avatar" src="" alt="job-search-card1">
+                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
+                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <div class="jobsearch-card-information">
+                                    <a href="#"><h4>Jane Cooper</h4></a>
+                                    <p>Web Designer</p>
+                                    <h3>~2800₼</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 jobsearch-card-col mt-3">
+                            <div class="job-search-card">
+                                <img class="job-search-avatar" src="" alt="job-search-card1">
+                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
+                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <div class="jobsearch-card-information">
+                                    <a href="#"><h4>Jane Cooper</h4></a>
+                                    <p>Web Designer</p>
+                                    <h3>~2800₼</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
