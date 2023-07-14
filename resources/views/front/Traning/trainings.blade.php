@@ -154,6 +154,14 @@
 
 @endsection
 
+@section('css')
+<style>
+  body{
+    background-color:rgba(244, 249, 253, 1);
+  }
+</style>
+@endsection
+
     @section('js')
     
 @endsection

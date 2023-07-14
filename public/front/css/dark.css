@@ -6,6 +6,11 @@
   background: #fff;
 }
 
+.header-links:hover {
+  background: #1B1523 !important;
+  color: #9559e5;
+}
+
 .dark .dark-mode {
   background-image: url("https://1is.butagrup.az/back/assets/images/icons/light.png");
   background-size: cover;
@@ -91,6 +96,7 @@
 .dark #check-label {
   color: #fff;
 }
+
 .dark .dropdown2 h2 {
   color: #fff;
 }
@@ -180,13 +186,22 @@
   background-color: #1e1e1e;
 }
 
-.dark .terms-content > .container > div {
-  background-color: #696c76;
-  color: #fdfdfd;
+.dark .terms-content>.container>div {
+  color: #FDFDFD;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 600;
+  background: #0D0D0D;
+  display: inline-flex;
+  padding: 30px 50px 30px 15px;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .dark .container h2 {
   color: #fdfdfd;
+  font-family: Montserrat;
+  padding-top: 20px;
 }
 
 .dark .add-training-input-group label {
@@ -217,6 +232,7 @@
 
 .dark .prof-cont-left {
   background: #1b1523;
+  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.1);
 }
 
 .dark .nav-pills .nav-link {
@@ -226,34 +242,35 @@
 }
 
 .dark .nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .show>.nav-link {
   background: #9559e5;
   box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
   border-radius: 10px;
 }
 
-.dark .form-group input{
+.dark .form-group input {
   background: #0D0D0D;
   color: #9559E5;
   border: none;
 }
 
 
-.dark .form-innerdiv span{
+.dark .form-innerdiv span {
   color: #9559E5;
 }
 
-.dark .form-group label{
+.dark .form-group label {
   color: #FDFDFD;
 }
 
 
-.dark .proftab-1{
+.dark .proftab-1 {
   background: #1B1523;
+  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.1);
 }
 
 
-.dark .nav-link.active  > .icon-1{
+.dark .nav-link.active>.icon-1 {
   background: url(../images/prof-white.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -261,7 +278,7 @@
 }
 
 
-.dark .nav-link.active  > .icon-2{
+.dark .nav-link.active>.icon-2 {
   background: url(../images/hear-white.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -269,7 +286,7 @@
 }
 
 
-.dark .nav-link.active  > .icon-3{
+.dark .nav-link.active>.icon-3 {
   background: url(../images/setting-white.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -281,7 +298,7 @@
 }
 
 .dark .add-training-tabs a {
-  background-color: #1B1523!important;
+  background-color: #1B1523 !important;
 }
 
 .dark .add-training-card {
@@ -301,7 +318,7 @@
 }
 
 .dark .create-cv-tabs a {
-  background-color: #1B1523!important;
+  background-color: #1B1523 !important;
 }
 
 .dark .create-cv-input-group label {
@@ -316,7 +333,7 @@
 }
 
 .dark .create-cv-input-group .add-image-label {
-  background-color: #000!important;
+  background-color: #000 !important;
 }
 
 .dark .create-cv-form h3 {
@@ -341,19 +358,20 @@
 .dark .trending-nav-link2,
 .dark .trending-nav-link3,
 .dark .trending-nav-link4 {
-  background-color: #1B1523!important;
+  background-color: #1B1523 !important;
 }
 
 .dark .trending-nav-link1.active,
 .dark .trending-nav-link2.active,
 .dark .trending-nav-link3.active,
 .dark .trending-nav-link4.active {
-  color: #fff!important;
+  color: #fff !important;
 }
 
 .dark .company-announce-input-group select,
 .dark .company-announce-input-group textarea {
   background-color: #0D0D0D;
+  border: none;
 }
 
 .dark .musahibe-check-label,
@@ -365,162 +383,162 @@
   background-color: #0d0d0d;
 }
 
-.dark .company-inner h3{
+.dark .company-inner h3 {
   color: #fff;
 }
 
-.dark .carousel-vacancy h3{
+.dark .carousel-vacancy h3 {
   color: #fff;
 }
 
-.dark .company-inner-comment-header{
+.dark .company-inner-comment-header {
   color: #fff;
 }
 
-.dark .comment-bottom-section span{
+.dark .comment-bottom-section span {
   color: #Fff;
 }
 
-.dark .comment-profile-name p{
+.dark .comment-profile-name p {
   color: #fff;
 }
 
-.dark .about-company{
+.dark .about-company {
   background: #000000;
 }
 
-.dark .comment{
+.dark .comment {
   background: #000000;
 }
 
 
-.dark .slider-vacancy-header{
+.dark .slider-vacancy-header {
   background: #21053C;
 }
 
-.dark .slider-vacancy h3{
+.dark .slider-vacancy h3 {
   color: #fff;
 }
 
-.dark .slider-vacancy{
+.dark .slider-vacancy {
   background: #000000;
 }
 
-.dark .about-company-col span{
+.dark .about-company-col span {
   color: #fff;
 }
 
-.dark .about-company-col p{
+.dark .about-company-col p {
   color: #Fff;
 }
 
-.dark .about-company-col h5{
+.dark .about-company-col h5 {
   color: #fff;
 }
 
-.dark .main-office{
+.dark .main-office {
   background: #000000;
 }
 
-.dark .company-about-link{
+.dark .company-about-link {
   background: #000000;
 }
 
-.dark .number-of-vacancies{
+.dark .number-of-vacancies {
   background: #000000;
 }
 
-.dark .number-of-employees{
+.dark .number-of-employees {
   background: #000000;
 }
 
 
-.dark .modal-content{
+.dark .modal-content {
   background: #1E1E1E;
 }
 
-.dark p.comp-detail{
+.dark p.comp-detail {
   color: #fff;
 }
 
-.dark .modal-header-details h1{
+.dark .modal-header-details h1 {
   color: #fff;
 }
 
-.dark .nav-tabs{
+.dark .nav-tabs {
   border: none !important;
 }
 
-.dark .rate-span{
+.dark .rate-span {
   color: #Fff;
 }
 
-.dark .rate-left-p2 form label{
+.dark .rate-left-p2 form label {
   color: #fff;
 }
 
-.dark .location-div span{
+.dark .location-div span {
   color: #fff;
 }
 
-.dark .your-com{
+.dark .your-com {
   color: #fff;
 }
 
 
-.dark #value-span{
+.dark #value-span {
   color: #fff;
 }
 
-.dark .rating-div h1{
+.dark .rating-div h1 {
   color: #fff;
 }
 
-.dark .rate-per{
+.dark .rate-per {
   color: #fff;
 }
 
-.dark #training_name{
+.dark #training_name {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #training_date{
+.dark #training_date {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #training_information{
+.dark #training_information {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #training_companies{
+.dark #training_companies {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #training_url{
+.dark #training_url {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #training_payment{
+.dark #training_payment {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #getshow{
+.dark #getshow {
   background: #131313;
 }
 
-.dark .vac-select{
+.dark .vac-select {
   color: #adb5bd;
 }
 
-.dark .select_box:after{
-  width: 0; 
-  height: 0; 
+.dark .select_box:after {
+  width: 0;
+  height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid #8843E1;
@@ -529,11 +547,11 @@
   right: 5.67px;
   content: "";
   z-index: 99;
- }
+}
 
 
 @media screen and (max-width: 801px) {
-  .dark .menu-items ul{
+  .dark .menu-items ul {
     background: #131313;
   }
 }
