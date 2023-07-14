@@ -560,9 +560,14 @@ button:focus {
   align-items: center;
 }
 
+.mySwiper .swiper-slide {
+  height: 130px!important;
+}
+
 .swiper-slide img {
   display: block;
   width: 77%;
+  height: 100%;
   object-fit: cover;
 }
 
