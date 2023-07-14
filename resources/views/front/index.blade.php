@@ -207,30 +207,30 @@
 <section class="blocks">
 <div class="info-block-main">
     <div class="info-blocks">
-        <div class="block1">
+        <!-- <div class="block1"> -->
+        <a href="{{ route('allvacancies') }}" style="color: #fff" class="block1">
             <img src="https://1is-new.netlify.app/images/doc.png" alt="">
             <p>
-                <a href="{{ route('allvacancies') }}" style="color: #fff">
-                    {{ count($allvacancies) }}<br> @lang('front.vacancies')
-                </a>
+                    {{ count($allvacancies) }}<br> @lang('front.vacancies')  
             </p>
-        </div>
-        <div class="block1">
+        </a>
+        <!-- </div> -->
+        <!-- <div class="block1"> -->
+        <a href="{{ route('jobsearch') }}" style="color: #fff" class="block1">
             <img src="https://1is-new.netlify.app/images/axtar.png" alt="">
             <p>
-                <a href="{{ route('jobsearch') }}" style="color: #fff">
                     {{count($cvs)}} <br> @lang('front.jobsearch')
-                </a>
-            </p>  
-        </div>
-        <div class="block1">
+                </p>  
+        </a>
+        <!-- </div> -->
+        <!-- <div class="block1"> -->
+        <a href="{{ route('allcompany') }}" style="color: #fff" class="block1">
             <img src="https://1is-new.netlify.app/images/compAny.png" alt="">
             <p>
-                <a href="{{ route('allcompany') }}" style="color: #fff">
                     {{ count($allcompanies) }}<br> @lang('front.companies')
-                </a>
-            </p>  
-        </div>
+                </p>  
+        </a>
+        <!-- </div> -->
         <div class="block1">
             <img src="https://1is-new.netlify.app/images/menu-block.png" alt="">
             <p>{{count($allcategories)}} <br> @lang('front.cats')</p>
@@ -276,7 +276,7 @@
                 <i class="{{$category->icon}}"></i>
                 <div class="text-field">
                     <div class="text-field">
-                        <p><a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}" style="color: black">
+                        <p><a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}">
                             @switch(app()->getLocale())
                             @case('EN')
                                 {{ $category->title_en }}
