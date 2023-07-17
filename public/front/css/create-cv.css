@@ -19,14 +19,14 @@
 
 .create-cv-tabs {
     display: flex;
-    flex-direction: column;
+    flex-direction: column!important;
     justify-content: center;
     background: #FDFDFD;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     padding: 26px 36px;
     gap: 10px;
-    height: 178px;
+    height: 270px;
 }
 
 .create-cv-tabs a {
@@ -62,7 +62,8 @@
     display: none!important;
 }
 
-:not(.active).create-cv-card-wrapper{
+:not(.active).create-cv-card-wrapper,
+:not(.active).cv-liked-card-wrapper {
     display: none!important;
 }
 
@@ -354,7 +355,7 @@
     }
 
     .create-cv-tabs {
-        height: 174px;
+        height: 245px;
     }
 
     .create-cv-input-group input {
@@ -374,7 +375,7 @@
     }
 
     .create-cv-tabs {
-        height: 170px;
+        height: 240px;
         
     }
 
@@ -407,7 +408,7 @@
     }
 
     .create-cv-tabs {
-        height: 166px;
+        height: 235px;
         padding: 22px 32px;
     }
 
@@ -430,7 +431,7 @@
     }
 
     .create-cv-tabs {
-        height: 162px;
+        height: 230px;
         padding: 10px 15px;
     }
 

@@ -14,8 +14,23 @@
 }
 
 .company-inner-container {
+  position: relative;
   max-width: 1000px !important;
   width: 100%;
+}
+
+.company-inner-container .owl-prev {
+  position: absolute;
+  left: -30px;
+  top: 23%;
+  font-size: 40px!important;
+}
+
+.company-inner-container .owl-next {
+  position: absolute;
+  right: -30px;
+  top: 23%;
+  font-size: 40px!important;
 }
 
 .about-company-wrapper {

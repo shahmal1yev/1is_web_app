@@ -3,16 +3,16 @@
             background-image: url('https://1is.butagrup.az/back/assets/images/icons/dark.png');
             background-size: cover;
             background-position: center;
-            width: 30px;
-            height: 30px;
+            width: 38px;
+            height: 38px;
             }
 
         .dark .dark-mode {
             background-image: url("https://1is.butagrup.az/back/assets/images/icons/light.png");
             background-size: cover;
             background-position: center;
-            width: 30px;
-            height: 30px;
+            width: 38px;
+            height: 38px;
             }
 
             .header-logo img {

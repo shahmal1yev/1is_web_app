@@ -489,4 +489,27 @@
     ></script>
     
     <script src="{{asset('front/js/owl.carousel.min.js')}}"></script> 
+    <script>
+      $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        dots: false,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true
+            },
+            600:{
+                items:3,
+                nav:false
+            },
+            1000:{
+                items:4,
+                nav:true,
+                loop:false
+            }
+    }
+})
+    </script>
 @endsection
