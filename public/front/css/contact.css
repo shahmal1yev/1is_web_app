@@ -19,7 +19,7 @@
     border-bottom-left-radius: 10px;
 }
 
-.contact-info-p{
+.contact-info-p {
     margin-left: 25px;
     font-family: 'Poppins';
     font-style: normal;
@@ -29,7 +29,7 @@
     color: #FFFFFF;
 }
 
-a.contact-email{
+a.contact-email {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -80,7 +80,7 @@ a.contact-email{
 }
 
 
-.header-info{
+.header-info {
     padding: 60px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -100,7 +100,19 @@ a.contact-email{
     margin-left: 25px;
 }
 
-.contact-right{
+.social-media div a .img2 {
+    display: none
+}
+
+.social-media div a:hover .img1 {
+    display: none;
+}
+
+.social-media div a:hover .img2 {
+    display: block;
+}
+
+.contact-right {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -109,24 +121,24 @@ a.contact-email{
     color: #000000;
 }
 
-.form-inner{
+.form-inner {
     display: flex;
     flex-direction: column;
 }
 
-.form1{
+.form1 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.form-inner2{
+.form-inner2 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-.userdata-container label{
+.userdata-container label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
@@ -135,8 +147,9 @@ a.contact-email{
     color: #8D8D8D;
 }
 
-.userdata-container input{
-    border-bottom: 1px solid #8D8D8D;;
+.userdata-container input {
+    border-bottom: 1px solid #8D8D8D;
+    ;
     border-top: 0;
     border-left: 0;
     border-right: 0;
@@ -144,11 +157,11 @@ a.contact-email{
     padding: 5px;
 }
 
-.userdata-container input:focus{
+.userdata-container input:focus {
     outline: none;
 }
 
-.contact-send{
+.contact-send {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,7 +169,8 @@ a.contact-email{
     height: 54px;
     background: #8843E1;
     box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.12);
-    border-radius: 5px;    font-family: 'Poppins';
+    border-radius: 5px;
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -165,7 +179,7 @@ a.contact-email{
     color: #FFFFFF;
 }
 
-.contact-button{
+.contact-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,11 +188,11 @@ a.contact-email{
 
 
 @media screen and (max-width: 768px) {
-    .contact-info{
+    .contact-info {
         width: 95%;
     }
 
-    .form1{
+    .form1 {
         flex-direction: column;
     }
 }

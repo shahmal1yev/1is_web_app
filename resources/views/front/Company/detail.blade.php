@@ -120,22 +120,22 @@
                 <div class="company-about-socials">
                   <div class="company-about-social-media" href="#">
                     <a href="{{ str_replace('"', '', $compdetail->twitter) }}">
-                        <img src="{{asset('back/assets/images/icons/internet-explorer.png')}}" alt="internet">
+                        <img src="{{asset('back/assets/images/icons/internet-explorer.svg')}}" alt="internet">
                     </a>
                   </div>
                   <div class="company-about-social-media" href="#">
                     <a href="{{ str_replace('"', '', $compdetail->facebook) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-fb.png')}}" alt="facebook">
+                        <img src="{{asset('back/assets/images/icons/footer-fb.svg')}}" alt="facebook">
                     </a>
                   </div>
                   <div class="company-about-social-media" href="#">
                     <a href="{{ str_replace('"', '', $compdetail->instagram) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-ig.png')}}" alt="instagram">
+                        <img src="{{asset('back/assets/images/icons/footer-ig.svg')}}" alt="instagram">
                     </a>
                   </div>
                   <div class="company-about-social-media" href="#">
                     <a href="{{ str_replace('"', '', $compdetail->linkedin) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-li.png')}}" alt="linkedin">
+                        <img src="{{asset('back/assets/images/icons/footer-li.svg')}}" alt="linkedin">
                     </a>
                   </div>
                 </div>

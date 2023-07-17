@@ -77,16 +77,22 @@
                 </div>
             </div>
             <!-- SOCIAL MEDIA -->
-            <div class="social-media">
-                <div>
+            <div class="social-media mx-auto">
+                <!-- <div>
                     <a href=""><img src="{{asset('back/assets/images/icons/contact-twitter.png')}}" alt=""></a>
 
-                </div>
-                <div style="background-color: white;">
-                    <a href="https://www.instagram.com/1is_az/"><img style="border-radius: 35px;" src="{{asset('back/assets/images/icons/contact-insta.png')}}" alt=""></a>
+                </div> -->
+                <div>
+                    <a href="https://www.instagram.com/1is_az/">
+                        <img class="img1" style="border-radius: 35px;" src="{{asset('back/assets/images/icons/elaqe-instagram-black.svg')}}" alt="">
+                        <img class="img2" style="border-radius: 35px;" src="{{asset('back/assets/images/icons/elaqe-instagram-white.svg')}}" alt="">
+                    </a>
                 </div>
                 <div>
-                    <a href="https://www.linkedin.com/company/recruitment-azerbaycan/"><img src="{{asset('back/assets/images/icons/contact-link.png')}}" alt=""></a>
+                    <a href="https://www.linkedin.com/company/recruitment-azerbaycan/">
+                        <img class="img1" src="{{asset('back/assets/images/icons/linkedInwithblackbckg.svg')}}" alt="">
+                        <img class="img2" src="{{asset('back/assets/images/icons/linkedInwithwhitebckg.svg')}}" alt="">
+                    </a>
                 </div>
             </div>
         </div>
