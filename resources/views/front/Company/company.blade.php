@@ -31,6 +31,10 @@
             position: absolute;
             bottom: 20px;
         }
+        
+        .company-div .mr-0, .mx-0{
+        width: 100%;
+    }
     </style>
 </head>
 
