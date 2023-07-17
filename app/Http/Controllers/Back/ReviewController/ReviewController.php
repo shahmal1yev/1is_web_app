@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Back\ReviewController;
 
 use App\Http\Controllers\Controller;
-use App\Models\Rating;
 use App\Models\Review;
 use Illuminate\Http\Request;
 

@@ -351,10 +351,10 @@
                     <input type="hidden" name="company_id" value="{{ $compdetail->id }}"> 
 
                     <label class="name-label" for="name">@lang('front.adsoyad')* <br />
-                              @auth
+                            @auth
                               <input type="text" id="name" name="fullname" value="{{ auth()->user()->name }}" />
-                              @else
-                    <input type="text" id="name" name="fullname" value="" />
+                            @else
+                            <input type="text" id="name" name="fullname" value="" />
                     @endauth
                     </label>
 
