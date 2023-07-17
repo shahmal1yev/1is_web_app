@@ -37,7 +37,13 @@
     color: #ffffff;
   }
   
+  
   .header-links:hover {
+    background: #ffffff;
+    color: #9559e5;
+  }
+  
+  .header-links:active {
     background: #ffffff;
     color: #9559e5;
   }

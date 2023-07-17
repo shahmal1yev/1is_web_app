@@ -110,7 +110,7 @@
 
     <!-- BLOG CARDS -->
     <div class="container blog-card-container">
-      <h3 class="w-100 text-center mt-5 mb-4">@lang('front.blog')</h3>
+      <h3 class="w-100 text-center mt-5 mb-4">@lang('front.digerblog')</h3>
       <div class="row">
         @foreach($bigblogs as $key=>$bigblog)
         <div class="col-md-6">
