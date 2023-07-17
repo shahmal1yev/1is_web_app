@@ -33,15 +33,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $setting = Settings::first();
-        View::share('setting',$setting);
-        $languages = Language::all();
-        View::share('languages',$languages);
-        $contact = Contact::where('status','0')->get();
-        View::share('contact',$contact);
-        view()->composer('*', function($view) {
-            $view->with('user', auth()->user());
-        });
-        Paginator::useBootstrapFour();
+        // $setting = Settings::first();
+        // View::share('setting',$setting);
+        // $languages = Language::all();
+        // View::share('languages',$languages);
+        // $contact = Contact::where('status','0')->get();
+        // View::share('contact',$contact);
+        // view()->composer('*', function($view) {
+        //     $view->with('user', auth()->user());
+        // });
+        // Paginator::useBootstrapFour();
     }
 }
