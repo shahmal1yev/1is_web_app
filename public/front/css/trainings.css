@@ -248,7 +248,7 @@
   .left-part-2 div div span {
     font-family: "Montserrat";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     line-height: 26px;
     color: #2f55d4;
@@ -280,6 +280,13 @@
       font-size: 15px;
       line-height: 30px;
       color: #161C2D;
+  }
+
+  .right-card li{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
   }
   
   @media screen and (max-width: 768px) {

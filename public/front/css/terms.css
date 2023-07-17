@@ -38,5 +38,9 @@
     margin-bottom: 10px;
     background: #e5eafe;
     padding: 12px;
-    font-weight: bold;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 2;
   }

@@ -636,8 +636,8 @@ p {
   color: #000000;
   width: 75%;
   gap: 2px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .text-field p a{

@@ -11,11 +11,23 @@
           <h3>@lang('front.blog')</h3>
       </div>
       <form class="container blog-header-container" method="GET" action="{{route('blogsearch')}}">
-        <div>
+        <!-- <div>
           <img src="{{asset('back/assets/images/icons/search.png')}}" alt="search">
           <input type="text" placeholder="@lang('front.axtar')" type="search" name="query"/>
         </div>
-        <button>@lang('front.axtar')</button>
+        <button>@lang('front.axtar')</button> -->
+
+
+        <div class="active-filter active-filter-jobsearchinner">
+        <div class="filter1">
+            <img src="https://1is-new.netlify.app/images/search.png" alt="">
+            <input class="filter-input" placeholder="@lang('front.açar')" type="search" name="query" value="{{ old('query') }}">
+        </div>
+        <div class="filter2">
+            <button class="filter-searc">@lang('front.axtar')</button>
+            <div id="detail-btn" class="detail-search"><img src="https://1is-new.netlify.app/images/more.png" alt="">@lang('front.etrafliaxtar')</div>
+        </div>
+    </div>
   </section>
 
               
