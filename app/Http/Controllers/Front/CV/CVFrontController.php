@@ -15,6 +15,8 @@ use App\Models\Regions;
 use App\Models\Gender;
 use App\Models\AcceptType;
 use App\Models\BannerImage;
+use App\Models\Favorits;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -40,6 +42,18 @@ class CVFrontController extends Controller
         $experiences = Experiences::all();
         $educations = Educations::all();
         $genders = Gender::all();
+
+        if(auth()->check()){
+            $likes = Favorits::whereUserId(auth()->user()->id)->get()->pluck('cv_id')->toArray();}
+            else {
+            $likes = [];
+        }
+        $favorits = User::join('favorits', 'favorits.user_id', '=', 'users.id')
+        ->join('cv', 'favorits.cv_id', '=', 'cv.id')
+        ->select('cv.id','cv.image','cv.name','cv.surname','cv.salary','cv.position','cv.status','cv.view','cv.created_at')
+        ->where('favorits.user_id', $userId)
+        ->distinct('favorits.cv_id')
+        ->get();
         return View('front.CV.cv', get_defined_vars());
     }
 

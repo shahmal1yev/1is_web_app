@@ -9,7 +9,7 @@ use App\Models\Blogs;
 use App\Models\Companies;
 use App\Models\Cv;
 use App\Models\Review;
-use App\Models\Subsrcribers;
+use App\Models\Newslatter;
 use App\Models\Trainings;
 use App\Models\User;
 use App\Models\Vacancies;
@@ -26,7 +26,7 @@ class AdminGeneralController extends Controller
         $non_vacancies = Vacancies::where('status','0')->get();
         $companies = Companies::where('status','1')->get();
         $cvs = Cv::where('status','1')->get();
-        $subscribers = Subsrcribers::where('status','1')->get();
+        $subscribers = Newslatter::where('status','1')->get();
         $users = User::where([['is_admin','0'],['is_superadmin','0'],['status','1']])->get();
         $last_reviews = Review::orderBy('id','DESC')->limit(6)->get();
 
