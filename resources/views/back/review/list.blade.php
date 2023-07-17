@@ -48,7 +48,7 @@
                                         <!-- Gerekli hata mesajını burada gösterebilirsiniz -->
                                     @endif
                                 </td>
-                                                                <td>{{ isset($reviewrating) ? $review->rating : 0 }}</td>
+                                                                <td>{{$review->rating}}</td>
                                 <td>
                                     <p class="d-none">{{$review->status == 1 ? "Active" : "Deactive"}}</p>
                                     <input type="checkbox" id="switch{{$review->id}}" switch="none" {{$review->status == 1 ? "checked" : ""}} onchange="changeStatus({{$review->id}})" />
