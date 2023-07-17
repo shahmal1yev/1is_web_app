@@ -1,3 +1,7 @@
+.dark {
+  background-color: #131313;
+}
+
 .dark header {
   background-color: #131313;
 }
@@ -6,7 +10,7 @@
   background: #fff;
 }
 
-.header-links:hover {
+.dark .header-links:hover {
   background: #1B1523 !important;
   color: #9559e5;
 }
@@ -19,6 +23,9 @@
   height: 30px;
 }
 
+.dark .training-card {
+  background-color: #131313;
+}
 
 .dark .menu-items ul li a {
   color: #fff;
@@ -94,7 +101,7 @@
 }
 
 .dark .section-filter h2 {
-  color: #898787;
+  color: #D3D1D1;
 }
 
 .dark #check-label {
@@ -553,6 +560,32 @@
   z-index: 99;
 }
 
+.dark .right-card li p span {
+  color: #fff !important;
+font-family: 'Nunito' !important;
+font-size: 18.667px  !important;
+font-weight: 400;
+}
+
+.dark .right-card li div {
+  color: #fff !important;
+  font-family: 'Nunito' !important;
+font-size: 18.667px  !important;
+font-weight: 400;
+}
+
+
+.dark .right-card h3{
+  color: #FDFDFD;
+}
+
+.dark .blog-text p{
+  color:#FDFDFD;
+}
+
+.dark .similar-blogs .custom-container h1{
+  color:#FDFDFD;
+}
 
 @media screen and (max-width: 801px) {
   .dark .menu-items ul {
