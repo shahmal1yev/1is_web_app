@@ -569,11 +569,25 @@
   margin-top: 27px;
   color: #000000;
 }
-
+.company-details-address{
+  color: #000;
+  text-align: center;
+font-family: "Montserrat";
+font-size: 20px;
+font-weight: 600;
+margin-bottom: 20px;
+}
 .location-div {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.location-div span{
+  color: #000;
+font-family: "Montserrat";
+font-size: 16px;
+font-weight: 600;
 }
 
 .map-loc{
@@ -582,8 +596,8 @@
 }
 
 .map-loc iframe {
-  max-width: 780px;
-  width: 100%;
+  /* max-width: 780px; */
+  width: 100% !important;
   height: 344px;
   margin-top: 13px;
 }

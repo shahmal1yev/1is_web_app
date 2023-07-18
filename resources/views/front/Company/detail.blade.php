@@ -305,20 +305,15 @@
 
            </p>
            <br />
+           <p class="company-details-address">@lang('front.unvan')</p>
            <div class="location-div">
              <img src="https://1is-new.netlify.app/images/location.png" alt="" />
-             <span>{{$compdetail->address}}</span
-             >
+
+             <span>{{$compdetail->address}}</span >
            </div>
            <div class="map-loc">
             
-            <iframe srcdoc="{{htmlspecialchars_decode($compdetail->map)}}" 
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+           {!! htmlspecialchars_decode($compdetail->map) !!}
 
            </div>
            <div class="rating-div">
