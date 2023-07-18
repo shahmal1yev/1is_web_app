@@ -272,20 +272,38 @@
             </ul>
         </div>
         <div class="vac-apply-button">
+        <?php
+                $contact_info = str_replace('https://1is.butagrup.az/vacancy/', '', $vacdetail->contact_info);
+                ?>
             @if (Auth::check())
-                <button id="apply_button">Müraciət</button>
+                @if ($vacdetail->accept_type == 2)
+
+                    <button id="apply_button">Müraciət</button>
+                @else
+
+                @if (strpos($contact_info, '@') !== false)
+                    <a class="apply-button" href="mailto:{{ $contact_info }}">@lang('front.muraciet')</a>
+                @else
+                    @if (Auth::check())
+                        <a class="apply-button" href="{{ $contact_info }}">@lang('front.muraciet')</a>
+                    @else
+                        <a class="apply-button" href="{{ route('login') }}">@lang('front.muraciet')</a>
+                    @endif
+                @endif
+        @endif
+
+            
             @else
                 <a href="{{ route('login') }}">
                     <button id="dsdf">Müraciət</button>
                 </a>
+                
             @endif
         </div>
         
         <div id="apply_section">
             <div class="apply-buttons-wrapper" style="padding: 6px;">
-            
-                @if ($vacdetail->accept_type == 2)
-    
+                
                 <nav class="apply-pills-nav">
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">@lang('front.asantmur')</button>
@@ -293,23 +311,6 @@
                     </div>
                 </nav>
                     
-                @else
-                <?php
-                $contact_info = str_replace('https://1is.butagrup.az/vacancy/', '', $vacdetail->contact_info);
-                ?>
-            
-            @if (strpos($contact_info, '@') !== false)
-            <a class="apply-button" href="mailto:{{ $contact_info }}">@lang('front.muraciet')</a>
-        @else
-            @if (Auth::check())
-                <a class="apply-button" href="{{ $contact_info }}">@lang('front.muraciet')</a>
-            @else
-                <a class="apply-button" href="{{ route('login') }}">@lang('front.muraciet')</a>
-            @endif
-        @endif
-        
-                
-                @endif
             </div>
             
             <div class="tab-content" id="nav-tabContent">
