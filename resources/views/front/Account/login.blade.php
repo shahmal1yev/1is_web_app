@@ -69,7 +69,7 @@
 
                     <div class="col-lg-9 col-md-7 login-buttons">
                         <button class="login-registration" type="submit">@lang('front.daxilol')</button>                 
-                        <span>@lang('front.veya')</span>
+                        <span style='font-weight: bold;font-size: 14px'>@lang('front.veya')</span>
                         <a href="{{ route('register') }}" class="login-registration">@lang('front.register')</a>
                     </div>
                 </form>
