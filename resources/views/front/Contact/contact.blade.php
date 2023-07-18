@@ -9,8 +9,7 @@
 @section('content')
 @foreach ($banner as $ban)
 
-<section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
+<section class="header-info" style="background-image:linear-gradient(0deg, rgba(0, 10, 10, 0.1), rgba(33, 34, 80, 0.1)), url(http://127.0.0.1:8000/back/assets/images/icons/contact-back.png)}})">
  @endforeach
 
         <div>
@@ -18,7 +17,7 @@
         </div>
     </section>
     <div class="contact-container">
-        <div class="col-md-4 contact-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+        <div class="col-md-4 contact-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.1), rgba(32, 34, 80, 0.1)),
       url({{asset('back/assets/images/icons/contact-back.png')}})">
             <div>
                 <h2>@lang('front.contactmel')</h2>
@@ -78,16 +77,22 @@
                 </div>
             </div>
             <!-- SOCIAL MEDIA -->
-            <div class="social-media">
-                <div>
+            <div class="social-media mx-auto">
+                <!-- <div>
                     <a href=""><img src="{{asset('back/assets/images/icons/contact-twitter.png')}}" alt=""></a>
 
-                </div>
-                <div style="background-color: white;">
-                    <a href="https://www.instagram.com/1is_az/"><img style="border-radius: 35px;" src="{{asset('back/assets/images/icons/contact-insta.png')}}" alt=""></a>
+                </div> -->
+                <div>
+                    <a href="https://www.instagram.com/1is_az/">
+                        <img class="img1" style="border-radius: 35px;" src="{{asset('back/assets/images/icons/elaqe-instagram-black.svg')}}" alt="">
+                        <img class="img2" style="border-radius: 35px;" src="{{asset('back/assets/images/icons/elaqe-instagram-white.svg')}}" alt="">
+                    </a>
                 </div>
                 <div>
-                    <a href="https://www.linkedin.com/company/recruitment-azerbaycan/"><img src="{{asset('back/assets/images/icons/contact-link.png')}}" alt=""></a>
+                    <a href="https://www.linkedin.com/company/recruitment-azerbaycan/">
+                        <img class="img1" src="{{asset('back/assets/images/icons/linkedInwithblackbckg.svg')}}" alt="">
+                        <img class="img2" src="{{asset('back/assets/images/icons/linkedInwithwhitebckg.svg')}}" alt="">
+                    </a>
                 </div>
             </div>
         </div>

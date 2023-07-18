@@ -102,8 +102,8 @@
 
     .comp-insta-img {
         position: absolute;
-        top: 47px;
-        left: 15px;
+        top: 40px;
+    left: 8px;
     }
 
     .inner-right a {
