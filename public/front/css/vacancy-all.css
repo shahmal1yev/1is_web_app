@@ -213,7 +213,7 @@ input[type="checkbox"].switch_1:checked:after {
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: #ABADC6;
+  color: #767885;
 }
 
 .dropdown-comp-2 {
@@ -254,6 +254,11 @@ input[type="checkbox"].switch_1:checked:after {
   position: relative;
   z-index: 99;
   background: none;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  padding-left: 5px;
 }
 
 .dropdown-comp-2 h2 {

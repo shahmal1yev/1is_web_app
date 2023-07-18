@@ -46,8 +46,44 @@
   background: #E5EAFE;
   margin-bottom: 20px;
 }
-.terms-content .container h2 {
   
-  font-family: Montserrat;
-  padding-top: 20px;
-}
+.nav-bar .darkLight-searchBox {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .footer {
+    padding-top: 128px;
+  }
+  
+  .header-info {
+    padding: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+      url(../images/main.png);
+    background-position: center;
+  }
+  
+  .header-info > div > h3 {
+    text-align: center;
+    color: white;
+  }
+  
+  .terms-content {
+    background-color: rgb(237, 244, 249);
+    padding-top: 15px;
+  }
+  
+  .terms-content > .container > div {
+    margin-bottom: 10px;
+    background: #e5eafe;
+    padding: 12px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 2;
+  }

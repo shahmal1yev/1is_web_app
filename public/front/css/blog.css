@@ -125,12 +125,15 @@
 .header-info>div>h3 {
     text-align: center;
     color: white;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 35px;
 }
 
 .blog-header-container {
 	max-width: 1000px!important;
 	width: 100%;
-	background: #F4F9FD;
 	display: flex;
 	align-items: center;
 	padding: 15px 15px 15px 33px;
@@ -140,7 +143,6 @@
 }
 
 .blog-header-container div {
-	width: 100%;
 	display: flex;
 	align-items: center;
 }

@@ -9,8 +9,7 @@
 @section('content')
 @foreach ($banner as $ban)
 
-<section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
+<section class="header-info" style="background-image:linear-gradient(0deg, rgba(0, 10, 10, 0.1), rgba(33, 34, 80, 0.1)), url(http://127.0.0.1:8000/back/assets/images/icons/contact-back.png)}})">
  @endforeach
 
         <div>
@@ -18,7 +17,7 @@
         </div>
     </section>
     <div class="contact-container">
-        <div class="col-md-4 contact-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+        <div class="col-md-4 contact-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.1), rgba(32, 34, 80, 0.1)),
       url({{asset('back/assets/images/icons/contact-back.png')}})">
             <div>
                 <h2>@lang('front.contactmel')</h2>

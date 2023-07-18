@@ -11,7 +11,6 @@
 }
 
 .filter1 {
-    width: 80%;
     display: flex;
     align-items: center;
 }
@@ -20,9 +19,6 @@
     width: 100%;
 }
 
-.filter2 {
-    width: 20%;
-}
 
 .vac-select{
     font-family: 'Montserrat';
