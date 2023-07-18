@@ -129,6 +129,9 @@
     height: 47px;
     border: none;
     outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login-google-registration {
