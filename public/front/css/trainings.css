@@ -294,3 +294,8 @@
       justify-content: center;
     }
   }
+
+  ::placeholder {
+    color: #495057!important;
+  }
+  
