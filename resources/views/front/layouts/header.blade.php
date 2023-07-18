@@ -12,7 +12,7 @@
             background-size: cover;
             background-position: center;
             width: 38px;
-            height: 38px;
+            height: 39px;
             }
 
             .header-logo img {

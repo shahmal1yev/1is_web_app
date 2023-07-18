@@ -37,10 +37,25 @@
     }
 
     .my-modal-header-img {
-        width: 220px;
-        height: 220px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
         object-fit: contain;
     }
+
+
+    @media screen and (max-width: 768px) {
+      .my-modal-header,
+      .rate-left-p2 {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .modal-header-details h1 {
+        font-size: 18px;
+      }
+    }
+
 </style>
 
 
