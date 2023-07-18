@@ -211,6 +211,42 @@
   color: #000 !important;
 }
 
+.dark .tox div {
+  background-color: #000!important;
+}
+
+.dark .tox iframe {
+  background-color: #000!important;
+}
+
+.dark .tox span {
+  color: #D3D1D1 !important;
+}
+
+.dark .tox .tox-tbtn--bespoke {
+  background-color: #000!important;
+  border: 1px solid #fff;
+}
+
+.dark .tox .tox-mbtn:hover span {
+  color: #000!important;
+}
+
+.dark .tox-collection__item-label {
+  color: #D3D1D1 !important;
+}
+
+.dark .tox-collection__item-icon svg {
+  color: #D3D1D1 !important;
+}
+
+.dark .mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {
+  color: #D3D1D1!important;
+}
+
+.dark .mce-content-body:not([dir=rtl])[data-mce-placeholder]:not(.mce-visualblocks)::before {
+  color: #D3D1D1!important;
+}
 
 .dark .add-training-input-group input,
 .dark .add-training-input-group select,
@@ -219,8 +255,8 @@
 }
 
 .dark .add-training-input-group .add-image-label {
-  background-color: #3a3737 !important;
-  color: #fdfdfd;
+  background-color: #000 !important;
+  color: #D3D1D1 !important;
 }
 
 .dark .profile-section {
@@ -247,9 +283,21 @@
 .dark .form-group input{
   background: #0D0D0D;
   color: #9559E5;
-  border: none;
 }
 
+.dark #comp_link, 
+.dark #comp_name, 
+.dark #job_name {
+  background-color: #000!important;
+}
+
+.dark #structure label {
+  color: #FDFDFD;
+}
+
+.dark #repeater label {
+  color: #FDFDFD;
+}
 
 .dark .form-innerdiv span{
   color: #9559E5;
@@ -323,12 +371,13 @@
 .dark .create-cv-input-group input,
 .dark .create-cv-input-group select,
 .dark .create-cv-input-group textarea {
-  background-color: #0D0D0D;
+  background-color: #000;
   color: #D3D1D1;
 }
 
 .dark .create-cv-input-group .add-image-label {
   background-color: #000!important;
+  color: #D3D1D1!important;
 }
 
 .dark .create-cv-form h3 {
@@ -499,7 +548,7 @@
 
 .dark #training_date{
   background: #000000 !important;
-  color: #fff !important;
+  color: #D3D1D1 !important;
 }
 
 .dark #training_information{
@@ -509,7 +558,7 @@
 
 .dark #training_companies{
   background: #000000 !important;
-  color: #fff !important;
+  color: #D3D1D1 !important;
 }
 
 .dark #training_url{
@@ -519,7 +568,7 @@
 
 .dark #training_payment{
   background: #000000 !important;
-  color: #fff !important;
+  color: #D3D1D1 !important;
 }
 
 .dark #getshow{
