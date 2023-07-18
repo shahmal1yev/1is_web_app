@@ -136,6 +136,31 @@
   color: #d3d1d1;
 }
 
+.dark .jobsearcher-inner{
+  background-color: rgba(19, 19, 19, 1);
+}
+
+.dark .job-information-row, .dark .jobsearcher-profile, .dark .job-information-row2, .dark .job-information-row3, .dark .jobsearcher-ability{
+  background: #0D0D0D;
+}
+
+.dark .jobsearcher-profile{
+  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
+}
+
+.dark .jobsearcher-text h3, .dark .job-information h5, .dark .job-information span , .dark .job-information p{
+  color: #fff;
+}
+
+.dark .input-cv label span, .dark .jobsearcher-inner-container header{
+  color: #0D0D0D;
+}
+
+.dark .job-information-img, .dark .jobsearcher-ability span  {
+  background: #27153F;
+  color: #fff;
+}
+
 .dark .job-search-card {
   background-color: #0d0d0d;
 }
