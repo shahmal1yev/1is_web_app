@@ -21,7 +21,7 @@ class BlogController extends Controller
     public function blogAddPost(Request $request){
         $languages = Language::all();
         $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:1024'
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:5000'
         ]);
         foreach ($languages as $language){
             $request->validate([

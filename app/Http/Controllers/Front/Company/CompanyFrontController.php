@@ -185,7 +185,7 @@ class CompanyFrontController extends Controller
 
         $companyCommentsCount = Review::where('company_id', $id)->where('status', '1')->count();
         $totalCommentsCount = Review::where('status', '1')->count();
-        $faizcomment = intval($companyCommentsCount / $totalCommentsCount * 100);
+        $faizcomment = $totalCommentsCount != 0 ? intval($companyCommentsCount / $totalCommentsCount * 100) : 0;
 
          /*comp vaksniyalari*/
         $vacancies = Vacancies::join('companies', 'vacancies.company_id', '=', 'companies.id')

@@ -382,107 +382,73 @@
                         </div>
                     </div>
                     <div class="tab-pane row cv-liked-card-wrapper fade" id="v-pills-liked-cv" role="tabpanel" aria-labelledby="v-pills-liked-cv-tab">
+                        @foreach ($favorits as $fav)
+                            
                         <div class="col-lg-6 jobsearch-card-col mt-3">
                             <div class="job-search-card">
-                                <img class="job-search-avatar" src="" alt="job-search-card1">
-                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
-                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
+                                <img class="job-search-avatar" src="{{$fav->image}}" alt="job-search-card1">
+                                
+                                <img src="{{ asset('back/assets/images/icons/heart.png') }}" alt="heart" class="heart-icon" data-cv-id="{{$fav->id}}" style="{{ in_array($fav->id, $likes) ? 'display: none;' : 'display: inline-block;' }}">
+                                <img src="{{ asset('back/assets/images/icons/red-heart.png') }}" alt="red-heart" class="red-heart-icon" data-cv-id="{{$fav->id}}" style="{{in_array($fav->id, $likes) ? 'display: inline-block;' : 'display: none;' }}">
                                 <div class="jobsearch-card-information">
-                                    <a href="#"><h4>Jane Cooper</h4></a>
-                                    <p>Web Designer</p>
-                                    <h3>~2800₼</h3>
+                                    <a href="{{ route('jobsearchdetail', $fav->id) }}"><h4>{{$fav->name}} {{$fav->surname}}</h4></a>
+                                    <p>{{$fav->position}}</p>
+                                    <h3>{{ $fav->salary ? $fav->salary.'₼' : '~' }}</h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 jobsearch-card-col mt-3">
-                            <div class="job-search-card">
-                                <img class="job-search-avatar" src="" alt="job-search-card1">
-                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
-                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
-                                <div class="jobsearch-card-information">
-                                    <a href="#"><h4>Jane Cooper</h4></a>
-                                    <p>Web Designer</p>
-                                    <h3>~2800₼</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 jobsearch-card-col mt-3">
-                            <div class="job-search-card">
-                                <img class="job-search-avatar" src="" alt="job-search-card1">
-                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
-                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
-                                <div class="jobsearch-card-information">
-                                    <a href="#"><h4>Jane Cooper</h4></a>
-                                    <p>Web Designer</p>
-                                    <h3>~2800₼</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 jobsearch-card-col mt-3">
-                            <div class="job-search-card">
-                                <img class="job-search-avatar" src="" alt="job-search-card1">
-                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
-                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
-                                <div class="jobsearch-card-information">
-                                    <a href="#"><h4>Jane Cooper</h4></a>
-                                    <p>Web Designer</p>
-                                    <h3>~2800₼</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 jobsearch-card-col mt-3">
-                            <div class="job-search-card">
-                                <img class="job-search-avatar" src="" alt="job-search-card1">
-                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
-                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
-                                <div class="jobsearch-card-information">
-                                    <a href="#"><h4>Jane Cooper</h4></a>
-                                    <p>Web Designer</p>
-                                    <h3>~2800₼</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 jobsearch-card-col mt-3">
-                            <div class="job-search-card">
-                                <img class="job-search-avatar" src="" alt="job-search-card1">
-                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
-                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
-                                <div class="jobsearch-card-information">
-                                    <a href="#"><h4>Jane Cooper</h4></a>
-                                    <p>Web Designer</p>
-                                    <h3>~2800₼</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 jobsearch-card-col mt-3">
-                            <div class="job-search-card">
-                                <img class="job-search-avatar" src="" alt="job-search-card1">
-                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
-                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
-                                <div class="jobsearch-card-information">
-                                    <a href="#"><h4>Jane Cooper</h4></a>
-                                    <p>Web Designer</p>
-                                    <h3>~2800₼</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 jobsearch-card-col mt-3">
-                            <div class="job-search-card">
-                                <img class="job-search-avatar" src="" alt="job-search-card1">
-                                <img src="" alt="heart" class="heart-icon" data-cv-id="" style="">
-                                <img src="" alt="red-heart" class="red-heart-icon" data-cv-id="" style="">
-                                <div class="jobsearch-card-information">
-                                    <a href="#"><h4>Jane Cooper</h4></a>
-                                    <p>Web Designer</p>
-                                    <h3>~2800₼</h3>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var heartIcons = document.querySelectorAll('.red-heart-icon');
+
+        heartIcons.forEach(function (icon) {
+            icon.addEventListener('click', function () {
+                var cvId = this.getAttribute('data-cv-id');
+                var redHeartIcon = document.querySelector('.heart-icon[data-cv-id="' + cvId + '"]');
+                var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
+
+                if (isLoggedIn) {
+                    this.style.display = 'none';
+                    redHeartIcon.style.display = 'inline-block';
+                }
+
+                // AJAX isteği
+                var xhr = new XMLHttpRequest();
+                var url = '{{ route('cvdislike') }}'; // Dislike işlemi için uygun URL'yi buraya yazın
+                var params = 'cv_id=' + cvId + '&_token=' + '{{ csrf_token() }}';
+
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            console.log(xhr.responseText);
+                            if (!isLoggedIn) {
+                                redHeartIcon.style.display = 'inline-block';
+                                icon.style.display = 'none'; // Hide the white heart icon for anonymous users
+
+                            }
+                        } else if (xhr.status === 403) {
+                            var response = JSON.parse(xhr.responseText);
+                            alert(response.error);
+                        }
+                    }
+                };
+
+                xhr.send(params);
+            });
+        });
+        });
+    </script>
 @endsection
 
 @section('css-link')

@@ -222,9 +222,7 @@
                                             @endif
                                           </td>
                                         <td>
-                                            @if ($item->getRating())
-                                                {{$item->getRating()->rating}}
-                                            @endif
+                                                {{$item->rating}}
                                         </td>
                                         
                                         <td>

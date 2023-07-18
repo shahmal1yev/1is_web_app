@@ -14,10 +14,6 @@ class Review extends Model
     public function getCompany(){
         return $this->hasMany('App\Models\Companies','id','company_id')->first();
     }
-    public function getRating()
-    {
-        return $this->hasMany('App\Models\Rating', 'review_id', 'id')->get()->first();
-    }
 
     public function getUser(){
         return $this->hasMany('App\Models\User', 'id', 'user_id')->first();

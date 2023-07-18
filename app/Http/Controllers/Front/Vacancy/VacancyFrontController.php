@@ -105,7 +105,7 @@ class VacancyFrontController extends Controller
 
         if ($request->city == 1) {
         $request->validate([
-        'region' => 'required|numeric'
+        'region' => 'numeric'
         ]);
         $vacancy->village_id = $request->region;
         }
@@ -161,25 +161,13 @@ class VacancyFrontController extends Controller
 
         $vacancy->deadline = $request->deadline;
        
-        $data = [];
-        $data['email_name'] = '1is.butagrup.az';
-        $data['subject'] = 'Verification';
-        $data['text'] = 'Hörmətli İstifadəçi,
-
-        Sizin ' . $vacancy->position . ' başlıqlı elanınız yoxlamaya göndərildi!
-
-        Elanınız bütün qaydalara uyğun olarsa, saytda yerləşdiriləcək.
-
-        Hörmətlə,
-
-        1iş.butagrup.az.';
+       
 
 
         $user = Auth::user();
         if ($user) {
         $userEmail = $user->email;
 
-        Mail::to($userEmail)->send(new SendVac($data));
         }
         $vacancy->save();
         if ($request->status == 1) {
@@ -250,26 +238,7 @@ class VacancyFrontController extends Controller
                 $company->image = $name;
         }
            
-        $data = [];
-        $data['email_name'] = '1is.butagrup.az';
-        $data['subject'] = 'Verification';
-        $data['text'] = 'Hörmətli İstifadəçi,
-
-        Sizin ' . $company->name . ' başlıqlı şirkətiniz yoxlamaya göndərildi!
-
-        Elanınız bütün qaydalara uyğun olarsa, saytda yerləşdiriləcək.
-
-        Hörmətlə,
-
-        1iş.butagrup.az.';
-
-
-        $user = Auth::user();
-        if ($user) {
-        $userEmail = $user->email;
-
-        Mail::to($userEmail)->send(new SendCompMail($data));
-        }
+        
         
         $company->save();
         
@@ -355,25 +324,12 @@ class VacancyFrontController extends Controller
             $company->status = 0;
             }
 
-            $data = [];
-        $data['email_name'] = '1is.butagrup.az';
-        $data['subject'] = 'Verification';
-        $data['text'] = 'Hörmətli İstifadəçi,
-
-        Sizin ' . $company->name . ' başlıqlı şirkətiniz yoxlamaya göndərildi!
-
-        Elanınız bütün qaydalara uyğun olarsa, saytda yerləşdiriləcək.
-
-        Hörmətlə,
-
-        1iş.butagrup.az.';
-
+           
 
         $user = Auth::user();
         if ($user) {
         $userEmail = $user->email;
 
-        Mail::to($userEmail)->send(new SendCompMail($data));
         }
         
         $company->save();
