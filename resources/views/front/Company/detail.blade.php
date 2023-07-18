@@ -3,46 +3,84 @@
 
 @section('content')
 
+
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .center {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .center .stars {
+    height: 150px;
+    width: 500px;
+    text-align: center;
+    direction: rtl; /* Yönü sağdan sola çeviriyoruz */
+  }
 
-    .rating-css div {
-        color: #8843E1;
-        font-size: 30px;
-        font-family: sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        padding: 20px 0;
-    }
-    .rating-css input {
-        display: none;
-    }
-    .rating-css input + label {
-        font-size: 20px;
-        text-shadow: 1px 1px 0 #8f8420;
-        cursor: pointer;
-        color: #8843E1; /* Varsayılan yıldız rengi */
+  .custom-css {
+    direction: rtl;
+    float:left; 
+  }
 
-    }
-    .rating-css input:checked + label ~ label {
-        color: #b4afaf;
-    }
-    .rating-css label:active {
-        transform: scale(0.8);
-        transition: 0.3s ease;
-    }
+  .stars input {
+    display: none;
+  }
+  .stars label {
+    float: right; /* Etiketleri sağa doğru konumlandırıyoruz */
+    font-size: 30px;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+  }
+  .stars label:before {
+    content: '★';
+  }
+  .stars input:checked ~ label {
+    color: #8843E1;
+    text-shadow: 1px 1px #c60;
+  }
+  .stars:not(:checked) > label:hover,
+  .stars:not(:checked) > label:hover ~ label {
+    color: #8843E1;
+  }
+  .stars input:checked > label:hover,
+  .stars input:checked > label:hover ~ label {
+    color: #8843E1;
+    text-shadow: 1px 1px #8843E1;
+  }
+  .stars .result:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 50%;
+    transform: translateX(-47%);
+    bottom: -30px;
+    font-size: 30px;
+    font-weight: 500;
+    color: gold;
+    font-family: 'Poppins', sans-serif;
+    display: none;
+  }
+  .stars input:checked ~ .result:before {
+    display: block;
+  }
 
-    .owl-carousel:has(.aaa) .owl-prev,
-    .owl-carousel:has(.aaa) .owl-next {
-        display: none;
-    }
+  .rate-left-p1 form {
+    position: relative;
+  }
 
-    .my-modal-header-img {
-        width: 220px;
-        height: 220px;
-        object-fit: contain;
-    }
+  .rate-span {
+    position: absolute;
+    bottom: -31px;
+    left: 7px;
+  }
 </style>
-
 
 
 
@@ -329,20 +367,19 @@
                    <span class="rate-per">{{$faizcomment}} %</span>
                   <form action="{{route('addComment')}}" method="POST">
                     @csrf
-                   <div class="rating-css">
-                        <div class="star-icon">
-                            <input type="radio" value="1" name="rating" checked id="rating1" required>
-                            <label for="rating1" class="fa fa-star"></label>
-                            <input type="radio" value="2" name="rating" id="rating2">
-                            <label for="rating2" class="fa fa-star"></label>
-                            <input type="radio" value="3" name="rating" id="rating3">
-                            <label for="rating3" class="fa fa-star"></label>
-                            <input type="radio" value="4" name="rating" id="rating4">
-                            <label for="rating4" class="fa fa-star"></label>
-                            <input type="radio" value="5" name="rating" id="rating5">
-                            <label for="rating5" class="fa fa-star"></label>
-                        </div>
-                    </div>
+                      <div class="custom-css stars">
+                        <input type="radio" id="five" name="rating" value="5">
+                        <label for="five"></label>
+                        <input type="radio" id="four" name="rating" value="4">
+                        <label for="four"></label>
+                        <input type="radio" id="three" name="rating" value="3">
+                        <label for="three"></label>
+                        <input type="radio" id="two" name="rating" value="2">
+                        <label for="two"></label>
+                        <input type="radio" id="one" name="rating" value="1">
+                        <label for="one"></label>
+                        <span class="result"></span>
+                   </div>
                      
                    <span class="rate-span">{{$ratingCount}} rəy</span>
                  </div>

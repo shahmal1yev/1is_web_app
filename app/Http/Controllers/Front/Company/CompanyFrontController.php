@@ -42,6 +42,7 @@ class CompanyFrontController extends Controller
                 return redirect()->back()->with('error', __('messages.yildizerror'));
             }
             $comment->rating = $request->input('rating');
+            
             $comment->save();
     
             return redirect()->route('compdetail', ['id' => $request->company_id])->with('success', __('messages.sucrey'));

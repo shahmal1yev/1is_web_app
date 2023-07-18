@@ -45,7 +45,7 @@
                         <div class="row mb-4">
                             <div class="col-lg-12">
                                 <label for="title" class="form-label">Reyting<span class="text-danger">*</span></label>
-                                <input class="form-control" type="text" value="{{ $review->getRating() ? $review->getRating()->rating : 0 }}" disabled>
+                                <input class="form-control" type="text" value="{{ $review->rating}}" disabled>
                             </div>
                         </div>
                         <div class="row mb-4">
