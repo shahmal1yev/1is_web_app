@@ -18,6 +18,8 @@
   --search-text: #010718;
 } 
 
+
+
 ul {
   margin-bottom: 0;
 }
@@ -1491,4 +1493,8 @@ p {
 
 .heart-icon, .red-heart-icon{
     width: 21px;
+}
+
+::placeholder {
+  color: #495057!important;
 }

@@ -291,7 +291,7 @@
                         </div>  
 
 
-                        <h3 class="col-12">@lang('front.contact')</h3>
+                        <h3 class="col-12 mt-3">@lang('front.contact')</h3>
                         <div class="form-group create-cv-input-group col-md-6 @error('contact_email') has-error @enderror">
                             <label for="e_poçt">@lang('front.conmail')</label>
                             <input type="email" name="contact_mail" class="form-control" id="e_poçt" placeholder="@lang('front.emaildaxilet')" value="{{ old('contact_email') }}"  />
