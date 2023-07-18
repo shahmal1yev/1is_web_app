@@ -307,6 +307,20 @@
   color: #FDFDFD;
 }
 
+.dark #password-field:focus {
+  background-color: #000;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover, 
+.dark input:-webkit-autofill:focus, 
+.dark input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+}
+
+.dark input:-webkit-autofill{
+  -webkit-text-fill-color: #9559E5 !important;
+}
 
 .dark .proftab-1{
   background: #1B1523;
