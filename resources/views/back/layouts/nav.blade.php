@@ -67,7 +67,7 @@
                 </li>
                 <li>
                     <a href="{{route('userList')}}" class=" waves-effect">
-                        <i class="far fa-address-card"></i>
+                        <i class="fas fa-users"></i>
                         <span key="t-blog">Istifadəçilər</span>
                     </a>
                 </li>
