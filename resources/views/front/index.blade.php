@@ -501,7 +501,37 @@
     <button class="pop-button2 load_more_button" id ="$last_id"><a href="{{route('allvacancies')}}"  style="color: #ffff;">@lang('front.allvac') <img class="btm-arrow" src="https://1is.butagrup.az/back/assets/images/icons/images-bottom-arrow.svg" alt=""></a></button>
 </section>
 
+
+
 </div>
+
+<section class="announce">
+            <div class="container announce-container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="ann-left">
+                            <p>İş axtarmağınıza ehtiyac qalmadı
+                                İşi ayağınıza gətirdik</p>
+                            <a href="">
+                                <img src="{{ asset('back/assets/images/search.png') }}" alt="">
+                                EMPLOYMENT.AZ
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ann-mid">
+                            <img src="{{ asset('back/assets/images/elan.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        
+                        <div class="ann-right">
+                            <p>Bütün aktiv iş elanları saytlarını sizin üçün birləşdirdik!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 @endsection
 
 @section('js')
