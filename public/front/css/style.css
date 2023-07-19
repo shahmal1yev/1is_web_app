@@ -1343,7 +1343,7 @@ p {
 }
 
 .footer-right form div input::placeholder {
-  color: #E5F6FF;
+  color: #E5F6FF !important;
   font-family: Montserrat;
   font-size: 15px;
   font-weight: 800;
