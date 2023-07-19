@@ -13,6 +13,8 @@ return [
     'etrafliaxtar'=>'Advanced search',
     'cats'=>'Categories',
 
+    'kom'=>'Communication',
+    'soft'=>'Software',
 
 
 // footer

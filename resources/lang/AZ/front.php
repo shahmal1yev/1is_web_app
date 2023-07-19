@@ -25,6 +25,8 @@ return [
     'butateref'=>'Buta Grup Tərəfindən Hazırlanmışdır',
 
 
+    'kom'=>'Kommunikasiya',
+    'soft'=>'Proqram təminatı',
 
 //contact
     'contactmel'=>'Əlaqə Məlumatları',

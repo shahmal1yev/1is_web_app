@@ -20,6 +20,8 @@ return [
 'butunhuquq'=>'Tüm hakları saklıdır',
 'butateref'=>'Buta Grup tarafından hazırlanmıştır',
 
+'kom'=>'İletişim',
+'soft'=>'Yazılım',
 
 
 //contact
