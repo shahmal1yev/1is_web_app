@@ -20,30 +20,6 @@ return [
 'butunhuquq'=>'Tüm hakları saklıdır',
 'butateref'=>'Buta Grup tarafından hazırlanmıştır',
 
-// Politika
-'kom'=>'İletişim',
-'kom1'=>'1iş.az hizmetinin kullanıcılar tarafından kullanım şartlarını belirler',
-'kom2'=>'Kullanıcı sözleşmesi aşağıda belirtilen durumlarda uygulanacaktır: - Hizmet, internet ağı üzerinde, Buta Grup Azerbaycan ve kullanıcılar (şartları kabul eden kişiler) tarafından yerleştirilen bilgilerin bulunduğu 1iş.az adresinde yer almaktadır. - Kişisel hesap - kullanıcılar tarafından oluşturulan ve kişisel bilgilerin (verilerin) eklenmiş bir koleksiyonudur. Herhangi bir kullanıcının yalnız bir kişisel hesaba sahip olma hakkı vardır. - Hizmet hizmetlerinden ve materyallerinden yararlanma, yürürlükteki yasaların gereklilikleri ve mevcut sözleşme ile düzenlenir',
-'kom3'=>'Hizmet hizmetlerinden yararlanarak, kullanıcı mevcut sözleşmeyi ve hizmetlerin kullanımıyla ilgili talimatlara uymayı kabul eder. - Buta Grup Azerbaycan, mevcut sözleşmenin şartlarını istediği zaman tek taraflı olarak değiştirme hakkına sahiptir. - Kullanıcı, değiştirilmiş sözleşme şartlarına razı olmadığı durumda, o hizmete girişten kaçınmalı ve hizmetlerini durdurmalıdır',
-'kom4'=>'1iş.az kullanıcılara hizmetlerinden yararlanma ve ilan yayınlama, ayrıca arama hizmetleri sunar',
-'kom5'=>'Diğer hizmetler özel kurallar veya anlaşmalarla düzenlenebilir. - Servisin tüm materyalleri ve hizmetleri reklamla desteklenebilir. Kullanıcı bunu önceden kabul eder',
-'soft'=>'Yazılım',
-'soft1'=>'1iş.az, hizmete kayıt olurken kullanıcılar tarafından sağlanan bilgilerin doğruluğu konusunda sorumluluk taşımaz',
-'soft2'=>'Kullanıcı tarafından başka kişilerin haklarının veya mevcut yasaların ihlali durumunda, ayrıca başka sebeplerden dolayı, hizmet kullanıcı girişini kısıtlama veya durdurma hakkına sahiptir',
-'soft3'=>'1iş.az, kullanıcıların eksik veya güvenilmez bilgilerini özel izin olmaksızın sistemden kaldırma hakkına sahiptir',
-
-//terms
-
-'term1'=>'Anlaşmanın tarafları - Buta Grup Azerbaycan (1iş.az) ve kullanıcılar',
-'term2'=>'1iş.az hizmetinin kullanıcılar tarafından kullanım şartlarını belirler',
-'term3'=>'Kullanıcı sözleşmesi aşağıdaki durumlarda uygulanacaktır: - Hizmet, internet ağı üzerinde, Buta Grup Azerbaycan ve kullanıcılar (şartları kabul etmiş kişiler) tarafından yerleştirilen bilgilerin bulunduğu 1iş.az adresinde yer almaktadır. - Kişisel hesap - kullanıcılar tarafından oluşturulan ve kişisel bilgilerin (verilerin) eklenmiş bir koleksiyonudur. Herhangi bir kullanıcının yalnız bir kişisel hesaba sahip olma hakkı vardır. - Hizmet hizmetlerinden ve materyallerinden yararlanma, yürürlükteki yasaların gereklilikleri ve mevcut sözleşme ile düzenlenir',
-'term4'=>'Hizmet hizmetlerinden yararlanarak, kullanıcı mevcut sözleşmeyi ve hizmetlerin kullanımıyla ilgili talimatlara uymayı kabul eder. - Buta Grup Azerbaycan, istediği zaman tek taraflı olarak mevcut sözleşmenin şartlarını değiştirme hakkına sahiptir. - Kullanıcı, değiştirilmiş sözleşme şartlarına razı olmadığı durumda, o hizmete girişten kaçınmalı ve hizmetlerini durdurmalıdır',
-'term5'=>'1iş.az, kullanıcılara hizmetlerinden yararlanma, ilan yayınlama ve arama hizmetleri sunar',
-'term6'=>'Diğer hizmetler özel kurallar veya anlaşmalarla düzenlenebilir. - Servisin tüm materyalleri ve hizmetleri reklamla desteklenebilir. Kullanıcı bunu önceden kabul eder',
-'term7'=>'Kullanıcı, şifresini gizli tutma sorumluluğunu üstlenir. Kullanıcı, kendi e-posta adresi ve şifresiyle ilgili işlemlerden, ayrıca kullanıcının kişisel hesabında gerçekleştirilen faaliyetlerden sorumludur. Kullanıcı, hizmetlerden yalnız kendi kişisel e-posta adresi ve şifresiyle giriş yapma ve kullanma hakkına sahiptir. Kullanıcı, izinsiz erişim durumunda kendi şifresini serbestçe değiştirme sorumluluğunu üstlenir',
-'term8'=>'1iş.az, hizmete kayıt olurken kullanıcılar tarafından sağlanan bilgilerin doğruluğu konusunda sorumluluk taşımaz',
-'term9'=>'Kullanıcı tarafından başka kişilerin haklarının veya mevcut yasaların ihlal edilmesi durumunda, ayrıca başka nedenlerden dolayı, hizmet kullanıcı girişini kısıtlama veya durdurma hakkına sahiptir',
-'term10'=>'1iş.az, kullanıcıların eksik veya güvenilmez bilgilerini özel izin olmaksızın sistemden kaldırma hakkına sahiptir',
 
 
 //contact
@@ -214,6 +190,7 @@ return [
 'urldaxilet'=>'URL girin',
 'odenismetod'=>'Ödeme yöntemini seçin',
 'sekilsec'=>'Resim seçin',
+'qiymetpul'=>'Fiyat',
 
 
 

@@ -24,32 +24,6 @@ return [
     'butunhuquq'=>'All rights reserved',
     'butateref'=>'Prepared by Buta Group',
 
-// policy
-    'kom'=>'Communication',
-    'kom1'=>'The agreement defines the terms of use by users of the 1ish.az service',
-    'kom2'=>'The user agreement will be applied in the following cases: - The information posted on the Service-Internet network at 1ish.az is the information posted by Buta Group Azerbaijan and users (those who have accepted the terms of the agreement). - Personal cabinet - this is a collection of personal information (data) created and added by users. Any user has the right to have only one personal cabinet. - The use of service services and materials is regulated by the norms of the current legislation, as well as by the current agreement',
-    'kom3'=>'By using the service, the user accepts the present agreement and the conditions and obligations to comply with the instructions for using the service. - Buta Grup Azerbaijan has the right to unilaterally change the terms of the present agreement at any time. - If the user does not agree with the changes made to the terms of the agreement, he must refuse access to the service and stop using its services',
-    'kom4'=>'1ish.az offers users the services of using service services and posting and searching ads',
-    'kom5'=>'Provision of other services may be regulated by special rules and/or agreements. - All materials and services of the service may be accompanied by advertising. The user accepts this in advance',
-    'soft'=>'Software',
-    'soft1'=>'1ish.az is not responsible for the accuracy of the information provided by users during registration on the service',
-    'soft2'=>'The service has the right to limit or suspend user access in case of violation of the rights of other persons or applicable legislation by the user, as well as for other reasons.',
-    'soft3'=>'1ish.az has the right to delete incomplete information and invalid data of users from the system without special permission',
-
-
-//terms
-
-    'term1'=>'The parties to the agreement are Buta Group Azerbaijan (1ish.az) and users',
-    'term2'=>'The agreement defines the terms of use by users of the 1ish.az service',
-    'term3'=>'The user agreement will be applied in the following cases: - The information posted on the Service-Internet network at 1ish.az is the information posted by Buta Group Azerbaijan and users (those who have accepted the terms of the agreement). - Personal cabinet - this is a collection of personal information (data) created and added by users. Any user has the right to have only one personal cabinet. - The use of service services and materials is regulated by the norms of the current legislation, as well as by the current agreement',
-    'term4'=>'By using the service, the user accepts the present agreement and the conditions and obligations to comply with the instructions for using the service. - Buta Grup Azerbaijan has the right to unilaterally change the terms of the present agreement at any time. - If the user does not agree with the changes made to the terms of the agreement, he must refuse access to the service and stop using its services',
-    'term5'=>'1ish.az offers users the services of using service services and posting and searching ads',
-    'term6'=>'Provision of other services may be regulated by special rules and/or agreements. - All materials and services of the service may be accompanied by advertising. The user accepts this in advance',
-    'term7'=>'The user undertakes to keep his password confidential. The user is responsible for the operations related to the use of his e-mail address and password, as well as for the activities performed in the users personal cabinet. The user has the right to access and use the services only with his personal e-mail address and password. If the user encounters cases of unauthorized access to his personal cabinet, he undertakes to freely change his password',
-    'term8'=>'1ish.az is not responsible for the accuracy of the information provided by users during registration on the service',
-    'term9'=>'The service has the right to limit or suspend user access in case of violation of the rights of other persons or applicable legislation by the user, as well as for other reasons.',
-    'term10'=>'1ish.az has the right to delete incomplete information and invalid data of users from the system without special permission',
-
 
 
 
@@ -157,6 +131,7 @@ return [
     'incele'=>'Review',
     'pulsuz'=>'Free',
     'pullu'=>'Paid',
+    'qiymetpul'=>'Price',
 
 
 //telimin ici
