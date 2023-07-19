@@ -71,7 +71,7 @@
   .middle-part span {
     font-family: "Montserrat";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 12px;
     line-height: 17px;
     text-align: center;
@@ -98,7 +98,7 @@
   
   .bottom-part {
     display: flex;
-    padding: 0 15px 15px 15px;
+    padding: 0 15px 8px 15px;
     flex-wrap: wrap;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -186,9 +186,9 @@
     border: none !important;
   }
   
-  .pagination-nav {
+  /* .pagination-nav {
     padding-bottom: 15px;
-  }
+  } */
   
   /* TRAINING CSS */
   

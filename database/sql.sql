@@ -148,43 +148,6 @@ CREATE TABLE `candidates` (
 -- Dumping data for table `candidates`
 --
 
-INSERT INTO `candidates` (`id`, `name`, `surname`, `phone`, `mail`, `cv`, `created_at`, `updated_at`, `vacancy_id`, `user_id`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, '2023-06-07 10:23:49', '2023-06-08 11:45:19', NULL, NULL),
-(2, NULL, NULL, NULL, NULL, NULL, '2023-06-07 10:28:53', '2023-06-08 11:45:19', NULL, NULL),
-(3, NULL, NULL, NULL, NULL, NULL, '2023-06-07 10:46:34', '2023-06-08 11:45:19', NULL, NULL),
-(4, NULL, NULL, NULL, NULL, 'back/assets/images/cv_photo/cv_6NTsFF.png', '2023-06-07 10:46:51', '2023-06-08 11:45:19', 1493, NULL),
-(5, NULL, NULL, NULL, NULL, 'back/assets/images/cv_photo/cv_6NTsFF.png', '2023-06-07 10:47:27', '2023-06-08 11:45:19', 1493, 85),
-(6, NULL, NULL, NULL, NULL, 'back/assets/images/cv_photo/cv_6NTsFF.png', '2023-06-07 10:50:18', '2023-06-08 11:45:19', 1493, 85),
-(7, NULL, NULL, NULL, NULL, 'back/assets/images/cv_photo/cv_6NTsFF.png', '2023-06-07 10:50:40', '2023-06-08 11:45:19', 1493, 85),
-(8, NULL, NULL, NULL, NULL, 'back/assets/images/cv_photo/cv_6NTsFF.png', '2023-06-07 10:52:22', '2023-06-08 11:45:19', 1493, 85),
-(9, NULL, NULL, NULL, NULL, 'back/assets/images/cv_photo/cv_6NTsFF.png', '2023-06-07 10:54:07', '2023-06-08 11:45:19', 1493, 85),
-(10, 'cfgth', 'fgtrghrtgh', NULL, NULL, NULL, '2023-06-07 10:58:09', '2023-06-08 11:45:19', 1493, 85),
-(11, 'cfgth', 'fgtrghrtgh', 'frtrghujjn', 'fgrtgythty', NULL, '2023-06-07 11:05:12', '2023-06-08 11:45:19', 1493, 85),
-(12, 'cfgth', 'fgtrghrtgh', 'frtrghujjn', 'fgrtgythty', NULL, '2023-06-07 11:13:34', '2023-06-08 11:45:19', 1493, 85),
-(13, 'cfgth', 'fgtrghrtgh', 'frtrghujjn', 'fgrtgythty', NULL, '2023-06-07 11:14:12', '2023-06-08 11:45:19', 1493, 85),
-(14, 'cfgth', 'fgtrghrtgh', 'frtrghujjn', 'fgrtgythty', 'https://mobileapp.blob.core.windows.net/company/1686116326743_1684131935564-be921493-7f29-4313-855a-e6f8b7e2269c.pdf', '2023-06-07 11:15:08', '2023-06-08 11:45:19', 1493, 85),
-(15, 'sdfsdfd', 'sdfsdf', NULL, 'qlyvaulduz@gmail.com', 'back/assets/images/cvs/cv_DbcAfB.pdf', '2023-06-07 11:15:35', '2023-06-08 11:45:19', 1493, 82),
-(16, 'Saida', 'Humba', '0777645547', 'Iexrçp', 'https://mobileapp.blob.core.windows.net/company/1686122413282_Remote  ilr.pdf', '2023-06-07 11:24:37', '2023-06-08 11:45:19', 123, 85),
-(17, 'Saida', 'Humba', '0777645547', 'Iexrçp', 'back/assets/images/cvs/cv_KYMj3U.pdf', '2023-06-07 11:25:40', '2023-06-08 11:45:19', 123, 85),
-(18, 'cfgth', 'fgtrghrtgh', 'frtrghujjn', 'fgrtgythty', 'https://mobileapp.blob.core.windows.net/company/1686142373192_1684131935564-be921493-7f29-4313-855a-e6f8b7e2269c.pdf', '2023-06-07 13:46:04', '2023-06-08 11:45:19', 1532, 85),
-(19, 'cfgth', 'fgtrghrtgh', 'frtrghujjn', 'fgrtgythty', 'https://mobileapp.blob.core.windows.net/company/1686142250973_1684131935564-be921493-7f29-4313-855a-e6f8b7e2269c.pdf', '2023-06-08 08:33:19', '2023-06-08 11:45:19', 1493, 85),
-(20, 'cfgth', 'fgtrghrtgh', 'frtrghujjn', 'fgrtgythty', 'https://mobileapp.blob.core.windows.net/company/1686142250973_1684131935564-be921493-7f29-4313-855a-e6f8b7e2269c.pdf', '2023-06-08 10:56:00', '2023-06-08 11:45:19', 1518, 85),
-(21, 'Ulduz', 'Quliyeva', NULL, 'qlyvaulduz@gmail.comfghf', 'back/assets/images/cvs/cv_8JqmcT.pdf', '2023-06-08 11:45:36', '2023-06-08 11:45:36', NULL, NULL),
-(22, 'dfgd', 'dfgdfgd', NULL, 'qlyvaulduz@gmail.com', 'back/assets/images/cvs/cv_xoXilJ.pdf', '2023-06-08 11:46:01', '2023-06-08 11:46:01', NULL, NULL),
-(23, 'Ulduz', 'Quliyeva', NULL, 'qlyvaulduz@gmail.comfghf', 'back/assets/images/cvs/cv_8JqmcT.pdf', '2023-06-08 12:18:13', '2023-06-08 12:18:13', 1, NULL),
-(24, 'fvghbdgf', 'dervgrtgvb', '0777645548', NULL, 'https://mobileapp.blob.core.windows.net/company/1686227099260_Document.pdf', '2023-06-08 12:25:00', '2023-06-08 12:25:00', 1518, NULL),
-(25, 'fvghbdgf', 'dervgrtgvb', '0777645548', 'dcfrgvfvb', 'https://mobileapp.blob.core.windows.net/company/1686227132387_Document.pdf', '2023-06-08 12:25:33', '2023-06-08 12:25:33', 1518, NULL),
-(26, 'Ulduz', 'Quliyeva', NULL, 'qlyvaulduz@gmail.comfghf', 'back/assets/images/cvs/cv_8JqmcT.pdf', '2023-06-08 12:30:18', '2023-06-08 12:30:18', 1, 82),
-(27, 'fvghbdgf', 'dervgrtgvb', '0777645548', 'dcfrgvfvb', 'https://mobileapp.blob.core.windows.net/company/1686228001667_Document.pdf', '2023-06-08 12:40:03', '2023-06-08 12:40:03', 1518, NULL),
-(30, 'fdgd', 'fdfgdfg', '994555681255', 'dfgdfgdg@gmail', 'back/assets/images/cvs/cv_WnvsWP.pdf', '2023-06-08 13:52:42', '2023-06-08 13:52:42', NULL, 82),
-(31, 'Ulduz', 'Quliyeva', NULL, 'qlyvaulduz@gmail.comfghf', 'back/assets/images/cvs/cv_8JqmcT.pdf', '2023-06-09 05:16:56', '2023-06-09 05:16:56', 1, 82),
-(32, 'fgd', 'dfgdfgdgf', '994555681255', 'gnay.almazova@bk.ru', 'back/assets/images/cvs/cv_k2nMDe.pdf', '2023-06-09 07:09:05', '2023-06-09 07:09:05', NULL, 82),
-(34, 'fdgdfgdfg', 'dfgdgfdfg', '+994555681255', 'dfgdfgdg@gmail', 'back/assets/images/cvs/cv_9gTLxg.pdf', '2023-06-09 07:12:43', '2023-06-09 07:12:43', 1, 82),
-(35, 'fdgdfg', 'dfgdfgd', '+994555681255', 'dfgdfgdg@gmail', 'back/assets/images/cvs/cv_OCtuDC.pdf', '2023-06-09 07:20:12', '2023-06-09 07:20:12', 1, 82),
-(36, 'Ulduz', 'Quliyeva', NULL, 'qlyvaulduz@gmail.comfghf', 'back/assets/images/cvs/cv_8JqmcT.pdf', '2023-06-09 08:17:27', '2023-06-09 08:17:27', 1, 82),
-(37, 'Orxan', 'Qenberov', '0514030477', 'orxan_qanbarov@mail.ru', 'back/assets/images/cvs/cv_jssbQ7.pdf', '2023-06-19 13:49:36', '2023-06-19 13:49:36', 1, 141),
-(38, 'Orxan', 'Qenberov', '0514030477', 'orxan_qanbarov@mail.ru', 'back/assets/images/cvs/cv_jssbQ7.pdf', '2023-06-20 11:18:12', '2023-06-20 11:18:12', 1, 141),
-(39, NULL, NULL, '0514030477', NULL, NULL, '2023-06-20 11:22:15', '2023-06-20 11:22:15', 1, 141);
 
 -- --------------------------------------------------------
 
@@ -376,12 +339,6 @@ CREATE TABLE `contact` (
 --
 -- Dumping data for table `contact`
 --
-
-INSERT INTO `contact` (`id`, `name`, `surname`, `email`, `phone`, `message`, `status`, `created_at`, `updated_at`) VALUES
-(8, 'saida', 'humbe', 'saidayh@code.edu.az', '0777645548', 'salam', '1', '2023-05-18 11:07:09', '2023-05-22 07:54:33'),
-(15, 'saida', 'humbe', 'deliciousrestaurantcode@gmail.com', '0777645548', 'salam', '1', '2023-05-18 11:20:49', '2023-05-22 05:52:59'),
-(42, 'ulduz', 'Quliyeva', 'qlyvaulduz@gmail.com', '994555681255', 'hgjghjghj', '1', '2023-05-22 07:18:57', '2023-05-22 07:20:42');
-
 -- --------------------------------------------------------
 
 --
@@ -449,9 +406,6 @@ CREATE TABLE `cv` (
 --
 -- Dumping data for table `cv`
 --
-
-INSERT INTO `cv` (`id`, `user_id`, `category_id`, `city_id`, `region_id`, `education_id`, `experience_id`, `job_type_id`, `gender_id`, `name`, `surname`, `father_name`, `email`, `position`, `slug`, `about_education`, `salary`, `birth_date`, `work_history`, `skills`, `contact_mail`, `contact_phone`, `cv`, `image`, `portfolio`, `view`, `status`, `created_at`, `updated_at`) VALUES
-(1059, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ceyran', 'Quliyeva', 'sdfs', 'qlyvaulduz@gmail.com', 'Mühasib', 'ceyran-quliyeva', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'back/assets/images/cvs/cv_hiRa72.pdf', 'back/assets/images/cv_photo/cv_NOi9OS.png', '{\"portfolio\":[]}', 0, '1', '2023-07-12 05:58:42', '2023-07-12 06:00:09');
 
 -- --------------------------------------------------------
 
@@ -543,38 +497,6 @@ CREATE TABLE `favorits` (
 --
 -- Dumping data for table `favorits`
 --
-
-INSERT INTO `favorits` (`id`, `user_id`, `vacancy_id`, `cv_id`, `created_at`, `updated_at`) VALUES
-(71, 1, 3, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(72, 1, 4, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(73, 1, 1, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(94, 6, 4, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(98, 6, 2, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(100, 6, 1, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(123, 6, 3, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(126, 6, 1, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(127, 6, 2, 0, '2023-05-11 11:33:53', '0000-00-00 00:00:00'),
-(1388, 85, 1522, NULL, '2023-05-31 06:53:32', '0000-00-00 00:00:00'),
-(1397, 94, NULL, 1026, '2023-06-09 11:01:19', '2023-06-09 11:01:19'),
-(1400, 113, 1298, NULL, '2023-06-14 10:37:45', '2023-06-14 10:37:45'),
-(1401, 118, 1, NULL, '2023-06-14 13:01:38', '2023-06-14 13:01:38'),
-(1406, 141, NULL, 1054, '2023-06-20 10:23:06', '2023-06-20 10:23:06'),
-(1409, 141, 1442, NULL, '2023-06-20 10:43:31', '2023-06-20 10:43:31'),
-(1412, 141, NULL, 1028, '2023-06-20 10:50:15', '2023-06-20 10:50:15'),
-(1413, 82, 1, NULL, '2023-06-20 11:10:26', '2023-06-20 11:10:26'),
-(1415, 82, 2, NULL, '2023-06-20 11:31:10', '2023-06-20 11:31:10'),
-(1416, 138, 1493, NULL, '2023-06-21 08:24:06', '0000-00-00 00:00:00'),
-(1425, 138, 1492, NULL, '2023-06-22 18:47:36', '0000-00-00 00:00:00'),
-(1426, 138, 1491, NULL, '2023-06-22 18:48:09', '0000-00-00 00:00:00'),
-(1427, 138, 1538, NULL, '2023-06-23 17:18:08', '0000-00-00 00:00:00'),
-(1459, 1, NULL, 1052, '2023-06-25 12:36:26', '2023-06-25 12:36:26'),
-(1461, 1, 1181, NULL, '2023-06-27 18:27:18', '2023-06-27 18:27:18'),
-(1463, 82, 151, NULL, '2023-07-03 05:14:49', '2023-07-03 05:14:49'),
-(1469, 1, 368, NULL, '2023-07-06 05:25:19', '2023-07-06 05:25:19'),
-(1470, 1, 426, NULL, '2023-07-06 05:25:23', '2023-07-06 05:25:23'),
-(1472, 138, 1492, NULL, '2023-07-10 18:31:16', '0000-00-00 00:00:00'),
-(1473, 1, 9, NULL, '2023-07-12 05:40:47', '2023-07-12 05:40:47'),
-(1475, 1, NULL, 1059, '2023-07-12 06:00:19', '2023-07-12 06:00:19');
 
 -- --------------------------------------------------------
 
@@ -717,23 +639,6 @@ CREATE TABLE `newslatter` (
 -- Dumping data for table `newslatter`
 --
 
-INSERT INTO `newslatter` (`id`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'alimsenturk@butagrup.com.tr', '1', '2023-06-26 15:28:19', '2023-06-26 15:28:19'),
-(3, 'ulker.aliyeva@ozguninsaat.com', '0', '2023-05-15 06:39:00', '2023-05-15 06:39:00'),
-(7, 'ulker.aliyeva@ozguninsaat.com', '0', '2023-05-15 06:43:34', '2023-05-15 06:43:34'),
-(8, 'alimsenturk@butagrup.com.tr', '0', '2023-05-15 06:44:02', '2023-05-15 06:44:02'),
-(9, 'alimsenturk@butagrup.com.tr', '0', '2023-05-15 06:44:23', '2023-05-15 06:44:23'),
-(10, 'admin@1is.az', '0', '2023-05-15 08:06:14', '2023-05-15 08:06:14'),
-(11, 'qlyvaulduz@gmail.com', '0', '2023-05-17 08:44:07', '2023-05-17 08:44:07'),
-(12, 'orxan.qenberov@butagrup.com.tr', '0', '2023-05-18 20:06:25', '2023-05-18 20:06:25'),
-(13, 'orxan_qanbarov@mail.ru', '0', '2023-05-19 08:07:45', '2023-05-19 08:07:45'),
-(14, 'qlyvaulduz@gmail.com', '0', '2023-06-09 08:50:47', '2023-06-09 08:50:47'),
-(15, 'qlyvaulduz@gmail.com', '0', '2023-06-09 08:50:58', '2023-06-09 08:50:58'),
-(16, 'orxan_qanbarov@mail.ru', '0', '2023-06-20 11:11:28', '2023-06-20 11:11:28'),
-(17, 'rezzaqlileman@gmail.com', '0', '2023-06-21 11:12:52', '2023-06-21 11:12:52'),
-(18, 'sli.nermin@gmail.com', '0', '2023-06-22 08:06:04', '2023-06-22 08:06:04'),
-(19, 'ulduz23042002@gmail.com', '0', '2023-06-27 18:14:53', '2023-06-27 18:14:53'),
-(20, 'star123@gmail.com', '1', '2023-06-27 18:29:31', '2023-06-27 18:29:31');
 
 -- --------------------------------------------------------
 
