@@ -228,6 +228,7 @@ return [
     'yalnizpng'=>'Yalnız png, jpg, pdf, docx, xlsx, pptx formatında olan fayllar dəstəklənir',
     'dogum'=>'Doğum tarixi',
     'nomredaxilet'=>'Nömrə daxil et',    
+    'likecv'=>'Bəyəndiyim cvlər',
 
 
 

@@ -290,14 +290,7 @@ class CVFrontController extends Controller
             }
             $cv->slug = $slug;
             $cv->status = '0';
-            $data=[];
-            $data['email_name']='1is.az';
-            $data['subject']='Verification';
-            $data['text']='Hörmətli istifadəçi,
-        
-            Cv-niz uğurla əlavə edildi.';        
-        
-            Mail::to($cv->email)->send(new SendCvMail($data));
+            
             $cv->save();
     
             return redirect()->route('cvindex')->with('success', __('messages.succv'));

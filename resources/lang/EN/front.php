@@ -200,6 +200,7 @@ return [
     'urldaxilet'=>'Enter the url',
     'odenismetod'=>'Choose a payment method',
     'sekilsec'=>'Select a picture',
+    'likecv'=>'Resumes I like',
 
 
 //cv elave et

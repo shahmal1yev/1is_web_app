@@ -191,6 +191,7 @@ return [
 'odenismetod'=>'Ödeme yöntemini seçin',
 'sekilsec'=>'Resim seçin',
 'qiymetpul'=>'Fiyat',
+'likecv'=>'Sevdiğim özgeçmişler',
 
 
 

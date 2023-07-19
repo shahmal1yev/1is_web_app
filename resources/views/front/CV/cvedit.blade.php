@@ -81,41 +81,39 @@
                         <h3 class="col-12"></h3>
                         <img src="{{asset($cv->image)}}" alt="" width="200" height="200">
 
-                        <div class="form-group create-cv-input-group col-md-12  @error('image') has-error @enderror">
-                            <label for="images">@lang('front.sekiladd')</label>
+                        <div class="form-group create-cv-input-group col-md-12">
+                            <label for="images">@lang('front.sekiladd')  <span class="text-danger">*</span></label>
                             <div class="custom-file create-cv-custom-file">
                                 <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" value="{{$cv->image}}" data-toggle="custom-file-input" id="images" accept="image/png, image/jpeg, image/svg+xml, image/webp">
                                 <label class="custom-file-label add-image-label" for="image">@lang('front.elaveet')</label>
                             </div>
-                            @error('image')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.image_max')</span>
-                                @enderror
+                            
                         </div>
 
-                        <div class="form-group create-cv-input-group col-md-6  @error('name') has-error @enderror">
-                            <label for="name">@lang('front.ad')</label>
+                        <div class="form-group create-cv-input-group col-md-6  ">
+                            <label for="name">@lang('front.ad')  <span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control" id="name" value="{{$cv->name}}" placeholder="@lang('front.addaxilet')" required />
                              
                         </div>
-                        <div class="form-group create-cv-input-group col-md-6  @error('surname') has-error @enderror">
-                            <label for="surName">@lang('front.soyad')</label>
+                        <div class="form-group create-cv-input-group col-md-6 ">
+                            <label for="surName">@lang('front.soyad')  <span class="text-danger">*</span></label>
                             <input type="text" name="surname" class="form-control" id="surName" value="{{$cv->surname}}" placeholder="@lang('front.soyaddaxil')" required />
                             
                         </div>
                         <div class="form-group create-cv-input-group col-md-6  @error('father_name') has-error @enderror">
-                            <label for="fatherName">@lang('front.ata')</label>
+                            <label for="fatherName">@lang('front.ata')  <span class="text-danger">*</span></label>
                             <input type="text" name="father_name" class="form-control" id="fatherName" value="{{$cv->father_name}}" placeholder="@lang('front.atadaxilet')" required/>
                             
                         </div>
                         <div class="form-group create-cv-input-group col-md-6  @error('email') has-error @enderror">
-                            <label for="Email">@lang('front.epoct')</label>
+                            <label for="Email">@lang('front.epoct')  <span class="text-danger">*</span></label>
                             <input type="email" name="email" class="form-control" id="Email" value="{{$cv->email}}" placeholder="@lang('front.emaildaxilet')" required />
                             @error('email')
                                 <span class="text-danger" style="font-size: 14x">@lang('validation.email_email')</span>
                                 @enderror
                         </div>
                         <div class="form-group create-cv-input-group col-12  @error('position') has-error @enderror">
-                            <label for="possession">@lang('front.vezife')</label>
+                            <label for="possession">@lang('front.vezife')  <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="position" value="{{$cv->position}}" id="possession" placeholder="@lang('front.vezifedaxilet')" required />
                             @error('position')
                             <span class="text-danger" style="font-size: 14x">@lang('validation.position_max')</span>
