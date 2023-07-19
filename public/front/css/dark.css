@@ -37,6 +37,14 @@
   background-color: #131313;
 }
 
+.dark label[for='login_email'] , .dark label[for='login_password']{
+  color: #000 !important;
+}
+
+
+.dark .policy-p-text{
+  color: #fff;
+}
 .dark .active-filter {
   background-color: #131313;
 }
