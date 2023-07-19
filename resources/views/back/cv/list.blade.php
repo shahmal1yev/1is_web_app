@@ -40,7 +40,7 @@
                         @foreach($cvs as $key=>$cv)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$cv->getUser()->name}}</td>
+                                <td>{{ $cv->getUser() ? $cv->getUser()->name : '' }}</td>
                                 <td>{{$cv->name}} {{$cv->surname}}</td>
                                 <td>
                                     @if($cv->category_id != 0)
