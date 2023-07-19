@@ -71,19 +71,15 @@
             <div class="col-lg-10 col-md-10 login-buttons">
                 <button class="login-registration">@lang('front.register')</button>
                 <span>@lang('front.veya')   </span>
-                
+                <a href="{{ route('login') }}" class="login-registration">@lang('front.daxilol')</a>
+
             </div>
-    </form>
 
 
             </div>
         </div>
-        <a href="{{route('googlelogin')}}">
-            <button class="login-google-registration">
-                    <img src="https://1is-new.netlify.app/images/google-play.png" alt="google-play" />
-                    Google ilə qeydiyyatdan keçin
-                </button>
-            </a>
+          </form>
+  
     </section>
 
     
