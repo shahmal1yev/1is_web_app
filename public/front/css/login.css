@@ -114,6 +114,30 @@
     font-size: 12px;
 }
 
+.password-div{
+    position: relative;
+}
+
+#show-pass, #hide-pass{
+    font-size: 20px;
+    width: max-content;
+    position: absolute;
+    right: 10%;
+    top: 45%;
+    background: transparent;
+}
+
+#show-pass{
+    display: none;
+}
+
+#show-pass img , #hide-pass img {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+
+
 .login-registration {
     width: 100%;
     background: #8843E1;
@@ -129,6 +153,9 @@
     height: 47px;
     border: none;
     outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login-google-registration {

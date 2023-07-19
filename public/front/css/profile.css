@@ -248,3 +248,7 @@
   background-position: center;
   background-size: contain;
 }
+
+::placeholder {
+  color: #495057!important;
+}

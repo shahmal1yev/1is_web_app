@@ -37,11 +37,24 @@
     }
 
     .my-modal-header-img {
-        width: 220px;
-        height: 220px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
         object-fit: contain;
     }
 
+
+    @media screen and (max-width: 768px) {
+      .my-modal-header,
+      .rate-left-p2 {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .modal-header-details h1 {
+        font-size: 18px;
+      }
+    }
 
 </style>
 
@@ -307,20 +320,15 @@
 
            </p>
            <br />
+           <p class="company-details-address">@lang('front.unvan')</p>
            <div class="location-div">
              <img src="https://1is-new.netlify.app/images/location.png" alt="" />
-             <span>{{$compdetail->address}}</span
-             >
+
+             <span>{{$compdetail->address}}</span >
            </div>
            <div class="map-loc">
             
-            <iframe srcdoc="{{htmlspecialchars_decode($compdetail->map)}}" 
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+           {!! htmlspecialchars_decode($compdetail->map) !!}
 
            </div>
            <div class="rating-div">
