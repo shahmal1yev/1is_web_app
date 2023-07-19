@@ -21,6 +21,8 @@ use App\Http\Controllers\Back\SubscribersController\SubscribersController;
 use App\Http\Controllers\Back\TrainingsController\TrainingsController;
 use App\Http\Controllers\Back\UserPolicyController\UserPolicyController;
 use App\Http\Controllers\Back\VacancyController\VacancyController;
+use App\Http\Controllers\Back\UsersController\UsersController;
+
 use App\Http\Controllers\Front\Blog\BlogFrontController;
 use App\Http\Controllers\Front\Company\CompanyFrontController;
 use App\Http\Controllers\Front\Contact\ContactFrontController;
@@ -199,6 +201,12 @@ Route::middleware('isAdminLogin')->group(function () {
     Route::post('/admin/cv/status', [CvController::class, "cvStatus"])->name('cvStatus');
     Route::post('/admin/cv/delete', [CvController::class, "cvDelete"])->name('cvDelete');
     //End CV
+
+    //Start USER
+    Route::get('/admin/users/list', [UsersController::class, "userList"])->name('userList');
+    Route::post('/admin/users/delete', [UsersController::class, "userDelete"])->name('userDelete');
+    //
+
 
     //Start ChangeData
     Route::get('/admin/change-data/companies', [ChangeDataController::class, "companiesDataIndex"])->name('companiesDataIndex');
