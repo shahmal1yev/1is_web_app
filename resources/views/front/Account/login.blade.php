@@ -55,9 +55,11 @@
                         <label for="login_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
                         <input type="email" name="email" required placeholder="@lang('front.emaildaxilet')" />
                     </div>
-                    <div class="form-group login-form-group col-lg-9 col-md-7">
+                    <div class="form-group login-form-group col-lg-9 col-md-7 password-div">
                         <label for="login_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                        <input type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
+                        <input id='pass-inp' type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
+                        <button type='button' id='show-pass'><img src="{{ asset('back/assets/images/view.png') }}" alt=""></button>
+                        <button type='button' id='hide-pass'><img src="{{ asset('back/assets/images/hide.png') }}" alt=""></button>
                     </div>
                     <div class="login-bottom">
                         <div class="remember-me-checkbox">
@@ -81,6 +83,27 @@
 @endsection
 
 @section('js')
+
+<script>
+    const showBtn = document.getElementById('show-pass')
+    const hideBtn = document.getElementById('hide-pass')
+
+
+    hideBtn.addEventListener('click' , () => {
+        const input = document.getElementById('pass-inp')
+        input.type = 'text'
+        hideBtn.style.display = 'none'
+        showBtn.style.display = 'block'
+    })
+
+
+    showBtn.addEventListener('click' , () => {
+        const input = document.getElementById('pass-inp')
+        input.type = 'password'
+        showBtn.style.display = 'none'
+        hideBtn.style.display = 'block'
+    })
+</script>
 <script>
     $(document).ready(function() {
         var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
