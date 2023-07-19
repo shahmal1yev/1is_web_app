@@ -187,6 +187,7 @@ header{
   opacity: 1;
   background: #8843e1;
   z-index: 8;
+  height: max-content;
 }
 /* dropdown f */
 
