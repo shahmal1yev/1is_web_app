@@ -36,10 +36,10 @@
                                         <a href="{{route('allblogs')}}">@lang('front.blog')</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('terms')}}">@lang('front.term')</a>
+                                        <a href="{{route('terms')}}">@lang('front.policy')</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('policy')}}">@lang('front.policy')</a>
+                                        <a href="{{route('policy')}}">@lang('front.term')</a>
                                     </li>
                                     <li>
                                         <a href="{{route('contactindex')}}">@lang('front.contact')</a>
