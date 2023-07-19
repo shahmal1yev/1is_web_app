@@ -685,7 +685,10 @@
 .dark .position-instructions-container ul ul li {
   color: #FDFDFD !important;
 }
+.dark .position-instructions-container ul ul li span font, .dark .position-instructions-container ul ul li span   {
 
+  color: #FDFDFD !important;
+}
 
 
 @media screen and (max-width: 801px) {

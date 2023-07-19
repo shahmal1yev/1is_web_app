@@ -127,7 +127,11 @@
 
 .position-instructions-container ul ul li span font, .position-instructions-container ul ul li span   {
     font-family: 'Montserrat' !important;
-    font-size: 14px !important;
+    font-size: 14px !important; 
+    color: #000 !important;
+  }
+.position-instructions-container ul ul li {
+    color: #000 !important;
   }
   
   .position-instructions h3   {

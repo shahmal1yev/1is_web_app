@@ -2,6 +2,8 @@
 
 <head>
     <style>
+        
+
         .comp-card {
             width: 100%;
             background: linear-gradient(180deg, #966ace 0%, #7235c0 100%);
