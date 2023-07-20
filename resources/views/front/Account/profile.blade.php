@@ -21,7 +21,7 @@
        @endforeach
 
         <div class="header-links-div">
-            <a class="header-links" href="{{route('profile')}}">
+            <a class="header-links active" href="{{route('profile')}}">
                @lang('front.umumi')
             </a>
             <a class="header-links" href="{{route('traningcreate')}}">

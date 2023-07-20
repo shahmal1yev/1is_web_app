@@ -13,9 +13,9 @@
                                 <img src="{{ asset($setting->logo) }}" style="width: 140px; height: 130px" alt="footer-1is">
                                 <span>@lang('front.biziizle')</span>
                                 <div class="footer-social">
-                                    <a href="https://www.facebook.com/1ish.az/"><div><img src="https://1is-new.netlify.app/images/footer-fb.png" alt="fb"></div></a>
-                                    <a href="https://www.instagram.com/1is_az/"><div><img src="https://1is-new.netlify.app/images/footer-ig.png" alt="insta"></div></a>
-                                    <a href="https://www.linkedin.com/company/recruitment-azerbaycan/"><div><img src="https://1is-new.netlify.app/images/footer-li.png" alt="linkedin"></div></a>
+                                    <a href="https://www.facebook.com/1ish.az/"><div><img src="{{asset('back/assets/images/icons/footer-fb.svg')}}" alt="fb"></div></a>
+                                    <a href="https://www.instagram.com/1is_az/"><div><img src="{{asset('back/assets/images/icons/footer-ig.svg')}}" alt="insta"></div></a>
+                                    <a href="https://www.linkedin.com/company/recruitment-azerbaycan/"><div><img src="{{asset('back/assets/images/icons/footer-li.svg')}}" alt="linkedin"></div></a>
                                 </div>
                             </div>
                         </div>

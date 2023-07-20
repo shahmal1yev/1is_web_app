@@ -31,6 +31,29 @@
   color: #fff;
 }
 
+.dark .sortclass select{
+  border: 2px solid #9559E5;
+  color: #fff;
+  background-color: #131313;
+}
+
+.dark label[for='login_email'] , .dark label[for='login_password']{
+  color: #000 !important;
+}
+
+.dark #show-pass img{
+  filter: invert(1);
+}
+
+
+
+.dark #hide-pass img{
+  filter: invert(1);
+}
+
+.dark .policy-p-text{
+  color: #fff;
+}
 .dark .active-filter {
   background-color: #131313;
 }
@@ -103,6 +126,7 @@
 .dark #check-label {
   color: #fff;
 }
+
 .dark .dropdown2 h2 {
   color: #fff;
 }
@@ -134,6 +158,31 @@
 
 .dark .jobsearchers p {
   color: #d3d1d1;
+}
+
+.dark .jobsearcher-inner {
+  background-color: rgba(19, 19, 19, 1);
+}
+
+.dark .job-information-row, .dark .jobsearcher-profile, .dark .job-information-row2, .dark .job-information-row3, .dark .jobsearcher-ability {
+  background: #0D0D0D;
+}
+
+.dark .jobsearcher-profile {
+  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
+}
+
+.dark .jobsearcher-text h3, .dark .job-information h5, .dark .job-information span, .dark .job-information p {
+  color: #fff;
+}
+
+.dark .input-cv label span, .dark .jobsearcher-inner-container header {
+  color: #0D0D0D;
+}
+
+.dark .job-information-img, .dark .jobsearcher-ability span {
+  background: #27153F;
+  color: #fff;
 }
 
 .dark .job-search-card {
@@ -192,7 +241,7 @@
   background-color: #1e1e1e;
 }
 
-.dark .terms-content > .container > div {
+.dark .terms-content>.container>div {
   background-color: #696c76;
   color: #fdfdfd;
 }
@@ -211,6 +260,42 @@
   color: #000 !important;
 }
 
+.dark .tox div {
+  background-color: #000!important;
+}
+
+.dark .tox iframe {
+  background-color: #000!important;
+}
+
+.dark .tox span {
+  color: #D3D1D1 !important;
+}
+
+.dark .tox .tox-tbtn--bespoke {
+  background-color: #000!important;
+  border: 1px solid #fff;
+}
+
+.dark .tox .tox-mbtn:hover span {
+  color: #000!important;
+}
+
+.dark .tox-collection__item-label {
+  color: #D3D1D1 !important;
+}
+
+.dark .tox-collection__item-icon svg {
+  color: #D3D1D1 !important;
+}
+
+.dark .mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {
+  color: #D3D1D1!important;
+}
+
+.dark .mce-content-body:not([dir=rtl])[data-mce-placeholder]:not(.mce-visualblocks)::before {
+  color: #D3D1D1!important;
+}
 
 .dark .add-training-input-group input,
 .dark .add-training-input-group select,
@@ -219,8 +304,8 @@
 }
 
 .dark .add-training-input-group .add-image-label {
-  background-color: #3a3737 !important;
-  color: #fdfdfd;
+  background-color: #000 !important;
+  color: #D3D1D1 !important;
 }
 
 .dark .profile-section {
@@ -238,34 +323,60 @@
 }
 
 .dark .nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .show>.nav-link {
   background: #9559e5;
   box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
   border-radius: 10px;
 }
 
-.dark .form-group input{
+.dark .form-group input {
   background: #0D0D0D;
   color: #9559E5;
-  border: none;
 }
 
-
-.dark .form-innerdiv span{
-  color: #9559E5;
+.dark #comp_link, 
+.dark #comp_name, 
+.dark #job_name {
+  background-color: #000!important;
 }
 
-.dark .form-group label{
+.dark #structure label {
   color: #FDFDFD;
 }
 
+.dark #repeater label {
+  color: #FDFDFD;
+}
 
-.dark .proftab-1{
+.dark .form-innerdiv span {
+  color: #9559E5;
+}
+
+.dark .form-group label {
+  color: #FDFDFD;
+}
+
+.dark #password-field:focus {
+  background-color: #000;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover, 
+.dark input:-webkit-autofill:focus, 
+.dark input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+}
+
+.dark input:-webkit-autofill{
+  -webkit-text-fill-color: #9559E5 !important;
+}
+
+.dark .proftab-1 {
   background: #1B1523;
 }
 
 
-.dark .nav-link.active  > .icon-1{
+.dark .nav-link.active>.icon-1 {
   background: url("https://1is.butagrup.az/back/assets/images/icons/prof-white.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -273,7 +384,7 @@
 }
 
 
-.dark .nav-link.active  > .icon-2{
+.dark .nav-link.active>.icon-2 {
   background: url("https://1is.butagrup.az/back/assets/images/icons/hear-white.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -281,7 +392,7 @@
 }
 
 
-.dark .nav-link.active  > .icon-3{
+.dark .nav-link.active>.icon-3 {
   background: url("https://1is.butagrup.az/back/assets/images/icons/setting-white.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -293,7 +404,7 @@
 }
 
 .dark .add-training-tabs a {
-  background-color: #1B1523!important;
+  background-color: #1B1523 !important;
 }
 
 .dark .add-training-card {
@@ -313,7 +424,7 @@
 }
 
 .dark .create-cv-tabs a {
-  background-color: #1B1523!important;
+  background-color: #1B1523 !important;
 }
 
 .dark .create-cv-input-group label {
@@ -323,12 +434,13 @@
 .dark .create-cv-input-group input,
 .dark .create-cv-input-group select,
 .dark .create-cv-input-group textarea {
-  background-color: #0D0D0D;
+  background-color: #000;
   color: #D3D1D1;
 }
 
 .dark .create-cv-input-group .add-image-label {
   background-color: #000!important;
+  color: #D3D1D1!important;
 }
 
 .dark .create-cv-form h3 {
@@ -353,14 +465,14 @@
 .dark .trending-nav-link2,
 .dark .trending-nav-link3,
 .dark .trending-nav-link4 {
-  background-color: #1B1523!important;
+  background-color: #1B1523 !important;
 }
 
 .dark .trending-nav-link1.active,
 .dark .trending-nav-link2.active,
 .dark .trending-nav-link3.active,
 .dark .trending-nav-link4.active {
-  color: #fff!important;
+  color: #fff !important;
 }
 
 .dark .company-announce-input-group select,
@@ -377,162 +489,162 @@
   background-color: #0d0d0d;
 }
 
-.dark .company-inner h3{
+.dark .company-inner h3 {
   color: #fff;
 }
 
-.dark .carousel-vacancy h3{
+.dark .carousel-vacancy h3 {
   color: #fff;
 }
 
-.dark .company-inner-comment-header{
+.dark .company-inner-comment-header {
   color: #fff;
 }
 
-.dark .comment-bottom-section span{
+.dark .comment-bottom-section span {
   color: #Fff;
 }
 
-.dark .comment-profile-name p{
+.dark .comment-profile-name p {
   color: #fff;
 }
 
-.dark .about-company{
+.dark .about-company {
   background: #000000;
 }
 
-.dark .comment{
+.dark .comment {
   background: #000000;
 }
 
 
-.dark .slider-vacancy-header{
+.dark .slider-vacancy-header {
   background: #21053C;
 }
 
-.dark .slider-vacancy h3{
+.dark .slider-vacancy h3 {
   color: #fff;
 }
 
-.dark .slider-vacancy{
+.dark .slider-vacancy {
   background: #000000;
 }
 
-.dark .about-company-col span{
+.dark .about-company-col span {
   color: #fff;
 }
 
-.dark .about-company-col p{
+.dark .about-company-col p {
   color: #Fff;
 }
 
-.dark .about-company-col h5{
+.dark .about-company-col h5 {
   color: #fff;
 }
 
-.dark .main-office{
+.dark .main-office {
   background: #000000;
 }
 
-.dark .company-about-link{
+.dark .company-about-link {
   background: #000000;
 }
 
-.dark .number-of-vacancies{
+.dark .number-of-vacancies {
   background: #000000;
 }
 
-.dark .number-of-employees{
+.dark .number-of-employees {
   background: #000000;
 }
 
 
-.dark .modal-content{
+.dark .modal-content {
   background: #1E1E1E;
 }
 
-.dark p.comp-detail{
+.dark p.comp-detail {
   color: #fff;
 }
 
-.dark .modal-header-details h1{
+.dark .modal-header-details h1 {
   color: #fff;
 }
 
-.dark .nav-tabs{
+.dark .nav-tabs {
   border: none !important;
 }
 
-.dark .rate-span{
+.dark .rate-span {
   color: #Fff;
 }
 
-.dark .rate-left-p2 form label{
+.dark .rate-left-p2 form label {
   color: #fff;
 }
 
-.dark .location-div span{
+.dark .location-div span {
   color: #fff;
 }
 
-.dark .your-com{
+.dark .your-com {
   color: #fff;
 }
 
 
-.dark #value-span{
+.dark #value-span {
   color: #fff;
 }
 
-.dark .rating-div h1{
+.dark .rating-div h1 {
   color: #fff;
 }
 
-.dark .rate-per{
+.dark .rate-per {
   color: #fff;
 }
 
-.dark #training_name{
+.dark #training_name {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #training_date{
+.dark #training_date {
+  background: #000000 !important;
+  color: #D3D1D1 !important;
+}
+
+.dark #training_information {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #training_information{
+.dark #training_companies {
+  background: #000000 !important;
+  color: #D3D1D1 !important;
+}
+
+.dark #training_url {
   background: #000000 !important;
   color: #fff !important;
 }
 
-.dark #training_companies{
+.dark #training_payment {
   background: #000000 !important;
-  color: #fff !important;
+  color: #D3D1D1 !important;
 }
 
-.dark #training_url{
-  background: #000000 !important;
-  color: #fff !important;
-}
-
-.dark #training_payment{
-  background: #000000 !important;
-  color: #fff !important;
-}
-
-.dark #getshow{
+.dark #getshow {
   background: #131313;
 }
 
-.dark .vac-select{
+.dark .vac-select {
   color: #adb5bd;
 }
 
-.dark .select_box:after{
-  width: 0; 
-  height: 0; 
+.dark .select_box:after {
+  width: 0;
+  height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid #8843E1;
@@ -541,37 +653,46 @@
   right: 5.67px;
   content: "";
   z-index: 99;
- }
+}
 
 .dark .right-card li p span {
   color: #fff !important;
-font-family: 'Nunito' !important;
-font-size: 18.667px  !important;
-font-weight: 400;
+  font-family: 'Nunito' !important;
+  font-size: 18.667px !important;
+  font-weight: 400;
 }
 
 .dark .right-card li div {
   color: #fff !important;
   font-family: 'Nunito' !important;
-font-size: 18.667px  !important;
-font-weight: 400;
+  font-size: 18.667px !important;
+  font-weight: 400;
 }
 
 
-.dark .right-card h3{
+.dark .right-card h3 {
   color: #FDFDFD;
 }
 
-.dark .blog-text p{
-  color:#FDFDFD;
+.dark .blog-text p {
+  color: #FDFDFD;
 }
 
-.dark .similar-blogs .custom-container h1{
-  color:#FDFDFD;
+.dark .similar-blogs .custom-container h1 {
+  color: #FDFDFD;
 }
+
+.dark .position-instructions-container ul ul li {
+  color: #FDFDFD !important;
+}
+.dark .position-instructions-container ul ul li span font, .dark .position-instructions-container ul ul li span   {
+
+  color: #FDFDFD !important;
+}
+
 
 @media screen and (max-width: 801px) {
-  .dark .menu-items ul{
+  .dark .menu-items ul {
     background: #131313;
   }
 }

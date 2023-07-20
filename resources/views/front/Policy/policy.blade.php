@@ -16,13 +16,21 @@
         <div class="container">
          
           @if( app()->getLocale() === 'EN')
-          <div>{!! html_entity_decode($policies->content_en) !!}</div>
+          <div>
+            <p class='policy-p-text'>{!! html_entity_decode($policies->content_en) !!}</p>
+          </div>
           @elseif( app()->getLocale() === 'RU')
-          <div>{!! html_entity_decode($policies->content_ru) !!}</div>
+          <div>
+            <p class='policy-p-text'>{!! html_entity_decode($policies->content_ru) !!}</p>
+          </div>
           @elseif( app()->getLocale() === 'TR')
-          <div>{!! html_entity_decode($policies->content_tr) !!}</div>
+          <div>
+            <p class='policy-p-text'>{!! html_entity_decode($policies->content_tr) !!}</p>
+          </div>
           @else
-          <div>{!! html_entity_decode($policies->content_az) !!}</div>
+          <div>
+            <p class='policy-p-text'>{!! html_entity_decode($policies->content_az) !!}</p>
+          </div>
           @endif
 
             

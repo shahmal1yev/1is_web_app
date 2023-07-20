@@ -39,13 +39,19 @@
   padding: 30px 50px 30px 15px;
   align-items: flex-start;
   gap: 10px;
-  color: #000;
-  font-family: Montserrat;
-  font-size: 14px;
-  font-weight: 600;
+
   background: #E5EAFE;
   margin-bottom: 20px;
 }
+
+
+.policy-p-text{
+  color: #000;
+  font-family: 'Montserrat';
+  font-size: 14px;
+  font-weight: 600;
+}
+
   
 .nav-bar .darkLight-searchBox {
     display: flex;
@@ -77,7 +83,7 @@
     padding-top: 15px;
   }
   
-  .terms-content > .container > div {
+  /* .terms-content > .container > div {
     margin-bottom: 10px;
     background: #e5eafe;
     padding: 12px;
@@ -86,4 +92,4 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 2;
-  }
+  } */
