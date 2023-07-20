@@ -90,7 +90,7 @@
                     
                     <div class="form-group add-training-input-group">
                         <div class="row mb-4" id="price" @if(old('payment_type') == '0' || !old('payment_type')) style="display: none" @endif>
-                            <label for="training_name">@lang('front.qiymetpul')</label>
+                        <label for="training_name">@lang('front.qiymetpul')</label>
                             <input class="form-control" type="number" name="price" step="1" placeholder="@lang('front.qiymetpul'):" value="{{ old('price') }}">
                         </div>
                     </div>
