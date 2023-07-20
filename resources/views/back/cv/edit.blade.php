@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-
 @extends('back.layouts.master')
 
 @section('title','1is | Cv-lər | Cv redaktə et')
-<style>
-    #structure{
-        align-items: flex-end;
-    }
 
-    #comp_link, #comp_name, #job_name{
-        background: #FFFFFF;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        padding: 12px 14px!important;
-    }
-
-    .removeElement{
-        margin-left: 15px;
-        /* padding: 0px 15px; */
-        padding: 15px 29px;
-        border: none;
-        background: #9559E5;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        color: #FFFFFF;
-    }
-</style>
 @section('content')
     <!-- start page title -->
     <div class="row">
@@ -60,36 +31,6 @@
                         @csrf
                         <input type="hidden" name="id" value="{{$cv->id}}">
                         <div class="row mb-4">
-                            <div class="row mb-4">
-                                <div class="col-lg-6 mb-4">
-                                    <label for="name" class="form-label">Ad <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" id="name" name="name" placeholder="Ad daxil edin:" value="{{$cv->name}}" required>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <label for="surname" class="form-label">Soyad <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" id="surname" name="surname" placeholder="Soyad daxil edin:" value="{{$cv->surname}}" required>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <label for="father_name" class="form-label">Ata adı </label>
-                                    <input class="form-control" type="text" id="father_name" name="father_name" placeholder="Ata adı daxil edin:" value="{{$cv->father_name}}" required>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="email" id="email" name="email" placeholder="Email daxil edin:" value="{{$cv->email}}" required>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <label for="position" class="form-label">Vəzifə <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" id="position" name="position" placeholder="Vəzifə daxil edin:" value="{{$cv->position}}" required>
-                                </div>
-                                <div class="col-lg-3 mb-4">
-                                    <label for="salary" class="form-label">Maaş </label>
-                                    <input class="form-control" type="text" id="salary" name="salary" placeholder="Maaş daxil edin:" value="{{$cv->salary}}">
-                                </div>
-                                <div class="col-lg-3">
-                                    <label for="birth" class="form-label">Doğum tarixi </label>
-                                    <input class="form-control" type="date" id="birth"  name="birth" placeholder="Doğum tarixi daxil edin:" value="{{$cv->birth_date}}">
-                                </div>
-                            </div>
                             <div class="col-lg-6 mb-4">
                                 <label for="category" class="form-label"> Kateqoriya  </label>
                                 <select name="category" id="category" class="form-control">
@@ -109,7 +50,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-6 mb-4">
-                                <label for="jobtype" class="form-label"> İş rejimi </label>
+                                <label for="jobtype" class="form-label"> İş rejimi  <span class="text-danger">*</span></label>
                                 <select name="jobtype" id="jobtype" class="form-control" >
                                     <option value="0" selected disabled>İş rejimi seçin...</option>
                                     @foreach($jobtypes as $jobtype)
@@ -118,7 +59,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-6 mb-4">
-                                <label for="gender" class="form-label"> Cins </label>
+                                <label for="gender" class="form-label"> Cins  <span class="text-danger">*</span></label>
                                 <select name="gender" id="gender" class="form-control" >
                                     <option value="0" selected disabled>Cins seçin...</option>
                                     @foreach($genders as $gender)
@@ -136,7 +77,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-6 mb-4">
-                                <label for="experience" class="form-label"> Təcrübə </label>
+                                <label for="experience" class="form-label"> Təcrübə  <span class="text-danger">*</span></label>
                                 <select name="experience" id="experience" class="form-control">
                                     <option value="0" selected disabled>Təcrübə seçin...</option>
                                     @foreach($experiences as $experience)
@@ -145,7 +86,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-6 mb-4">
-                                <label for="education" class="form-label"> Təhsil </label>
+                                <label for="education" class="form-label"> Təhsil  <span class="text-danger">*</span></label>
                                 <select name="education" id="education" class="form-control">
                                     <option value="0" selected disabled>Təhsil seçin...</option>
                                     @foreach($educations as $education)
@@ -155,10 +96,39 @@
                             </div>
                         </div>
 
-                        
+                        <div class="row mb-4">
+                            <div class="col-lg-6 mb-4">
+                                <label for="name" class="form-label">Ad <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" id="name" name="name" placeholder="Ad daxil edin:" value="{{$cv->name}}" required>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <label for="surname" class="form-label">Soyad <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" id="surname" name="surname" placeholder="Soyad daxil edin:" value="{{$cv->surname}}" required>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <label for="father_name" class="form-label">Ata adı </label>
+                                <input class="form-control" type="text" id="father_name" name="father_name" placeholder="Ata adı daxil edin:" value="{{$cv->father_name}}" required>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input class="form-control" type="email" id="email" name="email" placeholder="Email daxil edin:" value="{{$cv->email}}" required>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <label for="position" class="form-label">Vəzifə <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" id="position" name="position" placeholder="Vəzifə daxil edin:" value="{{$cv->position}}" required>
+                            </div>
+                            <div class="col-lg-3 mb-4">
+                                <label for="salary" class="form-label">Maaş </label>
+                                <input class="form-control" type="text" id="salary" name="salary" placeholder="Maaş daxil edin:" value="{{$cv->salary}}">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="birth" class="form-label">Doğum tarixi </label>
+                                <input class="form-control" type="date" id="birth"  name="birth" placeholder="Doğum tarixi daxil edin:" value="{{$cv->birth_date}}">
+                            </div>
+                        </div>
                         <div class="row mb-4">
                             <div class="col-lg-12 mb-4">
-                                <label for="about_education" class="form-label">Təhsil haqqında </label>
+                                <label for="about_education" class="form-label">Təhsil haqqında <span class="text-danger">*</span></label>
                                 <textarea name="about_education" id="about_education" cols="30" rows="5" class="editor" placeholder="Təhsil haqqında məlumat daxil edin:">{!! $cv->about_education !!}</textarea>
                             </div>
                             <div class="col-lg-12 mb-4">
@@ -195,93 +165,33 @@
                                 <label for="cv" class="form-label">Yeni cv seçin...</label>
                                 <input class="form-control" type="file" id="cv" name="cv" accept="application/pdf,application/msword" >
                             </div>
-                            
-                            <div class="container" data-repeater-list="group-a">
-                                <div id="repeater">
-                                    <label for="" class="form-label">@lang('front.portfolio')</label> <br>
-                                    <input type="button" id="createElement" class="btn btn-danger" value="İş Yeri Əlavə Et" />
-                                    <div class='row' id="structure" style="display:none">
-                                        <div class='col-lg-3'>
-                                            <label for='first-name'>@lang('front.isinadi')</label> <br>
-                                            <input type="text" name="work_name" id="job_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                            <div class="col-12 mb-4" data-repeater-list="group-a">
+                                <label for="" class="form-label">Portfolio</label>
+                                @if(is_array(json_decode($cv->portfolio)))
+                                    @foreach(json_decode($cv->portfolio) as $port)
+
+                                    <div class="row" data-repeater-item>
+
+                                        <div class="col-lg-3 mb-2">
+                                            <label for="work_name">İşin adı</label>
+                                            <input type="text" id="work_name" name="work_name[]" value="{{$port->work_name}}" class="form-control" placeholder="İşin adı daxil edin">
                                         </div>
-                                        <div class='col-lg-3'>
-                                            <br>
-                                            <label for='first-name'> @lang('front.companies')</label> <br>
-                                            <input type="text" name="work_company" id="comp_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                        <div class="col-lg-3 mb-2">
+                                            <label for="work_company">Şirkət adı</label>
+                                            <input type="text" id="work_company" name="work_company[]" value="{{$port->work_company}}" class="form-control" placeholder="Şirkət adı daxil edin">
                                         </div>
-                                        <div class='col-lg-3'>
-                                        <br>
-                                            <label for='first-name'>@lang('front.link')</label> <br>
-                                            <input type="url" name="work_link" id="comp_linkk" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                        <div class="col-lg-3 mb-2">
+                                            <label for="work_link">Şirkət linki</label>
+                                            <input type="text" id="work_link" name="work_link[]" value="{{$port->work_link}}" class="form-control" placeholder="Şirkət linki daxil edin">
                                         </div>
+
                                     </div>
-                                    <div id="containerElement"></div>   
-                                </div>
+                                    @endforeach
+                                @endif
+
+
                             </div>
-
-                        <div class="container" data-repeater-list="group-a">
-
-                        @php
-                            $portfolio = json_decode($cv->portfolio, true);
-                            
-                            $itm = $portfolio['portfolio'];
-                            
-                            if (!$itm || !isset($itm[0]['job_name'])) {
-                                $itm = [['job_name' => '', 'company' => '', 'link' => '']];
-                            }
-                            
-                            $count = count($itm);
-                        @endphp
-
-
-                            @for ($i = 0; $i < $count; $i++)
-                            @php
-                                $job_name = isset($itm[$i]['job_name']) ? $itm[$i]['job_name'] : '';
-                                $company = isset($itm[$i]['company']) ? $itm[$i]['company'] : '';
-                                $link = isset($itm[$i]['link']) ? $itm[$i]['link'] : '';
-                                $rnd =  rand().time();
-                                $portId = "port_id_" . $rnd;
-                            
-                            @endphp
-
-                            <div class='row silinmeli' id="{{ $portId }}">
-                                <div class='col-lg-3'>
-                                    <label for='first-name'>@lang('front.isinadi')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_name]" value="{{ $job_name }}" class="form-control" placeholder="@lang('front.daxilet')" />
-                                </div>
-                                <div class='col-lg-3'>
-                                    <br>
-                                    <label for='first-name'> @lang('front.companies')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_company]" value="{{ $company }}" class="form-control" placeholder="@lang('front.daxilet')" />
-                                </div>
-                                <div class='col-lg-3'>
-                                    <br>
-                                    <label for='first-name'>@lang('front.link')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_link]" value="{{ $link }}" class="form-control" placeholder="@lang('front.daxilet')" />
-                                </div>
-                                <button onclick="deleteRow('{{ $portId }}')" type="button" class="delete-btn">SIL</button>
-                            </div>
-
-                            <script>
-                            function deleteRow(portId) {
-                                var element = document.getElementById(portId);
-                                element.parentNode.removeChild(element);
-                            }
-                            </script>
-
-                            @endfor
-                            </div>
-
-
-                            <script>
-                                function deleteElement(){
-                                    const deleteDiv=document.querySelector(".silinmeli");
-                                    deleteDiv.remove()
-
-                                }
-                                                                        
-                            </script>
+                            <input data-repeater-create="" type="button" style="width: 20%;" class="text-center btn btn-success mt-3 mt-lg-0" value="Portfolio əlavə et">
                         </div>
                         <div class="row justify-content-end" >
                             <div class="col-lg-12 text-center">
@@ -295,9 +205,6 @@
     </div>
     <!-- end row -->
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-
-<script src="{{asset('front/js/repeater.js')}}"></script>
 
 @section('css')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -462,29 +369,7 @@
             }
         }
     </script>
-<script>
-    $(function () {
-      $("#repeater").repeater({
-        items: [
-          {
-            elements: [
-              {
-                id: "first_name",
-                value: "",
-              },
-              {
-                id: "languages",
-                value: "css",
-              },
-            ],
-          },
-        ],
-      });
-    });
 
-    const removeBtn = document.querySelector('.removeElement')
-    console.log('Remove BTN',removeBtn)
-  </script>
 
 @endsection
 
