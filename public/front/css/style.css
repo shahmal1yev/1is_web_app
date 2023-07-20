@@ -478,7 +478,7 @@ button:focus {
 .filter-input {
   outline: none;
   border: none;
-  background: #f8f0fb;
+  background: #F4F9FD!important;
   padding-left: 10px;
   font-family: "Montserrat";
   font-style: normal;
@@ -1462,6 +1462,7 @@ p {
     width: 100% !important;
     margin: initial !important;
     max-width: initial !important;
+    margin-bottom: 10px;
 }
 
 .pagination-nav .footer{
