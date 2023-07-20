@@ -66,6 +66,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('userList')}}" class=" waves-effect">
+                        <i class="fas fa-users"></i>
+                        <span key="t-blog">Istifadəçilər</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('reviewIndex')}}" class="waves-effect">
                         <i class="fas fa-comments"></i>
                         <span key="t-not">Şirkət şərhləri</span>

@@ -10,20 +10,20 @@
       url({{asset($ban->image)}})">
       @endforeach
       
-        <div class="header-links-div">
-            <a class="header-links" href="{{route('profile')}}">
-                Ümumi
-             </a>
-             <a class="header-links" href="{{route('traningcreate')}}">
-                 Təlimlər
-             </a>
-             <a class="header-links" href="{{route('cvindex')}}">
-                 İş Axtaran
-             </a>
-             <a class="header-links" href="{{route('announcesindex')}}">
-                 İşə Götürən
-             </a>
-        </div>
+      <div class="header-links-div">
+        <a class="header-links" href="{{route('profile')}}">
+            @lang('front.umumi')
+         </a>
+         <a class="header-links" href="{{route('traningcreate')}}">
+             @lang('front.training')
+         </a>
+         <a class="header-links" href="{{route('cvindex')}}">
+             @lang('front.jobsearch')
+         </a>
+         <a class="header-links" href="{{route('announcesindex')}}">
+             @lang('front.isegotur')
+         </a>
+    </div>
     </section>
 
     <section class="add-training">
@@ -35,11 +35,11 @@
                     <div class="form-group add-training-input-group">                            
                         <img src="{{asset($training->image)}}" alt="" width="200" height="200">
 
-                        <label for="images">Şəkil əlavə et</label>
+                        <label for="images">@lang('front.sekiladd') <span class="text-danger">*</span></label>
 
                         <div class="custom-file training-custom-file edit-training-input-group @error('image') has-error @enderror ">
                             <input type="file" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="image" value="{{$training->image}}" accept="image/png, image/jpeg, image/svg+xml, image/webp">
-                            <label class="custom-file-label" for="image">Şəkil seçin</label>   
+                            <label class="custom-file-label" for="image">@lang('front.sekilsec')</label>   
                             @error('image')
                         <span class="text-danger" style="font-size: 14x">@lang('validation.image_max')</span>
                         @enderror                   
@@ -47,40 +47,40 @@
                         </div>
                     </div>
                     <div class="form-group add-training-input-group @error('title') has-error @enderror">
-                        <label for="training_name">Təlim adı</label>
-                        <input type="text" class="form-control" id="training_name" name="title" placeholder="Təlimin adını qeyd edin" value="{{$training->title}}" required />
+                        <label for="training_name">@lang('front.tad') <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="training_name" name="title" placeholder="@lang('front.tad')" value="{{$training->title}}" required />
                         
                     </div>
                     <div class="form-group add-training-input-group @error('deadline') has-error @enderror">
-                        <label for="training_date">Son müraciət tarixi</label>
+                        <label for="training_date">@lang('front.sonmur') <span class="text-danger">*</span></label>
                         <input type="date" class="form-control" name="deadline" id="training_date" value="{{$training->deadline}}" required />
                         
                     </div>
                     <div class="form-group add-training-input-group @error('about') has-error @enderror">
-                        <label for="training_information">Təlim haqqında ətraflı məlumat</label>
+                        <label for="training_information">@lang('front.telhaq') <span class="text-danger">*</span></label>
                         <textarea class="form-control" id="training_information" name="about" rows="5" required>{!! html_entity_decode($training->about) !!}</textarea>
                         
                     </div>
                     <div class="form-group add-training-input-group @error('company') has-error @enderror">
-                        <label for="training_companies">Şirkətlər</label>
+                        <label for="training_companies">@lang('front.companies') <span class="text-danger">*</span></label>
                         <select class="form-control" id="training_companies" name="company">
-                            <option selected disabled>Şirkət seçin...</option>
+                            <option selected disabled>@lang('front.companies')</option>
                             @foreach($companies as $company)
                             <option value="{{$company->id}}" @if($company->id == $training->company_id) selected @endif>{{$company->name}}</option>
                         @endforeach
                         </select>
                     </div>
                     <div class="form-group add-training-input-group @error('link') has-error @enderror">
-                        <label for="training_url">Yönləndirmə qeydiyyat linki</label>
-                        <input type="url" placeholder="Url daxil edin" name="link" class="form-control" id="training_url" value="{{$training->redirect_link}}" required />
+                        <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
+                        <input type="url" placeholder="@lang('front.urldaxilet')" name="link" class="form-control" id="training_url" value="{{$training->redirect_link}}" required />
                         
                     </div>
                     <div class="form-group add-training-input-group @error('payment_type') has-error @enderror">
-                        <label for="training_payment">Ödəniş tipi</label>
+                        <label for="training_payment">@lang('front.odenistip') <span class="text-danger">*</span></label>
                         <select name="payment_type" id="payment_type" class="form-control" onchange="getPayment(this.value)" required>
-                            <option disabled selected>Ödeniş methodunu seçin...</option>
-                            <option value="0" @if($training->payment_type == '0') selected @endif>Ödənişsiz</option>
-                            <option value="1" @if($training->payment_type == '1') selected @endif>Ödənişli</option>
+                            <option disabled selected>@lang('front.odenistip')</option>
+                            <option value="0" @if($training->payment_type == '0') selected @endif>@lang('front.pulsuz')</option>
+                            <option value="1" @if($training->payment_type == '1') selected @endif>@lang('front.pullu')</option>
                         </select>
                         @error('payment_type')
                         <span class="text-danger" style="font-size: 14x">@lang('validation.payment_type_numeric')</span>
@@ -89,12 +89,12 @@
                     <div class="form-group add-training-input-group">                    
                         <div class="row mb-4" id="price" @if($training->payment_type == '0') style="display: none" @endif >
 
-                        <label for="training_name">Qiymət</label>
-                        <input class="form-control" type="number"  name="price" step="1" placeholder="Qiymət daxil edin:" value="{{$training->price}}">
+                        <label for="training_name">@lang('front.qiymetpul')</label>
+                        <input class="form-control" type="number"  name="price" step="1" placeholder="@lang('front.qiymetpul'):" value="{{$training->price}}">
                     </div>
                     
                     <div class="add-training-form-button">
-                        <button type="submit">Yenilə</button>
+                        <button type="submit">@lang('front.daxilet')</button>
                     </div>
                 </form>
                 

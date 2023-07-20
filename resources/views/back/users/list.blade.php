@@ -1,16 +1,16 @@
 @extends('back.layouts.master')
-@section('title','1is | Cv-lər')
+@section('title','1is | İstifadəçilər')
 @section('content')
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Cv-lər</h4>
+                <h4 class="mb-sm-0 font-size-18">İstifadəçilər</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{route('adminIndex')}}">Ana səhifə</a></li>
-                        <li class="breadcrumb-item active">Cv-lər</li>
+                        <li class="breadcrumb-item active">İstifadəçilər</li>
                     </ol>
                 </div>
 
@@ -27,47 +27,24 @@
                         <thead>
                         <tr>
                             <th>№</th>
-                            <th>İstifadəçi</th>
-                            <th>Ad və Soyad</th>
-                            <th>Kateqoriya</th>
-                            <th>Baxış</th>
-                            <th>Status</th>
+                            <th>Ad </th>
+                            <th> Soyad</th>
+                            <th>Email</th>
                             <th>Tarix</th>
                             <th>Əməliyyatlar</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($cvs as $key=>$cv)
+                        @foreach($users as $key=>$user)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{ $cv->getUser() ? $cv->getUser()->name : '' }}</td>
-                                <td>{{$cv->name}} {{$cv->surname}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->surname}}</td>
+                                <td>{{$user->email}}</td>
+                            
+                                <td>{{ \Carbon\Carbon::parse($user->created_at)->format('j F, Y') }}</td>
                                 <td>
-                                    @if($cv->category_id != 0)
-                                        @php
-                                            $category = $cv->getCategory();
-                                        @endphp
-                                        @if($category)
-                                            {{$category->title_az}}
-                                        @else
-                                            Kateqoriya yoxdur
-                                        @endif
-                                    @else
-                                        Kateqoriya yoxdur
-                                    @endif
-                                </td>
-                                                                <td>{{$cv->view}}</td>
-                                <td>
-                                    <p class="d-none">{{$cv->status == 1 ? "Active" : "Deactive"}}</p>
-                                    <input type="checkbox" id="switch{{$cv->id}}" switch="none" {{$cv->status == 1 ? "checked" : ""}} onchange="changeStatus({{$cv->id}})" />
-                                    <label for="switch{{$cv->id}}" data-on-label="On" data-off-label="Off"></label>
-                                </td>
-                                <td>{{ \Carbon\Carbon::parse($cv->created_at)->format('j F, Y') }}</td>
-                                <td>
-                                    <a href="{{route('cvEdit',$cv->id)}}">
-                                        <button class="btn btn-outline-warning"><i class="bx bxs-edit"></i></button>
-                                    </a>
-                                    <button class="btn btn-outline-danger" onclick="deleteCompanies({{$cv->id}})"><i class="bx bxs-trash"></i></button>
+                                    <button class="btn btn-outline-danger" onclick="deleteCompanies({{$user->id}})"><i class="bx bxs-trash"></i></button>
                                 </td>
                             </tr>
                         @endforeach
@@ -121,45 +98,6 @@
 
     <script>
 
-        const changeStatus = (id) => {
-
-            const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-            $.ajax({
-                type: "POST",
-                url: "/admin/cv/status",
-                data: {
-                    _token: CSRF_TOKEN,
-                    id,
-                },
-                success: function (data) {
-                    if(data == 1){
-                        Swal.fire({
-                            title: "Uğurlu!",
-                            text: "Status uğurla dəyişdirildi!",
-                            icon: "success"
-                        })
-                        setTimeout(()=>{
-                            location.reload();
-                        },1500)
-                    }else{
-                        Swal.fire({
-                            title: "Ooops",
-                            text: "Gözlənilməyən xəta baş verdi!",
-                            icon: "error"
-                        })
-                    }
-                },
-                error: function () {
-                    Swal.fire({
-                        title: "Ooops",
-                        text: "Gözlənilməyən xəta baş verdi!",
-                        icon: "error"
-                    })
-                }
-            })
-        }
-
         const deleteCompanies = (id) => {
             const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             Swal.fire({
@@ -176,7 +114,7 @@
                 if(t.value){
                     $.ajax({
                         type: "POST",
-                        url: "/admin/cv/delete",
+                        url: "/admin/users/delete",
                         data: {
                             _token: CSRF_TOKEN,
                             id,
@@ -186,7 +124,7 @@
                             if(data == 1){
                                 Swal.fire({
                                     title: "Uğurlu!",
-                                    text: "Cv uğurla silindi.",
+                                    text: "user uğurla silindi.",
                                     icon: "success"
                                 })
                                 setTimeout(()=>{

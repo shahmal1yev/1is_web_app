@@ -47,16 +47,14 @@
                         <form action="{{route('elanPost')}}" method="POST" enctype="multipart/form-data" class="tab-pane row company-announce-form fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 @csrf
                             
-                            <div class="form-group company-announce-input-group col-12 @error('position') has-error @enderror ">
-                                <label for="possession">@lang('front.vezife')</label>
+                            <div class="form-group company-announce-input-group col-12 ">
+                                <label for="possession">@lang('front.vezife') <span class="text-danger">*</span></label>
                                 <input type="text" name="position" class="form-control" id="possession" placeholder="@lang('front.vezife')" value="{{ old('position') }}" required />
-                                @error('position')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.position_max')</span>
-                                @enderror
+                                
                                 
                                 </div>
-                            <div class="form-group company-announce-input-group col-12 @error('city') has-error @enderror ">
-                                <label for="city">@lang('front.city')</label>
+                            <div class="form-group company-announce-input-group col-12">
+                                <label for="city">@lang('front.city') <span class="text-danger">*</span></label>
                                 <select class="form-control" name="city" id="category" onchange="getRegion(this.value)" required >
                                     <option value="" selected disabled>@lang('front.birsec')...</option>
                                     @php
@@ -79,7 +77,7 @@
                                                          
                                 </div>
                                 <div class="col-lg-12 mb-4" id="type_region" style="display: none">
-                                    <label for="region" class="form-label d-block"> Bakı rayonları  <span class="text-danger">*</span></label>
+                                    <label for="region" class="form-label d-block"> Bakı rayonları  </label>
                                     <select name="region" id="region" class="form-control mb-4">
                                         <option value="" selected disabled>Bakı rayonu...</option>
                                         @foreach($regions as $region)
@@ -96,8 +94,8 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            <div class="form-group company-announce-input-group col-md-6 @error('category') has-error @enderror">
-                                <label for="category">@lang('front.cat')</label>
+                            <div class="form-group company-announce-input-group col-md-6">
+                                <label for="category">@lang('front.cat') <span class="text-danger">*</span></label>
                                 <select name="category" id="category" class="form-control" required>
                                     <option value="" selected disabled>@lang('front.cat')...</option>
                                     @foreach($categories as $category)
@@ -115,22 +113,22 @@
                                 </select>
                                 
                             </div>
-                            <div class="form-group company-announce-input-group col-md-6 @error('jobtype') has-error @enderror ">
-                                <label for="work_graf">@lang('front.jobtype')</label>
+                            <div class="form-group company-announce-input-group col-md-6">
+                                <label for="work_graf">@lang('front.jobtype') <span class="text-danger">*</span></label>
                                     <select name="jobtype" id="jobtype" class="form-control" required >
                                         @foreach($jobtypes as $jobtype)
                                             <option value="{{$jobtype->id}}" @if(old('jobtype') == $jobtype->id) selected @endif>
                                                 @if ($lang == 'EN')
-                                        {{$jobtype->title_en}}
-                                    @elseif ($lang == 'RU')
-                                        {{$jobtype->title_ru}}
-                                    @elseif ($lang == 'TR')
-                                        {{$jobtype->title_tr}}
-                                    @else
-                                        {{$jobtype->title_az}}
-                                    @endif</option>
-                                        @endforeach
-                                    </select>
+                                                    {{$jobtype->title_en}}
+                                                @elseif ($lang == 'RU')
+                                                    {{$jobtype->title_ru}}
+                                                @elseif ($lang == 'TR')
+                                                    {{$jobtype->title_tr}}
+                                                @else
+                                                    {{$jobtype->title_az}}
+                                                @endif</option>
+                                                    @endforeach
+                                                </select>
                                     
                                 </select>
                             </div>
@@ -143,7 +141,7 @@
                                 
                             </div>
                             <div class="col-md-4 d-flex align-items-center justify-content-end mb-3 ">
-                                <label for="musahibe" class="musahibe-check-label">@lang('front.musahibe')</label>
+                                <label for="musahibe" class="musahibe-check-label">@lang('front.musahibe') <span class="text-danger">*</span></label>
                                 <input type="checkbox" class="musahibe-check-input" id="musahibe" name="salary_type" />
                             </div>
                             <div class="form-group company-announce-input-group col-md-6 @error('min_age') has-error @enderror ">
@@ -158,56 +156,60 @@
                                 <span class="text-danger" style="font-size: 14x">@lang('validation.max_age_numeric')</span>
                                 @enderror
                             </div>
-                            <div class="form-group company-announce-input-group col-md-6 @error('experience') has-error @enderror ">
+                            <div class="form-group company-announce-input-group col-md-6 ">
+                                <label for="accept_cv">@lang('front.expsec') <span class="text-danger">*</span></label>
+
                                 <select name="experience" id="experience" class="form-control" required>
                                     <option value="" selected disabled>@lang('front.expsec')...</option>
                                     @foreach($experiences as $experience)
                                         <option value="{{$experience->id}}"@if(old('experience') == $experience->id) selected @endif>
                                             @if ($lang == 'EN')
-                                        {{$experience->title_en}}
-                                    @elseif ($lang == 'RU')
-                                        {{$experience->title_ru}}
-                                    @elseif ($lang == 'TR')
-                                        {{$experience->title_tr}}
-                                    @else
-                                        {{$experience->title_az}}
-                                    @endif
+                                                {{$experience->title_en}}
+                                            @elseif ($lang == 'RU')
+                                                {{$experience->title_ru}}
+                                            @elseif ($lang == 'TR')
+                                                {{$experience->title_tr}}
+                                            @else
+                                                {{$experience->title_az}}
+                                            @endif
                                 </option>
                                     @endforeach
                                 </select>
                                 
                             </div>
                             <div class="form-group company-announce-input-group col-md-6 @error('education') has-error @enderror ">
+                                <label for="accept_cv">@lang('front.tehsilsec')  <span class="text-danger">*</span></label>
+
                                 <select name="education" id="education" class="form-control" required>
                                     <option value="" selected disabled>@lang('front.tehsilsec')...</option>
                                     @foreach($educations as $education)
                                         <option value="{{$education->id}}" @if(old('education') == $education->id) selected @endif>
                                             @if ($lang == 'EN')
-                                        {{$education->title_en}}
-                                    @elseif ($lang == 'RU')
-                                        {{$education->title_ru}}
-                                    @elseif ($lang == 'TR')
-                                        {{$education->title_tr}}
-                                    @else
-                                        {{$education->title_az}}
-                                    @endif
+                                                {{$education->title_en}}
+                                            @elseif ($lang == 'RU')
+                                                {{$education->title_ru}}
+                                            @elseif ($lang == 'TR')
+                                                {{$education->title_tr}}
+                                            @else
+                                                {{$education->title_az}}
+                                            @endif
                                 </option>
                                     @endforeach
                                 </select>
                                 
                             </div>
                             <div class="form-group company-announce-input-group col-12 @error('requirements') has-error @enderror">
-                                <label for="demands">@lang('front.namteleb')</label>
+                                <label for="demands">@lang('front.namteleb') <span class="text-danger">*</span></label>
                                 <textarea name="requirements" class="form-control" id="demands" rows="5" placeholder="@lang('front.melumatver')!">{{ old('requirements') }}</textarea>
                             </div>
                             
                             <div class="form-group company-announce-input-group col-12 @error('description') has-error @enderror">
-                                <label for="about_work">@lang('front.ismelumat')</label>
+                                <label for="about_work">@lang('front.ismelumat') <span class="text-danger">*</span></label>
                                 <textarea name="description" class="form-control" id="about_work" rows="5" placeholder="@lang('front.melumatver')!">{{ old('description') }}</textarea>
                                
                             </div>
                             <div class="form-group company-announce-input-group col-12 @error('company') has-error @enderror">
-                                <label for="companies">@lang('front.companies')</label>
+                                <label for="companies">@lang('front.companies') <span class="text-danger">*</span></label>
                                 <select class="form-control" id="companies" name="company" required value="{{ old('company') }}" required>
                                     <option value="" selected disabled>@lang('front.sirketsec')...</option>
                                     @foreach($companies as $company)
@@ -222,7 +224,7 @@
                             </div>
 
                             <div class="form-group company-announce-input-group col-12 @error('accept_type') has-error @enderror">
-                                <label for="accept_cv">@lang('front.cvqebull')</label>
+                                <label for="accept_cv">@lang('front.cvqebull')  <span class="text-danger">*</span></label>
                                 <select name="accept_type" id="accept_type" class="form-control" onchange="getContact(this.value)" required>
                                     <option selected disabled>@lang('front.birsec')...</option>
                                     @foreach($types as $key=>$type)
@@ -261,7 +263,7 @@
                             </div>
                             
                             <div class="form-group company-announce-input-group col-12 @error('deadline') has-error @enderror">
-                                <label for="end_date">@lang('front.deadline')</label>
+                                <label for="end_date">@lang('front.deadline') <span class="text-danger">*</span></label>
                                 <input type="date" class="form-control" name="deadline" id="end_date" required value="{{ old('deadline') }}"/>
                                 @error('deadline')
                                 <span class="text-danger" style="font-size: 14x">@lang('validation.deadline_date')</span>
@@ -269,7 +271,7 @@
                             </div>
                             
                             <div class="col-md-8 d-flex align-items-center ">
-                                <label class="accept-demand-label" for="accept-demands">@lang('front.cvqebul')</label>
+                                <label class="accept-demand-label" for="accept-demands">@lang('front.cvqebul')  <span class="text-danger">*</span></label>
                                 <input class="accept-demand-input" type="checkbox"  id="accept-demands" reqz />
                             </div>
                             <div class="company-announce-form-button col-md-4">

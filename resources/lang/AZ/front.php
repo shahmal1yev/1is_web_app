@@ -24,33 +24,9 @@ return [
     'butunhuquq'=>'Bütün hüquqlar qorunur',
     'butateref'=>'Buta Grup Tərəfindən Hazırlanmışdır',
 
-// policy
+
     'kom'=>'Kommunikasiya',
-    'kom1'=>'Razılaşma 1iş.az xidmətinin istifadəçiləri tərəfindən istifadə şərtlərini müəyyən edir',
-    'kom2'=>'İstifadəçi razılaşması aşağıda göstərilən hallarda tətbiq ediləcək: - Servis-İnternet şəbəkəsində, 1iş.az ünvanında yerləşdirilmiş məlumatlar Buta Grup Azərbaycan və istifadəçilər (razılaşma şərtlərini qəbul etmiş şəxslər) tərəfindən yerləşdirilmiş informasiyalardır. - Şəxsi kabinet - bu istifadəçilər tərəfindən yaradılmış və şəxsi informasiyaların (məlumatların) əlavə edilmiş məcmusudur. Hər hansı bir istifadəçinin yalnız bir şəxsi kabinetə malik olmaq hüququ vardır. - Servis xidmətlərindən və materiallarından istifadə edilmə qüvvədə olan qanunvericiliyin normaları, həmçinin də hazırkı razılaşma ilə tənzimlənir',
-    'kom3'=>'Servis xidmətlərindən istifadə edərək, istifadəçi hazırkı razılaşmanı və servis xidmətlərindən istifadə üzrə təlimatlara riayət etmək şərtlərini və öhdəliklərini qəbul edir. - Buta Grup Azərbaycan istənilən vaxt birtərəfli qaydada hazırkı razılaşmanın şərtlərini dəyişdirmək hüququna malikdir. - İstifadəçi razılaşmanın şərtlərinə edilmiş dəyişikliklərlə razılaşmadığı halda o servisə girişdən imtina etməli və xidmətlərindən istifadəni dayandırmalıdır',
-    'kom4'=>'1iş.az istifadəçilərə servis xidmətlərindən istifadə və elanların yerləşdirilməsi, eləcə də axtarışı üzrə xidmətləri təklif edir',
-    'kom5'=>'Digər xidmətlərin verilməsi xüsusi qaydalarla və/və ya razılaşmalarla tənzimlənə bilər. - Servisin bütün materialları və xidmətləri reklamla müşayiət oluna bilər. İstifadəçi bunu əvvəlcədən qəbul edir',
     'soft'=>'Proqram təminatı',
-    'soft1'=>'1iş.az istifadəçilərin servisdə qeydiyyat zamanı təqdim etdiyi məlumatların həqiqətən təqdim edildiyi kimi doğruluğuna görə məsuliyyət daşımır',
-    'soft2'=>'İstifadəçi tərəfindən başqa şəxslərin hüquqlarının və ya qüvvədə olan qanunvericiliyin pozulması halında, həmçinin başqa səbəblərdən, servis istifadəçi girişini məhdudlaşdırmaq və ya dayandırmaq hüququna malikdir',
-    'soft3'=>'1iş.az istifadəçilərin tamamlanmayan informasiya və etibarsız məlumatlarını xüsusi icazə olmadan sistemdən silmək hüququna malikdir',
-
-
-
-//terms
-
-    'term1'=>'Razılaşmanın tərəfləri – Buta Grup Azərbaycan (1iş.az) və istifadəçilərdir',
-    'term2'=>'Razılaşma 1iş.az xidmətinin istifadəçiləri tərəfindən istifadə şərtlərini müəyyən edir',
-    'term3'=>'İstifadəçi razılaşması aşağıda göstərilən hallarda tətbiq ediləcək: - Servis-İnternet şəbəkəsində, 1iş.az ünvanında yerləşdirilmiş məlumatlar Buta Grup Azərbaycan və istifadəçilər (razılaşma şərtlərini qəbul etmiş şəxslər) tərəfindən yerləşdirilmiş informasiyalardır. - Şəxsi kabinet - bu istifadəçilər tərəfindən yaradılmış və şəxsi informasiyaların (məlumatların) əlavə edilmiş məcmusudur. Hər hansı bir istifadəçinin yalnız bir şəxsi kabinetə malik olmaq hüququ vardır. - Servis xidmətlərindən və materiallarından istifadə edilmə qüvvədə olan qanunvericiliyin normaları, həmçinin də hazırkı razılaşma ilə tənzimlənir',
-    'term4'=>'Servis xidmətlərindən istifadə edərək, istifadəçi hazırkı razılaşmanı və servis xidmətlərindən istifadə üzrə təlimatlara riayət etmək şərtlərini və öhdəliklərini qəbul edir. - Buta Grup Azərbaycan istənilən vaxt birtərəfli qaydada hazırkı razılaşmanın şərtlərini dəyişdirmək hüququna malikdir. - İstifadəçi razılaşmanın şərtlərinə edilmiş dəyişikliklərlə razılaşmadığı halda o servisə girişdən imtina etməli və xidmətlərindən istifadəni dayandırmalıdır',
-    'term5'=>'1iş.az istifadəçilərə servis xidmətlərindən istifadə və elanların yerləşdirilməsi, eləcə də axtarışı üzrə xidmətləri təklif edir',
-    'term6'=>'Digər xidmətlərin verilməsi xüsusi qaydalarla və/və ya razılaşmalarla tənzimlənə bilər. - Servisin bütün materialları və xidmətləri reklamla müşayiət oluna bilər. İstifadəçi bunu əvvəlcədən qəbul edir',
-    'term7'=>'İstifadəçi öz şifrəsini gizli saxlamağı öhdəsinə götürür. İstifadəçi öz elektron poçt ünvanından və şifrədən istifadə ilə bağlı əməliyyatlara, həmçinin də istifadəçinin şəxsi kabinetində yerinə yetirilən fəaliyyətlərə görə məsuliyyət daşıyır. İstifadəçi servis xidmətlərindən yalnız öz şəxsi elektron poçt ünvanı və şifrə ilə daxil olub istifadə etmək hüququna malikdir. Əgər istifadəçi şəxsi kabinetinə icazəsiz daxil olma halları ilə qarşılaşarsa, öz parolunu sərbəst dəyişməyi öhdəsinə götürür',
-    'term8'=>' 1iş.az istifadəçilərin servisdə qeydiyyat zamanı təqdim etdiyi məlumatların həqiqətən təqdim edildiyi kimi doğruluğuna görə məsuliyyət daşımır',
-    'term9'=>'İstifadəçi tərəfindən başqa şəxslərin hüquqlarının və ya qüvvədə olan qanunvericiliyin pozulması halında, həmçinin başqa səbəblərdən, servis istifadəçi girişini məhdudlaşdırmaq və ya dayandırmaq hüququna malikdir',
-    'term10'=>'1iş.az istifadəçilərin tamamlanmayan informasiya və etibarsız məlumatlarını xüsusi icazə olmadan sistemdən silmək hüququna malikdir',
-
 
 //contact
     'contactmel'=>'Əlaqə Məlumatları',
@@ -157,6 +133,8 @@ return [
     'incele'=>'İncələ',
     'pulsuz'=>'Ödənişsiz',
     'pullu'=>'Ödənişli',
+    'qiymetpul'=>'Qiymət',
+
 
 //bloglar
     'encoxoxu'=>'Ən çox oxunanlar',
@@ -252,6 +230,7 @@ return [
     'yalnizpng'=>'Yalnız png, jpg, pdf, docx, xlsx, pptx formatında olan fayllar dəstəklənir',
     'dogum'=>'Doğum tarixi',
     'nomredaxilet'=>'Nömrə daxil et',    
+    'likecv'=>'Bəyəndiyim cvlər',
 
 
 

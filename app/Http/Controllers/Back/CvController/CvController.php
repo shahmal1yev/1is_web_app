@@ -111,10 +111,39 @@ class CvController extends Controller
         $cv->skills = $request->skills;
         $cv->contact_mail = $request->contact_mail;
         $cv->contact_phone = $request->contact_phone;
-        $cv->portfolio = json_encode($request['group-a']);
+        $portfolioData = [];
+
+
+        $group = $request->input('group');
+        if (is_array($group)) {
+            
+        
+            foreach ($group as $index => $data) {
+                if ($data['work_name'] !== null || $data['work_company'] !== null || $data['work_link'] !== null) {
+                    if (isset($portfolioData[$index])) {
+                        $portfolioData[$index]['job_name'] = $data['work_name'] ?? "";
+                        $portfolioData[$index]['company'] = $data['work_company'] ?? "";
+                        $portfolioData[$index]['link'] = $data['work_link'] ?? "";
+                    } else {
+                        $portfolioData[] = [
+                            'job_name' => $data['work_name'] ?? "",
+                            'company' => $data['work_company'] ?? "",
+                            'link' => $data['work_link'] ?? ""
+                        ];
+                    }
+                }
+            }
+        }
+
+        $portfolio = [
+            'portfolio' => $portfolioData
+        ];
+
+        $cv->portfolio = json_encode($portfolio);
+
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:1024'
+                'image' => 'image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:5000'
             ]);
             $image = $request->file('image');
             $name = 'cv_photo'.'_' .Str::random(6).'.' . $image->getClientOriginalExtension();
@@ -129,7 +158,7 @@ class CvController extends Controller
         }
         if ($request->hasFile('cv')) {
             $request->validate([
-                'cv' => 'required|mimes:pdf|max:2000'
+                'cv' => 'required|mimes:pdf|max:5000'
             ]);
             $image = $request->file('cv');
             $name = 'cv'.'_' .Str::random(6).'.' . $image->getClientOriginalExtension();

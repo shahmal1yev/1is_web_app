@@ -174,18 +174,25 @@ class AccountController extends Controller
             'cat_id' => json_encode($request->cat_id),
             'email_verification_code' => Str::random(40),
             'is_email_verified' => false, 
-
-
-            
         ]);
         $data=[];
         $data['email_name']='1is.az';
         $data['subject']='Email verification';
         $data['text']='Emailniz tesdiqleyin';
         $data['link']=env('APP_URL').'/user-verification/'.$user->email_verification_code;
-        $data['text']='Emailniz tesdiqleyin';        
+        $data['text']='Emailniz tesdiqleyin';
 
-        Mail::to($user->email)->send(new SendMail($data));
+        if (env("APP_ENV") === "local")
+        {
+            $user->status = 1;
+            $user->email_verification_code = '';
+            
+        }
+        else
+        {
+            Mail::to($user->email)->send(new SendMail($data));
+        }
+
         $user->save();
 
 

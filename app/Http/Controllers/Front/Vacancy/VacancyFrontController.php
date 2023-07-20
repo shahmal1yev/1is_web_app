@@ -727,8 +727,13 @@ class VacancyFrontController extends Controller
         
          
         if (!empty($vacname)) {
-            $query->where('vacancies.slug', 'like', '%' . $vacname . '%');
-        }      
+            $query->where(function ($subQuery) use ($vacname) {
+                $subQuery->where('vacancies.slug', 'like', '%' . $vacname . '%')
+                    ->orWhere('vacancies.description', 'like', '%' . $vacname . '%')
+                    ->orWhere('vacancies.requirement', 'like', '%' . $vacname . '%')
+                    ->orWhere('vacancies.position', 'like', '%' . $vacname . '%');
+            });
+        }    
         if ($city) {
             $query->where('city_id', $city);
         }

@@ -74,44 +74,40 @@
                         <img id="training_icon2" src="{{asset('back/assets/images/icons/training-list-purple1.png')}}" alt="training-list-purple" /> @lang('front.cvler')
                     </a>
                     <a class="nav-link nav-link-2 trending-nav-link3" id="v-pills-liked-cv-tab" data-toggle="pill" href="#v-pills-liked-cv" role="tab" aria-controls="v-pills-liked-cv" aria-selected="false">
-                        <img id="training_icon3" src="{{asset('back/assets/images/icons/training-list-purple1.png')}}" alt="training-list-purple" /> Bəyəndiyim CV-lər
+                        <img id="training_icon3" src="{{asset('back/assets/images/icons/training-list-purple1.png')}}" alt="training-list-purple" /> @lang('front.likecv')
                     </a>
                 </div>
                 <div class="tab-content col-lg-8" id="v-pills-tabContent">
                     <form class="tab-pane row create-cv-form fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" method="POST" action="{{route('cvPost')}}" enctype="multipart/form-data">
                         @csrf
                         <h3 class="col-12"></h3>
-                        <div class="form-group create-cv-input-group col-md-6 @error('name') has-error @enderror">
-                            <label for="name">@lang('front.ad')</label>
+                        <div class="form-group create-cv-input-group col-md-6">
+                            <label for="name">@lang('front.ad')  <span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="@lang('front.addaxilet')" value="{{ old('name') }}" required />
                            
                         </div>
-                        <div class="form-group create-cv-input-group col-md-6 @error('surname') has-error @enderror">
-                            <label for="surName">@lang('front.soyad')</label>
+                        <div class="form-group create-cv-input-group col-md-6">
+                            <label for="surName">@lang('front.soyad')  <span class="text-danger">*</span></label>
                             <input type="text" name="surname" class="form-control" id="surName" placeholder="@lang('front.soyaddaxil')" value="{{ old('surname') }}" required />
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-md-6 @error('father_name') has-error @enderror">
-                            <label for="fatherName">@lang('front.ata')</label>
+                        <div class="form-group create-cv-input-group col-md-6">
+                            <label for="fatherName">@lang('front.ata')  <span class="text-danger">*</span></label>
                             <input type="text" name="father_name" class="form-control" id="fatherName" placeholder="@lang('front.atadaxilet')" value="{{ old('father_name') }}" required />
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-md-6 @error('email') has-error @enderror">
-                            <label for="Email">@lang('front.epoct')</label>
+                        <div class="form-group create-cv-input-group col-md-6">
+                            <label for="Email">@lang('front.epoct') <span class="text-danger">*</span></label>
                             <input type="email" name="email" class="form-control" id="Email" placeholder="@lang('front.emaildaxilet')" value="{{ old('email') }}" required/>
-                            @error('email')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.email_email')</span>
-                                @enderror
+                           
                         </div>
-                        <div class="form-group create-cv-input-group col-12 @error('title') has-error @enderror">
-                            <label for="possession">@lang('front.vezife')</label>
+                        <div class="form-group create-cv-input-group col-12 ">
+                            <label for="possession">@lang('front.vezife')  <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="position" id="possession" placeholder="@lang('front.vezifedaxilet')" value="{{ old('position') }}" />
-                            @error('position')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.position_max')</span>
-                                @enderror
+                           
                         </div>
                         <h3 class="col-12">@lang('front.gostericiler')</h3>
-                        <div class="form-group create-cv-input-group col-md-4 @error('category') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-md-4">
                             <select class="form-control" name="category" id="cv_categories"  required>
                               <option disabled selected>@lang('front.cats')</option>
                               @php
@@ -133,7 +129,7 @@
                             </select>
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-md-4 @error('city') has-error @enderror ">
+                        <div class="form-group create-cv-input-group col-md-4  ">
                             <select class="form-control" name="city" id="city">
                               <option  disabled selected>@lang('front.city')</option>
                               @foreach($cities as $city)
@@ -152,7 +148,7 @@
                             </select>
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-md-4 @error('education') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-md-4 ">
                             <select class="form-control" name="education" id="education">
                                 <option selected disabled>@lang('front.educ')...</option>
                                 @foreach($educations as $education)
@@ -170,7 +166,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group create-cv-input-group col-md-4 @error('experience') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-md-4 ">
                             <select class="form-control" name="experience" id="exprience">
                                 <option selected disabled>@lang('front.exp')...</option>
                                 @foreach($experiences as $experience)
@@ -189,7 +185,7 @@
                             </select>
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-md-4 @error('jobtype') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-md-4 ">
                             <select class="form-control" name="jobtype" id="work_graf">
                                 <option selected disabled>@lang('front.jobtype')...</option>
                                 @foreach($jobtypes as $jobtype)
@@ -208,17 +204,17 @@
                             </select>
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-md-4 @error('salary') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-md-4 ">
                             <input type="number" class="form-control" name="salary" id="min-number" placeholder="@lang('front.minsalary')" />
                             
                         </div>
                         <h3 class="col-12">@lang('front.dogum')</h3>
-                        <div class="form-group create-cv-input-group col-md-4 @error('birth') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-md-4 ">
                             <label for="training_date">@lang('front.dogum')</label>
                             <input type="date" class="form-control" name="birth" id="birth_date"/>
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-md-4 @error('gender') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-md-4 ">
                             <label for="training_companies">@lang('front.cinssec')</label>
                             <select class="form-control" id="cins" name="gender">
                                 <option selected disabled>@lang('front.cinssec')...</option>
@@ -238,28 +234,26 @@
                             </select>
                            
                         </div>
-                        <div class="form-group create-cv-input-group col-md-4 @error('image') has-error @enderror">
-                            <label for="images">@lang('front.sekilsec')</label>
+                        <div class="form-group create-cv-input-group col-md-4 ">
+                            <label for="images">@lang('front.sekilsec')  <span class="text-danger">*</span></label>
                             <div class="custom-file create-cv-custom-file">
                                 <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" accept="image/png, image/jpeg, image/svg+xml, image/webp" required>
                                 <label class="custom-file-label add-image-label" for="image">@lang('front.elaveet')</label>
                             </div>
-                            @error('image')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.image_max')</span>
-                                @enderror
+                            
                         </div>
                         
-                        <div class="form-group create-cv-input-group col-12 @error('about_education') has-error @enderror ">
+                        <div class="form-group create-cv-input-group col-12  ">
                             <label for="training_information">@lang('front.tehsilhaq')</label>
                             <textarea class="form-control" name="about_education" id="education_information" rows="5" placeholder="@lang('front.melumatver')!" value="{{ old('about_education') }}"></textarea>
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-12 @error('work_experience') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-12 ">
                             <label for="training_information">@lang('front.techaq')</label>
                             <textarea class="form-control" name="work_experience" id="exprience_information" rows="5" placeholder="@lang('front.melumatver')!" value="{{ old('work_experince') }}"></textarea>
                             
                         </div>
-                        <div class="form-group create-cv-input-group col-12 @error('skills') has-error @enderror">
+                        <div class="form-group create-cv-input-group col-12 ">
                             <label for="training_information">@lang('front.serthaq')</label>
                             <textarea class="form-control" name="skills" id="certificate_information" rows="5" placeholder="@lang('front.melumatver')!" value="{{ old('skills') }}"></textarea>
                             
@@ -295,9 +289,7 @@
                         <div class="form-group create-cv-input-group col-md-6 @error('contact_email') has-error @enderror">
                             <label for="e_poçt">@lang('front.conmail')</label>
                             <input type="email" name="contact_mail" class="form-control" id="e_poçt" placeholder="@lang('front.emaildaxilet')" value="{{ old('contact_email') }}"  />
-                            @error('contact_email')
-                            <span class="text-danger" style="font-size: 14x">@lang('validation.contact_mail_email')</span>
-                            @enderror
+                            
                         </div>
                         <div class="form-group create-cv-input-group col-md-6 @error('contact_phone') has-error @enderror">
                             <label for="contact_number">@lang('front.contel')</label>
@@ -305,16 +297,14 @@
                             
                         </div>
                         
-                        <div class="form-group create-cv-input-group col-12 @error('cv') has-error @enderror">
-                            <label for="images2" class="add-cv-label">@lang('front.cv')</label>
+                        <div class="form-group create-cv-input-group col-12 ">
+                            <label for="images2" class="add-cv-label">@lang('front.cv')  <span class="text-danger">*</span></label>
                             <div class="custom-file add-cv-custom-file">
                                 <input type="file" name="cv" class="custom-file-input js-custom-file-input-enabled" accept="application/pdf,application/vnd.ms-excel" data-toggle="custom-file-input" id="images2" required>
                                 <label class="custom-file-label" for="image" id="file-label">@lang('front.yalnizpng')</label>
                                 <span id="file-name"></span> <!-- Dosya adını görüntülemek için eklenen <span> -->
                                 <div id="preview-container"></div>
-                                @error('cv')
-                                <span class="text-danger" style="font-size: 14px">@lang('validation.contact_mail_email')</span>
-                                @enderror
+                                
                             </div>
                         </div>
                         
@@ -363,13 +353,10 @@
 
                                     <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8.38092 12.2816L8.30584 12.3566L8.22325 12.2816C4.65696 9.04914 2.29945 6.91164 2.29945 4.74414C2.29945 3.24414 3.42565 2.11914 4.92724 2.11914C6.08347 2.11914 7.20967 2.86914 7.60759 3.88914H9.00408C9.402 2.86914 10.5282 2.11914 11.6844 2.11914C13.186 2.11914 14.3122 3.24414 14.3122 4.74414C14.3122 6.91164 11.9547 9.04914 8.38092 12.2816ZM11.6844 0.619141C10.378 0.619141 9.12421 1.22664 8.30584 2.17914C7.48747 1.22664 6.23363 0.619141 4.92724 0.619141C2.61478 0.619141 0.797852 2.42664 0.797852 4.74414C0.797852 7.57164 3.35057 9.88914 7.21718 13.3916L8.30584 14.3816L9.3945 13.3916C13.2611 9.88914 15.8138 7.57164 15.8138 4.74414C15.8138 2.42664 13.9969 0.619141 11.6844 0.619141Z" fill="#8843E1"></path>
-                                        
                                     </svg>
-                                    <img class="job-edit-img" src="{{asset('back/assets/images/icons/Vector.png')}}" alt=""/>
-                                    
+                                    <img class="job-edit-img" src="{{asset('back/assets/images/icons/training-list-message.png')}}" alt=""/>
 
                                     <div class="jobsearch-card-information">
-
                                         <h4>{{$cv->name}} {{$cv->surname}}</h4>
                                         <p>{{$cv->position}}</p>
                                         <h3>{{ $cv->salary ? $cv->salary.'₼' : '~' }}</h3>

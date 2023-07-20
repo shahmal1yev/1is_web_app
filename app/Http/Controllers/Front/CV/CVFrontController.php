@@ -290,6 +290,7 @@ class CVFrontController extends Controller
             }
             $cv->slug = $slug;
             $cv->status = '0';
+            
             $data=[];
             $data['email_name']='1is.az';
             $data['subject']='Verification';
@@ -297,7 +298,11 @@ class CVFrontController extends Controller
         
             Cv-niz uğurla əlavə edildi.';        
         
-            Mail::to($cv->email)->send(new SendCvMail($data));
+            if (env("APP_ENV") !== "local")
+            {
+                Mail::to($cv->email)->send(new SendCvMail($data));
+            }
+
             $cv->save();
     
             return redirect()->route('cvindex')->with('success', __('messages.succv'));

@@ -22,7 +22,6 @@ class ReviewController extends Controller
     public function reviewPost(Request $request){
         $request->validate([
             'id'=>'required',
-            'message'=>'required',
             'status'=>'required'
         ]);
         $review = Review::find($request->id);
