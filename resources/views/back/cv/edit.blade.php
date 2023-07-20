@@ -197,7 +197,7 @@
                             </div>
                             
                             <div class="container" data-repeater-list="group-a">
-                                <div id="repeater">
+                                <div id="repeater1">
                                     <label for="" class="form-label">@lang('front.portfolio')</label> <br>
                                     <input type="button" id="createElement" class="btn btn-danger" value="İş Yeri Əlavə Et" />
                                     <div class='row' id="structure" style="display:none">
@@ -295,9 +295,9 @@
     </div>
     <!-- end row -->
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script> -->
 
-<script src="{{asset('front/js/repeater.js')}}"></script>
+<!-- <script src="{{asset('front/js/repeater.js')}}"></script> -->
 
 @section('css')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -366,12 +366,14 @@
     </style>
 @endsection
 @section('js')
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="{{asset('back/js/repeater.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/z18njsd2wp7b71bq9pvmfw9g8jmaaa2nog8tj87p4jdnkmk1/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- form repeater js -->
-    <script src="{{asset('back/assets/libs/jquery.repeater/jquery.repeater.min.js')}}"></script>
+    <!-- <script src="{{asset('back/assets/libs/jquery.repeater/jquery.repeater.min.js')}}"></script> -->
 
-    <script src="{{asset('back/assets/js/pages/form-repeater.int.js')}}"></script>
+    <!-- <script src="{{asset('back/assets/js/pages/form-repeater.int.js')}}"></script> -->
     <script>
         const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
@@ -464,7 +466,7 @@
     </script>
 <script>
     $(function () {
-      $("#repeater").repeater({
+      $("#repeater1").repeater({
         items: [
           {
             elements: [
