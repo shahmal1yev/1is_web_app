@@ -478,7 +478,7 @@ button:focus {
 .filter-input {
   outline: none;
   border: none;
-  background: #F4F9FD!important;
+  background: #f8f0fb!important;
   padding-left: 10px;
   font-family: "Montserrat";
   font-style: normal;
@@ -1030,6 +1030,16 @@ p {
 #training_payment-error, 
 #images-error {
   color: rgb(248, 57, 57)!important;
+}
+
+.filter1 {
+  width: calc(100% - 320px);
+  display: flex;
+  align-items: center;
+}
+
+.filter1 input {
+  width: 100%;
 }
 
 @media screen and (min-width: 1024px) {
