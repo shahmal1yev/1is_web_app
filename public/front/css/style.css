@@ -1023,6 +1023,15 @@ p {
     display: none;
 }
 
+#training_name-error,
+#training_date-error, 
+#training_companies-error, 
+#training_url-error, 
+#training_payment-error, 
+#images-error {
+  color: rgb(248, 57, 57)!important;
+}
+
 @media screen and (min-width: 1024px) {
   .disabled-filter{
     top: 66%;
