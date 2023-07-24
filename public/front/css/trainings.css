@@ -299,3 +299,18 @@
     color: #495057!important;
   }
   
+  .training-form-div {
+    padding: 20px 15px!important;
+  }
+
+  .training-form-div .filter1 {
+    width: calc(100% - 140px);
+    gap: 10px;
+  }
+
+  .training-form-div input {
+    border: none;
+    outline: none;
+    background-color: #F4F9FD!important;
+    font-size: 18px;
+  }

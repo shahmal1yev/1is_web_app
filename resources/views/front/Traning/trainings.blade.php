@@ -11,11 +11,15 @@
     <div>
       <h3>@lang('front.training')</h3>
       <form class="container blog-header-container" method="GET" action="{{route('telimaxtar')}}">
-        <div>
-          <img src="{{asset('back/assets/images/icons/search.png')}}" alt="search">
-          <input type="text" placeholder="@lang('front.axtar')" type="search" name="query"/>
+        <div class="training-form-div">
+          <div class="filter1">
+            <img src="{{asset('back/assets/images/icons/search.png')}}" alt="search">
+            <input type="text" placeholder="@lang('front.axtar')" type="search" name="query"/>
+          </div>
+          <div class="filter2">
+            <button class="filter-searc">@lang('front.axtar')</button>
+          </div>
         </div>
-        <button>@lang('front.axtar')</button>
   </section>
 
 
