@@ -15,6 +15,22 @@
         padding: 12px 14px!important;
     }
 
+    .remove-btn{
+        color: #fff !important; 
+    }
+
+    .flexend{
+        align-self: end;
+    }
+
+    #div1{
+        margin-top: 2% !important;
+    }
+    
+    .entry{
+        margin-top: 2% !important;
+    }
+
     .removeElement{
         margin-left: 15px;
         /* padding: 0px 15px; */
@@ -196,31 +212,9 @@
                                 <input class="form-control" type="file" id="cv" name="cv" accept="application/pdf,application/msword" >
                             </div>
                             
-                            <div class="container" data-repeater-list="group-a">
-                                <div id="repeater1">
-                                    <label for="" class="form-label">@lang('front.portfolio')</label> <br>
-                                    <input type="button" id="createElement" class="btn btn-danger" value="İş Yeri Əlavə Et" />
-                                    <div class='row' id="structure" style="display:none">
-                                        <div class='col-lg-3'>
-                                            <label for='first-name'>@lang('front.isinadi')</label> <br>
-                                            <input type="text" name="work_name" id="job_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
-                                        </div>
-                                        <div class='col-lg-3'>
-                                            <br>
-                                            <label for='first-name'> @lang('front.companies')</label> <br>
-                                            <input type="text" name="work_company" id="comp_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
-                                        </div>
-                                        <div class='col-lg-3'>
-                                        <br>
-                                            <label for='first-name'>@lang('front.link')</label> <br>
-                                            <input type="url" name="work_link" id="comp_linkk" value="" class="form-control" placeholder="@lang('front.daxilet')" />
-                                        </div>
-                                    </div>
-                                    <div id="containerElement"></div>   
-                                </div>
-                            </div>
+                           
 
-                        <div class="container" data-repeater-list="group-a">
+                        <!-- <div class="container" data-repeater-list="group-a">
 
                         @php
                             $portfolio = json_decode($cv->portfolio, true);
@@ -282,17 +276,150 @@
                                 }
                                                                         
                             </script>
+                        </div> -->
+                        
+
+                        
+                <!-- NEW REPEATER START -->
+                <div class="row targetDiv" id="div0">
+                    <div class="col-md-12">
+                        <h4>Is Yeri</h4>
+                        <div id="group1">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Isin adi</label>
+                                        <input
+                                        class="form-control"
+                                        name=""
+                                        type="text"
+                                        placeholder="job name"
+                                        />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Sirket</label>
+                                        <input
+                                        class="form-control"
+                                        name=""
+                                        type="text"
+                                        placeholder="company"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Link</label>
+                                        <input
+                                        class="form-control"
+                                        name=""
+                                        type="text"
+                                        placeholder="link"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row justify-content-end" >
+                    </div>
+                </div>
+  
+                <!-- REPEATING DIV -->
+                <div class="row targetDiv" id="div1">
+                    <div class="col-md-12">
+                        <div id="group2" class="fvrduplicate">
+                            <div class="row entry">
+                                <!-- Field Start -->
+                                <div class="col-xs-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Isin adi</label>
+                                            <input
+                                            class="form-control"
+                                            name=""
+                                            type="text"
+                                            placeholder="job name"
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-xs-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Sirket</label>
+                                            <input
+                                            class="form-control"
+                                            name=""
+                                            type="text"
+                                            placeholder="company"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Link</label>
+                                            <input
+                                            class="form-control"
+                                            name=""
+                                            type="text"
+                                            placeholder="link"
+                                            />
+                                        </div>
+                                    </div>
+                                <div class="col-xs-12 col-md-2 flexend">
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <button type="button" class="btn btn-success btn-sm btn-add ">
+                                            Portfolio Elave Et
+                                    </button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- NEW REPEATER FINISH -->
+
+
+                        <div class="row justify-content-end mt-5" >
                             <div class="col-lg-12 text-center">
                                 <button type="submit" class="btn btn-primary">Əlavə et</button>
                             </div>
                         </div>
                     </form>
                 </div>
+                
+
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(document)
+            .on("click", ".btn-add", function (e) {
+                e.preventDefault();
+                var controlForm = $(this).closest(".fvrduplicate"),
+                currentEntry = $(this).parents(".entry:first"),
+                newEntry = $(currentEntry.clone()).appendTo(controlForm);
+                newEntry.find("input").val("");
+                controlForm
+                .find(".entry:not(:first) .btn-add")
+                .removeClass("btn-add")
+                .addClass("btn-remove")
+                .removeClass("btn-success")
+                .addClass("btn-danger")
+                .html('<button class="btn btn-sm remove-btn" aria-hidden="true">Sil</button>');
+            })
+            .on("click", ".btn-remove", function (e) {
+                $(this).closest(".entry").remove();
+                return false;
+            });
+        });
+    </script>
+    
     <!-- end row -->
 @endsection
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script> -->
