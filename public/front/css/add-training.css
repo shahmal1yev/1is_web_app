@@ -326,3 +326,7 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #495057!important;
 }  
+
+#training_url-error {
+    display: none;
+}

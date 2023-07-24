@@ -77,7 +77,7 @@
                     <div class="form-group add-training-input-group">
                         <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
                         <input type="url" name="link" placeholder="@lang('front.urldaxilet')" class="form-control" id="training_url" value="{{old('link')}}" />
-                        
+                        <label id="training_url-error" class="error" for="training_url">Bu sahə doldurulmalıdır!</label>
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_payment">@lang('front.odenistip') <span class="text-danger">*</span></label>
@@ -424,5 +424,20 @@
     });
 
    
+</script>
+
+<script>
+    const training_url = document.querySelector('#training_url');
+    const register_form = document.querySelector('#register_form');
+    const training_url_error = document.querySelector('#training_url-error');
+    
+    register_form.addEventListener('submit', (e) => {
+        if(training_url.value === '') {
+            training_url_error.style.display = 'block';
+            e.preventDefault();
+        }else {
+            training_url_error.style.display = 'none';
+        }
+    });
 </script>
 @endsection
