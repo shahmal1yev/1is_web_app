@@ -49,13 +49,13 @@
                             
                             <div class="form-group company-announce-input-group col-12 ">
                                 <label for="possession">@lang('front.vezife') <span class="text-danger">*</span></label>
-                                <input type="text" name="position" class="form-control" id="possession" placeholder="@lang('front.vezife')" value="{{ old('position') }}" required />
+                                <input type="text" name="position" class="form-control" id="possession" placeholder="@lang('front.vezife')" value="{{ old('position') }}"  />
                                 
                                 
                                 </div>
                             <div class="form-group company-announce-input-group col-12">
                                 <label for="city">@lang('front.city') <span class="text-danger">*</span></label>
-                                <select class="form-control" name="city" id="category" onchange="getRegion(this.value)" required >
+                                <select class="form-control" name="city" id="category" onchange="getRegion(this.value)"  >
                                     <option value="" selected disabled>@lang('front.birsec')...</option>
                                     @php
                                         $lang = config('app.locale');
@@ -96,7 +96,7 @@
                                 </div>
                             <div class="form-group company-announce-input-group col-md-6">
                                 <label for="category">@lang('front.cat') <span class="text-danger">*</span></label>
-                                <select name="category" id="category" class="form-control" required>
+                                <select name="category" id="category" class="form-control" >
                                     <option value="" selected disabled>@lang('front.cat')...</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}"@if(old('category') == $category->id) selected @endif>
@@ -115,7 +115,7 @@
                             </div>
                             <div class="form-group company-announce-input-group col-md-6">
                                 <label for="work_graf">@lang('front.jobtype') <span class="text-danger">*</span></label>
-                                    <select name="jobtype" id="jobtype" class="form-control" required >
+                                    <select name="jobtype" id="jobtype" class="form-control" >
                                         @foreach($jobtypes as $jobtype)
                                             <option value="{{$jobtype->id}}" @if(old('jobtype') == $jobtype->id) selected @endif>
                                                 @if ($lang == 'EN')
@@ -144,22 +144,18 @@
                                 <label for="musahibe" class="musahibe-check-label">@lang('front.musahibe') <span class="text-danger">*</span></label>
                                 <input type="checkbox" class="musahibe-check-input" id="musahibe" name="salary_type" />
                             </div>
-                            <div class="form-group company-announce-input-group col-md-6 @error('min_age') has-error @enderror ">
+                            <div class="form-group company-announce-input-group col-md-6  ">
                                 <input type="number" class="form-control" id="age_min" name="min_age" placeholder="@lang('front.minyas'):" value="{{ old('min_age') }}" />
-                                @error('min_age')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.min_age_numeric')</span>
-                                @enderror
+                                
                             </div>
-                            <div class="form-group company-announce-input-group col-md-6 @error('max_age') has-error @enderror ">
+                            <div class="form-group company-announce-input-group col-md-6  ">
                                 <input type="number" class="form-control" id="age_max" name="max_age" placeholder="@lang('front.maxyas'):" value="{{ old('max_age') }}"/>
-                                @error('max_age')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.max_age_numeric')</span>
-                                @enderror
+                                
                             </div>
                             <div class="form-group company-announce-input-group col-md-6 ">
                                 <label for="accept_cv">@lang('front.expsec') <span class="text-danger">*</span></label>
 
-                                <select name="experience" id="experience" class="form-control" required>
+                                <select name="experience" id="experience" class="form-control" >
                                     <option value="" selected disabled>@lang('front.expsec')...</option>
                                     @foreach($experiences as $experience)
                                         <option value="{{$experience->id}}"@if(old('experience') == $experience->id) selected @endif>
@@ -177,10 +173,10 @@
                                 </select>
                                 
                             </div>
-                            <div class="form-group company-announce-input-group col-md-6 @error('education') has-error @enderror ">
+                            <div class="form-group company-announce-input-group col-md-6  ">
                                 <label for="accept_cv">@lang('front.tehsilsec')  <span class="text-danger">*</span></label>
 
-                                <select name="education" id="education" class="form-control" required>
+                                <select name="education" id="education" class="form-control" >
                                     <option value="" selected disabled>@lang('front.tehsilsec')...</option>
                                     @foreach($educations as $education)
                                         <option value="{{$education->id}}" @if(old('education') == $education->id) selected @endif>
@@ -198,19 +194,19 @@
                                 </select>
                                 
                             </div>
-                            <div class="form-group company-announce-input-group col-12 @error('requirements') has-error @enderror">
+                            <div class="form-group company-announce-input-group col-12">
                                 <label for="demands">@lang('front.namteleb') <span class="text-danger">*</span></label>
                                 <textarea name="requirements" class="form-control" id="demands" rows="5" placeholder="@lang('front.melumatver')!">{{ old('requirements') }}</textarea>
                             </div>
                             
-                            <div class="form-group company-announce-input-group col-12 @error('description') has-error @enderror">
+                            <div class="form-group company-announce-input-group col-12 ">
                                 <label for="about_work">@lang('front.ismelumat') <span class="text-danger">*</span></label>
                                 <textarea name="description" class="form-control" id="about_work" rows="5" placeholder="@lang('front.melumatver')!">{{ old('description') }}</textarea>
                                
                             </div>
-                            <div class="form-group company-announce-input-group col-12 @error('company') has-error @enderror">
+                            <div class="form-group company-announce-input-group col-12">
                                 <label for="companies">@lang('front.companies') <span class="text-danger">*</span></label>
-                                <select class="form-control" id="companies" name="company" required value="{{ old('company') }}" required>
+                                <select class="form-control" id="companies" name="company"  value="{{ old('company') }}" >
                                     <option value="" selected disabled>@lang('front.sirketsec')...</option>
                                     @foreach($companies as $company)
                                         <option value="{{$company->id}}"@if(old('company') == $company->id) selected @endif>{{$company->name}}</option>
@@ -218,14 +214,14 @@
                                 </select>
                                 
                             </div>
-                            <div class="form-group company-announce-input-group col-12 @error('contact_name') has-error @enderror">
+                            <div class="form-group company-announce-input-group col-12 ">
                                 <label for="responsible_person">@lang('front.elaqesexs')</label>
                                 <input type="text" name="contact_name" class="form-control" id="responsible_person" placeholder="@lang('front.adsoyad')" value="{{ old('contact_name') }}">
                             </div>
 
-                            <div class="form-group company-announce-input-group col-12 @error('accept_type') has-error @enderror">
+                            <div class="form-group company-announce-input-group col-12">
                                 <label for="accept_cv">@lang('front.cvqebull')  <span class="text-danger">*</span></label>
-                                <select name="accept_type" id="accept_type" class="form-control" onchange="getContact(this.value)" required>
+                                <select name="accept_type" id="accept_type" class="form-control" onchange="getContact(this.value)" >
                                     <option selected disabled>@lang('front.birsec')...</option>
                                     @foreach($types as $key=>$type)
                                         <option value="{{$key}}" @if(old('accept_type') == $type->id) selected @endif>
@@ -241,33 +237,25 @@
                                     </option>
                                     @endforeach
                                 </select>
-                                @error('accept_type')
-                                <span class="text-danger" style="font-size: 14px">{{$message}}</span>
-                                @enderror
+                                
                             </div>
                             
                             <div class="col-lg-12 mb-4 @error('contact_link') has-error @enderror" id="type_link" @if ($errors->has('contact_link')) style="display:block" @else style="display:none" @endif>
                                 <label for="contact_link" class="form-label">@lang('front.contactlink') <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" id="contact_link" name="contact_link" placeholder="@lang('front.contactlink'):" value="{{old('contact_link')}}">
-                                @error('contact_link')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.contact_link_active_url')</span>
-                                @enderror
+                                
                             </div>
                             
                             <div class="col-lg-12 mb-4 @error('contact_email') has-error @enderror" id="type_email" @if ($errors->has('contact_email')) style="display:block" @else style="display:none" @endif>
                                 <label for="contact_email" class="form-label">@lang('front.conmail') <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" id="contact_email" name="contact_email" placeholder="@lang('front.conmail'):" value="{{old('contact_email')}}">
-                                @error('contact_email')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.contact_email_email')</span>
-                                @enderror
+                                
                             </div>
                             
-                            <div class="form-group company-announce-input-group col-12 @error('deadline') has-error @enderror">
+                            <div class="form-group company-announce-input-group col-12 ">
                                 <label for="end_date">@lang('front.deadline') <span class="text-danger">*</span></label>
-                                <input type="date" class="form-control" name="deadline" id="end_date" required value="{{ old('deadline') }}"/>
-                                @error('deadline')
-                                <span class="text-danger" style="font-size: 14x">@lang('validation.deadline_date')</span>
-                                @enderror
+                                <input type="date" class="form-control" name="deadline" id="end_date"  value="{{ old('deadline') }}"/>
+                               
                             </div>
                             
                             <div class="col-md-8 d-flex align-items-center ">
@@ -285,8 +273,226 @@
     </section>
 @endsection
 
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+
+
 <script>
-    
+    $(document).ready(function() {
+        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+
+        function getErrorMessage(field, lang) {
+            var errorMessages = {
+                required: {
+                    'AZ': 'Bu sahə doldurulmalıdır!',
+                    'EN': 'This field is required!',
+                    'RU': 'Поле обязательно для заполнения!',
+                    'TR': 'Bu alan zorunludur!'
+                },
+                email: {
+                    'AZ': 'Düzgün bir email adresi daxil edin.',
+                    'EN': 'Please enter a valid email address.',
+                    'RU': 'Введите действительный адрес электронной почты.',
+                    'TR': 'Geçerli bir email adresi giriniz.'
+                },
+
+               
+            };
+
+            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+        }
+
+        $("#v-pills-home").validate({
+            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+            
+            rules: {
+                position: {
+                    required: true,
+                    maxlength: 1000,
+
+                },
+                city: {
+                    required: true,
+                },
+                category: {
+                    required: true,
+                },
+                jobtype: {
+                    required: true,
+                },
+                salary_type: {
+                    required: function(element) {
+                        return !$("#min").val() && !$("#max").val();
+                    }
+                },
+                min_salary: {
+                    required: function(element) {
+                        return !$("#musahibe").is(":checked");
+                    }
+                },
+                max_salary: {
+                    required: function(element) {
+                        return !$("#musahibe").is(":checked");
+                    }
+                },
+                
+                min_age: {
+                    required: true,
+                },
+                max_age: {
+                    required: true,
+                },
+                experience: {
+                    required: true,
+                },
+                education: {
+                    required: true,
+                },
+                requirements: {
+                    required: true,
+                },
+                description: {
+                    required: true,
+                },
+                company: {
+                    required: true,
+                },
+                accept_type: {
+                    required: true,
+                },
+                contact_link: {
+                    required: function(element) {
+                        return $("#accept_type").val() === '2';
+                    }
+                },
+                contact_email: {
+                    required: function(element) {
+                        return $("#accept_type").val() === '0';
+                    },
+                    email: true,
+
+                },
+                deadline: {
+                    required: true,
+                },
+                
+                
+
+            },
+            messages: {
+                position: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+
+                city: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                category: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                jobtype: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+
+                salary_type: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                min_age: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                max_age: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                experience: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                education: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                requirements: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                description: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                company: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                accept_type: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                contact_email: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    email: function() {
+                        return getErrorMessage('email', lang);
+                    },
+                  
+                },
+                contact_link: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                deadline: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                           
+            },
+            submitHandler: function(form) {
+                form.submit(); // Formu gönder
+            },
+            errorPlacement: function(error, element) {
+            error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+            }
+        });
+    });
         function getContact(id){
             if(id == 0){
                 $('#type_email').slideDown();
@@ -298,7 +504,7 @@
                 $('#type_email').slideUp();
                 $('#type_link').slideUp();
             }
-}
+    }
 
     function getRegion(id){
         if(id == 1){

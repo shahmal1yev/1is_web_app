@@ -237,8 +237,6 @@ class VacancyFrontController extends Controller
                 $name = $directory.$name;
                 $company->image = $name;
         }
-           
-        
         
         $company->save();
         
@@ -256,132 +254,6 @@ class VacancyFrontController extends Controller
      }
 
     }
-
-    public function compedit($id){
-        $banner = BannerImage::where('status','1')->get();
-
-        $company = Companies::find($id);
-        $userId = auth()->user()->id;
-
-        if(!$company || $company->user_id !== $userId) {
-            abort(404);
-        }
-        $sectors = Sectors::where('status','1')->get();
-        return View('front.Announces.editcomp', get_defined_vars());
-    }
-
-
-    public function companiesEditPost(Request $request){
-        {
-            $req = $request->all();
-            $rules = [
-                'about'=>'min:20',
-                'address'=>'max:255',
-                'website'=>'max:255',
-                'instagram'=>'max:255',
-                'facebook'=>'max:255',
-                'linkedin'=>'max:255',
-                'twitter'=>'max:255',
-                'image'=>'max:5120',
-            ];
-                
-                
-                $request->validate($rules);
-                
-    
-            try {
-        $company = Companies::find($request->id);
-        $company->sector_id  = $request->sector;
-        $company->name = $request->name;
-        $slug = Str::slug($request->name);
-        if(Companies::where([['slug',$slug],['id','<>',$company->id]])->first()){
-            $slug = $slug.rand(1000,9999);
-        }
-        $company->slug = $slug;
-        $company->about = $request->about;
-        $company->hr = $request->hr;
-        $company->address = $request->address;
-        $company->website = $request->website;
-        $company->map = $request->map;
-        $company->instagram = $request->instagram;
-        $company->facebook = $request->facebook;
-        $company->linkedin = $request->linkedin;
-        $company->twitter = $request->twitter;
-        if ($request->hasFile('image')) {
-            $request->validate([
-                'image'=>'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:1024',
-            ]);
-            $image = $request->file('image');
-            $name = 'company_'.Str::random(6).'.'.$image->getClientOriginalExtension();
-            $old_image = $company->image;
-            if(file_exists($old_image)){
-                unlink($old_image);
-            }
-            $directory = 'back/assets/images/companies/';
-            $image->move($directory, $name);
-            $name = $directory.$name;
-            $company->image = $name;
-            $company->status = 0;
-            }
-
-           
-
-        $user = Auth::user();
-        if ($user) {
-        $userEmail = $user->email;
-
-        }
-        
-        $company->save();
-        return redirect()->route('announcesindex')->with('success', __('messages.compyeni'));
-        } 
-        catch (\Throwable $e) {
-            return redirect()->route('announcesindex')->with('error', $e->getMessage());
-        }
-        }
-    }
-
-
-    public function createAnnounces(){
-        $banner = BannerImage::where('status','1')->get();
-
-        $userId = auth()->user()->id;
-        $companies = Companies::where('user_id', $userId)->get();
-        $categories = Categories::all();
-        $cities = Cities::all();
-        $regions = Regions::all();
-        $jobtypes = JobType::all();
-        $experiences = Experiences::all();
-        $educations = Educations::all();
-        $types = AcceptType::all();
-        return View('front.Announces.createAnnounces', get_defined_vars());
-    }
-
-    public function delete($id)
-        {
-            $vacancy = Vacancies::findOrFail($id);
-                        
-            $vacancy->delete();
-            
-            return redirect()->back()->with('success', __('messages.vacsil'));
-    }
-   
-    
-    public function myAnnounces(){ 
-        $banner = BannerImage::where('status','1')->get();
-
-        $userId = auth()->user()->id;
-        $companies = Companies::where('user_id', $userId)->get();
-        $vacancies = Vacancies::join('companies','companies.id','=','vacancies.company_id')
-        ->join('users','users.id','=','vacancies.user_id')
-        ->join('sectors','sectors.id','=','companies.sector_id')
-        ->join('categories','categories.id','=','vacancies.category_id')
-        ->select('vacancies.id','companies.id as company_id','categories.id as category_id','companies.name','vacancies.position','vacancies.view','vacancies.created_at','users.id as user_id','sectors.id as sector_id','categories.title_az as sectors_title', 'vacancies.status')
-        ->where('vacancies.user_id', $userId)
-        ->orderBy('vacancies.created_at','desc')
-        ->get();
-        return View('front.Announces.myAnnounces', get_defined_vars());
-    }  
 
     public function elanEdit($id){
         $banner = BannerImage::where('status','1')->get();
@@ -513,9 +385,137 @@ class VacancyFrontController extends Controller
             $vacancy->save();
             return redirect()->route('myAnnounces')->with('success', __('messages.elanyeni'));
         } catch (\Exception $e) {
-            return redirect()->route('myAnnounces')->with('error','Bir hata oluştu: '.$e->getMessage());
+            return redirect()->route('myAnnounces')->with('error',$e->getMessage());
         }
     }
+    
+
+    public function compedit($id){
+        $banner = BannerImage::where('status','1')->get();
+
+        $company = Companies::find($id);
+        $userId = auth()->user()->id;
+
+        if(!$company || $company->user_id !== $userId) {
+            abort(404);
+        }
+        $sectors = Sectors::where('status','1')->get();
+        return View('front.Announces.editcomp', get_defined_vars());
+    }
+
+
+    public function companiesEditPost(Request $request){
+        {
+            $req = $request->all();
+            $rules = [
+                'about'=>'min:20',
+                'address'=>'max:255',
+                'website'=>'max:255',
+                'instagram'=>'max:255',
+                'facebook'=>'max:255',
+                'linkedin'=>'max:255',
+                'twitter'=>'max:255',
+                'image'=>'max:5120',
+            ];
+                
+                
+                $request->validate($rules);
+                
+    
+            try {
+        $company = Companies::find($request->id);
+        $company->sector_id  = $request->sector;
+        $company->name = $request->name;
+        $slug = Str::slug($request->name);
+        if(Companies::where([['slug',$slug],['id','<>',$company->id]])->first()){
+            $slug = $slug.rand(1000,9999);
+        }
+        $company->slug = $slug;
+        $company->about = $request->about;
+        $company->hr = $request->hr;
+        $company->address = $request->address;
+        $company->website = $request->website;
+        $company->map = $request->map;
+        $company->instagram = $request->instagram;
+        $company->facebook = $request->facebook;
+        $company->linkedin = $request->linkedin;
+        $company->twitter = $request->twitter;
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image'=>'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:1024',
+            ]);
+            $image = $request->file('image');
+            $name = 'company_'.Str::random(6).'.'.$image->getClientOriginalExtension();
+            $old_image = $company->image;
+            if(file_exists($old_image)){
+                unlink($old_image);
+            }
+            $directory = 'back/assets/images/companies/';
+            $image->move($directory, $name);
+            $name = $directory.$name;
+            $company->image = $name;
+            $company->status = 0;
+            }
+
+           
+
+        $user = Auth::user();
+        if ($user) {
+        $userEmail = $user->email;
+
+        }
+        
+        $company->save();
+        return redirect()->route('announcesindex')->with('success', __('messages.compyeni'));
+        } 
+        catch (\Throwable $e) {
+            return redirect()->route('announcesindex')->with('error', $e->getMessage());
+        }
+        }
+    }
+
+
+    public function createAnnounces(){
+        $banner = BannerImage::where('status','1')->get();
+
+        $userId = auth()->user()->id;
+        $companies = Companies::where('user_id', $userId)->get();
+        $categories = Categories::all();
+        $cities = Cities::all();
+        $regions = Regions::all();
+        $jobtypes = JobType::all();
+        $experiences = Experiences::all();
+        $educations = Educations::all();
+        $types = AcceptType::all();
+        return View('front.Announces.createAnnounces', get_defined_vars());
+    }
+
+    public function delete($id)
+        {
+            $vacancy = Vacancies::findOrFail($id);
+                        
+            $vacancy->delete();
+            
+            return redirect()->back()->with('success', __('messages.vacsil'));
+    }
+   
+    
+    public function myAnnounces(){ 
+        $banner = BannerImage::where('status','1')->get();
+
+        $userId = auth()->user()->id;
+        $companies = Companies::where('user_id', $userId)->get();
+        $vacancies = Vacancies::join('companies','companies.id','=','vacancies.company_id')
+        ->join('users','users.id','=','vacancies.user_id')
+        ->join('sectors','sectors.id','=','companies.sector_id')
+        ->join('categories','categories.id','=','vacancies.category_id')
+        ->select('vacancies.id','companies.id as company_id','categories.id as category_id','companies.name','vacancies.position','vacancies.view','vacancies.created_at','users.id as user_id','sectors.id as sector_id','categories.title_az as sectors_title', 'vacancies.status')
+        ->where('vacancies.user_id', $userId)
+        ->orderBy('vacancies.created_at','desc')
+        ->get();
+        return View('front.Announces.myAnnounces', get_defined_vars());
+    }  
+
     
    
     public function candidate()
