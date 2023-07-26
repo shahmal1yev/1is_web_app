@@ -10,7 +10,7 @@
       <div>
           <h3>@lang('front.blog')</h3>
       </div>
-      <form class="container blog-header-container" method="GET" action="{{route('blogsearch')}}">
+      <form class="container blog-header-container blog-search" method="GET" action="{{route('blogsearch')}}">
         <div>
           <img src="{{asset('back/assets/images/icons/search.png')}}" alt="search">
           <input type="text" placeholder="@lang('front.axtar')" type="search" name="query" value="{{ old('query', $blogs) }}"/>

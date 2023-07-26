@@ -10,7 +10,7 @@
 <section class="header-info">
     <div>
       <h3>@lang('front.training')</h3>
-      <form class="container blog-header-container" method="GET" action="{{route('telimaxtar')}}">
+      <form class="container blog-header-container training-search" method="GET" action="{{route('telimaxtar')}}">
         <div>
           <img src="{{asset('back/assets/images/icons/search.png')}}" alt="search">
           <input type="text" placeholder="@lang('front.axtar')" type="search" name="query" value="{{ old('query', $training) }}"/>
@@ -91,6 +91,11 @@
 
     </div>
 
+   
+
+  </div>
+ <!-- BLOG PAGİNATİON -->
+
     <!-- BLOG PAGİNATİON -->
     <footer aria-label="..." class="d-flex justify-content-center pagination-nav">
       @if ($alltrainings->hasPages())
@@ -130,8 +135,8 @@
       </ul>
     </footer>
 
-  </div>
 
+  </div>
   
 
 @endif

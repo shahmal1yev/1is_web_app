@@ -1123,7 +1123,9 @@ p {
   }
 }
 
-
+footer {
+  width: 100%;
+}
 
 
 @media screen and (max-width: 955px) {
@@ -1248,6 +1250,7 @@ p {
 
 /* FOOTER CSS START */
 .footer {
+  width: 100%;
   background: #221238;
   padding-top: 50px;
 }
