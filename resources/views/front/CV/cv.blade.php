@@ -83,22 +83,22 @@
                         <h3 class="col-12"></h3>
                         <div class="form-group create-cv-input-group col-md-6">
                             <label for="name">@lang('front.ad')  <span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="@lang('front.addaxilet')" value="{{ old('name') }}" required />
+                            <input type="text" name="name" class="form-control" id="name" placeholder="@lang('front.addaxilet')" value="{{ old('name') }}"  />
                            
                         </div>
                         <div class="form-group create-cv-input-group col-md-6">
                             <label for="surName">@lang('front.soyad')  <span class="text-danger">*</span></label>
-                            <input type="text" name="surname" class="form-control" id="surName" placeholder="@lang('front.soyaddaxil')" value="{{ old('surname') }}" required />
+                            <input type="text" name="surname" class="form-control" id="surName" placeholder="@lang('front.soyaddaxil')" value="{{ old('surname') }}"  />
                             
                         </div>
                         <div class="form-group create-cv-input-group col-md-6">
                             <label for="fatherName">@lang('front.ata')  <span class="text-danger">*</span></label>
-                            <input type="text" name="father_name" class="form-control" id="fatherName" placeholder="@lang('front.atadaxilet')" value="{{ old('father_name') }}" required />
+                            <input type="text" name="father_name" class="form-control" id="fatherName" placeholder="@lang('front.atadaxilet')" value="{{ old('father_name') }}"  />
                             
                         </div>
                         <div class="form-group create-cv-input-group col-md-6">
                             <label for="Email">@lang('front.epoct') <span class="text-danger">*</span></label>
-                            <input type="email" name="email" class="form-control" id="Email" placeholder="@lang('front.emaildaxilet')" value="{{ old('email') }}" required/>
+                            <input type="email" name="email" class="form-control" id="Email" placeholder="@lang('front.emaildaxilet')" value="{{ old('email') }}" />
                            
                         </div>
                         <div class="form-group create-cv-input-group col-12 ">
@@ -108,7 +108,7 @@
                         </div>
                         <h3 class="col-12">@lang('front.gostericiler')</h3>
                         <div class="form-group create-cv-input-group col-md-4">
-                            <select class="form-control" name="category" id="cv_categories"  required>
+                            <select class="form-control" name="category" id="cv_categories"  >
                               <option disabled selected>@lang('front.cats')</option>
                               @php
                                 $lang = config('app.locale');
@@ -237,7 +237,7 @@
                         <div class="form-group create-cv-input-group col-md-4 ">
                             <label for="images">@lang('front.sekilsec')  <span class="text-danger">*</span></label>
                             <div class="custom-file create-cv-custom-file">
-                                <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" accept="image/png, image/jpeg, image/svg+xml, image/webp" required>
+                                <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" accept="image/png, image/jpeg, image/svg+xml, image/webp">
                                 <label class="custom-file-label add-image-label" for="image">@lang('front.elaveet')</label>
                             </div>
                             
@@ -300,7 +300,7 @@
                         <div class="form-group create-cv-input-group col-12 ">
                             <label for="images2" class="add-cv-label">@lang('front.cv')  <span class="text-danger">*</span></label>
                             <div class="custom-file add-cv-custom-file">
-                                <input type="file" name="cv" class="custom-file-input js-custom-file-input-enabled" accept="application/pdf,application/vnd.ms-excel" data-toggle="custom-file-input" id="images2" required>
+                                <input type="file" name="cv" class="custom-file-input js-custom-file-input-enabled" accept="application/pdf,application/vnd.ms-excel" data-toggle="custom-file-input" id="images2">
                                 <label class="custom-file-label" for="image" id="file-label">@lang('front.yalnizpng')</label>
                                 <span id="file-name"></span> <!-- Dosya adını görüntülemek için eklenen <span> -->
                                 <div id="preview-container"></div>
@@ -528,7 +528,152 @@
 
 @section('js')
 
+<script>
+    $(document).ready(function() {
+        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
 
+        function getErrorMessage(field, lang) {
+            var errorMessages = {
+                required: {
+                    'AZ': 'Bu sahə doldurulmalıdır!',
+                    'EN': 'This field is required!',
+                    'RU': 'Поле обязательно для заполнения!',
+                    'TR': 'Bu alan zorunludur!'
+                },
+                email: {
+                    'AZ': 'Düzgün bir email adresi daxil edin.',
+                    'EN': 'Please enter a valid email address.',
+                    'RU': 'Введите действительный адрес электронной почты.',
+                    'TR': 'Geçerli bir email adresi giriniz.'
+                },
+                
+                maxlength: {
+                    'AZ': 'Bu sahə üçün maksimum 100 simvol limiti keçilməlidir!',
+                    'EN': 'Maximum 100 characters limit should not be exceeded for this field!',
+                    'RU': 'Максимальное количество символов для этого поля - 100!',
+                    'TR': 'Bu alan için maksimum 100 karakter sınırı aşılmamalıdır!'
+                },
+                maxFileSize: {
+                    'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
+                    'EN': 'The maximum file size for the image should be 5MB!',
+                    'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
+                    'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
+                },
+                accept: {
+                    'AZ': 'Lütfen bir resim dosyası seçin!',
+                    'EN': 'Please select an image file!',
+                    'RU': 'Пожалуйста, выберите файл изображения!',
+                    'TR': 'Lütfen bir resim dosyası seçin!'
+                },
+
+               
+            };
+
+            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+        }
+
+        $("#v-pills-home").validate({
+            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+            
+            rules: {
+                position: {
+                    required: true,
+                    maxlength: 255,
+
+                },
+                name: {
+                    required: true,
+                },
+                surname: {
+                    required: true,
+                },
+                father_name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true,
+
+                },
+                image: {
+                    required: true,
+                },
+                cv: {
+                    required: true,
+                },
+                
+                
+
+            },
+            messages: {
+                position: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                    maxlength: function() {
+                        return getErrorMessage('maxlength', lang);
+                    }
+                },
+
+
+                name: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                surname: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+
+                father_name: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                    
+                },
+                email: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    email: function() {
+                        return getErrorMessage('email', lang);
+                    },
+                    
+                },
+                
+                image: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+                cv: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                
+                
+            },
+            submitHandler: function(form) {
+                form.submit(); // Formu gönder
+            },
+            errorPlacement: function(error, element) {
+    // Hata mesajlarını görüntülemek için gerekli işlemleri yapın
+    error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+            }
+        });
+    });
+</script>
 <script>
       $(function () {
         $("#repeater").repeater({

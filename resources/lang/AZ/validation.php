@@ -13,8 +13,6 @@ return [
 'deadline_date' => 'Son tarix düzgün formatda olmalıdır!',
 'min_age_numeric' => 'Minimum yaş rəqəm olmalıdır!',
 'max_age_numeric' => 'Maksimum yaş rəqəm olmalıdır!',
-'contact_email_email' => 'Əlaqə emailini düzgün formatda daxil edin.',
-'contact_link_active_url' => 'Əlaqə məlumatı doğru URL formatında olmalıdır.',
 
 
 

@@ -98,7 +98,7 @@
                     <div class="form-group add-training-input-group">
                         <label for="images">@lang('front.sekiladd') <span class="text-danger">*</span></label>
                         <div class="custom-file training-custom-file">
-                          <input type="file" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="image">
+                          <input type="file" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="image" accept="image/*">
                           <label class="custom-file-label add-image-label" for="images">@lang('front.sekilsec')</label>
                         </div>
                         <div id="image-preview-container"></div>
