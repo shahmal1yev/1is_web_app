@@ -95,7 +95,9 @@
 
   </div>
  <!-- BLOG PAGİNATİON -->
- <footer aria-label="..." class="d-flex justify-content-center pagination-nav">
+
+    <!-- BLOG PAGİNATİON -->
+    <footer aria-label="..." class="d-flex justify-content-center pagination-nav">
       @if ($alltrainings->hasPages())
       <ul class="pagination pagination-ul">
           {{-- Previous Page Link --}}
@@ -132,6 +134,9 @@
           @endif
       </ul>
     </footer>
+
+
+  </div>
   
 
 @endif
