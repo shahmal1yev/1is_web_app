@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('average')->default(0);
 
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->nullable();
 
             $table->text('about');
             $table->text('hr')->nullable();
