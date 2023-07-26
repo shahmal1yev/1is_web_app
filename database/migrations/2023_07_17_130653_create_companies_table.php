@@ -23,21 +23,24 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('slug');
-            $table->text('about');
 
-            $table->text('hr')->nullable()->default(null);
+            $table->text('about');
+            $table->text('hr')->nullable();
 
             $table->string('address');
             $table->string('website');
+
             $table->text('map');
 
-            $table->string('instagram')->default(null);
-            $table->string('linkedin')->default(null);
-            $table->string('facebook')->default(null);
-            $table->string('twitter')->default(null);
+            $table->string('instagram')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
 
             $table->string('image');
-            $table->integer('view');
+
+            $table->integer('view')->default(0);
+
             $table->boolean('status')->default(false);
 
             $table->bigInteger('vacanc_say')->default(0);
