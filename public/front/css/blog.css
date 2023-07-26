@@ -136,21 +136,29 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	/* padding: 15px 15px 15px 33px; */
 	border-radius: 5px;
 	justify-content: space-between;
 	margin-top: 37px;
 	background-color: #F4F9FD!important;
 }
 
+.blog-search,
+.training-search {
+	padding: 20px 15px;
+}
+
+.blog-search-more-form {
+	padding: 20px 15px;
+}
+
 .blog-header-container > div {
-	width: 100%;
+	width: calc(100% - 140px);
 	display: flex;
 	align-items: center;
 	background-color: #F4F9FD!important;
 }
 
-.blog-header-container > input {
+.blog-header-container > div > input {
 	background: #F4F9FD!important;
 	width: 100%;
 	border: 0;
