@@ -50,22 +50,22 @@
                         @csrf
                     <div class="form-group add-training-input-group">
                         <label for="training_name">@lang('front.tad') <span class="text-danger">*</span></label>
-                        <input type="text" name="title" class="form-control" id="training_name" placeholder="@lang('front.tad')" value="{{old('title')}}" />
+                        <input type="text" name="title" class="form-control" id="training_name" placeholder="@lang('front.tad')" value="{{old('title')}}" required />
                         
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_date">@lang('front.sonmur') <span class="text-danger">*</span></label>
-                        <input type="date" name="deadline" class="form-control" id="training_date" value="{{old('deadline')}}"/>
+                        <input type="date" name="deadline" class="form-control" id="training_date" value="{{old('deadline')}}" required />
                         
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_information">@lang('front.telhaq') <span class="text-danger">*</span></label>
-                        <textarea class="form-control" name="about" id="training_information" rows="5" placeholder="@lang('front.melumatver')!">{{old('about', isset($data) ? $data->about : '')}}</textarea>
+                        <textarea class="form-control" name="about" id="training_information" rows="5" required placeholder="@lang('front.melumatver')!">{{old('about', isset($data) ? $data->about : '')}}</textarea>
                     </div>
                     
                     <div class="form-group add-training-input-group">
                         <label for="training_companies">@lang('front.companies') <span class="text-danger">*</span></label>
-                        <select class="form-control" id="training_companies" name="company">
+                        <select class="form-control" id="training_companies" name="company" required>
                             <option value="" disabled {{ old('company') ? '' : 'selected' }}>@lang('front.companies')</option>
                             @foreach($companies as $company)
                                 <option value="{{ $company->id }}" {{ old('company') == $company->id ? 'selected' : '' }}>{{ $company->name }}</option>
@@ -76,12 +76,12 @@
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
-                        <input type="url" name="link" placeholder="@lang('front.urldaxilet')" class="form-control" id="training_url" value="{{old('link')}}" />
+                        <input type="url" name="link" placeholder="@lang('front.urldaxilet')" class="form-control" id="training_url" required value="{{old('link')}}" />
                         
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_payment">@lang('front.odenistip') <span class="text-danger">*</span></label>
-                        <select name="payment_type" class="form-control" id="training_payment" onchange="getPayment(this.value)">
+                        <select name="payment_type" class="form-control" id="training_payment" onchange="getPayment(this.value)" required>
                             <option disabled selected>@lang('front.odenismetod')...</option>
                             <option value="0" {{ old('payment_type') == '0' ? 'selected' : '' }}>@lang('front.pulsuz')</option>
                             <option value="1" {{ old('payment_type') == '1' ? 'selected' : '' }}>@lang('front.pullu')</option>
@@ -91,14 +91,14 @@
                     <div class="form-group add-training-input-group">
                         <div class="row mb-4" id="price" @if(old('payment_type') == '0' || !old('payment_type')) style="display: none" @endif>
                         <label for="training_name">@lang('front.qiymetpul')</label>
-                            <input class="form-control" type="number" name="price" step="1" placeholder="@lang('front.qiymetpul'):" value="{{ old('price') }}">
+                            <input class="form-control" type="number" name="price" step="1" placeholder="@lang('front.qiymetpul'):" value="{{ old('price') }}" required>
                         </div>
                     </div>
                     
                     <div class="form-group add-training-input-group">
                         <label for="images">@lang('front.sekiladd') <span class="text-danger">*</span></label>
                         <div class="custom-file training-custom-file">
-                          <input type="file" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="image">
+                          <input type="file" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="image" required>
                           <label class="custom-file-label add-image-label" for="images">@lang('front.sekilsec')</label>
                         </div>
                         <div id="image-preview-container"></div>
@@ -396,7 +396,11 @@
                 
             },
             submitHandler: function(form) {
-                form.submit(); // Formu gönder
+                if (form.checkValidity()) {
+                    return false;
+                }
+
+                // form.submit(); // Formu gönder
             },
             errorPlacement: function(error, element) {
     // Hata mesajlarını görüntülemek için gerekli işlemleri yapın
