@@ -18,9 +18,9 @@ return new class extends Migration
             $table->increments('id');
 
             $table->bigInteger('user_id');
-            $table->string('fullname')->default(null);
+            $table->string('fullname')->nullable();
             $table->integer('company_id');
-            $table->text('message')->default(null);
+            $table->text('message')->nullable();
             $table->tinyInteger('rating');
             $table->boolean('status')->default(false);
 
