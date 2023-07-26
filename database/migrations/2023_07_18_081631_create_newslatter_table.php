@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('newslatter', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('email')->default(null);
+            $table->string('email')->nullable();
             $table->boolean('status')->default(false);
 
             $table->dateTime('created_at')->useCurrent();
