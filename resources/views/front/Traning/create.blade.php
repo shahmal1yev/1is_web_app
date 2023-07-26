@@ -170,29 +170,7 @@
         }
     </script>
 
-    <script>
-              const sendBtn = document.getElementById("send");
-                sendBtn.addEventListener("click", (e) => {
-
-                    var errorIn = document.getElementById("training_url-error");
-                    var nameVal = document.getElementById("training_url");
-                    var latestVal = nameVal.value;
-                    if (latestVal.length == 0) {
-                    errorIn.innerText = "Link is required";
-                    return false;
-                    }
-
-                    if (!latestVal.match(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)) {
-                    errorIn.innerText = "Please enter a valid URL.";
-                    e.preventDefault()
-                    return false;
-                    }
-
-                    errorIn.innerText = "Valid Link";
-                    return true;
-                    
-                });
-    </script>
+   
 
 @endsection
 
@@ -206,7 +184,6 @@
 @section('js-link')
 <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('front/js/slick.min.js')}}"></script>
-<script src="{{asset('front/js/add-training.js')}}"></script>
 @endsection
 
 @section('js')
@@ -352,10 +329,7 @@
 
                 image: {
                     required: true,
-                    accept: "image/*",
-                    maxFileSize: {
-                        "param": 5242880, 
-                    }
+                    
                 },
                 
 
@@ -463,5 +437,29 @@
             training_url_error.style.display = 'none';
         }
     });
+</script>
+
+<script>
+    const sendBtn = document.getElementById("send");
+      sendBtn.addEventListener("click", (e) => {
+
+          var errorIn = document.getElementById("training_url-error");
+          var nameVal = document.getElementById("training_url");
+          var latestVal = nameVal.value;
+          if (latestVal.length == 0) {
+          errorIn.innerText = "Link is required";
+          return false;
+          }
+
+        //   if (!latestVal.match(/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})/)) {
+        //   errorIn.innerText = "Please enter a valid URL.";
+        //   e.preventDefault()
+        //   return false;
+        //   }
+
+          errorIn.innerText = "Valid Link";
+          return true;
+          
+      });
 </script>
 @endsection
