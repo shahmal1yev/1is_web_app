@@ -514,6 +514,5 @@
       });
 
       const removeBtn = document.querySelector('.removeElement')
-      console.log('Remove BTN',removeBtn)
     </script>
 @endsection

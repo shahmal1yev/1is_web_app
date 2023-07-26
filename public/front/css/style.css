@@ -478,7 +478,7 @@ button:focus {
 .filter-input {
   outline: none;
   border: none;
-  background: #f8f0fb;
+  background: #f8f0fb!important;
   padding-left: 10px;
   font-family: "Montserrat";
   font-style: normal;
@@ -1023,6 +1023,25 @@ p {
     display: none;
 }
 
+#training_name-error,
+#training_date-error, 
+#training_companies-error, 
+#training_url-error, 
+#training_payment-error, 
+#images-error {
+  color: rgb(248, 57, 57)!important;
+}
+
+.filter1 {
+  width: calc(100% - 320px);
+  display: flex;
+  align-items: center;
+}
+
+.filter1 input {
+  width: 100%;
+}
+
 @media screen and (min-width: 1024px) {
   .disabled-filter{
     top: 66%;
@@ -1462,6 +1481,7 @@ p {
     width: 100% !important;
     margin: initial !important;
     max-width: initial !important;
+    margin-bottom: 10px;
 }
 
 .pagination-nav .footer{

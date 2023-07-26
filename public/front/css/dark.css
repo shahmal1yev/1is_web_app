@@ -55,15 +55,31 @@
   color: #fff;
 }
 .dark .active-filter {
-  background-color: #131313;
+  background-color: #131313!important;
 }
+
+.dark .active-filter
 
 .dark .active-filters {
   background-color: #131313;
 }
 
+.dark .blog-header-container {
+  background-color: #131313!important;
+}
+
+.dark .training-form-div {
+  background-color: #131313!important;
+}
+
+.dark .training-form-div input {
+  background-color: #131313!important;
+  color: #fff;
+}
+
 .dark .filter-input {
-  background-color: #131313;
+  background-color: #131313!important;
+  color: #fff;
 }
 
 .dark .detail-search {
