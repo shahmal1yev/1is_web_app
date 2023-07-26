@@ -234,14 +234,41 @@
                             </select>
                            
                         </div>
-                        <div class="form-group create-cv-input-group col-md-4 ">
-                            <label for="images">@lang('front.sekilsec')  <span class="text-danger">*</span></label>
+                        <div class="form-group create-cv-input-group col-md-4">
+                            <label for="images">@lang('front.sekilsec') <span class="text-danger">*</span></label>
                             <div class="custom-file create-cv-custom-file">
                                 <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" accept="image/png, image/jpeg, image/svg+xml, image/webp">
                                 <label class="custom-file-label add-image-label" for="image">@lang('front.elaveet')</label>
                             </div>
-                            
                         </div>
+                        <div id="preview-container"></div>
+                        
+                        <script>
+                            document.getElementById('images').addEventListener('change', function(e) {
+                                var file = e.target.files[0];
+                                var allowedImageExtensions = /(\.png|\.jpg|\.jpeg|\.gif|\.svg|\.webp)$/i;
+                        
+                                if (allowedImageExtensions.exec(file.name)) {
+                                    var reader = new FileReader();
+                                    reader.onload = function(e) {
+                                        var img = document.createElement('img');
+                                        img.src = e.target.result;
+                                        img.style.maxWidth = '200px';
+                                        img.style.maxHeight = '200px';
+                                        img.style.objectFit = 'cover';
+                                        var previewContainer = document.getElementById('preview-container');
+                                        previewContainer.innerHTML = '';
+                                        previewContainer.appendChild(img);
+                                    };
+                                    reader.readAsDataURL(file);
+                                } else {
+                                    // Uygun resim dosyası değilse, önizlemeyi kaldır
+                                    var previewContainer = document.getElementById('preview-container');
+                                    previewContainer.innerHTML = '';
+                                }
+                            });
+                        </script>
+                        
                         
                         <div class="form-group create-cv-input-group col-12  ">
                             <label for="training_information">@lang('front.tehsilhaq')</label>
