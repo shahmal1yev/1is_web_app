@@ -362,25 +362,11 @@ class VacancyFrontController extends Controller
     
             $vacancy->deadline = $request->deadline;
             
-            $data = [];
-            $data['email_name'] = '1is.butagrup.az';
-            $data['subject'] = 'Verification';
-            $data['text'] = 'Hörmətli İstifadəçi,
-    
-            Sizin ' . $vacancy->position . ' başlıqlı elanınız uğurla yeniləndi!
-    
-            Elanınız bütün qaydalara uyğun olarsa, saytda yerləşdiriləcək.
-    
-            Hörmətlə,
-    
-            1iş.butagrup.az.';
-    
-    
+            
             $user = Auth::user();
             if ($user) {
             $userEmail = $user->email;
     
-            Mail::to($userEmail)->send(new SendVac($data));
             }
             $vacancy->save();
             return redirect()->route('myAnnounces')->with('success', __('messages.elanyeni'));
