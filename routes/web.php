@@ -22,6 +22,7 @@ use App\Http\Controllers\Back\TrainingsController\TrainingsController;
 use App\Http\Controllers\Back\UserPolicyController\UserPolicyController;
 use App\Http\Controllers\Back\VacancyController\VacancyController;
 use App\Http\Controllers\Back\UsersController\UsersController;
+use App\Http\Controllers\Back\HelperController;
 
 use App\Http\Controllers\Front\Blog\BlogFrontController;
 use App\Http\Controllers\Front\Company\CompanyFrontController;
@@ -392,8 +393,9 @@ Route::get('/terms',[TermsController::class, 'index'])->name('terms');
 Route::get('/profile',[AccountController::class, 'profile'])->name('profile');
 Route::post('/profile',[AccountController::class, 'updatePassword'])->name('updatePassword');
 
-Route::get('/{lang}', [LanguageController::class, 'setLang']);
-
+Route::get('/help', [HelperController::class, 'ChangeUserData'])->name('help');
 
 Route::get('/google/login/redirect', [AccountController::class, 'loginWithGoogle'])->name('google.login');
 Route::get('/auth/login/callback', [AccountController::class, 'getGoogleToken']);
+
+Route::get('/{lang}', [LanguageController::class, 'setLang']);
