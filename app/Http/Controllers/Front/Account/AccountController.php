@@ -23,6 +23,81 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AccountController extends Controller  
 { 
+    public function loginWithGoogle()
+    {
+        $query = http_build_query([
+            'client_id' => config('services.google.client_id'),
+            'redirect_uri' => config('services.google.redirect_uri'),
+            'scope' => 'email profile',
+            'response_type' => 'code'
+        ]);
+
+        return redirect('https://accounts.google.com/o/oauth2/auth?'. $query);
+    }
+
+    public function getGoogleToken(Request $request)
+    {
+        $code = $request->get('code');
+
+        $postFields = [
+            'code' => $code,
+            'client_id' => config('services.google.client_id'),
+            'client_secret' => config('services.google.client_secret'),
+            'redirect_uri' => config('services.google.redirect_uri'),
+            'grant_type' => 'authorization_code'
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://accounts.google.com/o/oauth2/token');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+       
+        
+        $response = curl_exec($ch);
+
+        curl_close($ch);
+
+        $tokenData = json_decode($response, true);
+        $token = $tokenData['access_token'];
+
+        return $this->getGoogleUserInfo($token);
+
+    }
+
+    public function getGoogleUserInfo($token)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/oauth2/v1/userinfo?access_token=" . urlencode($token));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        
+        $userInfoResponse = curl_exec($ch);
+
+        curl_close($ch);
+
+        $userInfo = json_decode($userInfoResponse, true);
+
+        $user = User::where('email', $userInfo['email'])->first();
+        if (!$user) {
+            $user = new User();
+            $user->name = $userInfo['given_name'] ?? null;
+            $user->email = $userInfo['email'];
+            $user->cat_id = null;
+            $user->surname = $userInfo['family_name'] ?? null;
+            $user->email_verification_code = '';
+            $user->status = 1;
+            $user->save();
+        }
+    
+        // Giriş işlemi
+        Auth::login($user);
+    
+        // Index sayfasına yönlendir
+        return redirect()->route('index');
+    }
+
+
     public function login()
         {
         return view('front.Account.login');
@@ -265,6 +340,7 @@ class AccountController extends Controller
 
     public function profile(){
         $banner = BannerImage::where('status','1')->get();
+        $categories = Categories::all();
 
         $userId = auth()->user()->id;
         $vacancies = Vacancies::where('user_id', $userId)->get();

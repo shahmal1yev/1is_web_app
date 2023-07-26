@@ -395,3 +395,5 @@ Route::post('/profile',[AccountController::class, 'updatePassword'])->name('upda
 Route::get('/{lang}', [LanguageController::class, 'setLang']);
 
 
+Route::get('/google/login/redirect', [AccountController::class, 'loginWithGoogle'])->name('google.login');
+Route::get('/auth/login/callback', [AccountController::class, 'getGoogleToken']);

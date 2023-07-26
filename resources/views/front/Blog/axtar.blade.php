@@ -74,7 +74,7 @@
     </div>
 
     <!-- BLOG PAGİNATİON -->
-    <nav aria-label="..." class="d-flex justify-content-center">
+    <footer aria-label="..." class="d-flex justify-content-center">
         @if ($allblogs->hasPages())
         <ul class="pagination pagination-ul">
             {{-- Previous Page Link --}}
@@ -111,7 +111,7 @@
             
             @endif
         </ul>
-        </nav>
+        </footer>
         <h3 class="blog-all-result-text">@lang('front.umumisay') : {{$allblogs->total()}}</h3>
     
     @endif

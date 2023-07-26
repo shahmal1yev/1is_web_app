@@ -90,51 +90,46 @@
 
 
     </div>
-
- 
-
   </div>
 
-     <!-- BLOG PAGİNATİON -->
-     <nav aria-label="..." class="d-flex justify-content-center pagination-nav">
-      @if ($alltrainings->hasPages())
-      <ul class="pagination pagination-ul">
-          {{-- Previous Page Link --}}
-          @if ($alltrainings->onFirstPage())
-          @else
-              <li class="page-item"><a class="page-link" href="{{ $alltrainings->previousPageUrl() }}" rel="prev">«</a></li>
-          @endif
-    
-          @if($alltrainings->currentPage() > 3)
-              <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $alltrainings->url(1) }}">1</a></li>
-          @endif
-          @if($alltrainings->currentPage() > 4)
-          <li class="page-item"><a class="page-link">...</a></li>
-          @endif
-          @foreach(range(1, $alltrainings->lastPage()) as $i)
-              @if($i >= $alltrainings->currentPage() - 1 && $i <= $alltrainings->currentPage() + 1)
-                  @if ($i == $alltrainings->currentPage())
-                      <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
-                  @else
-                      <li class="page-item "><a class="page-link" href="{{ $alltrainings->url($i) }}">{{ $i }}</a></li>
-                  @endif
-              @endif
-          @endforeach
-          @if($alltrainings->currentPage() < $alltrainings->lastPage() - 2)
-          <li class="page-item"><a class="page-link">...</a></li>
-          @endif
-          @if($alltrainings->currentPage() < $alltrainings->lastPage() - 1)
-              <li class="page-item hidden-xs"><a class="page-link" href="{{ $alltrainings->url($alltrainings->lastPage()) }}">{{ $alltrainings->lastPage() }}</a></li>
-          @endif
-    
-          {{-- Next Page Link --}}
-          @if ($alltrainings->hasMorePages())
-              <li><a class="page-link" href="{{ $alltrainings->nextPageUrl() }}" rel="next">»</a></li>
-          @endif
-      </ul>
-    </nav>
-
+  <!-- BLOG PAGİNATİON -->
+  <nav aria-label="..." class="d-flex justify-content-center pagination-nav">
+    @if ($alltrainings->hasPages())
+    <ul class="pagination pagination-ul">
+        {{-- Previous Page Link --}}
+        @if ($alltrainings->onFirstPage())
+        @else
+            <li class="page-item"><a class="page-link" href="{{ $alltrainings->previousPageUrl() }}" rel="prev">«</a></li>
+        @endif
   
+        @if($alltrainings->currentPage() > 3)
+            <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $alltrainings->url(1) }}">1</a></li>
+        @endif
+        @if($alltrainings->currentPage() > 4)
+        <li class="page-item"><a class="page-link">...</a></li>
+        @endif
+        @foreach(range(1, $alltrainings->lastPage()) as $i)
+            @if($i >= $alltrainings->currentPage() - 1 && $i <= $alltrainings->currentPage() + 1)
+                @if ($i == $alltrainings->currentPage())
+                    <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
+                @else
+                    <li class="page-item "><a class="page-link" href="{{ $alltrainings->url($i) }}">{{ $i }}</a></li>
+                @endif
+            @endif
+        @endforeach
+        @if($alltrainings->currentPage() < $alltrainings->lastPage() - 2)
+        <li class="page-item"><a class="page-link">...</a></li>
+        @endif
+        @if($alltrainings->currentPage() < $alltrainings->lastPage() - 1)
+            <li class="page-item hidden-xs"><a class="page-link" href="{{ $alltrainings->url($alltrainings->lastPage()) }}">{{ $alltrainings->lastPage() }}</a></li>
+        @endif
+  
+        {{-- Next Page Link --}}
+        @if ($alltrainings->hasMorePages())
+            <li><a class="page-link" href="{{ $alltrainings->nextPageUrl() }}" rel="next">»</a></li>
+        @endif
+    </ul>
+  </nav> 
 
 @endif
 
@@ -154,14 +149,6 @@
 <link rel="stylesheet" href="{{asset('front/css/trainings.css')}}" />
 <link rel="stylesheet" href="{{asset('front/css/blog.css')}}" />
 
-@endsection
-
-@section('css')
-<style>
-  body{
-    background-color:rgba(244, 249, 253, 1);
-  }
-</style>
 @endsection
 
     @section('js')

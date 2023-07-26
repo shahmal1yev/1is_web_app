@@ -136,7 +136,26 @@
                                   <span toggle="#password-field3" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                               </div>
-
+                              <div class="form-group">
+                                <div id="no-limit">
+                                    <p>@lang('front.cats')<span style="color: rgba(192, 0, 0, 1)">*</span></p>
+                                    @php
+                                    $selectedCategories = json_decode(auth()->user()->cat_id, true);
+                                @endphp
+                                
+                                <select class="select2 form-select" style="width: 100%;" name="cat_id[]" multiple>
+                                    <option value="" disabled></option>
+                                    @foreach($categories as $category)
+                                        @if(is_array($selectedCategories) && in_array($category->id, $selectedCategories))
+                                            <option value="{{$category->id}}" selected>{{$category->title_az}}</option>
+                                        @else
+                                            <option value="{{$category->id}}">{{$category->title_az}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                
+                                    
+                                </div>
                               <div class="form-send">
                                 <button class="form-button">
                                     @lang('front.tesdiq')
@@ -149,7 +168,26 @@
         </div>
     </section>
 
+    <script>
+        $(document).ready(function() {
+        $('#no-limit .select2').select2({
+            multiple: "multiple",
+        });
 
+        $('#limit-2 .select2').select2({
+            multiple: "multiple",
+            maximumSelectionLength: 2,
+        });
+
+        $('#limit-2-custom-message .select2').select2({
+            multiple: "multiple",
+            maximumSelectionLength: 2,
+            language: {
+            maximumSelected: (args) => args.maximum + ' 件しか選べないよ！'
+            }
+        });
+        });
+    </script>
 
     <script>
         $(document).ready(function() {

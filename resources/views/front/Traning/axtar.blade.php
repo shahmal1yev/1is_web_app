@@ -92,7 +92,7 @@
     </div>
 
     <!-- BLOG PAGİNATİON -->
-    <nav aria-label="..." class="d-flex justify-content-center pagination-nav">
+    <footer aria-label="..." class="d-flex justify-content-center pagination-nav">
       @if ($alltrainings->hasPages())
       <ul class="pagination pagination-ul">
           {{-- Previous Page Link --}}
@@ -128,7 +128,7 @@
               <li><a class="page-link" href="{{ $alltrainings->nextPageUrl() }}" rel="next">»</a></li>
           @endif
       </ul>
-    </nav>
+    </footer>
 
   </div>
 
