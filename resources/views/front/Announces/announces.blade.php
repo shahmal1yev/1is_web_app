@@ -166,14 +166,14 @@
                                     </button>
                                     <form class="tab-pane add-training-form fade show active col-12" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" action="{{route('addcompany')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="form-group add-training-input-group" @error('name') has-error @enderror>
-                                            <label for="training_name">@lang('front.ad')</label>
-                                            <input type="text" name="name" class="form-control" id="training_name" placeholder="@lang('front.ad')" required value="{{ old('name') }}" />
+                                        <div class="form-group add-training-input-group">
+                                            <label for="training_name">@lang('front.ad')<span class="text-danger">*</span></label>
+                                            <input type="text" name="name" class="form-control" id="training_name" placeholder="@lang('front.ad')"  value="{{ old('name') }}" />
                                             
                                         </div>
-                                        <div class="form-group add-training-input-group @error('sector') has-error @enderror">
-                                            <label for="training_companies">@lang('front.sektor')</label>
-                                            <select class="form-control" name="sector" id="training_companies" required>
+                                        <div class="form-group add-training-input-group">
+                                            <label for="training_companies">@lang('front.sektor')<span class="text-danger">*</span></label>
+                                            <select class="form-control" name="sector" id="training_companies">
                                             <option value="" disabled selected>@lang('front.birsec')</option>
                                             @php
                                                 $lang = config('app.locale');
@@ -194,32 +194,26 @@
                                             </select>
                                             
                                         </div>
-                                        <div class="form-group add-training-input-group @error('address') has-error @enderror">
-                                            <label for="training_name">@lang('front.unvan')</label>
-                                            <input type="text" name="address" class="form-control" id="training_name" placeholder="@lang('front.unvan')" required value="{{ old('address') }}"  />
-                                            @error('address')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.address_max')</span>
-                                            @enderror
+                                        <div class="form-group add-training-input-group ">
+                                            <label for="training_name">@lang('front.unvan')<span class="text-danger">*</span></label>
+                                            <input type="text" name="address" class="form-control" id="training_name" placeholder="@lang('front.unvan')"  value="{{ old('address') }}"  />
+                                            
                                         </div>
-                                        <div class="form-group add-training-input-group @error('website') has-error @enderror">
-                                            <label for="website">@lang('front.vebsayt')</label>
-                                            <textarea class="form-control editor" name="website" id="website" placeholder="@lang('front.vebsayt')" rows="5" required>{{ old('website') }}</textarea>
-                                            @error('website')
-                                                <span class="text-danger" style="font-size: 14px">@lang('validation.website_max')</span>
-                                            @enderror
+                                        <div class="form-group add-training-input-group ">
+                                            <label for="website">@lang('front.vebsayt')<span class="text-danger">*</span></label>
+                                            <textarea class="form-control editor" name="website" id="website" placeholder="@lang('front.vebsayt')" rows="5" >{{ old('website') }}</textarea>
+                                            
                                         </div>
                                         
-                                        <div class="form-group add-training-input-group @error('map') has-error @enderror">
-                                            <label for="map">@lang('front.xerite')</label>
-                                            <textarea class="form-control editor" name="map" id="map" placeholder="@lang('front.xerite')" rows="5" required>{{ old('map') }}</textarea>
+                                        <div class="form-group add-training-input-group ">
+                                            <label for="map">@lang('front.xerite')<span class="text-danger">*</span></label>
+                                            <textarea class="form-control editor" name="map" id="map" placeholder="@lang('front.xerite')" rows="5" >{{ old('map') }}</textarea>
                                         </div>
                                         
-                                        <div class="form-group add-training-input-group @error('about') has-error @enderror">
-                                            <label for="about">@lang('front.about')</label>
-                                            <textarea class="form-control editor" name="about" id="about" placeholder="@lang('front.about')" rows="5" required>{{ old('about') }}</textarea>
-                                            @error('about')
-                                                <span class="text-danger" style="font-size: 14px">@lang('validation.about_min')</span>
-                                            @enderror
+                                        <div class="form-group add-training-input-group ">
+                                            <label for="about">@lang('front.about')<span class="text-danger">*</span></label>
+                                            <textarea class="form-control editor" name="about" id="about" placeholder="@lang('front.about')" rows="5" >{{ old('about') }}</textarea>
+                                           
                                         </div>
                                         
                                         <div class="form-group add-training-input-group">
@@ -227,47 +221,37 @@
                                             <textarea class="form-control editor" name="hr" id="hr" placeholder="@lang('front.hr')" rows="5">{{ old('hr') }}</textarea>
                                         </div>
                                         
-                                        <div class="form-group add-training-input-group company-announce-social @error('instagram') has-error @enderror">
+                                        <div class="form-group add-training-input-group company-announce-social ">
                                             <label for="instagram">@lang('front.instagram')</label>
                                             <input type="text" name="instagram" placeholder="@lang('front.instagram')" class="form-control" id="instagram" value="{{ old('instagram') }}" /> 
                                             <img class="comp-insta-img" src="https://1is-new.netlify.app/images/companies-announces/insta_company_modal.png" alt="insta">
-                                            @error('instagram')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.instagram_max')</span>
-                                            @enderror
+                                            
                                         </div>
-                                        <div class="form-group add-training-input-group company-announce-social @error('linkedin') has-error @enderror">
+                                        <div class="form-group add-training-input-group company-announce-social ">
                                             <label for="linkedin">@lang('front.linkedin')</label>
                                             <input type="text" name="linkedin" placeholder="@lang('front.linkedin')" class="form-control" id="linkedin" value="{{ old('linkedin') }}" /> 
                                             <img class="comp-insta-img" src="https://1is-new.netlify.app/images/companies-announces/linkedin_company_modal.png" alt="linkedin">
-                                            @error('linkedin')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.linkedin_max')</span>
-                                            @enderror
+                                            
                                         </div>
-                                        <div class="form-group add-training-input-group company-announce-social @error('facebook') has-error @enderror">
+                                        <div class="form-group add-training-input-group company-announce-social ">
                                             <label for="facebook">@lang('front.facebook')</label>
                                             <input type="text" name="facebook" placeholder="@lang('front.facebook')" class="form-control" id="facebook" value="{{ old('facebook') }}" /> 
                                             <img class="comp-insta-img" src="https://1is-new.netlify.app/images/companies-announces/facebook_company_modal.png" alt="facebook">
-                                            @error('facebook')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.facebook_max')</span>
-                                            @enderror
+                                            
                                         </div>
-                                        <div class="form-group add-training-input-group company-announce-social @error('twitter') has-error @enderror">
+                                        <div class="form-group add-training-input-group company-announce-social ">
                                             <label for="twitter">@lang('front.tvitter')</label>
                                             <input type="text" name="twitter" placeholder="@lang('front.tvitter')" class="form-control" id="twitter" value="{{ old('twitter') }}" /> 
                                             <img class="comp-insta-img" src="https://1is-new.netlify.app/images/companies-announces/twitter_company_modal.png" alt="twitter">
-                                            @error('twitter')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.twitter_max')</span>
-                                            @enderror
+                                            
                                         </div>
-                                        <div class="form-group add-training-input-group @error('image') has-error @enderror">
-                                            <label for="images">@lang('front.sekiladd')</label>
+                                        <div class="form-group add-training-input-group ">
+                                            <label for="images">@lang('front.sekiladd')<span class="text-danger">*</span></label>
                                             <div class="custom-file training-custom-file edit-training-input-group">
-                                                <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="img" required="" accept="image/png, image/jpeg, image/svg+xml, image/webp" value="{{ old('image') }}">
+                                                <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="img"  accept="image/png, image/jpeg, image/svg+xml, image/webp" value="{{ old('image') }}">
                                                 <img src="https://1is-new.netlify.app/images/pic.png" alt="">
                                                 <label class="custom-file-label" for="image">@lang('front.sekilsec')</label>
-                                                @error('image')
-                                                <span class="text-danger" style="font-size: 14x">@lang('validation.image_max')</span>
-                                                @enderror
+                                                
                                             </div>
                                         </div>
                                         <div class="add-training-form-button">
@@ -338,7 +322,132 @@
         </div>
     </section>
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 
+<script>
+    $(document).ready(function() {
+        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+
+        function getErrorMessage(field, lang) {
+            var errorMessages = {
+                required: {
+                    'AZ': 'Bu sahə doldurulmalıdır!',
+                    'EN': 'This field is required!',
+                    'RU': 'Поле обязательно для заполнения!',
+                    'TR': 'Bu alan zorunludur!'
+                },
+
+                minlength: {
+                    'AZ': 'Bu sahə üçün minimum 20 simvol limiti keçilməlidir!',
+                    'EN': 'Minimum 20 characters limit should not be exceeded for this field!',
+                    'RU': 'Минимальное количество символов для этого поля - 20!',
+                    'TR': 'Bu alanda en az 20 karakter sınırı aşılmamalıdır!'
+                },
+               
+            };
+
+            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+        }
+
+        $("#v-pills-home").validate({
+            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+            
+            rules: {
+                name: {
+                    required: true,
+
+                },
+                sector: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+                website: {
+                    required: true,
+                },
+                
+                map: {
+                    required: true,
+                },
+                about: {
+                    required: true,
+                    minlength: 20,
+
+                },
+            
+                image: {
+                    required: true,
+                },
+                
+                
+                
+
+            },
+            messages: {
+                name: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+
+                sector: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                address: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                website: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+
+                map: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                about: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    minlength: function() {
+                        return getErrorMessage('minlength', lang);
+                    },
+                  
+                },
+                image: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+            
+                
+                           
+            },
+            submitHandler: function(form) {
+                form.submit(); // Formu gönder
+            },
+            errorPlacement: function(error, element) {
+            error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+            }
+        });
+    });
+
+</script>
 @section('js-link')
 <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('front/js/slick.min.js')}}"></script>
