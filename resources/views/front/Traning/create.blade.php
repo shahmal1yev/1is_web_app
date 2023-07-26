@@ -123,7 +123,7 @@
                       </script>
                       
                     <div class="add-training-form-button">
-                        <button type="submit">@lang('front.elaveet')</button>
+                        <button id="send" type="submit">@lang('front.elaveet')</button>
                     </div>
                 </form>
 
@@ -168,6 +168,30 @@
                 $('#price').slideUp()
             }
         }
+    </script>
+
+    <script>
+              const sendBtn = document.getElementById("send");
+                sendBtn.addEventListener("click", (e) => {
+
+                    var errorIn = document.getElementById("training_url-error");
+                    var nameVal = document.getElementById("training_url");
+                    var latestVal = nameVal.value;
+                    if (latestVal.length == 0) {
+                    errorIn.innerText = "Link is required";
+                    return false;
+                    }
+
+                    if (!latestVal.match(/^((ftp|http|https):\/\/)?www\.([A-z]+)\.([A-z]{2,})/)) {
+                    errorIn.innerText = "Please enter a valid URL.";
+                    e.preventDefault()
+                    return false;
+                    }
+
+                    errorIn.innerText = "Valid Link";
+                    return true;
+                    
+                });
     </script>
 
 @endsection

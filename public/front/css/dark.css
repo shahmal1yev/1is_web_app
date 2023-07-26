@@ -58,14 +58,25 @@
   background-color: #131313!important;
 }
 
-.dark .active-filter
-
 .dark .active-filters {
   background-color: #131313;
 }
 
 .dark .blog-header-container {
   background-color: #131313!important;
+}
+
+.dark .blog-header-container > div {
+  background-color: #131313!important;
+}
+
+.dark .blog-header-container > div > input {
+  background-color: #131313!important;
+  color: #fff!important;
+}
+
+.dark .text-field p a {
+  color: #fff;
 }
 
 .dark .training-form-div {

@@ -41,7 +41,7 @@ class GeneralController extends Controller
         $educations=Educations::where('status','1')->get();
         $experiences=Experiences::where('status','1')->get();
         $allcategories = Categories::where('status','1')->get();
-        if (auth()->check()) {
+        if (auth()->check() && auth()->user()->cat_id !== null) {
 
         $userId = auth()->user()->cat_id;
         $user_cat = json_decode($userId);
