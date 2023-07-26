@@ -565,4 +565,134 @@
 
       const removeBtn = document.querySelector('.removeElement')
     </script>
+
+
+<script>
+    $(document).ready(function() {
+        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+
+        function getErrorMessage(field, lang) {
+            var errorMessages = {
+                required: {
+                    'AZ': 'Bu sahə doldurulmalıdır!',
+                    'EN': 'This field is required!',
+                    'RU': 'Поле обязательно для заполнения!',
+                    'TR': 'Bu alan zorunludur!'
+                },
+                email: {
+                    'AZ': 'Düzgün bir email adresi daxil edin.',
+                    'EN': 'Please enter a valid email address.',
+                    'RU': 'Введите действительный адрес электронной почты.',
+                    'TR': 'Geçerli bir email adresi giriniz.'
+                },
+                
+                maxlength: {
+                    'AZ': 'Bu sahə üçün maksimum 100 simvol limiti keçilməlidir!',
+                    'EN': 'Maximum 100 characters limit should not be exceeded for this field!',
+                    'RU': 'Максимальное количество символов для этого поля - 100!',
+                    'TR': 'Bu alan için maksimum 100 karakter sınırı aşılmamalıdır!'
+                },
+                maxFileSize: {
+                    'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
+                    'EN': 'The maximum file size for the image should be 5MB!',
+                    'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
+                    'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
+                },
+                accept: {
+                    'AZ': 'Lütfen bir resim dosyası seçin!',
+                    'EN': 'Please select an image file!',
+                    'RU': 'Пожалуйста, выберите файл изображения!',
+                    'TR': 'Lütfen bir resim dosyası seçin!'
+                },
+
+               
+            };
+
+            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+        }
+
+        $("#v-pills-home").validate({
+            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+            
+            rules: {
+                position: {
+                    required: true,
+                    maxlength: 255,
+
+                },
+                name: {
+                    required: true,
+                },
+                surname: {
+                    required: true,
+                },
+                father_name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true,
+
+                },
+                
+                
+                
+
+            },
+            messages: {
+                position: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                    maxlength: function() {
+                        return getErrorMessage('maxlength', lang);
+                    }
+                },
+
+
+                name: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                surname: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+
+                father_name: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                    
+                },
+                email: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    email: function() {
+                        return getErrorMessage('email', lang);
+                    },
+                    
+                },
+                
+            
+                
+            },
+            submitHandler: function(form) {
+                form.submit(); // Formu gönder
+            },
+            errorPlacement: function(error, element) {
+    // Hata mesajlarını görüntülemek için gerekli işlemleri yapın
+    error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+            }
+        });
+    });
+</script>
 @endsection
