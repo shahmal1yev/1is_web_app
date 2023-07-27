@@ -381,20 +381,25 @@ class AccountController extends Controller
     } 
     
     public function updateCats(Request $request)
-    {
-        $validatedData = $request->validate([
-            'cat_id' => 'required|array'
-        ]);
-
+        {   
         $userId = auth()->user()->id;
 
+        if ($request->has('cat_id') && is_array($request->cat_id)) {
+            $catId = $request->cat_id;
+        } else {
+            $catId = null;
+        }
+
         $user = User::find($userId);
-        $user->cat_id = json_encode($validatedData['cat_id']);
-       
+        $user->cat_id = $catId ? json_encode($catId) : null;
         $user->save();
 
         return redirect()->back()->with('success', __('messages.catyeni'));
     }
+
+
+
+
 
 
     public function newslatter(Request $request)
