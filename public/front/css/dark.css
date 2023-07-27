@@ -340,6 +340,11 @@
   color: #fff !important;
 }
 
+.dark .custom-select:focus{
+ background-color: #000; 
+ color: #fff;
+}
+
 
 
 .dark #structure input[type='text'] , .dark #structure input[type='url']{
