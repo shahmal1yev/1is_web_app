@@ -68,6 +68,10 @@ header{
   margin-bottom: 0 !important;
 }
 
+#website-error, #map-error, #about-error{
+  color: red;
+}
+
 
 /* dropdown s */
 .dropdown {
