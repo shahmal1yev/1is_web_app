@@ -132,15 +132,15 @@
                                     
                                 </select>
                             </div>
-                            <div class="form-group company-announce-input-group col-md-4">
+                            <div class="form-group company-announce-input-group col-md-6">
                                 <input type="number" class="form-control" id="min" name="min_salary" placeholder="@lang('front.minsalary')" value="{{ old('min_salary') }}" />
                                 
                             </div>
-                            <div class="form-group company-announce-input-group col-md-4">
+                            <div class="form-group company-announce-input-group col-md-6">
                                 <input type="number" class="form-control" id="max" name="max_salary" placeholder="@lang('front.maxsal')" value="{{ old('max_salary') }}" />
                                 
                             </div>
-                            <div class="col-md-4 d-flex align-items-center justify-content-end mb-3 ">
+                            <div class="col-md-12 d-flex align-items-center  mb-3 ">
                                 <label for="musahibe" class="musahibe-check-label">@lang('front.musahibe') <span class="text-danger">*</span></label>
                                 <input type="checkbox" class="musahibe-check-input" id="musahibe" name="salary_type" />
                             </div>
@@ -258,11 +258,11 @@
                                
                             </div>
                             
-                            <div class="col-md-8 d-flex align-items-center ">
+                            <div class="col-md-12 d-flex align-items-center ">
                                 <label class="accept-demand-label" for="accept-demands">@lang('front.cvqebul')  <span class="text-danger">*</span></label>
                                 <input class="accept-demand-input" type="checkbox"  id="accept-demands" reqz />
                             </div>
-                            <div class="company-announce-form-button col-md-4">
+                            <div class="company-announce-form-button col-md-12">
                                 <button type="submit">@lang('front.elaveet')</button>
                             </div>
                         </form>

@@ -49,6 +49,29 @@ header{
   height: 30px;
 }
 
+#no-limit p{
+  color: #000 !important;
+}
+
+.create-cv-input-group .error{
+  color: red !important;
+  background-color: transparent !important;
+}
+
+
+.company-announce-input-group label:last-child{
+  color: red;
+}
+
+#salary_type-error{
+  color: red;
+  margin-bottom: 0 !important;
+}
+
+#website-error, #map-error, #about-error{
+  color: red;
+}
+
 
 /* dropdown s */
 .dropdown {
