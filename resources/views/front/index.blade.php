@@ -183,12 +183,30 @@ body {
         }
 
         .close-button-img {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             position: absolute;
             top: 7px;
             right: 7px;
             cursor: pointer;
+            z-index: 11;
+        }
+
+        .slide-items>* {
+            padding: 0;
+        }
+
+        .slide-nav {
+            padding: 10px 0;
+        }
+
+        .slide-items {
+            border-radius: 0;
+        }
+
+        .slide-items,
+        .slide-nav  {
+            width: 100%;
         }
     }
 
