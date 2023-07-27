@@ -146,7 +146,11 @@
                                 <a href="{{route('traniningedit', $train->id)}}" class="training-list-edit">
                                     <img src="{{asset('back/assets/images/icons/training-list-message.png')}}" alt="training-list-edit" />
                                 </a>
-                                <img class="training-list-green" src="{{asset('back/assets/images/icons/training-list-green.png')}}" alt="training-list-green" />
+                                @if($train->status == 1)
+                                    <img class="training-list-green" src="{{asset('back/assets/images/icons/training-list-green.png')}}" alt="training-list-green" />
+                                @else
+                                    <img class="training-list-green" src="{{asset('back/assets/images/icons/announce-yellow.png')}}" alt="training-list-green"  />
+                                @endif
                             </div>
                         </div>
                         @endforeach
