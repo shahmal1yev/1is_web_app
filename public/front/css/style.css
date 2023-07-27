@@ -1168,8 +1168,17 @@ p {
     gap: 10px;
   }
 
-  .main-reklam {
-    display: none;
+  .main-reklam img {
+    height: 150px;
+  }
+  
+}
+
+@media screen and (max-width: 500px) {
+  
+
+  .main-reklam img {
+    height: 100px;
   }
   
 }
@@ -1463,8 +1472,12 @@ footer {
 
 .footer-right label {
   position: absolute;
-  color: #e5f6ff;
-  left: 5px;
+    color: #e5f6ff;
+    left: -5px;
+    top: 48px;
+    color: rgb(171,0,0);
+    font-weight: 700;
+    font-size: 14px;
 }
 
 .footer-input-label {

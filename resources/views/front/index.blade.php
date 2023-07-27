@@ -773,7 +773,9 @@ body {
             @foreach ($reklam as $rek)
                 
             <div class="main-reklam">
-                <img src="{{$rek->image}}" style="width: ">
+                <a href="#" class="w-100">
+                    <img src="{{$rek->image}}" style="width: ">
+                </a>
             </div>
             @endforeach
 
