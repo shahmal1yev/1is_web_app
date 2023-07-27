@@ -12,6 +12,7 @@
         background: #ecdbfc;
         color: #8843e1;
     }
+
 </style>
 
 @foreach ($banner as $ban)
