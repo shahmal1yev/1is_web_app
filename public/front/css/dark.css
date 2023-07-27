@@ -3,11 +3,15 @@
 }
 
 .dark header {
-  background-color: #131313;
+  background-color: #000;
 }
 
 .dark .line {
   background: #fff;
+}
+
+.dark iframe body {
+  color: #fff!important;
 }
 
 .dark .header-links:hover {
@@ -102,7 +106,7 @@
 }
 
 .dark .pop-card1 {
-  background-color: #131313;
+  background-color: #000;
 }
 
 .dark .text-field p {
@@ -143,7 +147,7 @@
 }
 
 .dark .vac-card {
-  background-color: #0d0d0d;
+  background-color: #000;
 }
 
 .dark .section-filter h2 {
@@ -543,8 +547,8 @@
 }
 
 .dark .add-cv-custom-file label:after {
-  background-color: #000;
-  color: #fff;
+  background-color: #ddd;
+  color: #000;
 }
 
 .dark .edit-training-input-group label {
