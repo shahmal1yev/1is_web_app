@@ -534,33 +534,13 @@
 
 </div>
 
-<section class="announce">
-            <div class="container announce-container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="ann-left">
-                            <p>İş axtarmağınıza ehtiyac qalmadı
-                                İşi ayağınıza gətirdik</p>
-                            <a href="">
-                                <img src="{{ asset('back/assets/images/search.png') }}" alt="">
-                                EMPLOYMENT.AZ
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="ann-mid">
-                            <img src="{{ asset('back/assets/images/elan.png') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        
-                        <div class="ann-right">
-                            <p>Bütün aktiv iş elanları saytlarını sizin üçün birləşdirdik!</p>
-                        </div>
-                    </div>
-                </div>
+            @foreach ($reklam as $rek)
+                
+            <div class="main-reklam">
+                <img src="{{$rek->image}}" style="width: ">
             </div>
-        </section>
+            @endforeach
+
 @endsection
 
 @section('js')
