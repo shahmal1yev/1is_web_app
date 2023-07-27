@@ -149,22 +149,6 @@ class AccountController extends Controller
             return redirect()->route('forget')->with('success', __('messages.sendpass'));
     }
 
-
-    public function googlelogin()
-        {
-            return Socialite::driver('google')->redirect();
-
-
-
-        }
-    public function callback()
-    {
-        $user = Socialite::driver('google')->user();
-
-        dd($user);
-
-    }
-
     
 
     public function forget_verification(Request $request)
@@ -396,7 +380,23 @@ class AccountController extends Controller
         return redirect()->route('profile')->with('error', __('messages.hazirpass'));
     } 
     
-    
+    public function updateCats(Request $request)
+    {
+        $validatedData = $request->validate([
+            'cat_id' => 'required|array'
+        ]);
+
+        $userId = auth()->user()->id;
+
+        $user = User::find($userId);
+        $user->cat_id = json_encode($validatedData['cat_id']);
+       
+        $user->save();
+
+        return redirect()->back()->with('success', __('messages.catyeni'));
+    }
+
+
     public function newslatter(Request $request)
         {
             $email = $request->input('email');

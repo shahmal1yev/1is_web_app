@@ -49,6 +49,9 @@
                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                         <span class="profile-left-icons icon-3"></span>
                         @lang('front.tenzimleme')</a>
+                        <a class="nav-link" id="v-pills-cat-tab" data-toggle="pill" href="#v-pills-cat" role="tab" aria-controls="v-pills-cat" aria-selected="false">
+                            <span class="profile-left-icons icon-3"></span>
+                            @lang('front.cat')</a>
                     <a class="nav-link"  href="{{route('logout')}}" role="tab">
                         <span class="profile-left-icons icon-4"></span>
                         @lang('front.cixis')
@@ -136,7 +139,20 @@
                                   <span toggle="#password-field3" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                               </div>
-                              <div class="form-group">
+                              
+                              <div class="form-send">
+                                <button class="form-button">
+                                    @lang('front.tesdiq')
+                                </button>
+                              </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-cat" role="tabpanel" aria-labelledby="v-pills-cat-tab">
+
+                        <form class="form-horizontal"  method="POST" action="{{route('updateCats')}}" id="register_form">
+                            @csrf
+                            <div class="form-group">
                                 <div id="no-limit">
                                     <p>@lang('front.cats')<span style="color: rgba(192, 0, 0, 1)">*</span></p>
                                     @php
@@ -163,7 +179,7 @@
                               </div>
                         </form>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </section>

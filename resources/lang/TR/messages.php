@@ -36,6 +36,7 @@ return [
     'sifreyeni' =>  'Şifreniz başarıyla güncellendi!',
     '8simvol' => 'Parolanız en az 8 karakter olmalıdır!',
     'passeyni' => 'Şifreleriniz aynı değil!',
+    'catyeni' => 'Kategori başarıyla güncellendi!',
 
     'murgonder' => 'Başvurunuz başarıyla gönderildi!',
 
