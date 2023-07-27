@@ -327,12 +327,29 @@
 .dark .add-training-input-group input,
 .dark .add-training-input-group select,
 .dark .add-training-input-group textarea {
-  background-color: #3a3737 !important;
+  background-color: #000 !important;
+  color: #fff;
 }
 
 .dark .add-training-input-group .add-image-label {
   background-color: #000 !important;
   color: #D3D1D1 !important;
+}
+
+.dark #structure input::placeholder{
+  color: #fff !important;
+}
+
+
+
+.dark #structure input[type='text'] , .dark #structure input[type='url']{
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.dark .silinmeli input{
+  background: #000 !important;
+  color: #fff !important;
 }
 
 .dark .profile-section {
