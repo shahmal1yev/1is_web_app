@@ -64,11 +64,11 @@
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                        <div class="prof-cont">
                         <div class="proftab-1">
-                            <img src="{{asset('back/assets/images/icons/announce.png')}}" alt="">
+                            <img src="{{asset('back/assets/images/icons/announce.svg')}}" alt="">
                             <span>{{$vacancies->count()}} @lang('front.elan')</span>
                         </div>
                         <div class="proftab-1">
-                            <img src="{{asset('back/assets/images/icons/file.png')}}" alt="">
+                            <img src="{{asset('back/assets/images/icons/file.svg')}}" alt="">
                             <span>{{$cvs->count()}} @lang('front.cv')</span>
                         </div>
                        </div>

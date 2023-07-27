@@ -387,6 +387,8 @@ button:focus {
   background: transparent;
 }
 
+
+
 /* MAIN SECTION */
 
 .main {
@@ -520,7 +522,7 @@ button:focus {
   border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
