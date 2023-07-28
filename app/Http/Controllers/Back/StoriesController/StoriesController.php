@@ -13,35 +13,48 @@ class StoriesController extends Controller
         $stories = Stories::all();
         return view('back.story.list',compact('stories'));
     }
-    public function storyPost(Request $request){
-        $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:1024',
-            'stories' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif',
-            'link' => 'required|min:3',
-        ]);
-        $story = new Stories();
-        $story->redirect_link = $request->link;
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $name = 'story_'.Str::random(6).'.' . $image->getClientOriginalExtension();
-            $directory = 'back/assets/images/stories/';
-            $image->move($directory, $name);
-            $name = $directory.$name;
-            $story->image = $name;
-        }
-        if ($request->hasFile('stories')) {
-            $stories = $request->file('stories');
-            $name = 'story_'.Str::random(6).'.' . $stories->getClientOriginalExtension();
-            $directory = 'back/assets/images/stories/';
-            $stories->move($directory, $name);
-            $name = $directory.$name;
-            $story->stories = $name;
-        }
-        return redirect()->back()->with($story->save() ? 'success' : 'error',true);
+    public function storyPost(Request $request)
+{
+    $request->validate([
+        'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:1024',
+        'stories.*' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif',
+        'link' => 'required|min:3',
+    ]);
+
+    $story = new Stories();
+    $story->redirect_link = $request->link;
+
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $name = 'story_' . Str::random(6) . '.' . $image->getClientOriginalExtension();
+        $directory = 'back/assets/images/stories/';
+        $image->move($directory, $name);
+        $name = $directory . $name;
+        $story->image = $name;
     }
-    public function storyEdit(Request $request){
-        $story = Stories::find($request->id);
-        return $story ?? response()->json('0');
+
+    if ($request->hasFile('stories')) {
+        $names = []; 
+
+        foreach ($request->file('stories') as $storyFile) {
+            $name = 'story_' . Str::random(6) . '.' . $storyFile->getClientOriginalExtension();
+            $directory = 'back/assets/images/stories/';
+            $storyFile->move($directory, $name);
+            $name = $directory . $name;
+            $names[] = $name; 
+        }
+
+        $namesJSON = json_encode($names);
+        $story->stories = $namesJSON; 
+    }
+    
+
+    return redirect()->back()->with($story->save() ? 'success' : 'error', true);
+}
+
+    public function storyEdit($id){
+        $story = Stories::find($id);
+        return View('back.story.edit', get_defined_vars());
     }
     public function storyEditPost(Request $request){
         $request->validate([
@@ -54,7 +67,7 @@ class StoriesController extends Controller
         $story->redirect_link = $request->edit_link;
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:1024',
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:5000',
             ]);
             $image = $request->file('image');
             $old_image = $story->image;
@@ -67,9 +80,10 @@ class StoriesController extends Controller
             $name = $directory.$name;
             $story->image = $name;
         }
+        
         if ($request->hasFile('stories')) {
             $request->validate([
-                'stories' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif',
+                'stories.*' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif',
             ]);
             $stories = $request->file('stories');
             $old_image = $story->stories;

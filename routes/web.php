@@ -262,7 +262,7 @@ Route::middleware('isAdminLogin')->group(function () {
     //Start Story
     Route::get('/admin/stories', [StoriesController::class, "storyIndex"])->name('storyIndex');
     Route::post('/admin/stories', [StoriesController::class, "storyPost"])->name('storyPost');
-    Route::post('/admin/stories/edit', [StoriesController::class, "storyEdit"])->name('storyEdit');
+    Route::get('/admin/stories/edit/{id}', [StoriesController::class, "storyEdit"])->name('storyEdit');
     Route::post('/admin/stories/edit/post', [StoriesController::class, "storyEditPost"])->name('storyEditPost');
     Route::post('/admin/stories/status', [StoriesController::class, "storyStatus"])->name('storyStatus');
     Route::post('/admin/stories/delete', [StoriesController::class, "storyDelete"])->name('storyDelete');

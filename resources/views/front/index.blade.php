@@ -182,6 +182,10 @@ body {
             bottom: 13%;
         }
 
+        .slide-items img {
+            object-fit: contain;
+        }
+
         .close-button-img {
             width: 20px;
             height: 20px;
@@ -446,22 +450,13 @@ body {
 <!-- CAROUSEL -->
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <a href="#" id="slide" class="swiper-slide story_button">
-        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="">
-        <a class="swiper-slide-link" href="#">lorem</a>
+    @foreach ($stories as $st)
+        
+      <a href="#" id="slide{{$st->id}}" class="swiper-slide story_button">
+        <img src="{{$st->image}}" alt="">
       </a>
-      <a href="#" id="slide1" class="swiper-slide story_button">
-        <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg" alt="">
-        <a class="swiper-slide-link" href="#">lorem</a>
-      </a>
-      <a href="#" id="slide2" class="swiper-slide story_button">
-        <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" alt="">
-        <a class="swiper-slide-link" href="#">lorem</a>
-      </a>
-      <a href="#" id="slide3" class="swiper-slide story_button">
-        <img src="https://media.istockphoto.com/id/1146517111/photo/taj-mahal-mausoleum-in-agra.jpg?s=612x612&w=0&k=20&c=vcIjhwUrNyjoKbGbAQ5sOcEzDUgOfCsm9ySmJ8gNeRk=" alt="">
-        <a class="swiper-slide-link" href="#">lorem</a>
-      </a>
+    @endforeach
+
 
 
     </div>  
@@ -472,78 +467,29 @@ body {
 </div>
 
 <div class="sliders">
-            <section data-slide="slide" class="slide" id="story_slide">
-                <div class="slide-items">
-                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="">
-                    <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg" alt="">
-                    <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" alt="">
-                    <img src="https://media.istockphoto.com/id/1146517111/photo/taj-mahal-mausoleum-in-agra.jpg?s=612x612&w=0&k=20&c=vcIjhwUrNyjoKbGbAQ5sOcEzDUgOfCsm9ySmJ8gNeRk=" alt="">
-                    <img src="https://1.bp.blogspot.com/-kK7Fxm7U9o0/YN0bSIwSLvI/AAAAAAAACFk/aF4EI7XU_ashruTzTIpifBfNzb4thUivACLcBGAsYHQ/s1280/222.jpg" alt="">
-                    <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=75&q=75" alt="">
-                    <img src="https://www.befunky.com/images/prismic/1f427434-7ca0-46b2-b5d1-7d31843859b6_funky-focus-red-flower-field-after.jpeg?auto=avif,webp&format=jpg&width=863" alt="">
-                    <img src="https://media.gettyimages.com/id/1311737764/photo/flame-towers-in-baku-at-dusk.jpg?s=612x612&w=gi&k=20&c=_eY1WurnoRaLHfl38TNsrhwIF4m6siEq1ORPf7YfhrU=" alt="">
-                </div>
-                <nav class="slide-nav">
-                    <div class="slide"></div>
-                    <button class="slide-prev">Previous</button>
-                    <button class="slide-next">Next</button>
-                </nav>
-                <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
-            </section>
-            <section data-slide="slide1" class="slide1" id="story_slide1">
-                <div class="slide-items">
-                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="">
-                    <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg" alt="">
-                    <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" alt="">
-                    <img src="https://media.istockphoto.com/id/1146517111/photo/taj-mahal-mausoleum-in-agra.jpg?s=612x612&w=0&k=20&c=vcIjhwUrNyjoKbGbAQ5sOcEzDUgOfCsm9ySmJ8gNeRk=" alt="">
-                    <img src="https://1.bp.blogspot.com/-kK7Fxm7U9o0/YN0bSIwSLvI/AAAAAAAACFk/aF4EI7XU_ashruTzTIpifBfNzb4thUivACLcBGAsYHQ/s1280/222.jpg" alt="">
-                    <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=75&q=75" alt="">
-                    <img src="https://www.befunky.com/images/prismic/1f427434-7ca0-46b2-b5d1-7d31843859b6_funky-focus-red-flower-field-after.jpeg?auto=avif,webp&format=jpg&width=863" alt="">
-                    <img src="https://media.gettyimages.com/id/1311737764/photo/flame-towers-in-baku-at-dusk.jpg?s=612x612&w=gi&k=20&c=_eY1WurnoRaLHfl38TNsrhwIF4m6siEq1ORPf7YfhrU=" alt="">
-                </div>
-                <nav class="slide-nav">
-                    <div class="slide1"></div>
-                    <button class="slide-prev">Previous</button>
-                    <button class="slide-next">Next</button>
-                </nav>
-                <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
-            </section>
-            <section data-slide="slide2" class="slide2" id="story_slide2">
-                <div class="slide-items">
-                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="">
-                    <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg" alt="">
-                    <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" alt="">
-                    <img src="https://media.istockphoto.com/id/1146517111/photo/taj-mahal-mausoleum-in-agra.jpg?s=612x612&w=0&k=20&c=vcIjhwUrNyjoKbGbAQ5sOcEzDUgOfCsm9ySmJ8gNeRk=" alt="">
-                    <img src="https://1.bp.blogspot.com/-kK7Fxm7U9o0/YN0bSIwSLvI/AAAAAAAACFk/aF4EI7XU_ashruTzTIpifBfNzb4thUivACLcBGAsYHQ/s1280/222.jpg" alt="">
-                    <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=75&q=75" alt="">
-                    <img src="https://www.befunky.com/images/prismic/1f427434-7ca0-46b2-b5d1-7d31843859b6_funky-focus-red-flower-field-after.jpeg?auto=avif,webp&format=jpg&width=863" alt="">
-                    <img src="https://media.gettyimages.com/id/1311737764/photo/flame-towers-in-baku-at-dusk.jpg?s=612x612&w=gi&k=20&c=_eY1WurnoRaLHfl38TNsrhwIF4m6siEq1ORPf7YfhrU=" alt="">
-                </div>
-                <nav class="slide-nav">
-                    <div class="slide2"></div>
-                    <button class="slide-prev">Previous</button>
-                    <button class="slide-next">Next</button>
-                </nav>
-                <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
-            </section>
-            <section data-slide="slide3" class="slide3" id="story_slide3">
-                <div class="slide-items">
-                    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="">
-                    <img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg" alt="">
-                    <img src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg" alt="">
-                    <img src="https://media.istockphoto.com/id/1146517111/photo/taj-mahal-mausoleum-in-agra.jpg?s=612x612&w=0&k=20&c=vcIjhwUrNyjoKbGbAQ5sOcEzDUgOfCsm9ySmJ8gNeRk=" alt="">
-                    <img src="https://1.bp.blogspot.com/-kK7Fxm7U9o0/YN0bSIwSLvI/AAAAAAAACFk/aF4EI7XU_ashruTzTIpifBfNzb4thUivACLcBGAsYHQ/s1280/222.jpg" alt="">
-                    <img src="https://imgd.aeplcdn.com/1056x594/n/cw/ec/44686/activa-6g-right-front-three-quarter.jpeg?q=75&q=75" alt="">
-                    <img src="https://www.befunky.com/images/prismic/1f427434-7ca0-46b2-b5d1-7d31843859b6_funky-focus-red-flower-field-after.jpeg?auto=avif,webp&format=jpg&width=863" alt="">
-                    <img src="https://media.gettyimages.com/id/1311737764/photo/flame-towers-in-baku-at-dusk.jpg?s=612x612&w=gi&k=20&c=_eY1WurnoRaLHfl38TNsrhwIF4m6siEq1ORPf7YfhrU=" alt="">
-                </div>
-                <nav class="slide-nav">
-                    <div class="slide3"></div>
-                    <button class="slide-prev">Previous</button>
-                    <button class="slide-next">Next</button>
-                </nav>
-                <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
-            </section>
+    @foreach ($stories as $st)
+    @php
+        $imagePaths = json_decode($st->stories); 
+        
+    @endphp
+
+    <section data-slide="slide{{$st->id}}" class="slide{{$st->id}}" id="story_slide">
+        <div class="slide-items">
+            @foreach ($imagePaths as $imagePath)
+                <img src="{{ asset($imagePath) }}" alt=""> {{-- Görsel yollarını asset() fonksiyonuyla doğru şekilde çözümlüyoruz --}}
+            @endforeach
+        </div>
+        <nav class="slide-nav">
+            <div class="slide{{$st->id}}"></div>
+            <button class="slide-prev">Previous</button>
+            <button class="slide-next">Next</button>
+        </nav>
+        <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
+    </section>
+@endforeach
+
+          
+            
         </div>
 
 </section>
