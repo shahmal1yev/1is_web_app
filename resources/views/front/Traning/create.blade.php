@@ -76,8 +76,8 @@
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
-                        <input type="url" name="link" placeholder="@lang('front.urldaxilet')" class="form-control" id="training_url" required value="{{old('link')}}" />
-                        
+                        <input type="url" name="link" placeholder="@lang('front.urldaxilet')" class="form-control" id="training_url" value="{{old('link')}}" />
+                        <label id="training_url-error" class="error" for="training_url">Bu sahə doldurulmalıdır!</label>
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_payment">@lang('front.odenistip') <span class="text-danger">*</span></label>
@@ -98,7 +98,7 @@
                     <div class="form-group add-training-input-group">
                         <label for="images">@lang('front.sekiladd') <span class="text-danger">*</span></label>
                         <div class="custom-file training-custom-file">
-                          <input type="file" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="image" required>
+                          <input type="file" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="image" accept="image/*">
                           <label class="custom-file-label add-image-label" for="images">@lang('front.sekilsec')</label>
                         </div>
                         <div id="image-preview-container"></div>
@@ -123,7 +123,7 @@
                       </script>
                       
                     <div class="add-training-form-button">
-                        <button type="submit">@lang('front.elaveet')</button>
+                        <button id="send" type="submit">@lang('front.elaveet')</button>
                     </div>
                 </form>
 
@@ -146,7 +146,11 @@
                                 <a href="{{route('traniningedit', $train->id)}}" class="training-list-edit">
                                     <img src="{{asset('back/assets/images/icons/training-list-message.png')}}" alt="training-list-edit" />
                                 </a>
-                                <img class="training-list-green" src="{{asset('back/assets/images/icons/training-list-green.png')}}" alt="training-list-green" />
+                                @if($train->status == 1)
+                                    <img class="training-list-green" src="{{asset('back/assets/images/icons/training-list-green.png')}}" alt="training-list-green" />
+                                @else
+                                    <img class="training-list-green" src="{{asset('back/assets/images/icons/announce-yellow.png')}}" alt="training-list-green"  />
+                                @endif
                             </div>
                         </div>
                         @endforeach
@@ -170,6 +174,8 @@
         }
     </script>
 
+   
+
 @endsection
 
 @section('css-link')
@@ -182,7 +188,6 @@
 @section('js-link')
 <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('front/js/slick.min.js')}}"></script>
-<script src="{{asset('front/js/add-training.js')}}"></script>
 @endsection
 
 @section('js')
@@ -328,10 +333,7 @@
 
                 image: {
                     required: true,
-                    accept: "image/*",
-                    maxFileSize: {
-                        "param": 5242880, 
-                    }
+                    
                 },
                 
 
@@ -428,5 +430,44 @@
     });
 
    
+</script>
+
+<script>
+    const training_url = document.querySelector('#training_url');
+    const register_form = document.querySelector('#register_form');
+    const training_url_error = document.querySelector('#training_url-error');
+    
+    register_form.addEventListener('submit', (e) => {
+        if(training_url.value === '') {
+            training_url_error.style.display = 'block';
+            e.preventDefault();
+        }else {
+            training_url_error.style.display = 'none';
+        }
+    });
+</script>
+
+<script>
+    const sendBtn = document.getElementById("send");
+      sendBtn.addEventListener("click", (e) => {
+
+          var errorIn = document.getElementById("training_url-error");
+          var nameVal = document.getElementById("training_url");
+          var latestVal = nameVal.value;
+          if (latestVal.length == 0) {
+          errorIn.innerText = "Link is required";
+          return false;
+          }
+
+        //   if (!latestVal.match(/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})/)) {
+        //   errorIn.innerText = "Please enter a valid URL.";
+        //   e.preventDefault()
+        //   return false;
+        //   }
+
+          errorIn.innerText = "Valid Link";
+          return true;
+          
+      });
 </script>
 @endsection
