@@ -136,7 +136,7 @@
                 </div>
                 <div class="company-content">
                     <div class="inner1">
-                        <p>{{$allcomp->name}}</p>
+                        <p>{!! htmlspecialchars_decode($allcomp->name) !!}</p>
                     </div>
                     <div class="inner3">
                         <div class="stars">

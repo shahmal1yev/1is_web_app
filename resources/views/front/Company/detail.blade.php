@@ -101,7 +101,7 @@
 
 <section class="company-inner">
       <div class="container company-inner-container">
-        <h3>{{$compdetail->name}}</h3>
+        <h3>{!! htmlspecialchars_decode($compdetail->name) !!}</h3>
         <div class="about-company-wrapper">
           <div class="about-company-image">
 
@@ -320,8 +320,8 @@
      <div class="my-modal-header">
        <img class="my-modal-header-img" src="{{asset($compdetail->image)}}" alt="" />
        <div class="modal-header-details">
-         <h1>{{$compdetail->name}}</h1>
-         @php
+        <h1>{!! htmlspecialchars_decode($compdetail->name)!!}</h1>
+        @php
               $stars = round($compdetail->average);
           @endphp
           @for($i = 1; $i <= 5; $i++)

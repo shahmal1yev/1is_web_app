@@ -652,7 +652,7 @@ body {
                 </div>
                 <div class="company-content">
                     <div class="inner1">
-                        <p>{{$company->name}}</p>
+                        <p>{!! htmlspecialchars_decode($company->name) !!}</p>
                     </div>
                     <div class="inner3">
                         <div class="stars">
