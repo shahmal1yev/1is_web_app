@@ -8,38 +8,36 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('cv', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('user_id');
-            $table->integer('category_id')->default(null);
-            $table->integer('city_id')->default(null);
-            $table->integer('region_id')->default(null);
-            $table->integer('education_id')->default(null);
-            $table->integer('experience_id')->default(null);
-            $table->integer('job_type_id')->default(null);
-            $table->integer('gender_id')->default(null);
-            $table->string('name')->default(null);
-            $table->string('surname')->default(null);
-            $table->string('father_name')->default(null);
-            $table->string('email', 50)->default(null);
-            $table->string('position')->default(null);
+            $table->integer('category_id')->nullable();
+            $table->integer('city_id')->nullable();
+            $table->integer('region_id')->nullable();
+            $table->integer('education_id')->nullable();
+            $table->integer('experience_id')->nullable();
+            $table->integer('job_type_id')->nullable();
+            $table->integer('gender_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
+            $table->string('father_name')->nullable();
+            $table->string('email', 50)->nullable();
+            $table->string('position')->nullable();
             $table->string('slug');
-            $table->longtext('about_education')->default(null);
-            $table->string('salary', 25)->default(null);
-            $table->date('birth_date')->default(null);
-            $table->longtext('work_history')->default(null);
-            $table->text('skills')->default(null);
-            $table->string('contact_mail', 50)->default(null);
-            $table->string('contact_phone', 50)->default(null);
+            $table->longtext('about_education')->nullable();
+            $table->string('salary', 25)->nullable();
+            $table->date('birth_date')->nullable();
+            $table->longtext('work_history')->nullable();
+            $table->text('skills')->nullable();
+            $table->string('contact_mail', 50)->nullable();
+            $table->string('contact_phone', 50)->nullable();
             $table->string('cv', 500);
             $table->string('image', 500);
-            $table->longtext('portfolio')->default(null);
+            $table->longtext('portfolio')->nullable();
             $table->integer('view')->default(0);
             $table->boolean('status')->default(false);
 
@@ -50,10 +48,8 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('cv');
     }

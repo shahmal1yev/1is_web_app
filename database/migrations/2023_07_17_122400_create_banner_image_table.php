@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('regions', function (Blueprint $table) {
+        Schema::create('banner_image', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('city_id');
-            
-            $table->string('title_az');
-            $table->string('title_en');
-            $table->string('title_ru');
-            $table->string('title_tr');
-            $table->string('slug');
+
+            $table->string('image');
             $table->boolean('status')->default(true);
 
             $table->dateTime('created_at')->useCurrent();
@@ -36,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regions');
+        Schema::dropIfExists('banner_image');
     }
 };
