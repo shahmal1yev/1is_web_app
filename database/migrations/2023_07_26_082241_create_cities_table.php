@@ -8,34 +8,32 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('regions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('city_id');
+        Schema::create('cities', function (Blueprint $table) {
             
+            $table->increments('id');
+
             $table->string('title_az');
             $table->string('title_en');
             $table->string('title_ru');
             $table->string('title_tr');
+
             $table->string('slug');
             $table->boolean('status')->default(true);
 
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('regions');
+        Schema::dropIfExists('cities');
     }
 };

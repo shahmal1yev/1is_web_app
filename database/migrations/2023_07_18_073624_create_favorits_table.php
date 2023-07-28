@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('id');
 
             $table->bigInteger('user_id');
-            $table->bigInteger('vacancy_id')->default(null);
-            $table->bigInteger('cv_id')->default(null);
+            $table->bigInteger('vacancy_id')->nullable();
+            $table->bigInteger('cv_id')->nullable();
 
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

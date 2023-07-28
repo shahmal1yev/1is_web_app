@@ -13,16 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('regions', function (Blueprint $table) {
+        Schema::create('candidates', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('city_id');
-            
-            $table->string('title_az');
-            $table->string('title_en');
-            $table->string('title_ru');
-            $table->string('title_tr');
-            $table->string('slug');
-            $table->boolean('status')->default(true);
+
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('mail')->nullable();
+            $table->string('cv')->nullable();
+
+            $table->bigInteger('vacancy_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
 
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
@@ -36,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regions');
+        Schema::dropIfExists('candidates');
     }
 };

@@ -8,20 +8,16 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('regions', function (Blueprint $table) {
+        Schema::create('social_media', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('city_id');
-            
-            $table->string('title_az');
-            $table->string('title_en');
-            $table->string('title_ru');
-            $table->string('title_tr');
-            $table->string('slug');
+
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('linkedin');
+
             $table->boolean('status')->default(true);
 
             $table->dateTime('created_at')->useCurrent();
@@ -31,11 +27,9 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('regions');
+        Schema::dropIfExists('social_media');
     }
 };

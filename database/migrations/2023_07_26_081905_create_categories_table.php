@@ -11,16 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            
-            $table->string('name', 50);
-            $table->string('surname', 50);
-            $table->string('email', 50);
-            $table->string('phone', 50);
-            $table->text('message');
-            $table->boolean('status')->default(false);
 
+            $table->string("title_az");
+            $table->string("title_en");
+            $table->string("title_ru");
+            $table->string("title_tr");
+
+            $table->string("slug");
+
+            $table->string("icon");
+
+            $table->boolean("status")->default(true);
+            
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
@@ -31,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contact');
+        Schema::dropIfExists('categories');
     }
 };
