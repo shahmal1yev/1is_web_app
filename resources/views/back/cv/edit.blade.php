@@ -214,173 +214,104 @@
                             
                            
 
-                        <!-- <div class="container" data-repeater-list="group-a">
-
-                        @php
-                            $portfolio = json_decode($cv->portfolio, true);
-                            
-                            $itm = $portfolio['portfolio'];
-                            
-                            if (!$itm || !isset($itm[0]['job_name'])) {
-                                $itm = [['job_name' => '', 'company' => '', 'link' => '']];
-                            }
-                            
-                            $count = count($itm);
-                        @endphp
-
-
-                            @for ($i = 0; $i < $count; $i++)
-                            @php
-                                $job_name = isset($itm[$i]['job_name']) ? $itm[$i]['job_name'] : '';
-                                $company = isset($itm[$i]['company']) ? $itm[$i]['company'] : '';
-                                $link = isset($itm[$i]['link']) ? $itm[$i]['link'] : '';
-                                $rnd =  rand().time();
-                                $portId = "port_id_" . $rnd;
-                            
-                            @endphp
-
-                            <div class='row silinmeli' id="{{ $portId }}">
-                                <div class='col-lg-3'>
-                                    <label for='first-name'>@lang('front.isinadi')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_name]" value="{{ $job_name }}" class="form-control" placeholder="@lang('front.daxilet')" />
-                                </div>
-                                <div class='col-lg-3'>
-                                    <br>
-                                    <label for='first-name'> @lang('front.companies')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_company]" value="{{ $company }}" class="form-control" placeholder="@lang('front.daxilet')" />
-                                </div>
-                                <div class='col-lg-3'>
-                                    <br>
-                                    <label for='first-name'>@lang('front.link')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_link]" value="{{ $link }}" class="form-control" placeholder="@lang('front.daxilet')" />
-                                </div>
-                                <button onclick="deleteRow('{{ $portId }}')" type="button" class="delete-btn">SIL</button>
-                            </div>
-
-                            <script>
-                            function deleteRow(portId) {
-                                var element = document.getElementById(portId);
-                                element.parentNode.removeChild(element);
-                            }
-                            </script>
-
-                            @endfor
-                            </div>
-
-
-                            <script>
-                                function deleteElement(){
-                                    const deleteDiv=document.querySelector(".silinmeli");
-                                    deleteDiv.remove()
-
-                                }
-                                                                        
-                            </script>
-                        </div> -->
-                        
-
-                        
-                <!-- NEW REPEATER START -->
-                <div class="row targetDiv" id="div0">
-                    <div class="col-md-12">
-                        <h4>Is Yeri</h4>
-                        <div id="group1">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Isin adi</label>
-                                        <input
-                                        class="form-control"
-                                        name=""
-                                        type="text"
-                                        placeholder="job name"
-                                        />
-                                    </div>
-                                </div>
-                                
-                                <div class="col-xs-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Sirket</label>
-                                        <input
-                                        class="form-control"
-                                        name=""
-                                        type="text"
-                                        placeholder="company"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Link</label>
-                                        <input
-                                        class="form-control"
-                                        name=""
-                                        type="text"
-                                        placeholder="link"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-  
-                <!-- REPEATING DIV -->
-                <div class="row targetDiv" id="div1">
-                    <div class="col-md-12">
-                        <div id="group2" class="fvrduplicate">
-                            <div class="row entry">
-                                <!-- Field Start -->
-                                <div class="col-xs-12 col-md-3">
-                                        <div class="form-group">
-                                            <label>Isin adi</label>
-                                            <input
-                                            class="form-control"
-                                            name=""
-                                            type="text"
-                                            placeholder="job name"
-                                            />
+                            <div class="container" data-repeater-list="group-a">
+                                <div class="col-md-12">
+                                    <div id="group2" class="fvrduplicate">
+                                        <div class="row entry">
+                                            <!-- Field Start -->
+                                            <div class='col-lg-3'>
+                                                <label for='first-name'>@lang('front.isinadi')</label> <br>
+                                                <input type="text" name="work_name" id="job_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                            </div>
+                                            <div class='col-lg-3'>
+                                                <br>
+                                                <label for='first-name'> @lang('front.companies')</label> <br>
+                                                <input type="text" name="work_company" id="comp_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                            </div>
+                                            <div class='col-lg-3'>
+                                            <br>
+                                                <label for='first-name'>@lang('front.link')</label> <br>
+                                                <input type="url" name="work_link" id="comp_linkk" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                            </div>
+                                            <div class="col-xs-12 col-md-2 flexend">
+                                            <div class="form-group">
+                                                <label>&nbsp;</label>
+                                                <button type="button" class="btn btn-success btn-sm btn-add ">
+                                                        Portfolio Elave Et
+                                                </button>
+                                            </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="col-xs-12 col-md-3">
-                                        <div class="form-group">
-                                            <label>Sirket</label>
-                                            <input
-                                            class="form-control"
-                                            name=""
-                                            type="text"
-                                            placeholder="company"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-md-3">
-                                        <div class="form-group">
-                                            <label>Link</label>
-                                            <input
-                                            class="form-control"
-                                            name=""
-                                            type="text"
-                                            placeholder="link"
-                                            />
-                                        </div>
-                                    </div>
-                                <div class="col-xs-12 col-md-2 flexend">
-                                <div class="form-group">
-                                    <label>&nbsp;</label>
-                                    <button type="button" class="btn btn-success btn-sm btn-add ">
-                                            Portfolio Elave Et
-                                    </button>
-                                </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- NEW REPEATER FINISH -->
 
+                    <div class="container" data-repeater-list="group-a">
+
+                    @php
+                        $portfolio = json_decode($cv->portfolio, true);
+                        
+                        $itm = $portfolio['portfolio'];
+                        
+                        if (!$itm || !isset($itm[0]['job_name'])) {
+                            $itm = [['job_name' => '', 'company' => '', 'link' => '']];
+                        }
+                        
+                        $count = count($itm);
+                        
+                    @endphp
+    
+    
+                    @for ($i = 0; $i < $count; $i++)
+                        @php
+                            $job_name = isset($itm[$i]['job_name']) ? $itm[$i]['job_name'] : '';
+                            $company = isset($itm[$i]['company']) ? $itm[$i]['company'] : '';
+                            $link = isset($itm[$i]['link']) ? $itm[$i]['link'] : '';
+                            $rnd =  rand().time();
+                            $portId = "port_id_" . $rnd;
+                            
+                    @endphp
+    
+                        
+                    <!-- REPEATING DIV -->
+                    <div class="row silinmeli" id="{{ $portId }}">
+                        <div class="col-md-12">
+                            <div id="group2" class="fvrduplicate">
+                                <div class="row entry">
+                                    <!-- Field Start -->
+                                        <div class="col-xs-12 col-md-3">
+                                            <div class="form-group">
+                                                <label>Isin adi</label>
+                                                <input class="form-control" name="group[{{ $rnd }}][work_name]" value="{{ $job_name }}" type="text" placeholder="job name" />
+                                            </div>
+                                        </div>
+                                            
+                                        <div class="col-xs-12 col-md-3">
+                                            <div class="form-group">
+                                                <label>Sirket</label>
+                                                <input class="form-control" name="group[{{ $rnd }}][work_company]" value="{{ $company }}" type="text" placeholder="company" />
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-xs-12 col-md-3">
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input class="form-control" name="group[{{ $rnd }}][work_link]" value="{{ $link }}" type="text" placeholder="link"  />
+                                            </div>
+                                        </div>
+                                        <button onclick="deleteRow('{{ $portId }}')" type="button" class="delete-btn">SIL</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                   @endfor 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- NEW REPEATER FINISH -->  
 
                         <div class="row justify-content-end mt-5" >
                             <div class="col-lg-12 text-center">
