@@ -136,8 +136,14 @@
                 </div>
                 <div class="company-content">
                     <div class="inner1">
-                        <p>{!! htmlspecialchars_decode($allcomp->name) !!}</p>
-                    </div>
+                        <p>
+                            @if(strlen($allcomp->name) > 40)
+                                {{ substr($allcomp->name, 0, 40) . '...' }}
+                            @else
+                                {!! htmlspecialchars_decode($allcomp->name) !!}
+                            @endif
+                        </p>
+                        </div>
                     <div class="inner3">
                         <div class="stars">
                                 @php

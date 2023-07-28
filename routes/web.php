@@ -166,7 +166,7 @@ Route::middleware('isAdminLogin')->group(function () {
     Route::post('/admin/companies/change/status', [AdminCompaniesController::class, "companiesStatus"])->name('companiesStatus');
 
     Route::get('/admin/companies/edit/{id}', [AdminCompaniesController::class, "companiesEdit"])->name('companiesEdit');
-    Route::post('/admin/companies/edit', [AdminCompaniesController::class, "companiesEditPost"])->name('companiesEditPost');
+    Route::post('/admin/companies/edit', [AdminCompaniesController::class, "companiesEditPosts"])->name('companiesEditPosts');
     Route::post('/admin/companies/delete', [AdminCompaniesController::class, "companiesDelete"])->name('companiesDelete');
 
     //End Companies

@@ -89,7 +89,7 @@ class AdminCompaniesController extends Controller
         $sectors = Sectors::where('status','1')->get();
         return view('back.companies.edit',compact('sectors','company'));
     }
-    public function companiesEditPost(Request $request){
+    public function companiesEditPosts(Request $request){
         $request->validate([
             'id'=>'required',
             'sector'=>'required|numeric',
