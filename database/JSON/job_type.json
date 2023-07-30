@@ -1,0 +1,12 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"1is"},
+{"type":"table","name":"job_type","database":"1is","data":
+[
+{"id":"1","title_az":"Tam iş vaxtı","title_en":"Full time","title_ru":"На постоянной основе","title_tr":"Tam zamanlı","slug":"tam-is-vaxti","status":"1","created_at":"2023-02-03 08:12:08","updated_at":"2023-02-03 08:12:08"},
+{"id":"2","title_az":"Natamam iş vaxtı","title_en":"Part time work","title_ru":"Неполный рабочий день","title_tr":"Yarı zamanlı iş","slug":"natamam-is-vaxti","status":"1","created_at":"2023-02-03 08:12:08","updated_at":"2023-02-07 12:10:47"},
+{"id":"3","title_az":"Qısaldılmış iş vaxtı","title_en":"Shortened working hours","title_ru":"Сокращенный рабочий день","title_tr":"Kısaltılmış çalışma saatleri","slug":"qisaldilmis-is-vaxti","status":"1","created_at":"2023-02-03 08:12:08","updated_at":"2023-02-03 08:12:08"},
+{"id":"4","title_az":"Sərbəst","title_en":"Free","title_ru":"Бесплатно","title_tr":"Özgür","slug":"serbest","status":"1","created_at":"2023-02-03 08:12:08","updated_at":"2023-06-27 18:07:00"}
+]
+}
+]

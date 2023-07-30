@@ -1,0 +1,35 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"1is"},
+{"type":"table","name":"sectors","database":"1is","data":
+[
+{"id":"1","title_az":"Maliyyə, Mühasibatlıq və Audit","title_en":"Finance, Accounting and Auditing","title_ru":"Финансы, бухгалтерский учет и аудит","title_tr":"Finans, Muhasebe ve Denetim","slug":"maliyye-muhasibatliq-ve-audit","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"2","title_az":"Dövlət İdarəetməsi və Müdafiə; İcbari Sosial Təminat","title_en":"Public Administration and Defense; Compulsory Social Security","title_ru":"государственное управление и оборона; Обязательное социальное обеспечение","title_tr":"Kamu Yönetimi ve Savunma; Zorunlu Sosyal Güvenlik","slug":"dovlet-idareetmesi-ve-mudafie-icbari-sosial-teminat","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"3","title_az":"Səhiyyə, İdman və Sağlamlıq","title_en":"Health, Sports and Wellness","title_ru":"Здоровье, спорт и хорошее самочувствие","title_tr":"Sağlık, Spor ve Zindelik","slug":"sehiyye-idman-ve-saglamliq","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"4","title_az":"Topdan və Pərakəndə Ticarət","title_en":"Wholesale and Retail Trade","title_ru":"Оптовая и розничная торговля","title_tr":"Toptan ve Perakende Ticaret","slug":"topdan-ve-perakende-ticaret","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"5","title_az":"Bank ","title_en":"Bank ","title_ru":"Банк","title_tr":"Banka","slug":"bank","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"6","title_az":"İnformasiya Texnologiyaları","title_en":"Information technologies","title_ru":"Информационные технологии","title_tr":"Bilişim Teknolojileri","slug":"informasiya-texnologiyalari","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"7","title_az":"Tikinti","title_en":"Construction","title_ru":"Строительство","title_tr":"Yapı","slug":"tikinti","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"8","title_az":"Kənd təsərrüfatı","title_en":"Agriculture","title_ru":"Cельское хозяйство","title_tr":"Tarım","slug":"kend-teserrufati","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"9","title_az":"Nəqliyyat və Logistika","title_en":"Transport and Logistics","title_ru":"Транспорт и логистика","title_tr":"Nakliye ve Lojistik","slug":"neqliyyat-ve-logistika","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"10","title_az":"Hüquq və Vergi","title_en":"Law and Taxation","title_ru":"Закон и налогообложение","title_tr":"Hukuk ve Vergilendirme","slug":"huquq-ve-vergi","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"11","title_az":"Emal Sənayesi","title_en":"Processing industry","title_ru":"Обрабатывающая промышленность","title_tr":"İşleme endüstrisi","slug":"emal-senayesi","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"12","title_az":"Ağır sənaye və Metallurgiya","title_en":"Heavy industry and Metallurgy","title_ru":"Тяжелая промышленность и металлургия","title_tr":"Ağır sanayi ve metalurji","slug":"agir-senaye-ve-metallurgiya","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"13","title_az":"Turizm və Otelçilik","title_en":"Tourism and Hospitality","title_ru":"Туризм и гостеприимство","title_tr":"Turizm ve misafirperverlik","slug":"turizm-ve-otelcilik","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"14","title_az":"Rabitə və Telekommunikasiya","title_en":"Communication and Telecommunications","title_ru":"Связь и телекоммуникации","title_tr":"İletişim ve Telekomünikasyon","slug":"rabite-ve-telekommunikasiya","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"15","title_az":"Media","title_en":"Media","title_ru":"СМИ","title_tr":"Medya","slug":"media","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"16","title_az":"Mətbəə, Nəşriyyat və Reklam","title_en":"Printing, Publishing and Advertising","title_ru":"Полиграфия, издательское дело и реклама","title_tr":"Basım, Yayın ve Reklamcılık","slug":"metbee-nesriyyat-ve-reklam","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"17","title_az":"Qida","title_en":"Food","title_ru":"Еда","title_tr":"Yiyecek","slug":"qida","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"18","title_az":"Sığorta","title_en":"Insurance","title_ru":"Страхование","title_tr":"Sigorta","slug":"sigorta","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"19","title_az":"Elm və Təhsil","title_en":"Science and Education","title_ru":"Наука и образование","title_tr":"Bilim ve Eğitim","slug":"elm-ve-tehsil","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"20","title_az":"Xidmət","title_en":"Service","title_ru":"Услуга","title_tr":"Hizmet","slug":"xidmet","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"21","title_az":"Geyim, Gözəllik və Moda","title_en":"Clothing, Beauty and Fashion","title_ru":"Одежда, красота и мода","title_tr":"Giyim, Güzellik ve Moda","slug":"geyim-gozellik-ve-moda","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"22","title_az":"Daşınmaz əmlak","title_en":"Real Estate","title_ru":"Недвижимость","title_tr":"Emlak","slug":"dasinmaz-emlak","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"23","title_az":"Enerji ","title_en":"Energy","title_ru":"Энергия","title_tr":"Enerji","slug":"enerji","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"24","title_az":"Mədənçıxarma Sənayesi","title_en":"Mining Industry","title_ru":"Горнодобывающая индустрия","title_tr":"Maden endüstrisi","slug":"medencixarma-senayesi","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-01-11 05:45:48"},
+{"id":"25","title_az":"Şirkətlər qrupu","title_en":"Group of companies","title_ru":"Группа компаний","title_tr":"Şirketler grubu","slug":"sirketler-qrupu","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-06-27 17:43:40"},
+{"id":"26","title_az":"Əyləncə","title_en":"Entertainment","title_ru":"Развлечение","title_tr":"Eğlence","slug":"eylence","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-06-27 17:43:40"},
+{"id":"27","title_az":"Nazirliklər","title_en":"Ministries","title_ru":"Министерства","title_tr":"Bakanlıklar","slug":"nazirlikler","status":"1","created_at":"2023-01-11 05:45:48","updated_at":"2023-06-27 17:43:40"}
+]
+}
+]

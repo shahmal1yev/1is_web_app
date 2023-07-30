@@ -1,0 +1,9 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"1is"},
+{"type":"table","name":"settings","database":"1is","data":
+[
+{"id":"1","meta_keywords_az":"[{\"value\":\"1is az\"},{\"value\":\"1isaze\"},{\"value\":\"dfgh\"},{\"value\":\"fghjk\"},{\"value\":\"rtyu\"},{\"value\":\"dsdfsdsfd\"},{\"value\":\"des\"}]","meta_keywords_en":"[{\"value\":\"1is en\"},{\"value\":\"1isen\"}]","meta_keywords_ru":"[{\"value\":\"1is ru\"},{\"value\":\"1isru\"}]","meta_keywords_tr":"[{\"value\":\"1is tr\"},{\"value\":\"1istr\"}]","meta_title_az":"1is.az","meta_title_en":"1is en","meta_title_ru":"1is ru","meta_title_tr":"1is tr","meta_description_az":"1is az","meta_description_en":"1is en","meta_description_ru":"1is ru","meta_description_tr":"fgdfgdfdfgdfgdfgdfg","logo":"back\/assets\/images\/logos\/logo_Fo6WOO.png","favicon":"back\/assets\/images\/logos\/favicon_kPZKOx.png","status":"1","created_at":"2023-01-10 12:07:42","updated_at":"2023-07-12 13:22:35"}
+]
+}
+]
