@@ -33,7 +33,7 @@ class CVSeeder extends Seeder
 
     		$cvPhotoPath = $data['photo'];
     		$cvPhotoPathPieces = explode('/', $cvPhotoPath);
-    		$cvPhotoFileName = end($cvPathPieces);
+    		$cvPhotoFileName = end($cvPhotoPathPieces);
     		$cvPhotoNewPath = '/back/assets/images/cv_photo/' . $cvPhotoFileName;
 
     		Cv::create([
