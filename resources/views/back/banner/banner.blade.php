@@ -39,8 +39,12 @@
                         <div class="row mb-4">
                             <p class="text-center">Cari şəkil: </p>
                             <div class="col-lg-12 d-flex justify-content-center" >
-                                <img src="{{asset($banner->image)}}" alt="Logo" width="300px" height="150px">
-                            </div>
+                                @if (isset($banner->image))
+                                <img src="{{ asset($banner->image) }}" alt="Logo" width="300px" height="150px">
+                            @else
+                                <div style="width: 300px; height: 150px; background-color: #f60b0b; display: flex; justify-content: center; align-items: center; color: #666;">sekil yoxdur</div>
+                            @endif
+                                </div>
                         </div>
                         <div class="row mb-4">
                             <label for="name" class="col-form-label col-lg-2">Şəkil seçin</label>

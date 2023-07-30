@@ -11,6 +11,7 @@
 }
 
 .filter1 {
+    width: calc(100% - 320px);
     display: flex;
     align-items: center;
 }

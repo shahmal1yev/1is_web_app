@@ -1,5 +1,18 @@
 @extends('front.layouts.master')
 
+<style>
+    .search-company-inner {
+        flex-wrap: nowrap!important;
+    }
+    #resetButton {
+        color: #fff;
+        background: #8843e1;
+        border-radius: 4px;
+        font-size: 14px;
+        width: 90px;
+        height: 35px;
+    }
+</style>
 
 @section('content')
 @foreach ($banner as $ban)
@@ -14,7 +27,7 @@
         </div>
         
         <form id="myForm" class="main-filter" method="GET" action="{{route('vsearch')}}">
-            <div class="active-filter active-filter-jobsearchinner">
+            <div class="active-filter active-filter-jobsearchinner search-company-inner">
                 <div class="filter1">
                     <img src="https://1is-new.netlify.app/images/search.png" alt="">
                     <input class="filter-input" placeholder="@lang('front.açar')" type="search" name="query" value="{{ old('vacname',$vacname) }}">

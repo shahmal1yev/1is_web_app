@@ -33,6 +33,6 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'https://1is.butagrup.az/google/login/callback',
+        'redirect_uri' => env('GOOGLE_REDIRECT_URL'),
     ],
 ];

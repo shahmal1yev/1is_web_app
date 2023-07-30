@@ -31,7 +31,6 @@
                         <tr>
                             <th>№</th>
                             <th>Şəkil</th>
-                            <th>Hekayə</th>
                             <th>Yönləndirmə linki</th>
                             <th>Əməliyyatlar</th>
                         </tr>
@@ -41,7 +40,6 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td><img src="{{asset($story->image)}}" alt="" style="width: 200px;height: 100px"></td>
-                                <td><img src="{{asset($story->stories)}}" alt="" style="width: 200px;height: 100px"></td>
                                 <td>{{$story->redirect_link}}</td>
                                 <td>
                                     <p class="d-none">{{$story->status == 1 ? "Active" : "Deactive"}}</p>
@@ -49,7 +47,9 @@
                                     <label for="switch{{$story->id}}" data-on-label="On" data-off-label="Off"></label>
                                 </td>
                                 <td>
-                                    <button class="btn btn-outline-warning" onclick="editStory({{$story->id}})"><i class="bx bxs-edit"></i></button>
+                                    <a href="{{route('storyEdit',$story->id)}}">
+                                    <button class="btn btn-outline-warning"><i class="bx bxs-edit"></i></button>
+                                    </a>
                                     <button class="btn btn-outline-danger" onclick="deleteStory({{$story->id}})"><i class="bx bxs-trash"></i></button>
                                 </td>
                             </tr>
@@ -80,7 +80,7 @@
                     <div class="row mb-4">
                         <div class="col-lg-12">
                             <label for="image" class="form-label">Hekayələr seçin...</label>
-                            <input class="form-control" type="file" id="image" name="stories">
+                            <input class="form-control" type="file" id="image" name="stories[]" multiple="">
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -98,42 +98,6 @@
         </form>
     </div>
 
-    <div class="modal fade" id="getStory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <form action="{{route('storyEditPost')}}" method="POST" class="modal-dialog" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hekayə redaktə et</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row mb-4">
-                        <input type="hidden" name="id" id="id">
-                       <div class="row mb-4">
-                        <div class="col-lg-12">
-                            <label for="image" class="form-label">Hekayə seçin:</label>
-                            <input class="form-control" type="file" name="stories">
-                        </div>
-                    </div>
-                        <div class="col-lg-12">
-                            <label for="image" class="form-label">Şəkil seçin...</label>
-                            <input class="form-control" type="file" id="image" name="image">
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-lg-12">
-                            <label for="link" class="form-label">Yönləndirmə linki</label>
-                            <input class="form-control" type="text" id="edit_link" name="edit_link">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bağla</button>
-                    <button type="submit" class="btn btn-success">Təsdiqlə</button>
-                </div>
-            </div>
-        </form>
-    </div>
 
 @endsection
 
@@ -180,38 +144,7 @@
         const addStory = () => {
             $('#addStory').modal('show');
         }
-        const editStory = (id) => {
-            const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-            $.ajax({
-                type: "POST",
-                url: "/admin/stories/edit",
-                data: {
-                    _token: CSRF_TOKEN,
-                    id,
-                },
-                success: function (data) {
-                    if(data !== '0'){
-                        document.getElementById('edit_link').value = data.redirect_link;
-                        document.getElementById('id').value = data.id;
-                        $('#getStory').modal('show');
-                    }else{
-                        Swal.fire({
-                            title: "Ooops",
-                            text: "Gözlənilməyən xəta baş verdi!",
-                            icon: "error"
-                        })
-                    }
-                },
-                error: function () {
-                    Swal.fire({
-                        title: "Ooops",
-                        text: "Gözlənilməyən xəta baş verdi!",
-                        icon: "error"
-                    })
-                }
-            })
-        }
+       
 
         const changeStatus = (id) => {
 
