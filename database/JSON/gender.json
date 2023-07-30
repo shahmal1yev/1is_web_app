@@ -1,0 +1,10 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"1is"},
+{"type":"table","name":"gender","database":"1is","data":
+[
+{"id":"1","title_az":"Qadın","title_en":"Woman","title_ru":"Женщинa","title_tr":"Kadın","slug":"qadin","status":"1","created_at":"2023-02-06 09:41:04","updated_at":"2023-02-06 09:41:04"},
+{"id":"2","title_az":"Kişi","title_en":"Man","title_ru":"Мужской","title_tr":"Erkek","slug":"kisi","status":"1","created_at":"2023-02-06 09:41:34","updated_at":"2023-07-12 06:16:10"}
+]
+}
+]
