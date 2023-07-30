@@ -27,7 +27,7 @@ class BlogSeeder extends Seeder
     		$slug = Str::slug($data['title']) . '-' . time();
     		
     		$imagePath = $data['icon'];
-    		$imagePathPieces = explode('icon', $imagePath);
+    		$imagePathPieces = explode('/', $imagePath);
     		$imageName = end($imagePathPieces);
     		$imageNewPath = '/back/assets/images/posts/' . $imageName;
 
