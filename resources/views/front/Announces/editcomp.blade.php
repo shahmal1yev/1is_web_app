@@ -46,17 +46,15 @@
                                
                                 <input type="hidden" name="id" value="{{$company->id}}">
                                 @csrf
-                            <div class="form-group company-announce-input-group col-12 @error('name') has-error @enderror ">
-                                <label for="possession">@lang('front.ad')</label>
-                                <input type="text" name="name" class="form-control" id="name" value="{{$company->name}}" placeholder="@lang('front.ad')" required />
-                                @error('name')
-                                <span class="text-danger" style="font-size: 14x">{{ $message }}</span>
-                                @enderror
+                            <div class="form-group company-announce-input-group col-12">
+                                <label for="possession">@lang('front.ad')<span class="text-danger">*</span></label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{$company->name}}" placeholder="@lang('front.ad')"  />
+                                
                                 
                             </div>
-                            <div class="form-group company-announce-input-group col-12 @error('sector') has-error @enderror ">
-                                <label for="city">@lang('front.sektor')</label>
-                                <select class="form-control" name="sector" id="category" required >
+                            <div class="form-group company-announce-input-group col-12  ">
+                                <label for="city">@lang('front.sektor')<span class="text-danger">*</span></label>
+                                <select class="form-control" name="sector" id="category"  >
                                     <option value="" selected disabled>@lang('front.birsec')...</option>
                                     @php
                                 $lang = config('app.locale');
@@ -79,81 +77,65 @@
                                 </div>
                                
                             
-                                <div class="form-group company-announce-input-group col-12 @error('address') has-error @enderror ">
-                                    <label for="possession">@lang('front.unvan')</label>
-                                    <input type="text" name="address" class="form-control" id="name" value="{{$company->address}}" placeholder="@lang('front.daxilet')" required />
-                                    @error('address')
-                                    <span class="text-danger" style="font-size: 14x">@lang('validation.address_max')</span>
-                                    @enderror
+                                <div class="form-group company-announce-input-group col-12 ">
+                                    <label for="possession">@lang('front.unvan')<span class="text-danger">*</span></label>
+                                    <input type="text" name="address" class="form-control" id="name" value="{{$company->address}}" placeholder="@lang('front.daxilet')" />
+                                    
                                     
                                 </div>
-                                <div class="form-group company-announce-input-group col-12 @error('website') has-error @enderror ">
-                                    <label for="possession">@lang('front.vebsayt')</label>
-                                    <input type="text" name="website" class="form-control" id="possession" placeholder="@lang('front.daxilet')" value="{{$company->website}}" required/>
-                                    @error('website')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.website_max')</span>
-                                            @enderror
+                                <div class="form-group company-announce-input-group col-12  ">
+                                    <label for="possession">@lang('front.vebsayt')<span class="text-danger">*</span></label>
+                                    <input type="text" name="website" class="form-control" id="possession" placeholder="@lang('front.daxilet')" value="{{$company->website}}"/>
+                                    
                                     
                                 </div>
-                                <div class="form-group company-announce-input-group col-12 @error('map') has-error @enderror ">
-                                    <label for="possession">@lang('front.vezife')</label>
-                                    <input type="text" name="map" class="form-control" id="possession" placeholder="@lang('front.daxilet')" value="{{$company->map}}" required />
+                                <div class="form-group company-announce-input-group col-12 ">
+                                    <label for="possession">@lang('front.vezife')<span class="text-danger">*</span></label>
+                                    <input type="text" name="map" class="form-control" id="possession" placeholder="@lang('front.daxilet')" value="{{$company->map}}" />
                                    
                                 </div>
-                                <div class="form-group company-announce-input-group col-12 @error('about') has-error @enderror ">
-                                    <label for="possession">@lang('front.about')</label>
-                                    <input type="text" name="about" class="form-control" id="possession" placeholder="@lang('front.daxilet')" value="{{$company->about}}" required />
-                                    @error('about')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.about_min')</span>
-                                            @enderror
+                                <div class="form-group company-announce-input-group col-12 ">
+                                    <label for="possession">@lang('front.about')<span class="text-danger">*</span></label>
+                                    <input type="text" name="about" class="form-control" id="possession" placeholder="@lang('front.daxilet')" value="{{$company->about}}" />
+                                    
                                     
                                 </div>
-                                <div class="form-group company-announce-input-group col-12 @error('hr') has-error @enderror ">
+                                <div class="form-group company-announce-input-group col-12 ">
                                     <label for="possession">@lang('front.hr')</label>
                                     <input type="text" name="hr" class="form-control" id="possession" placeholder="@lang('front.hr')" value="{{$company->hr}}" />
                                 
                                     
                                 </div>
-                                <div class="form-group company-announce-input-group col-12 @error('instagram') has-error @enderror ">
+                                <div class="form-group company-announce-input-group col-12  ">
                                     <label for="possession">@lang('front.instagram')</label>
                                     <input type="text" name="instagram" class="form-control" id="possession" placeholder="@lang('front.instagram')" value="{{$company->instagram}}" />
-                                    @error('instagram')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.instagram_max')</span>
-                                            @enderror
+                                    
                                     
                                 </div>
-                                <div class="form-group company-announce-input-group col-12 @error('linkedin') has-error @enderror ">
+                                <div class="form-group company-announce-input-group col-12 ">
                                     <label for="possession">@lang('front.linkedin')</label>
                                     <input type="text" name="linkedin" class="form-control" id="possession" placeholder="@lang('front.linkedin')" value="{{$company->linkedin}}" />
-                                    @error('linkedin')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.linkedin_max')</span>
-                                            @enderror
+                                    
                                     
                                 </div>
-                                <div class="form-group company-announce-input-group col-12 @error('facebook') has-error @enderror ">
+                                <div class="form-group company-announce-input-group col-12  ">
                                     <label for="possession">@lang('front.facebook')</label>
                                     <input type="text" name="facebook" class="form-control" id="possession" placeholder="@lang('front.facebook')" value="{{$company->facebook}}" />
-                                    @error('facebook')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.facebook_max')</span>
-                                            @enderror
+                                    
                                     
                                 </div>
-                                <div class="form-group company-announce-input-group col-12 @error('twitter') has-error @enderror ">
+                                <div class="form-group company-announce-input-group col-12  ">
                                     <label for="possession">@lang('front.tvitter')</label>
                                     <input type="text" name="twitter" class="form-control" id="possession" placeholder="@lang('front.tvitter')" value="{{$company->twitter}}" />
-                                    @error('twitter')
-                                            <span class="text-danger" style="font-size: 14x">@lang('validation.twitter_max')</span>
-                                            @enderror
+                                    
                                     
                                 </div>
                                 <img src="{{asset($company->image)}}" alt="" width="200" height="200">
 
-                                <div class="form-group company-announce-input-group col-12 @error('image') has-error @enderror ">
-                                    <label for="possession">@lang('front.sekiladd')</label>
+                                <div class="form-group company-announce-input-group col-12  ">
+                                    <label for="possession">@lang('front.sekiladd')<span class="text-danger">*</span></label>
                                     <input type="file" name="image" class="form-control" id="possession" placeholder="@lang('front.sekilsec')"/>
-                                    @error('image')
-                                                <span class="text-danger" style="font-size: 14x">@lang('validation.image_max')</span>
-                                                @enderror
+                                    
                                     
                                 </div>
                             
@@ -169,6 +151,122 @@
         </div>
     </section>
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+
+        function getErrorMessage(field, lang) {
+            var errorMessages = {
+                required: {
+                    'AZ': 'Bu sahə doldurulmalıdır!',
+                    'EN': 'This field is required!',
+                    'RU': 'Поле обязательно для заполнения!',
+                    'TR': 'Bu alan zorunludur!'
+                },
+
+                minlength: {
+                    'AZ': 'Bu sahə üçün minimum 20 simvol limiti keçilməlidir!',
+                    'EN': 'Minimum 20 characters limit should not be exceeded for this field!',
+                    'RU': 'Минимальное количество символов для этого поля - 20!',
+                    'TR': 'Bu alanda en az 20 karakter sınırı aşılmamalıdır!'
+                },
+               
+            };
+
+            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+        }
+
+        $("#v-pills-home").validate({
+            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+            
+            rules: {
+                name: {
+                    required: true,
+
+                },
+                sector: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+                website: {
+                    required: true,
+                },
+                
+                map: {
+                    required: true,
+                },
+                about: {
+                    required: true,
+                    minlength: 20,
+
+                },
+                
+ 
+            },
+            messages: {
+                name: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+
+                sector: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                address: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                website: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+
+                map: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+                about: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    minlength: function() {
+                        return getErrorMessage('minlength', lang);
+                    },
+                  
+                },
+                
+            
+                
+                           
+            },
+            submitHandler: function(form) {
+                form.submit(); // Formu gönder
+            },
+            errorPlacement: function(error, element) {
+            error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+            }
+        });
+    });
+
+</script>
+
 
 <script>
     

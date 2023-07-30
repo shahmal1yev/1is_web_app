@@ -237,8 +237,6 @@ class VacancyFrontController extends Controller
                 $name = $directory.$name;
                 $company->image = $name;
         }
-           
-        
         
         $company->save();
         
@@ -256,6 +254,127 @@ class VacancyFrontController extends Controller
      }
 
     }
+
+    public function elanEdit($id){
+        $banner = BannerImage::where('status','1')->get();
+
+        $userId = auth()->user()->id;
+        $vacancy = Vacancies::find($id);
+       
+        if(!$vacancy || $vacancy->user_id !== $userId) {
+            abort(404);
+        }
+        $companies = Companies::where('user_id', $userId)->get();
+        $categories = Categories::all();
+        $cities = Cities::all();
+        $regions = Regions::all();
+        $jobtypes = JobType::all();
+        $experiences = Experiences::all();
+        $educations = Educations::all();
+        $types = AcceptType::all();
+        return view('front.Announces.updateAnnounces', get_defined_vars());
+    }
+
+    public function elanEditPost(Request $request){
+        $req = $request->all();
+        $rules = [
+            'position' => 'max:1000',
+            'accept_type' => 'numeric',
+            'deadline' => 'date',
+            'min_age' => 'numeric',
+            'max_age' => 'numeric',
+            ];
+            
+
+            $acceptType = isset($req['accept_type']) ? $req['accept_type'] : '1';
+
+            if ($acceptType == '0') {
+                $rules['contact_email'] = 'required|email';
+            } else if ($acceptType == '2') {
+                $rules['contact_link'] = 'required|active_url';
+            }
+
+            
+            $request->validate($rules);
+           
+        try{
+            $vacancy = Vacancies::findOrFail($request->id);
+            $vacancy->user_id = Auth::user()->id;
+            $vacancy->company_id = $request->company;
+            $vacancy->city_id = $request->city;
+    
+            if ($request->city == 1) {
+            $request->validate([
+            'region' => 'numeric'
+            ]);
+            $vacancy->village_id = $request->region;
+            }
+    
+            $vacancy->category_id = $request->category;
+            $vacancy->job_type_id = $request->jobtype;
+            $vacancy->experience_id = $request->experience;
+            $vacancy->education_id = $request->education;
+            $vacancy->position = $request->position;
+            $slug = Str::slug($request->position);
+    
+            if (Vacancies::where('slug', $slug)->first()) {
+            $slug = $slug . '_' . rand(1000, 9999);
+            }
+    
+            $vacancy->slug = $slug;
+            if($request->salary_type == 'on'){
+                $vacancy->salary_type = '1';
+                $vacancy->min_salary = NULL;
+                $vacancy->max_salary = NULL;
+            }else{
+                $vacancy->salary_type = '0';
+                $request->validate([
+                    'min_salary'=>'required|numeric',
+                    'max_salary'=>'required|numeric',
+                ]);
+                $vacancy->min_salary = $request->min_salary;
+                $vacancy->max_salary = $request->max_salary;
+            }
+            
+            
+            $vacancy->min_age = $request->min_age;
+            $vacancy->max_age = $request->max_age;
+            $vacancy->requirement = $request->requirements;
+            $vacancy->description = $request->description;
+            $vacancy->contact_name = $request->contact_name;
+            if (empty($request->accept_type)) {
+                $request->merge(['accept_type' => '1']);
+            }
+    
+            if ($request->accept_type == '0') {
+                $request->validate([
+                    'contact_email' => 'email'
+                ]);
+                $vacancy->contact_info = $request->contact_email;
+            } else if ($request->accept_type == '2') {
+                $request->validate([
+                    'contact_link' => 'required'
+                ]);
+                $vacancy->contact_info = $request->contact_link;
+            }
+                    $vacancy->accept_type = $request->accept_type;
+                      
+    
+            $vacancy->deadline = $request->deadline;
+            
+            
+            $user = Auth::user();
+            if ($user) {
+            $userEmail = $user->email;
+    
+            }
+            $vacancy->save();
+            return redirect()->route('myAnnounces')->with('success', __('messages.elanyeni'));
+        } catch (\Exception $e) {
+            return redirect()->route('myAnnounces')->with('error',$e->getMessage());
+        }
+    }
+    
 
     public function compedit($id){
         $banner = BannerImage::where('status','1')->get();
@@ -383,139 +502,6 @@ class VacancyFrontController extends Controller
         return View('front.Announces.myAnnounces', get_defined_vars());
     }  
 
-    public function elanEdit($id){
-        $banner = BannerImage::where('status','1')->get();
-
-        $userId = auth()->user()->id;
-        $vacancy = Vacancies::find($id);
-       
-        if(!$vacancy || $vacancy->user_id !== $userId) {
-            abort(404);
-        }
-        $companies = Companies::where('user_id', $userId)->get();
-        $categories = Categories::all();
-        $cities = Cities::all();
-        $regions = Regions::all();
-        $jobtypes = JobType::all();
-        $experiences = Experiences::all();
-        $educations = Educations::all();
-        $types = AcceptType::all();
-        return view('front.Announces.updateAnnounces', get_defined_vars());
-    }
-
-    public function elanEditPost(Request $request){
-        $req = $request->all();
-        $rules = [
-            'position' => 'max:1000',
-            'accept_type' => 'numeric',
-            'deadline' => 'date',
-            'min_age' => 'numeric',
-            'max_age' => 'numeric',
-            ];
-            
-
-            $acceptType = isset($req['accept_type']) ? $req['accept_type'] : '1';
-
-            if ($acceptType == '0') {
-                $rules['contact_email'] = 'required|email';
-            } else if ($acceptType == '2') {
-                $rules['contact_link'] = 'required|active_url';
-            }
-
-            
-            $request->validate($rules);
-           
-        try{
-            $vacancy = Vacancies::findOrFail($request->id);
-            $vacancy->user_id = Auth::user()->id;
-            $vacancy->company_id = $request->company;
-            $vacancy->city_id = $request->city;
-    
-            if ($request->city == 1) {
-            $request->validate([
-            'region' => 'numeric'
-            ]);
-            $vacancy->village_id = $request->region;
-            }
-    
-            $vacancy->category_id = $request->category;
-            $vacancy->job_type_id = $request->jobtype;
-            $vacancy->experience_id = $request->experience;
-            $vacancy->education_id = $request->education;
-            $vacancy->position = $request->position;
-            $slug = Str::slug($request->position);
-    
-            if (Vacancies::where('slug', $slug)->first()) {
-            $slug = $slug . '_' . rand(1000, 9999);
-            }
-    
-            $vacancy->slug = $slug;
-            if($request->salary_type == 'on'){
-                $vacancy->salary_type = '1';
-                $vacancy->min_salary = NULL;
-                $vacancy->max_salary = NULL;
-            }else{
-                $vacancy->salary_type = '0';
-                $request->validate([
-                    'min_salary'=>'required|numeric',
-                    'max_salary'=>'required|numeric',
-                ]);
-                $vacancy->min_salary = $request->min_salary;
-                $vacancy->max_salary = $request->max_salary;
-            }
-            
-            
-            $vacancy->min_age = $request->min_age;
-            $vacancy->max_age = $request->max_age;
-            $vacancy->requirement = $request->requirements;
-            $vacancy->description = $request->description;
-            $vacancy->contact_name = $request->contact_name;
-            if (empty($request->accept_type)) {
-                $request->merge(['accept_type' => '1']);
-            }
-    
-            if ($request->accept_type == '0') {
-                $request->validate([
-                    'contact_email' => 'email'
-                ]);
-                $vacancy->contact_info = $request->contact_email;
-            } else if ($request->accept_type == '2') {
-                $request->validate([
-                    'contact_link' => 'required'
-                ]);
-                $vacancy->contact_info = $request->contact_link;
-            }
-                    $vacancy->accept_type = $request->accept_type;
-                      
-    
-            $vacancy->deadline = $request->deadline;
-            
-            $data = [];
-            $data['email_name'] = '1is.butagrup.az';
-            $data['subject'] = 'Verification';
-            $data['text'] = 'Hörmətli İstifadəçi,
-    
-            Sizin ' . $vacancy->position . ' başlıqlı elanınız uğurla yeniləndi!
-    
-            Elanınız bütün qaydalara uyğun olarsa, saytda yerləşdiriləcək.
-    
-            Hörmətlə,
-    
-            1iş.butagrup.az.';
-    
-    
-            $user = Auth::user();
-            if ($user) {
-            $userEmail = $user->email;
-    
-            Mail::to($userEmail)->send(new SendVac($data));
-            }
-            $vacancy->save();
-            return redirect()->route('myAnnounces')->with('success', __('messages.elanyeni'));
-        } catch (\Exception $e) {
-            return redirect()->route('myAnnounces')->with('error','Bir hata oluştu: '.$e->getMessage());
-        }
-    }
     
    
     public function candidate()

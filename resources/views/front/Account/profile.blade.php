@@ -12,6 +12,7 @@
         background: #ecdbfc;
         color: #8843e1;
     }
+
 </style>
 
 @foreach ($banner as $ban)
@@ -49,6 +50,9 @@
                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                         <span class="profile-left-icons icon-3"></span>
                         @lang('front.tenzimleme')</a>
+                        <a class="nav-link" id="v-pills-cat-tab" data-toggle="pill" href="#v-pills-cat" role="tab" aria-controls="v-pills-cat" aria-selected="false">
+                            <span class="profile-left-icons icon-3"></span>
+                            @lang('front.cat')</a>
                     <a class="nav-link"  href="{{route('logout')}}" role="tab">
                         <span class="profile-left-icons icon-4"></span>
                         @lang('front.cixis')
@@ -60,11 +64,11 @@
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                        <div class="prof-cont">
                         <div class="proftab-1">
-                            <img src="{{asset('back/assets/images/icons/announce.png')}}" alt="">
+                            <img src="{{asset('back/assets/images/icons/announce.svg')}}" alt="">
                             <span>{{$vacancies->count()}} @lang('front.elan')</span>
                         </div>
                         <div class="proftab-1">
-                            <img src="{{asset('back/assets/images/icons/file.png')}}" alt="">
+                            <img src="{{asset('back/assets/images/icons/file.svg')}}" alt="">
                             <span>{{$cvs->count()}} @lang('front.cv')</span>
                         </div>
                        </div>
@@ -136,7 +140,7 @@
                                   <span toggle="#password-field3" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                               </div>
-
+                              
                               <div class="form-send">
                                 <button class="form-button">
                                     @lang('front.tesdiq')
@@ -144,12 +148,63 @@
                               </div>
                         </form>
                     </div>
-                  </div>
+
+                    <div class="tab-pane fade" id="v-pills-cat" role="tabpanel" aria-labelledby="v-pills-cat-tab">
+
+                        <form class="form-horizontal"  method="POST" action="{{route('updateCats')}}" id="register_form">
+                            @csrf
+                            <div class="form-group">
+                                <div id="no-limit">
+                                    <p>@lang('front.cats')<span style="color: rgba(192, 0, 0, 1)">*</span></p>
+                                    @php
+                                    $selectedCategories = json_decode(auth()->user()->cat_id, true);
+                                @endphp
+                                
+                                <select class="select2 form-select" style="width: 100%;" name="cat_id[]" multiple>
+                                    <option value="" disabled></option>
+                                    @foreach($categories as $category)
+                                        @if(is_array($selectedCategories) && in_array($category->id, $selectedCategories))
+                                            <option value="{{$category->id}}" selected>{{$category->title_az}}</option>
+                                        @else
+                                            <option value="{{$category->id}}">{{$category->title_az}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                
+                                    
+                                </div>
+                              <div class="form-send">
+                                <button class="form-button">
+                                    @lang('front.tesdiq')
+                                </button>
+                              </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <script>
+        $(document).ready(function() {
+        $('#no-limit .select2').select2({
+            multiple: "multiple",
+        });
 
+        $('#limit-2 .select2').select2({
+            multiple: "multiple",
+            maximumSelectionLength: 2,
+        });
+
+        $('#limit-2-custom-message .select2').select2({
+            multiple: "multiple",
+            maximumSelectionLength: 2,
+            language: {
+            maximumSelected: (args) => args.maximum + ' 件しか選べないよ！'
+            }
+        });
+        });
+    </script>
 
     <script>
         $(document).ready(function() {

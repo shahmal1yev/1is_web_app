@@ -3,11 +3,15 @@
 }
 
 .dark header {
-  background-color: #131313;
+  background-color: #000;
 }
 
 .dark .line {
   background: #fff;
+}
+
+.dark iframe body {
+  color: #fff!important;
 }
 
 .dark .header-links:hover {
@@ -55,15 +59,42 @@
   color: #fff;
 }
 .dark .active-filter {
-  background-color: #131313;
+  background-color: #131313!important;
 }
 
 .dark .active-filters {
   background-color: #131313;
 }
 
+.dark .blog-header-container {
+  background-color: #131313!important;
+}
+
+.dark .blog-header-container > div {
+  background-color: #131313!important;
+}
+
+.dark .blog-header-container > div > input {
+  background-color: #131313!important;
+  color: #fff!important;
+}
+
+.dark .text-field p a {
+  color: #fff;
+}
+
+.dark .training-form-div {
+  background-color: #131313!important;
+}
+
+.dark .training-form-div input {
+  background-color: #131313!important;
+  color: #fff;
+}
+
 .dark .filter-input {
-  background-color: #131313;
+  background-color: #131313!important;
+  color: #fff;
 }
 
 .dark .detail-search {
@@ -75,7 +106,7 @@
 }
 
 .dark .pop-card1 {
-  background-color: #131313;
+  background-color: #000;
 }
 
 .dark .text-field p {
@@ -116,7 +147,7 @@
 }
 
 .dark .vac-card {
-  background-color: #0d0d0d;
+  background-color: #000;
 }
 
 .dark .section-filter h2 {
@@ -300,12 +331,34 @@
 .dark .add-training-input-group input,
 .dark .add-training-input-group select,
 .dark .add-training-input-group textarea {
-  background-color: #3a3737 !important;
+  background-color: #000 !important;
+  color: #fff;
 }
 
 .dark .add-training-input-group .add-image-label {
   background-color: #000 !important;
   color: #D3D1D1 !important;
+}
+
+.dark #structure input::placeholder{
+  color: #fff !important;
+}
+
+.dark .custom-select:focus{
+ background-color: #000; 
+ color: #fff;
+}
+
+
+
+.dark #structure input[type='text'] , .dark #structure input[type='url']{
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.dark .silinmeli input{
+  background: #000 !important;
+  color: #fff !important;
 }
 
 .dark .profile-section {
@@ -352,8 +405,76 @@
   color: #9559E5;
 }
 
-.dark .form-group label {
+.dark .form-group label , #no-limit p {
   color: #FDFDFD;
+}
+
+.dark .create-cv-input-group input::placeholder{
+  color: #fff !important;
+}
+
+.dark .select2-selection__rendered{
+  background-color: #000;
+  color: #fff;
+}
+
+.dark #training_url::placeholder , .dark #training_name::placeholder{
+  color: #fff !important;
+}
+
+.dark .add-comp-close{
+  border: 1px solid #fff;
+}
+
+.dark .add-comp-close span{
+  color: #fff;
+}
+
+
+.dark #website-error , .dark #map-error , .dark #about-error{
+  color: red !important;
+}
+
+.dark .company-announce-input-group label:last-child{
+  color: red;
+}
+
+.dark select{
+  color: #fff;
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator{
+  filter: invert(1);
+}
+
+.dark input[type="date"]{
+  color: #fff !important;
+}
+
+.dark .company-announce-input-group input::placeholder{
+  color: #fff !important;
+}
+
+.dark .company-announce-input-group select option:disabled{
+  color: #fff !important;
+}
+
+
+.dark .add-training-input-group textarea::placeholder{
+  color: #fff !important;
+}
+
+.dark .add-training-input-group input::placeholder{
+  color: #fff !important;
+}
+
+.dark .select2-selection__choice{
+  background: black !important;
+}
+
+.dark .form-innerdiv label{
+  color: red !important;
+  margin-top: 2px;
 }
 
 .dark #password-field:focus {
@@ -448,8 +569,8 @@
 }
 
 .dark .add-cv-custom-file label:after {
-  background-color: #000;
-  color: #fff;
+  background-color: #ddd;
+  color: #000;
 }
 
 .dark .edit-training-input-group label {
