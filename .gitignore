@@ -17,3 +17,5 @@ yarn-error.log
 /.idea
 /.vscode
 /public/back/assets/images
+/bootstrap/cache/packages.php
+/bootstrap/cache/services.php
