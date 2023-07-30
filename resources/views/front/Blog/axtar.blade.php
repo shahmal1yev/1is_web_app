@@ -10,7 +10,7 @@
       <div>
           <h3>@lang('front.blog')</h3>
       </div>
-      <form class="container blog-header-container" method="GET" action="{{route('blogsearch')}}">
+      <form class="container blog-header-container blog-search" method="GET" action="{{route('blogsearch')}}">
         <div>
           <img src="{{asset('back/assets/images/icons/search.png')}}" alt="search">
           <input type="text" placeholder="@lang('front.axtar')" type="search" name="query" value="{{ old('query', $blogs) }}"/>
@@ -74,7 +74,7 @@
     </div>
 
     <!-- BLOG PAGİNATİON -->
-    <nav aria-label="..." class="d-flex justify-content-center">
+    <footer aria-label="..." class="d-flex justify-content-center">
         @if ($allblogs->hasPages())
         <ul class="pagination pagination-ul">
             {{-- Previous Page Link --}}
@@ -111,7 +111,7 @@
             
             @endif
         </ul>
-        </nav>
+        </footer>
         <h3 class="blog-all-result-text">@lang('front.umumisay') : {{$allblogs->total()}}</h3>
     
     @endif

@@ -67,7 +67,7 @@
             <div class="col-lg-7 col-md-6">
                 <div class="right-card">
                     <h3>@lang('front.teltel'):</h3>
-                    <img src="https://1is.butagrup.az/{{$tdetail->image}}" alt="">
+                    <img src="{{asset($tdetail->image)}}" alt="">
                     <li>{!! html_entity_decode($tdetail->about) !!}</li>
                     
                     <br>

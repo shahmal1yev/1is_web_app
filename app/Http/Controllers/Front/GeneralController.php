@@ -21,6 +21,8 @@ use App\Models\Educations;
 use App\Models\Favorits;
 use App\Models\Experiences;
 use App\Models\BannerImage;
+use App\Models\Adverts;
+
 use DB;
 
 class GeneralController extends Controller
@@ -74,44 +76,20 @@ class GeneralController extends Controller
         ->groupBy('categories.id')
         ->orderBy('total_vacancies', 'desc')
         ->paginate(12);
+
+        $reklam = Adverts::get();
        
 
         return View('front.index', get_defined_vars());
     }
 
 
-    public function loadMore(Request $request)
-{
-    $page = $request->input('page', 0);
-    $limit = 12;
-    $offset = ($page-1) * $limit;
-    $totalCount = Categories::count();
+    public function loadMore(Request $request){
+        $page = $request->input('page', 0);
+        $limit = 12;
+        $offset = ($page-1) * $limit;
+        $totalCount = Categories::count();
 
-    $categories = Categories::leftJoin('vacancies', 'vacancies.category_id', '=', 'categories.id')
-        ->select('categories.*', DB::raw('COUNT(vacancies.id) as total_vacancies'))
-        ->groupBy('categories.id')
-        ->orderBy('total_vacancies', 'desc')
-        ->skip($offset)
-        ->take($limit)
-        ->get();
-
-    return response()->json([
-        'data' => $categories,
-        'totalCount' => $totalCount,
-    ]);
-}
-
-
-
-public function loadLess(Request $request)
-{
-    $page = $request->input('page', 1);
-    $limit = 12;
-    $offset = ($page - 1) * $limit;
-    $totalCount = Categories::count();
-    $categories = [];
-
-    if ($offset < $totalCount) {
         $categories = Categories::leftJoin('vacancies', 'vacancies.category_id', '=', 'categories.id')
             ->select('categories.*', DB::raw('COUNT(vacancies.id) as total_vacancies'))
             ->groupBy('categories.id')
@@ -119,46 +97,71 @@ public function loadLess(Request $request)
             ->skip($offset)
             ->take($limit)
             ->get();
+
+        return response()->json([
+            'data' => $categories,
+            'totalCount' => $totalCount,
+            ]);
     }
 
-    return response()->json([
-        'data' => $categories,
-        'totalCount' => $totalCount,
-    ]);
-}
+
+
+    public function loadLess(Request $request)
+        {
+            $page = $request->input('page', 1);
+            $limit = 12;
+            $offset = ($page - 1) * $limit;
+            $totalCount = Categories::count();
+            $categories = [];
+
+            if ($offset < $totalCount) {
+                $categories = Categories::leftJoin('vacancies', 'vacancies.category_id', '=', 'categories.id')
+                    ->select('categories.*', DB::raw('COUNT(vacancies.id) as total_vacancies'))
+                    ->groupBy('categories.id')
+                    ->orderBy('total_vacancies', 'desc')
+                    ->skip($offset)
+                    ->take($limit)
+                    ->get();
+            }
+
+            return response()->json([
+                'data' => $categories,
+                'totalCount' => $totalCount,
+            ]);
+    }
 
     public function like(Request $request)
-    {
-        if (!auth()->check()) {
-            return redirect()->route('login');
-        }
+        {
+            if (!auth()->check()) {
+                return redirect()->route('login');
+            }
 
-        $vacancy_id = $request->input('vacancy_id');
-        $user_id = auth()->user()->id;
-        
-        $favorite = new Favorits();
-        $favorite->vacancy_id = $vacancy_id;
-        $favorite->user_id = $user_id;
+            $vacancy_id = $request->input('vacancy_id');
+            $user_id = auth()->user()->id;
+            
+            $favorite = new Favorits();
+            $favorite->vacancy_id = $vacancy_id;
+            $favorite->user_id = $user_id;
 
-        $favorite->save();
+            $favorite->save();
 
-        return redirect()->route('index')->with('success', 'Vakansiya favorilərə əlavə olundu!');
+            return redirect()->route('index')->with('success', 'Vakansiya favorilərə əlavə olundu!');
     }
 
     public function dislike(Request $request)
-    {
-        if(!auth()->check()) {
-            return redirect()->route('index')->with('error',  __('messages.loginerror'));
-        }
+        {
+            if(!auth()->check()) {
+                return redirect()->route('index')->with('error',  __('messages.loginerror'));
+            }
 
-        $vacancy_id = $request->input('vacancy_id');
-        $user_id = auth()->user()->id;
+            $vacancy_id = $request->input('vacancy_id');
+            $user_id = auth()->user()->id;
 
-        $favorite = Favorits::where('user_id', $user_id)->where('vacancy_id', $vacancy_id)->first();
+            $favorite = Favorits::where('user_id', $user_id)->where('vacancy_id', $vacancy_id)->first();
 
-        $favorite->delete();
-        return redirect()->route('index')->with('success', 'Vakansiya sevimlilərdən silindi!');
-        
+            $favorite->delete();
+            return redirect()->route('index')->with('success', 'Vakansiya sevimlilərdən silindi!');
+            
     }
 
       

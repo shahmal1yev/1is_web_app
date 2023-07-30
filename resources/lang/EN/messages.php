@@ -41,6 +41,7 @@ return [
     '8simvol' =>  'Password must be at least 8 characters long!',
     'passeyni' => 'Your passwords are not the same!',
     'emailvar' => 'This email is already registered!',
+    'catyeni' => 'Category updated successfully!',
 
     'murgonder' => 'Your application has been successfully submitted!',
 

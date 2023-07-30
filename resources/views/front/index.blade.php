@@ -1,6 +1,5 @@
 @extends('front.layouts.master')
  
-
 <style>
     .swiper-wrapper {
         align-items: center;
@@ -28,6 +27,148 @@
         height: 250px!important;
     }
 
+    /* STORY SLİDER */
+
+
+    :root {
+    --background-color: #fff;
+    --slide-width: 344px;
+    --slide-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.4);
+    --slide-thumb-height: 3px;
+    --slide-thumb-default-color: rgba(0, 0, 0, 0.4);
+    --slide-thumb-active-color: rgba(255, 255, 255, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.slide-items img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sliders section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    box-shadow: var(--slide-width);
+    margin: 0px auto;
+    display: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+    z-index: 10000;
+}
+
+.slide-items {
+    border-radius: 5px;
+    grid-area: 1/1;
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.slide-items>* {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    padding: 20px 0;
+}
+
+.slide-items .active {
+    opacity: 1;
+    pointer-events: initial;
+    position: relative;
+}
+
+.slide-nav {
+    display: grid;
+    grid-area: 1/1;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    z-index: 20;
+    max-width: 80%!important;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.slide-nav > div {
+    display: flex;
+    grid-column: 1 / 3;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.slide-thumb-item {
+    background-color: var(--slide-thumb-default-color);
+    border-radius: 3px;
+    display: block;
+    flex: 1;
+    height: var(--slide-thumb-height);
+    margin: 5px;
+    overflow: hidden;
+}
+
+.slide-thumb-item.active::after {
+    animation: thumb 5s forwards linear;
+    background-color: var(--slide-thumb-active-color);
+    border-radius: 3px;
+    content: '';
+    display: block;
+    height: inherit;
+    transform: translateX(-100%);
+}
+
+.slide-next,
+.slide-prev {
+    opacity: 0;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%!important;
+}
+
+.slide-prev {
+    margin-left: auto;
+}
+
+
+.slide-next {
+    margin-right: auto;
+}
+
+.close-button-img {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+@keyframes thumb {
+    to {
+        transform: initial;
+    }
+}
+
+
+    /* STORY SLİDER */
+
     @media screen and (max-width: 1000px) {
         .swiper-slide-link {
             left: 7%;
@@ -39,6 +180,37 @@
         .swiper-slide-link {
             left: 13%;
             bottom: 13%;
+        }
+
+        .slide-items img {
+            object-fit: contain;
+        }
+
+        .close-button-img {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            cursor: pointer;
+            z-index: 11;
+        }
+
+        .slide-items>* {
+            padding: 0;
+        }
+
+        .slide-nav {
+            padding: 10px 0;
+        }
+
+        .slide-items {
+            border-radius: 0;
+        }
+
+        .slide-items,
+        .slide-nav  {
+            width: 100%;
         }
     }
 
@@ -278,13 +450,14 @@
 <!-- CAROUSEL -->
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-        @foreach($stories as $key=>$story)
-
-      <a href="{{asset($story->stories)}}" data-fancybox="gallery" data-caption="Caption #1" class="swiper-slide">
-        <img src="{{asset($story->image)}}" alt="">
-        <a class="swiper-slide-link" href="{{$story->redirect_link}}">lorem</a>
+    @foreach ($stories as $st)
+        
+      <a href="#" id="slide{{$st->id}}" class="swiper-slide story_button">
+        <img src="{{$st->image}}" alt="">
       </a>
-      @endforeach
+    @endforeach
+
+
 
     </div>  
     
@@ -292,6 +465,33 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
+
+<div class="sliders">
+    @foreach ($stories as $st)
+    @php
+        $imagePaths = json_decode($st->stories); 
+        
+    @endphp
+
+    <section data-slide="slide{{$st->id}}" class="slide{{$st->id}}" id="story_slide">
+        <div class="slide-items">
+            @foreach ($imagePaths as $imagePath)
+                <img src="{{ asset($imagePath) }}" alt=""> {{-- Görsel yollarını asset() fonksiyonuyla doğru şekilde çözümlüyoruz --}}
+            @endforeach
+        </div>
+        <nav class="slide-nav">
+            <div class="slide{{$st->id}}"></div>
+            <button class="slide-prev">Previous</button>
+            <button class="slide-next">Next</button>
+        </nav>
+        <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
+    </section>
+@endforeach
+
+          
+            
+        </div>
+
 </section>
 
 <script>
@@ -534,36 +734,111 @@
 
 </div>
 
-<section class="announce">
-            <div class="container announce-container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="ann-left">
-                            <p>İş axtarmağınıza ehtiyac qalmadı
-                                İşi ayağınıza gətirdik</p>
-                            <a href="">
-                                <img src="{{ asset('back/assets/images/search.png') }}" alt="">
-                                EMPLOYMENT.AZ
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="ann-mid">
-                            <img src="{{ asset('back/assets/images/elan.png') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        
-                        <div class="ann-right">
-                            <p>Bütün aktiv iş elanları saytlarını sizin üçün birləşdirdik!</p>
-                        </div>
-                    </div>
-                </div>
+            @foreach ($reklam as $rek)
+                
+            <div class="main-reklam">
+                <a href="#" class="w-100">
+                    <img src="{{$rek->image}}" style="width: ">
+                </a>
             </div>
-        </section>
+            @endforeach
+
 @endsection
 
 @section('js')
+
+<script>
+        class SlideStories {
+        /** @param {string} id */
+        
+            constructor(id) {
+                this.slide = document.querySelector(`[data-slide=${id}]`)
+                this.active = 0
+                this.init(id)
+            }
+
+            /** @param {Number} index */
+            activeSlide(index) {
+                this.active = index
+                this.items.forEach((item) => item.classList.remove('active'))
+                this.items[index].classList.add('active')
+                this.thumbItems.forEach((item) => item.classList.remove('active'))
+                this.thumbItems[index].classList.add('active')
+                this.autoSlide()
+            }
+
+            next() {
+                if (this.active < this.items.length - 1) {
+                    this.activeSlide(this.active + 1)
+                } else {
+                    this.activeSlide(0)
+                }
+            }
+
+            prev() {
+                if (this.active > 0) {
+                    this.activeSlide(this.active - 1)
+                } else {
+                    this.activeSlide(this.items.length - 1)
+                }
+            }
+
+            addNavigation() {
+                const nextBtn = this.slide.querySelector('.slide-next')
+                const prevBtn = this.slide.querySelector('.slide-prev')
+                nextBtn.addEventListener('click', this.next)
+                prevBtn.addEventListener('click', this.prev)
+            }
+
+            addThumbItems() {
+                this.thumb.innerHTML = "";
+                this.items.forEach(() => (this.thumb.innerHTML += `<span class="slide-thumb-item"></span>`))
+                this.thumbItems = Array.from(this.thumb.children)
+            }
+
+            autoSlide() {
+                if(this.thumb.children.length > 0){
+                    clearTimeout(this.timeout)
+                    this.timeout = setTimeout(this.next, 5000)
+                    console.log('Ilkin')
+                }
+            }
+
+            init(id) {
+                this.next = this.next.bind(this)
+                this.prev = this.prev.bind(this)
+                this.items = this.slide.querySelectorAll('.slide-items > *')
+                this.thumb = this.slide.querySelector(`.${id}`)
+                
+                this.addThumbItems()
+                this.activeSlide(0)
+                this.addNavigation()
+            }
+        }
+
+
+        const story_slide = document.getElementById('story_slide');
+        const story_slide2 = document.getElementById('story_slide2');
+        const allSlide = document.querySelector('allSlide');
+
+        let elementsArray = document.querySelectorAll(".swiper-wrapper a");
+
+        elementsArray.forEach((item) => {
+            
+            item.addEventListener("click", () => {
+                let slide = document.querySelector(`.${item.id}`);
+                slide.style.display = 'grid';
+                new SlideStories(item.id);
+                const close_button_img = document.querySelector(`.${item.id} > img`);
+                let slide_thumbs = document.querySelector(`.${item.id} .slide-nav > div`); 
+                close_button_img.addEventListener('click', () => {
+                    slide.style.display = 'none';
+                    slide_thumbs.innerHTML = "";
+                })
+            });
+        });
+    </script>
+
 <script>
     const moreSearch = document.getElementById('detail-btn')
     const moreSearchSect = document.getElementById('getshow')

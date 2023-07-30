@@ -22,6 +22,7 @@ use App\Http\Controllers\Back\TrainingsController\TrainingsController;
 use App\Http\Controllers\Back\UserPolicyController\UserPolicyController;
 use App\Http\Controllers\Back\VacancyController\VacancyController;
 use App\Http\Controllers\Back\UsersController\UsersController;
+use App\Http\Controllers\Back\HelperController;
 
 use App\Http\Controllers\Front\Blog\BlogFrontController;
 use App\Http\Controllers\Front\Company\CompanyFrontController;
@@ -261,7 +262,7 @@ Route::middleware('isAdminLogin')->group(function () {
     //Start Story
     Route::get('/admin/stories', [StoriesController::class, "storyIndex"])->name('storyIndex');
     Route::post('/admin/stories', [StoriesController::class, "storyPost"])->name('storyPost');
-    Route::post('/admin/stories/edit', [StoriesController::class, "storyEdit"])->name('storyEdit');
+    Route::get('/admin/stories/edit/{id}', [StoriesController::class, "storyEdit"])->name('storyEdit');
     Route::post('/admin/stories/edit/post', [StoriesController::class, "storyEditPost"])->name('storyEditPost');
     Route::post('/admin/stories/status', [StoriesController::class, "storyStatus"])->name('storyStatus');
     Route::post('/admin/stories/delete', [StoriesController::class, "storyDelete"])->name('storyDelete');
@@ -304,6 +305,10 @@ Route::get('/confirmpass', [AccountController::class, 'confirmpass'])->name('con
 Route::post('/confirm_post', [AccountController::class, 'confirm_post'])->name('confirm_post');
 Route::get('/google/login', [AccountController::class, 'googlelogin'])->name('googlelogin');
 Route::get('/google/login/callback', [AccountController::class, 'callback'])->name('callback');
+Route::get('/profile',[AccountController::class, 'profile'])->name('profile');
+Route::post('/profile',[AccountController::class, 'updatePassword'])->name('updatePassword');
+Route::post('/cats',[AccountController::class, 'updateCats'])->name('updateCats');
+
 
 Route::post('/loginu', [AccountController::class, 'login_post'])->name('login_post');
 Route::get('/logout', [AccountController::class, "logout"])->name('logout');
@@ -389,9 +394,10 @@ Route::get('/policy',[PolicyController::class, 'index'])->name('policy');
 
 Route::get('/terms',[TermsController::class, 'index'])->name('terms');
 
-Route::get('/profile',[AccountController::class, 'profile'])->name('profile');
-Route::post('/profile',[AccountController::class, 'updatePassword'])->name('updatePassword');
+
+Route::get('/help', [HelperController::class, 'ChangeUserData'])->name('help');
+
+Route::get('/google/login/redirect', [AccountController::class, 'loginWithGoogle'])->name('google.login');
+Route::get('/auth/login/callback', [AccountController::class, 'getGoogleToken']);
 
 Route::get('/{lang}', [LanguageController::class, 'setLang']);
-
-
