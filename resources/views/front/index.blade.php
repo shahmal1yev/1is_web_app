@@ -713,9 +713,13 @@ body {
                     <p class="vac-time">{{ date('d-m-Y', strtotime($vacancy->deadline)) }}</p>
                 </div>
             </div>
+            @if ($vacancy->created_at->diffInDays(Carbon\Carbon::now()) <= 3)
             <div class="new-vac-badge">
-                <p>@lang('front.yeni')</p>
-            </div>
+                <p>@lang('front.yeni')</p>           
+
+            </div>              
+            @endif    
+              
         </div>
        
         

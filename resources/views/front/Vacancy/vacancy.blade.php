@@ -182,7 +182,7 @@
 
 
       <div class="all-vacancies">
-                @foreach($vacancies as $key=>$vacancy)
+        @foreach($vacancies as $key=>$vacancy)
 
         <div class="vac-card">    
             
@@ -195,7 +195,7 @@
                 <img src="{{ asset('back/assets/images/icons/heart.png') }}" alt="heart" class="heart-icon" data-vacancy-id="{{ $vacancy->id }}" style="{{ in_array($vacancy->id, $likes) ? 'display: none;' : 'display: inline-block;' }}">
                 <img src="{{ asset('back/assets/images/icons/red-heart.png') }}" alt="red-heart" class="red-heart-icon" data-vacancy-id="{{ $vacancy->id }}" style="{{ in_array($vacancy->id, $likes) ? 'display: inline-block;' : 'display: none;' }}">
 
-        </div>
+            </div>
               
           </div>
           <div class="vac-inner2">
@@ -212,12 +212,12 @@
             </div>
           </div>            
           @if ($vacancy->created_at->diffInDays(Carbon\Carbon::now()) <= 3)
-
-          <div class="new-vac-badge">
+            <div class="new-vac-badge">
                 <p>@lang('front.yeni')</p>
-        
-        </div>           
-         @endif
+            
+            </div>           
+           @endif
+
 
         </div>                 
          @endforeach

@@ -34,7 +34,6 @@ class GeneralController extends Controller
         $banner = BannerImage::where('status','1')->get();
         $trainings = Trainings::where('status','1')->get();
         $allvacancies = Vacancies::where('status','1')->get();
-        $non_vacancies = Vacancies::where('status','0')->get();
         $allcompanies = Companies::where('status','1')->orderBy('name','ASC')->get();
         $companies = Companies::where('status','1')->orderBy('view', 'DESC')->paginate(9);
         $cvs = Cv::where('status','1')->get();
