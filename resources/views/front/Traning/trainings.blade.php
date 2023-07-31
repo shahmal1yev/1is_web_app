@@ -57,6 +57,10 @@
           <div class="top-part">
             <img src="{{$alltr->image}}" alt="" />
           </div>
+          <div class="training-content">
+
+
+
           <div class="middle-part">
             <a class="first-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{Str::limit($alltr->title, 50, '...')}}
             </a>
@@ -86,6 +90,10 @@
 
             </div>              
             @endif           
+
+          </div>
+
+
 
           </div>
         </div>

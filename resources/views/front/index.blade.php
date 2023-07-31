@@ -246,7 +246,7 @@ body {
 
 <form class="main-filter home-filter" method="GET" action="{{route('vsearch')}}">
     <div class="active-filter active-filter-jobsearchinner">
-        <div class="filter1">
+        <div class="filter1 home-filter1">
             <img src="https://1is-new.netlify.app/images/search.png" alt="">
             <input class="filter-input" placeholder="@lang('front.açar')" type="search" name="query" value="{{ old('query') }}">
         </div>
@@ -424,22 +424,20 @@ body {
                 </p>  
         </a>
         <!-- </div> -->
-        <div class="block1">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15 12C15 11.1716 15.6716 10.5 16.5 10.5H40.5C41.3284 10.5 42 11.1716 42 12C42 12.8284 41.3284 13.5 40.5 13.5H16.5C15.6716 13.5 15 12.8284 15 12Z" fill="#F8F0FB"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15 24C15 23.1716 15.6716 22.5 16.5 22.5H40.5C41.3284 22.5 42 23.1716 42 24C42 24.8284 41.3284 25.5 40.5 25.5H16.5C15.6716 25.5 15 24.8284 15 24Z" fill="#F8F0FB"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15 36C15 35.1716 15.6716 34.5 16.5 34.5H40.5C41.3284 34.5 42 35.1716 42 36C42 36.8284 41.3284 37.5 40.5 37.5H16.5C15.6716 37.5 15 36.8284 15 36Z" fill="#F8F0FB"/>
-<path d="M8.25 14.25C9.49264 14.25 10.5 13.2426 10.5 12C10.5 10.7574 9.49264 9.75 8.25 9.75C7.00736 9.75 6 10.7574 6 12C6 13.2426 7.00736 14.25 8.25 14.25Z" fill="#F8F0FB"/>
-<path d="M8.25 26.25C9.49264 26.25 10.5 25.2426 10.5 24C10.5 22.7574 9.49264 21.75 8.25 21.75C7.00736 21.75 6 22.7574 6 24C6 25.2426 7.00736 26.25 8.25 26.25Z" fill="#F8F0FB"/>
-<path d="M8.25 38.25C9.49264 38.25 10.5 37.2426 10.5 36C10.5 34.7574 9.49264 33.75 8.25 33.75C7.00736 33.75 6 34.7574 6 36C6 37.2426 7.00736 38.25 8.25 38.25Z" fill="#F8F0FB"/>
-</svg>
+        <a class="block1" href="#popular_category">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 12C15 11.1716 15.6716 10.5 16.5 10.5H40.5C41.3284 10.5 42 11.1716 42 12C42 12.8284 41.3284 13.5 40.5 13.5H16.5C15.6716 13.5 15 12.8284 15 12Z" fill="#F8F0FB"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 24C15 23.1716 15.6716 22.5 16.5 22.5H40.5C41.3284 22.5 42 23.1716 42 24C42 24.8284 41.3284 25.5 40.5 25.5H16.5C15.6716 25.5 15 24.8284 15 24Z" fill="#F8F0FB"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 36C15 35.1716 15.6716 34.5 16.5 34.5H40.5C41.3284 34.5 42 35.1716 42 36C42 36.8284 41.3284 37.5 40.5 37.5H16.5C15.6716 37.5 15 36.8284 15 36Z" fill="#F8F0FB"/>
+                <path d="M8.25 14.25C9.49264 14.25 10.5 13.2426 10.5 12C10.5 10.7574 9.49264 9.75 8.25 9.75C7.00736 9.75 6 10.7574 6 12C6 13.2426 7.00736 14.25 8.25 14.25Z" fill="#F8F0FB"/>
+                <path d="M8.25 26.25C9.49264 26.25 10.5 25.2426 10.5 24C10.5 22.7574 9.49264 21.75 8.25 21.75C7.00736 21.75 6 22.7574 6 24C6 25.2426 7.00736 26.25 8.25 26.25Z" fill="#F8F0FB"/>
+                <path d="M8.25 38.25C9.49264 38.25 10.5 37.2426 10.5 36C10.5 34.7574 9.49264 33.75 8.25 33.75C7.00736 33.75 6 34.7574 6 36C6 37.2426 7.00736 38.25 8.25 38.25Z" fill="#F8F0FB"/>
+            </svg>
 
             <p>
-                
-                  {{count($allcategories)}} <br> @lang('front.cats')
-                
-        </p>
-        </div>
+                {{count($allcategories)}} <br> @lang('front.cats')
+            </p>
+        </a>
     </div>
 </div>
 </section>
@@ -501,7 +499,7 @@ body {
 
 <!-- POPULAR CATEGORIES -->
 <section class="popular-sec">
-    <h1 class="popular-h1">@lang('front.popcats')</h1>
+    <h1 class="popular-h1" id="popular_category">@lang('front.popcats')</h1>
     <!-- HTML -->
     <div class="popular-div" id="category-container">
         @foreach ($categories as $category)
