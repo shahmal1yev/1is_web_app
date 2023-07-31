@@ -446,57 +446,54 @@ body {
 
 <div class="container custom-container">
 
-<section class="swiper-sec">
-<!-- CAROUSEL -->
-<div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-    @foreach ($stories as $st)
-        
-      <a href="#" id="slide{{$st->id}}" class="swiper-slide story_button">
-        <img src="{{$st->image}}" alt="">
-      </a>
-    @endforeach
 
+    @if (isset($stories))
+    <section class="swiper-sec">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+            @foreach ($stories as $st)
+                
+            <a href="#" id="slide{{$st->id}}" class="swiper-slide story_button">
+                <img src="{{$st->image}}" alt="">
+            </a>
+            @endforeach
 
+            </div>  
+            
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
 
-    </div>  
-    
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-</div>
+        <div class="sliders">
+            @foreach ($stories as $st)
+                @php
+                    $imagePaths = json_decode($st->stories); 
+                    
+                @endphp
 
-<div class="sliders">
-    @foreach ($stories as $st)
-    @php
-        $imagePaths = json_decode($st->stories); 
-        
-    @endphp
-
-    <section data-slide="slide{{$st->id}}" class="slide{{$st->id}}" id="story_slide">
-        <div class="slide-items">
-            @foreach ($imagePaths as $imagePath)
-                <img src="{{ asset($imagePath) }}" alt=""> {{-- Görsel yollarını asset() fonksiyonuyla doğru şekilde çözümlüyoruz --}}
+                <section data-slide="slide{{$st->id}}" class="slide{{$st->id}}" id="story_slide">
+                    <div class="slide-items">
+                        @foreach ($imagePaths as $imagePath)
+                            <img src="{{ asset($imagePath) }}" alt=""> {{-- Görsel yollarını asset() fonksiyonuyla doğru şekilde çözümlüyoruz --}}
+                        @endforeach
+                    </div>
+                    <nav class="slide-nav">
+                        <div class="slide{{$st->id}}"></div>
+                        <button class="slide-prev">Previous</button>
+                        <button class="slide-next">Next</button>
+                    </nav>
+                    <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
+                </section>
             @endforeach
         </div>
-        <nav class="slide-nav">
-            <div class="slide{{$st->id}}"></div>
-            <button class="slide-prev">Previous</button>
-            <button class="slide-next">Next</button>
-        </nav>
-        <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
-    </section>
-@endforeach
 
-          
-            
-        </div>
+    </section> 
+    @else
 
-</section>
+    @endif
 
-<script>
- 
-</script>
+
 
 
 <!-- POPULAR CATEGORIES -->
@@ -599,13 +596,11 @@ body {
                 .then(response => response.json())
                 .then(data => {
                     var categories = data.data;
-                    totalCount = data.totalCount; // Toplam kategori sayısını güncelleyin
+                    totalCount = data.totalCount; 
     
-                    // Yeni kategorileri eklemeden önce mevcut kategorileri temizleyin
                     categoryContainer.innerHTML = '';
     
                     var remainingCategories = categories.slice(0, limit);
-    
                     remainingCategories.forEach(function(category) {
                         var div = document.createElement('div');
                         div.className = 'pop-card1';
