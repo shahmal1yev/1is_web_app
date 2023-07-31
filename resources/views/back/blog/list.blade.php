@@ -40,7 +40,7 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>{{$blog->title_az}}</td>
-                                <td>{{$blog->getUser()->name}}</td>
+                                <td>{{$blog->getUser() ? $blog->getUser()->name : ''}}</td>
                                 <td>{{$blog->view}}</td>
                                 <td>
                                     <p class="d-none">{{$blog->status == 1 ? "Active" : "Deactive"}}</p>
