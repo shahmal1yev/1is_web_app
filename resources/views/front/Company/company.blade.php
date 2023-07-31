@@ -49,15 +49,7 @@
         <h2>@lang('front.companies')</h2>
       </div>
       <form class="main-filter" method="GET" action="{{route('compsearch')}}">
-        <!-- <div class="active-filters">
-          <div class="filter1">
-            <img src="https://1is-new.netlify.app/images/search.png" alt="" />
-            <input class="filter-input" placeholder="@lang('front.compaxtar')" type="search" name="query"/>
-          </div>
-          <div class="filter2">
-            <button class="filter-searc">@lang('front.axtar')</button>
-            <div id="detail-btn" class="detail-search"><img src="https://1is-new.netlify.app/images/more.png" alt="">@lang('front.etrafliaxtar')</div>
-        </div> -->
+       
 
 
 
@@ -68,7 +60,6 @@
         </div>
         <div class="filter2">
             <button class="filter-searc">@lang('front.axtar')</button>
-            <div id="detail-btn" class="detail-search"><img src="https://1is-new.netlify.app/images/more.png" alt="">@lang('front.etrafliaxtar')</div>
         </div>
     </div>
         </div>
