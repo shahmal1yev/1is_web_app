@@ -63,7 +63,7 @@
                         
 
 
-                        <form method="GET" action="{{ route('download', $jobdetail->id) }}">
+                        <form method="GET" action="{{ route('downloadcv', $jobdetail->id) }}">
                             
                             <div class="input-cv">
                                 <label for="input-cv">
