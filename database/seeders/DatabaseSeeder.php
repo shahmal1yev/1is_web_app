@@ -14,11 +14,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            // BannerSeeder::class,
+            // AcceptTypeSeeder::class,
+            // AdvertSeeder::class,
+            // BlogSeeder::class,
+            // CategorySeeder::class,
+            // CitySeeder::class,
+            // CompanySeeder::class,
+            // CVSeeder::class,
+            // EducationSeeder::class,
+            // ExperienceSeeder::class,
+            // FavoriteSeeder::class,
+            // GenderSeeder::class,
+            // JobTypeSeeder::class,
+            // LanguageSeeder::class,
+            // LoginImageSeeder::class,
+            // NewslatterSeeder::class,
+            // PolicySeeder::class,
+            // PrivacyComSeeder::class,
+            // PrivacyProSeeder::class,
+            // SectorSeeder::class,
+            // SettingSeeder::class,
+            // SocialMediaSeeder::class,
+            // StorySeeder::class,
+            // TrainingSeeder::class,
+            // UserSeeder::class,
+            // VacancySeeder::class,
+            // ContactInfoSeeder::class,
+        ]);
     }
 }

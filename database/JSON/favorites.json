@@ -1,0 +1,34 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"abdulkadirbudak_com_recruitment"},
+{"type":"table","name":"favorites","database":"abdulkadirbudak_com_recruitment","data":
+[
+{"id":"1","vacancyId":"0","user_id":"19","cookie_id":"0","cvId":"919","created":"2022-12-21 18:31:40"},
+{"id":"2","vacancyId":"0","user_id":"19","cookie_id":"0","cvId":"512","created":"2022-12-24 21:58:09"},
+{"id":"3","vacancyId":"7646","user_id":"53","cookie_id":"0","cvId":"0","created":"2023-01-26 23:16:39"},
+{"id":"4","vacancyId":"7580","user_id":"94","cookie_id":"0","cvId":"0","created":"2023-02-17 14:33:52"},
+{"id":"5","vacancyId":"0","user_id":"116","cookie_id":"0","cvId":"884","created":"2023-02-20 20:38:02"},
+{"id":"6","vacancyId":"8943","user_id":"2","cookie_id":"0","cvId":"0","created":"2023-02-21 14:59:40"},
+{"id":"7","vacancyId":"8942","user_id":"2","cookie_id":"0","cvId":"0","created":"2023-02-21 14:59:58"},
+{"id":"8","vacancyId":"8940","user_id":"2","cookie_id":"0","cvId":"0","created":"2023-02-21 15:00:01"},
+{"id":"9","vacancyId":"8361","user_id":"139","cookie_id":"0","cvId":"0","created":"2023-02-25 22:19:19"},
+{"id":"10","vacancyId":"0","user_id":"142","cookie_id":"0","cvId":"933","created":"2023-02-26 22:19:27"},
+{"id":"11","vacancyId":"0","user_id":"192","cookie_id":"0","cvId":"21","created":"2023-04-12 01:21:47"},
+{"id":"12","vacancyId":"0","user_id":"197","cookie_id":"0","cvId":"41","created":"2023-04-12 08:44:12"},
+{"id":"13","vacancyId":"11124","user_id":"197","cookie_id":"0","cvId":"0","created":"2023-04-25 09:57:51"},
+{"id":"14","vacancyId":"10546","user_id":"197","cookie_id":"0","cvId":"0","created":"2023-04-25 09:59:57"},
+{"id":"15","vacancyId":"0","user_id":"197","cookie_id":"0","cvId":"909","created":"2023-05-10 11:54:22"},
+{"id":"16","vacancyId":"0","user_id":"197","cookie_id":"0","cvId":"908","created":"2023-05-10 12:02:44"},
+{"id":"17","vacancyId":"12135","user_id":"197","cookie_id":"0","cvId":"0","created":"2023-05-10 12:06:52"},
+{"id":"18","vacancyId":"12134","user_id":"197","cookie_id":"0","cvId":"0","created":"2023-05-10 12:07:35"},
+{"id":"19","vacancyId":"12178","user_id":"417","cookie_id":"0","cvId":"0","created":"2023-05-11 13:56:24"},
+{"id":"20","vacancyId":"12173","user_id":"417","cookie_id":"0","cvId":"0","created":"2023-05-11 14:43:49"},
+{"id":"21","vacancyId":"12229","user_id":"417","cookie_id":"0","cvId":"0","created":"2023-05-11 15:00:10"},
+{"id":"22","vacancyId":"12228","user_id":"417","cookie_id":"0","cvId":"0","created":"2023-05-11 15:00:11"},
+{"id":"23","vacancyId":"0","user_id":"417","cookie_id":"0","cvId":"909","created":"2023-05-11 15:00:25"},
+{"id":"24","vacancyId":"12225","user_id":"417","cookie_id":"0","cvId":"0","created":"2023-05-12 08:14:05"},
+{"id":"25","vacancyId":"12943","user_id":"1157","cookie_id":"0","cvId":"0","created":"2023-06-10 14:50:18"},
+{"id":"26","vacancyId":"14485","user_id":"2","cookie_id":"0","cvId":"0","created":"2023-06-25 08:11:40"}
+]
+}
+]
