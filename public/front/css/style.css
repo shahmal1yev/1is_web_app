@@ -409,7 +409,7 @@ button:focus {
 }
 
 .home-filter{
-  margin-top: 15%;
+  margin-top: 12%;
 }
 
 .disabled-filter {
@@ -1063,6 +1063,8 @@ p {
   align-items: center;
 }
 
+
+
 .filter1 input {
   width: 100%;
 }
@@ -1073,6 +1075,11 @@ p {
   justify-content: center;
   margin: 20px auto;
   padding: 0 20px;
+}
+
+.main-reklam a {
+  display: flex;
+  justify-content: center;
 }
 
 .main-reklam img {
@@ -1545,12 +1552,16 @@ footer {
 
 }
 
+.dropdown-comp-3 h2 {
+  font-size: 16px!important;
+  margin-bottom: 0!important;
+}
 
 .pagination-nav{
     width: 100% !important;
     margin: initial !important;
     max-width: initial !important;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .pagination-nav .footer{
@@ -1571,6 +1582,11 @@ footer {
     .dropdown-comp-3 .select_box {
         width: 60%;
     }
+
+    .filter1 {
+      width: 100%!important;
+    }
+
 }
 
 @media screen and (max-width: 500px) {

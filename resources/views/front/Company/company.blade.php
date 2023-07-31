@@ -68,7 +68,7 @@
         </div>
         <div class="filter2">
             <button class="filter-searc">@lang('front.axtar')</button>
-            <div id="detail-btn" class="detail-search"><img src="https://1is-new.netlify.app/images/more.png" alt="">@lang('front.etrafliaxtar')</div>
+            <!-- <div id="detail-btn" class="detail-search"><img src="https://1is-new.netlify.app/images/more.png" alt="">@lang('front.etrafliaxtar')</div> -->
         </div>
     </div>
         </div>
