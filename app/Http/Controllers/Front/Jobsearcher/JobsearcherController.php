@@ -79,7 +79,7 @@ class JobsearcherController extends Controller
         return View('front.Jobsearcher.detail', get_defined_vars());
     }
 
-    public function downloadCV($id)
+    public function download($id)
     {
         $jobdetail = Cv::find($id);
         $file_path = $jobdetail->cv;

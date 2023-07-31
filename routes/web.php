@@ -387,7 +387,7 @@ Route::post('/cvdisslike', [JobsearcherController::class, 'dislike'])->name('cvd
 Route::get('/jobsearcher',[JobsearcherController::class, 'jobsearch'])->name('jobsearch');
 Route::get('/jobsearcher/{id}', [JobsearcherController::class, 'detail'])->name('jobsearchdetail');
 Route::get('/cvaxtar',[JobsearcherController::class, 'cvaxtar'])->name('cvaxtar');
-Route::get('/jobsearcher/{id}/cv', [JobsearcherController::class, 'downloadcv'])->name('downloadcv');
+Route::get('/jobsearcher/{id}/cv', [JobsearcherController::class, 'download'])->name('download');
 
 
 Route::get('/policy',[PolicyController::class, 'index'])->name('policy');

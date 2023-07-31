@@ -521,6 +521,7 @@ class VacancyFrontController extends Controller
         $candidate = Candidates::find($id);
         $file_path = $candidate->cv;
         
+        
         if (file_exists($file_path)) {
             return response()->download($file_path);
         } else {
