@@ -253,48 +253,54 @@
         </div>
     </section>
 
-
-    <!-- JOBSEARCH PAGINATION -->
-    <nav aria-label="..." class="d-flex justify-content-center">
-        @if ($allcvs->hasPages())
-        <ul class="pagination pagination-ul">
-            {{-- Previous Page Link --}}
-            @if ($allcvs->onFirstPage())
-            @else
-                <li class="page-item"><a class="page-link" href="{{ $allcvs->previousPageUrl() }}" rel="prev">«</a></li>
-            @endif
-    
-            @if($allcvs->lastPage() > 1)
-                @if($allcvs->currentPage() > 1)
-                    <li class="page-item"><a class="page-link" href="{{ $allcvs->url(1) }}">1</a></li>
-                    <li class="page-item"><a class="page-link">...</a></li>
-                @endif
-                @foreach(range($allcvs->currentPage() - 1, $allcvs->currentPage() + 1) as $i)
-                    @if ($i > 1 && $i < $allcvs->lastPage())
-                        @if ($i == $allcvs->currentPage())
-                            <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
-                        @else
-                            <li class="page-item "><a class="page-link" href="{{ $allcvs->url($i) }}">{{ $i }}</a></li>
-                        @endif
-                    @endif
-                @endforeach
-                @if($allcvs->currentPage() < $allcvs->lastPage() - 1)
-                    <li class="page-item"><a class="page-link">...</a></li>
-                    <li class="page-item"><a class="page-link" href="{{ $allcvs->url($allcvs->lastPage()) }}">{{ $allcvs->lastPage() }}</a></li>
-                @endif
-            @else
-                <li class="page-item active"><a class="page-link">1</a></li>
-            @endif
-    
-            {{-- Next Page Link --}}
-            @if ($allcvs->hasMorePages())
-                <li><a class="page-link" href="{{ $allcvs->nextPageUrl() }}" rel="next">»</a></li>
-            @endif
-        </ul>
+ <!-- BLOG PAGİNATİON -->
+ <nav aria-label="..." class="d-flex justify-content-center">
+    @if ($allcvs->hasPages())
+    <ul class="pagination pagination-ul">
+        {{-- Previous Page Link --}}
+        @if ($allcvs->onFirstPage())
+        @else
+            <li class="page-item"><a class="page-link" href="{{ $allcvs->appends(request()->except('page'))->previousPageUrl() }}" rel="prev">«</a></li>
         @endif
+
+        @if($allcvs->currentPage() > 3)
+            <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $allcvs->appends(request()->except('page'))->url(1) }}">1</a></li>
+        @endif
+        @if($allcvs->currentPage() > 4)
+        <li class="page-item"><a class="page-link">...</a></li>
+        @endif
+        @foreach(range(1, $allcvs->lastPage()) as $i)
+            @if($i >= $allcvs->currentPage() - 1 && $i <= $allcvs->currentPage() + 1)
+                @if ($i == $allcvs->currentPage())
+                    <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
+                @else
+                    <li class="page-item "><a class="page-link" href="{{ $allcvs->appends(request()->except('page'))->url($i) }}">{{ $i }}</a></li>
+                @endif
+            @endif
+        @endforeach
+        @if($allcvs->currentPage() < $allcvs->lastPage() - 2)
+        <li class="page-item"><a class="page-link">...</a></li>
+        @endif
+        @if($allcvs->currentPage() < $allcvs->lastPage() - 1)
+            <li class="page-item hidden-xs"><a class="page-link" href="{{ $allcvs->appends(request()->except('page'))->url($allcvs->lastPage()) }}">{{ $allcvs->lastPage() }}</a></li>
+        @endif
+
+        {{-- Next Page Link --}}
+        @if ($allcvs->hasMorePages())
+            <li><a class="page-link" href="{{ $allcvs->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
+        @endif
+    </ul>
     </nav>
-    
     <h3 class="jobsearch-all-result-text">@lang('front.umumisay') : {{$allcvs->total()}}</h3>
+
+@endif
+
+
+
+
+
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
         var heartIcons = document.querySelectorAll('.heart-icon');
