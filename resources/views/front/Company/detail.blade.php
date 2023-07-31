@@ -105,7 +105,7 @@
         <div class="about-company-wrapper">
           <div class="about-company-image">
 
-            <img src="https://1is.butagrup.az/{{$compdetail->image}}" alt="kapital" />
+            <img src="{{asset($compdetail->image)}}" alt="kapital" />
             
           </div>
           <div class="row about-company-text-wrapper">
@@ -122,10 +122,7 @@
                 </p>
 
                 <div class="about-company-button">
-                  <button
-                    data-toggle="modal"
-                    data-target=".bd-example-modal-xl"
-                  >
+                  <button data-toggle="modal" data-target=".bd-example-modal-xl">
                     @lang('front.etrafli')
                   </button>
                   <div>
