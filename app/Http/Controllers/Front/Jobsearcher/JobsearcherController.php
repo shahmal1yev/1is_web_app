@@ -23,8 +23,8 @@ class JobsearcherController extends Controller
 
     public function like(Request $request)
     {
-        if(!auth()->check()) {
-            return response()->json(['error' =>  __('messages.loginerror')], 403);
+        if (!auth()->check()) {
+            return redirect()->route('login');
         }
 
         $cv_id = $request->input('cv_id');

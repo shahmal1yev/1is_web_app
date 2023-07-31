@@ -78,6 +78,8 @@
                 var vacancyId = this.getAttribute('data-vacancy-id');
                 var redHeartIcon = document.querySelector('.red-heart-icon[data-vacancy-id="' + vacancyId + '"]');
                 var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
+                window.location.href = '{{ route('login') }}';
+
 
                 if (isLoggedIn) {
                     this.style.display = 'none';
