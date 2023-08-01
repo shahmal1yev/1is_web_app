@@ -58,6 +58,17 @@ header{
   background-color: transparent !important;
 }
 
+.form-inner input.error {
+  border-bottom: 1px solid rgb(244, 77, 77)!important;
+}
+
+.form-inner2 input.error {
+  border-bottom: 1px solid rgb(244, 77, 77)!important;
+}
+
+.error {
+  color: rgb(244, 77, 77)!important;
+}
 
 .company-announce-input-group label:last-child{
   color: red;

@@ -254,7 +254,7 @@
     </section>
 
  <!-- BLOG PAGİNATİON -->
- <nav aria-label="..." class="d-flex justify-content-center">
+ <footer aria-label="..." class="d-flex justify-content-center">
     @if ($allcvs->hasPages())
     <ul class="pagination pagination-ul">
         {{-- Previous Page Link --}}
@@ -290,7 +290,7 @@
             <li><a class="page-link" href="{{ $allcvs->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
         @endif
     </ul>
-    </nav>
+    </footer>
     <h3 class="jobsearch-all-result-text">@lang('front.umumisay') : {{$allcvs->total()}}</h3>
 
 @endif
