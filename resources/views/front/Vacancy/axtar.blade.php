@@ -12,6 +12,10 @@
         width: 90px;
         height: 35px;
     }
+    .category-li li{
+        max-width:1000px;
+        margin:0 auto;
+    }
 </style>
 
 @section('content')
@@ -191,7 +195,7 @@
                   </div>
               </div>
           </form>
-        <div>
+        <div class="category-li">
           @php
           $city = App\Models\Cities::find($request->input('city'));
           $category = App\Models\Categories::find($request->input('category'));

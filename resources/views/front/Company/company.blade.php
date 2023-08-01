@@ -29,7 +29,7 @@
         
         .inner3 {
             position: absolute;
-            bottom: 20px;
+            bottom: 10px;
         }
         
         .company-div .mr-0, .mx-0{

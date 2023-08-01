@@ -1541,7 +1541,7 @@ footer {
   align-items: center;
 }
 
-.footer-bottom span {
+.footer-bottom span, .footer-bottom span a {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
