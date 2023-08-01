@@ -38,7 +38,7 @@ return [
     'sifreyeni' => 'Şifrəniz uğurla yeniləndi!',
     '8simvol' => 'Parolunuz ən az 8 simvol olmalıdı!',
     'passeyni' => 'Şifrələriniz eyni deyil!',
-    'passeyni' => 'Bu emaildən artıq qeydiyyatdan keçilib!',
+    'emailvar' => 'Bu emaildən artıq qeydiyyatdan keçilib!',
     'catyeni' => 'Kategoriya uğurla yeniləndi!',
 
     'murgonder' => 'Müraciətiniz uğurla göndərildi!',

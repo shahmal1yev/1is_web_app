@@ -37,6 +37,7 @@ return [
     '8simvol' => 'Parolanız en az 8 karakter olmalıdır!',
     'passeyni' => 'Şifreleriniz aynı değil!',
     'catyeni' => 'Kategori başarıyla güncellendi!',
+    'emailvar' => 'Bu e-posta zaten kayıtlı!',
 
     'murgonder' => 'Başvurunuz başarıyla gönderildi!',
 

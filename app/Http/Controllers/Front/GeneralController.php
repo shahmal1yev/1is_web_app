@@ -72,6 +72,7 @@ class GeneralController extends Controller
 
         $categories = Categories::leftJoin('vacancies', 'vacancies.category_id', '=', 'categories.id')
         ->select('categories.*', DB::raw('COUNT(vacancies.id) as total_vacancies'))
+        ->where('vacancies.status','1')
         ->groupBy('categories.id')
         ->orderBy('total_vacancies', 'desc')
         ->paginate(12);
