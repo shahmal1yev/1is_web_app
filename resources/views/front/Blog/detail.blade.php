@@ -60,11 +60,13 @@
 
 
             <div class="blog-date">
-                <img src="https://1is-new.netlify.app/images/blog-date.png" alt="">
-                @if ($bdetail)
-                <p>{{ date('d-m-Y', strtotime($bdetail->created_at)) }}</p>
-            @endif
-                        </div>
+                <div class="blog-date-div">
+                    <img class="blog-date-img" src="https://1is-new.netlify.app/images/blog-date.png" alt="">
+                    @if ($bdetail)
+                    <p>{{ date('d-m-Y', strtotime($bdetail->created_at)) }}</p>
+                    @endif
+                </div>
+            </div>
         </div>
     </section>
 
@@ -128,15 +130,6 @@
 @endsection
 
 <style>
-    .card-button-link {
-        color: white;
-    }
-
-    .blog-text img {
-        object-fit: contain;
-        width: 940px!important;
-        width: 100%!important;
-        height: 400px;
-    }
+    
 
 </style>
