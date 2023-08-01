@@ -316,7 +316,6 @@
   }
   
   .training-form-div {
-    flex-direction: column;
     width: 100%!important;
     padding: 20px 15px!important;
   }
@@ -331,4 +330,11 @@
     outline: none;
     background-color: #F4F9FD!important;
     font-size: 18px;
+  }
+
+  @media screen and (max-width:768px) {
+    .training-form-div {
+      flex-direction: column;
+    }
+  
   }
