@@ -18,6 +18,7 @@ class CategorySeeder extends Seeder
     {
         $datas = [
 			[
+				"id" => 1,
 				"title_az" => "Maliyyə və mühasibatlıq",
 				"title_en" => "Finance and accounting",
 				"title_ru" => "Финансы и учет",
@@ -28,6 +29,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 11,
 				"title_az" => "Marketinq, reklam, çap, nəşriyyat",
 				"title_en" => "Marketing, advertising, printing, publishing",
 				"title_ru" => "Маркетинг, реклама, полиграфия, издательское дело",
@@ -38,6 +40,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 21,
 				"title_az" => "İnformasiya texnologiyaları və proqramlaşdırma",
 				"title_en" => "Information technologies and programming",
 				"title_ru" => "Информационные технологии и программирование",
@@ -48,6 +51,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 22,
 				"title_az" => "Mühəndislik",
 				"title_en" => "Engineering",
 				"title_ru" => "Инжиниринг",
@@ -58,6 +62,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 31,
 				"title_az" => "Data Analitika",
 				"title_en" => "Data Analytics",
 				"title_ru" => "Аналитика данных",
@@ -68,6 +73,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 34,
 				"title_az" => "İnzibati, biznes və idarəetmə",
 				"title_en" => "Administrative, business and management",
 				"title_ru" => "Административный, бизнес и менеджмент",
@@ -78,6 +84,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 40,
 				"title_az" => "Pərakəndə satış və müştəri xidmətləri",
 				"title_en" => "Retail sales and customer service",
 				"title_ru" => "Розничные продажи и обслуживание клиентов",
@@ -88,6 +95,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 44,
 				"title_az" => "Xidmət sahəsi",
 				"title_en" => "Service area",
 				"title_ru" => "Зона обслуживания",
@@ -98,6 +106,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 50,
 				"title_az" => "Turizm, otel, restoran",
 				"title_en" => "Tourism, hotel, restaurant",
 				"title_ru" => "Туризм, гостиница, ресторан",
@@ -108,6 +117,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 52,
 				"title_az" => "Logistika, nəqliyyat",
 				"title_en" => "Logistics, transport",
 				"title_ru" => "Логистика, транспорт",
@@ -118,6 +128,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 56,
 				"title_az" => "Hüquq və məhkəmə",
 				"title_en" => "Law and court",
 				"title_ru" => "Закон и суд",
@@ -128,6 +139,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 60,
 				"title_az" => "Səhiyyə",
 				"title_en" => "Healthcare",
 				"title_ru" => "Здравоохранение",
@@ -138,6 +150,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 64,
 				"title_az" => "Təhsil və elm",
 				"title_en" => "Education and science",
 				"title_ru" => "Образование и наука",
@@ -148,6 +161,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 75,
 				"title_az" => "Sənaye və kənd təsərrüfatı",
 				"title_en" => "Industry and agriculture",
 				"title_ru" => "Промышленность и сельское хозяйство",
@@ -158,6 +172,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 81,
 				"title_az" => "Tikinti və inşaat",
 				"title_en" => "Construction",
 				"title_ru" => "Строительство",
@@ -168,6 +183,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 86,
 				"title_az" => "Dizayn, incəsənət",
 				"title_en" => "Design, art",
 				"title_ru" => "Дизайн, искусство",
@@ -178,6 +194,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 94,
 				"title_az" => "Müxtəlif",
 				"title_en" => "Various",
 				"title_ru" => "Различный",
@@ -188,6 +205,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 95,
 				"title_az" => "Media",
 				"title_en" => "Media",
 				"title_ru" => "СМИ",
@@ -198,6 +216,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 96,
 				"title_az" => "Təcrübə proqramı",
 				"title_en" => "Internship program",
 				"title_ru" => "Программа интернатуры",
@@ -208,6 +227,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 100,
 				"title_az" => "Sığorta",
 				"title_en" => "Insurance",
 				"title_ru" => "Страхование",
@@ -218,6 +238,7 @@ class CategorySeeder extends Seeder
 				"created_at" => "2023-01-11 05:38:50",
 			],
 			[
+				"id" => 101,
 				"title_az" => "İnsan resursları",
 				"title_en" => "Human resources",
 				"title_ru" => "Человеческие ресурсы",
