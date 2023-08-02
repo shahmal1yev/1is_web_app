@@ -500,11 +500,12 @@
     <!-- HTML -->
     <div class="popular-div" id="category-container">
         @foreach ($categories as $category)
-            <div class="pop-card1">
+            <a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}" class="pop-card1">
                 <i class="{{$category->icon}}"></i>
                 <div class="text-field">
                     <div class="text-field">
-                        <p><a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}">
+                        <p>
+                            <!-- <a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}"> -->
                             @switch(app()->getLocale())
                             @case('EN')
                                 {{ $category->title_en }}
@@ -518,12 +519,13 @@
                             @default
                                 {{ $category->title_az }}
                         @endswitch
-                    </a></p>
+                    <!-- </a> -->
+                </p>
                     </div>
                     <p>@lang('front.vaccount'): {{ $category->total_vacancies }}</p>
                 </div>
                 <div class="border-div"></div>
-            </div>
+            </a>
         @endforeach
     </div>
     <div id="load-more-container">
