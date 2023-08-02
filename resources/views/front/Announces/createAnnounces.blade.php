@@ -336,12 +336,7 @@
                     }
                 },
                 
-                min_age: {
-                    required: true,
-                },
-                max_age: {
-                    required: true,
-                },
+               
                 experience: {
                     required: true,
                 },
@@ -414,18 +409,7 @@
                     },
                   
                 },
-                min_age: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                max_age: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
+                
                 experience: {
                     required: function() {
                         return getErrorMessage('required', lang);
