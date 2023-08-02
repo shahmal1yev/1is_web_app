@@ -42,8 +42,6 @@ class VacancyController extends Controller
                 'experience'=>'required|numeric',
                 'education'=>'required|numeric',
                 'title'=>'required|max:1000',
-                'min_age'=>'numeric',
-                'max_age'=>'numeric',
                 'requirements'=>'required',
                 'description'=>'required',
                 'accept_type'=>'required|numeric',
@@ -128,8 +126,6 @@ class VacancyController extends Controller
             'experience'=>'required|numeric',
             'education'=>'required|numeric',
             'title'=>'required|max:1000',
-            'min_age'=>'numeric',
-            'max_age'=>'numeric',
             'requirements'=>'required',
             'description'=>'required',
             'accept_type'=>'required|numeric',
@@ -176,12 +172,14 @@ class VacancyController extends Controller
         $vacancy->description = $request->description;
         $vacancy->contact_name = $request->contact_name;
         $vacancy->accept_type = $request->accept_type;
+     
         if($request->accept_type == '0'){
             $request->validate([
                 'contact_email'=>'required|email'
             ]);
             $vacancy->contact_info = $request->contact_email;
-        }else{
+        }
+        if($request->accept_type == '2'){
             $request->validate([
                 'contact_link'=>'required'
             ]);
