@@ -278,7 +278,7 @@ class AccountController extends Controller
 
                     DB::commit();
 
-                    return redirect()->route('login')->with('success', __('messages.emailtesdiq'));
+                    return redirect()->route('index')->with('success', __('messages.emailtesdiq'));
                 }
 
                 DB::commit();

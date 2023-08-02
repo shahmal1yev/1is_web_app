@@ -31,7 +31,7 @@
                         <img src="{{asset($company->image)}}" alt="" width="200" height="200">
                     </div>
                     @include('back.layouts.messages')
-                    <form action="{{route('companiesEditPost')}}" method="POST" id="editCompanies" enctype="multipart/form-data">
+                    <form action="{{route('companiesEditPosts')}}" method="POST" id="editCompanies" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="{{$company->id}}">
                         @csrf
                         <div class="row mb-4">

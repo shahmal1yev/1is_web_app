@@ -276,7 +276,7 @@
                 $contact_info = str_replace('https://1is.butagrup.az/vacancy/', '', $vacdetail->contact_info);
                 ?>
             @if (Auth::check())
-                @if ($vacdetail->accept_type == 2)
+                @if ($vacdetail->accept_type == 1)
 
                     <button id="apply_button">Müraciət</button>
                 @else

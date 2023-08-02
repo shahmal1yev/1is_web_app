@@ -1,12 +1,70 @@
 [
-{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
-{"type":"database","name":"1is"},
-{"type":"table","name":"experiences","database":"1is","data":
-[
-{"id":"1","title_az":"1 ildən az","title_en":"Less than 1 year","title_ru":"Менее 1 года","title_tr":"1 yıldan daha az","slug":"1-ilden-az","status":"1","created_at":"2023-01-11 06:22:31","updated_at":"2023-01-11 06:22:31"},
-{"id":"2","title_az":"1 ildən 3 ilə","title_en":"From 1 year to 3 years","title_ru":"От 1 года до 3 лет","title_tr":"1 yıldan 3 yıla kadar","slug":"1-ilden-3-ile","status":"1","created_at":"2023-01-11 06:22:31","updated_at":"2023-01-11 06:22:31"},
-{"id":"3","title_az":"3 ildən 5 ilə","title_en":"3 to 5 years","title_ru":"от 3 до 5 лет","title_tr":"3 ila 5 yıl","slug":"3-ilden-5-ile","status":"1","created_at":"2023-01-11 06:22:31","updated_at":"2023-01-13 06:54:37"},
-{"id":"4","title_az":"5 ildən çox","title_en":"More than 5 years","title_ru":"Более 5 лет","title_tr":"5 yıldan fazla","slug":"5-ilden-cox","status":"1","created_at":"2023-01-11 06:22:31","updated_at":"2023-06-27 17:54:14"}
-]
-}
+    {
+        "type": "header",
+        "version": "5.2.1",
+        "comment": "Export to JSON plugin for PHPMyAdmin"
+    },
+    { "type": "database", "name": "1is" },
+    {
+        "type": "table",
+        "name": "experiences",
+        "database": "1is",
+        "data": [
+            {
+                "id": "1",
+                "title_az": "1 ildən az",
+                "title_en": "Less than 1 year",
+                "title_ru": "Менее 1 года",
+                "title_tr": "1 yıldan daha az",
+                "slug": "1-ilden-az",
+                "status": "1",
+                "created_at": "2023-01-11 06:22:31",
+                "updated_at": "2023-01-11 06:22:31"
+            },
+            {
+                "id": "2",
+                "title_az": "1 ildən 3 ilə",
+                "title_en": "From 1 year to 3 years",
+                "title_ru": "От 1 года до 3 лет",
+                "title_tr": "1 yıldan 3 yıla kadar",
+                "slug": "1-ilden-3-ile",
+                "status": "1",
+                "created_at": "2023-01-11 06:22:31",
+                "updated_at": "2023-01-11 06:22:31"
+            },
+            {
+                "id": "3",
+                "title_az": "3 ildən 5 ilə",
+                "title_en": "3 to 5 years",
+                "title_ru": "от 3 до 5 лет",
+                "title_tr": "3 ila 5 yıl",
+                "slug": "3-ilden-5-ile",
+                "status": "1",
+                "created_at": "2023-01-11 06:22:31",
+                "updated_at": "2023-01-13 06:54:37"
+            },
+            {
+                "id": "4",
+                "title_az": "5 ildən çox",
+                "title_en": "More than 5 years",
+                "title_ru": "Более 5 лет",
+                "title_tr": "5 yıldan fazla",
+                "slug": "5-ilden-cox",
+                "status": "1",
+                "created_at": "2023-01-11 06:22:31",
+                "updated_at": "2023-06-27 17:54:14"
+            },
+            {
+                "id": "5",
+                "title_az": "Təcrübə tələb olunmur",
+                "title_en": "No experience required",
+                "title_ru": "Опыт не требуется",
+                "title_tr": "Deneyim gerektirmemektedir",
+                "slug": "tecrube teleb olunmur",
+                "status": "1",
+                "created_at": "2023-01-11 06:22:31",
+                "updated_at": "2023-06-27 17:54:14"
+            }
+        ]
+    }
 ]

@@ -42,8 +42,6 @@ class VacancyController extends Controller
                 'experience'=>'required|numeric',
                 'education'=>'required|numeric',
                 'title'=>'required|max:1000',
-                'min_age'=>'required|numeric',
-                'max_age'=>'required|numeric',
                 'requirements'=>'required',
                 'description'=>'required',
                 'accept_type'=>'required|numeric',
@@ -55,7 +53,7 @@ class VacancyController extends Controller
         $vacancy->city_id = $request->city;
         if($request->city == 1){
             $request->validate([
-               'region'=>'required|numeric'
+               'region'=>'numeric'
             ]);
             $vacancy->village_id = $request->region;
         }
@@ -86,12 +84,13 @@ class VacancyController extends Controller
         $vacancy->description = $request->description;
         $vacancy->contact_name = $request->contact_name;
         $vacancy->accept_type = $request->accept_type;
-        if($request->accept_type == '0' || $request->accept_type == '1'){
+        if($request->accept_type == '0'){
             $request->validate([
                 'contact_email'=>'required|email'
             ]);
             $vacancy->contact_info = $request->contact_email;
-        }else{
+        }
+        if($request->accept_type == '2'){
             $request->validate([
                 'contact_link'=>'required'
             ]);
@@ -127,8 +126,6 @@ class VacancyController extends Controller
             'experience'=>'required|numeric',
             'education'=>'required|numeric',
             'title'=>'required|max:1000',
-            'min_age'=>'required|numeric',
-            'max_age'=>'required|numeric',
             'requirements'=>'required',
             'description'=>'required',
             'accept_type'=>'required|numeric',
@@ -142,7 +139,7 @@ class VacancyController extends Controller
         $vacancy->city_id = $request->city;
         if($request->city == 1){
             $request->validate([
-                'region'=>'required|numeric'
+                'region'=>'numeric'
             ]);
             $vacancy->village_id = $request->region;
         }
@@ -175,12 +172,14 @@ class VacancyController extends Controller
         $vacancy->description = $request->description;
         $vacancy->contact_name = $request->contact_name;
         $vacancy->accept_type = $request->accept_type;
-        if($request->accept_type == '0' || $request->accept_type == '1'){
+     
+        if($request->accept_type == '0'){
             $request->validate([
                 'contact_email'=>'required|email'
             ]);
             $vacancy->contact_info = $request->contact_email;
-        }else{
+        }
+        if($request->accept_type == '2'){
             $request->validate([
                 'contact_link'=>'required'
             ]);

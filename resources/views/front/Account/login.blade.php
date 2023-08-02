@@ -71,7 +71,7 @@
                         <button class="login-registration" type="submit">@lang('front.daxilol')</button>                 
                         <span>@lang('front.veya')</span>
                         <a class="login-google-registration" href="{{ route('google.login') }}">
-                            <img src="../images/google-play.png" alt="google-play" />
+                            <img src="{{asset('back/assets/images/google-play.png')}}" alt="google-play" />
                             Google ilə daxil olun
                         </a>
                         

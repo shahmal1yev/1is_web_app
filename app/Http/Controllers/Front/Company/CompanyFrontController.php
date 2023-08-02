@@ -85,9 +85,9 @@ class CompanyFrontController extends Controller
 
     public function like(Request $request)
         {
-        if(!auth()->check()) {
-            return redirect()->route('compvac', ['id' => $request->vacancy_id])->with('error', __('messages.loginerror'));
-        }
+            if (!auth()->check()) {
+                return redirect()->route('login');
+            }
 
         $vacancy_id = $request->input('vacancy_id');
         $user_id = auth()->user()->id;

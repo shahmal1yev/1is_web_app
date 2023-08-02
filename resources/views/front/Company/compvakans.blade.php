@@ -48,14 +48,13 @@
                 
             </div>
             <div class="vac-inner2">
-                <a href="{{route('vacancydetail', $vacancy->id)}}" class="vac-name"
-                >{{$vacancy->position}}</a
-                >
+                <a href="{{route('vacancydetail', $vacancy->id)}}" class="vac-name" >{{Str::limit($vacancy->position, 40, '...')}}</a>
+
             </div>
             <div class="vac-inner3">
                 <div class="vac-inn1">
                 <img src="https://1is-new.netlify.app/images/building.png" alt="" />
-                <a class="comp-link" href="{{route('compdetail', $vacancy->company_id)}}">{{$vacancy->company_name}}</a>
+                <a class="comp-link" href="{{route('compdetail', $vacancy->company_id)}}">{{Str::limit($vacancy->company_name, 20, '...')}}</a>
                 </div>
                 <div class="vac-inn2">
                 <img src="https://1is-new.netlify.app/images/clock.png" alt="" />
@@ -79,6 +78,8 @@
                 var vacancyId = this.getAttribute('data-vacancy-id');
                 var redHeartIcon = document.querySelector('.red-heart-icon[data-vacancy-id="' + vacancyId + '"]');
                 var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
+                window.location.href = '{{ route('login') }}';
+
 
                 if (isLoggedIn) {
                     this.style.display = 'none';

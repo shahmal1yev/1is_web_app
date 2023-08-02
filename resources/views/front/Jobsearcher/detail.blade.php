@@ -48,7 +48,7 @@
                     <div class="jobsearcher-profile">
                         <div class="jobsearcher-profile-wrapper">
                             <div class="jobsearcher-avatar">
-                                <img src="https://1is.butagrup.az/{{$jobdetail->image}}" alt="jobsearcher-avatar">
+                                <img src="{{asset($jobdetail->image)}}" alt="jobsearcher-avatar">
                             </div>
                             <div class="jobsearcher-information">
                                 <div class="jobsearcher-text">

@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 
+<style>
+    /* SELECT2  */
+
+    .company-announce-input-group span{
+        height: 100%!important;
+        border-radius: 8px!important;
+    }
+
+    .select2-selection__rendered {
+        display: flex!important;
+        align-items: center!important;
+    }
+</style>
+
 @extends('front.layouts.master')
 
 @section('content')
@@ -206,7 +220,7 @@
                             </div>
                             <div class="form-group company-announce-input-group col-12">
                                 <label for="companies">@lang('front.companies') <span class="text-danger">*</span></label>
-                                <select class="form-control" id="companies" name="company"  value="{{ old('company') }}" >
+                                <select class="form-control js-example-basic-single" id="companies" name="company"  value="{{ old('company') }}" >
                                     <option value="" selected disabled>@lang('front.sirketsec')...</option>
                                     @foreach($companies as $company)
                                         <option value="{{$company->id}}"@if(old('company') == $company->id) selected @endif>{{$company->name}}</option>
@@ -214,7 +228,7 @@
                                 </select>
                                 
                             </div>
-                            <div class="form-group company-announce-input-group col-12 ">
+                            <div class="form-group company-announce-input-group col-12 mt-4">
                                 <label for="responsible_person">@lang('front.elaqesexs')</label>
                                 <input type="text" name="contact_name" class="form-control" id="responsible_person" placeholder="@lang('front.adsoyad')" value="{{ old('contact_name') }}">
                             </div>
@@ -336,12 +350,7 @@
                     }
                 },
                 
-                min_age: {
-                    required: true,
-                },
-                max_age: {
-                    required: true,
-                },
+               
                 experience: {
                     required: true,
                 },
@@ -414,18 +423,7 @@
                     },
                   
                 },
-                min_age: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                max_age: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
+                
                 experience: {
                     required: function() {
                         return getErrorMessage('required', lang);
@@ -585,6 +583,12 @@
     });
 </script>
 
+<script>
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
 
 @section('js-link')
 <script src="{{asset('front/js/bootstrap.min.js')}}"></script> 

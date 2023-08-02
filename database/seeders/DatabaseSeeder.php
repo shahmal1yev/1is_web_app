@@ -42,6 +42,8 @@ class DatabaseSeeder extends Seeder
             // UserSeeder::class,
             // VacancySeeder::class,
             // ContactInfoSeeder::class,
+            // RegionSeeder::class,
+
         ]);
     }
 }

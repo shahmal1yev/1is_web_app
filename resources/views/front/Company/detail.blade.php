@@ -101,11 +101,11 @@
 
 <section class="company-inner">
       <div class="container company-inner-container">
-        <h3>{{$compdetail->name}}</h3>
+        <h3>{!! htmlspecialchars_decode($compdetail->name) !!}</h3>
         <div class="about-company-wrapper">
           <div class="about-company-image">
 
-            <img src="https://1is.butagrup.az/{{$compdetail->image}}" alt="kapital" />
+            <img src="{{asset($compdetail->image)}}" alt="kapital" />
             
           </div>
           <div class="row about-company-text-wrapper">
@@ -122,10 +122,7 @@
                 </p>
 
                 <div class="about-company-button">
-                  <button
-                    data-toggle="modal"
-                    data-target=".bd-example-modal-xl"
-                  >
+                  <button data-toggle="modal" data-target=".bd-example-modal-xl">
                     @lang('front.etrafli')
                   </button>
                   <div>
@@ -154,7 +151,7 @@
                 <h5>@lang('front.baxissay')</h5>
                 <span>
                     {{$compdetail->view}}
-                  <img src="{{asset('back/assets/images/icons/Icon.png')}}" alt="icon" />
+                  <img style="width: 20px; height: 20px;" src="{{asset('back/assets/images/icons/view.png')}}" alt="icon" />
                 </span>
               </div>
             </div>
@@ -171,26 +168,40 @@
               <div class="company-about-link">
                 <h5>@lang('front.vebsite') </h5>
                 <div class="company-about-socials">
-                  <div class="company-about-social-media" href="#">
-                    <a href="{{ str_replace('"', '', $compdetail->twitter) }}">
-                        <img src="{{asset('back/assets/images/icons/internet-explorer.svg')}}" alt="internet">
-                    </a>
-                  </div>
-                  <div class="company-about-social-media" href="#">
-                    <a href="{{ str_replace('"', '', $compdetail->facebook) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-fb.svg')}}" alt="facebook">
-                    </a>
-                  </div>
-                  <div class="company-about-social-media" href="#">
-                    <a href="{{ str_replace('"', '', $compdetail->instagram) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-ig.svg')}}" alt="instagram">
-                    </a>
-                  </div>
-                  <div class="company-about-social-media" href="#">
-                    <a href="{{ str_replace('"', '', $compdetail->linkedin) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-li.svg')}}" alt="linkedin">
-                    </a>
-                  </div>
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->website) }}">
+                          <img src="{{asset('back/assets/images/icons/internet-explorer.svg')}}" alt="internet">
+                      </a>
+                    </div>
+                  @if ($compdetail->twitter)
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->twitter) }}">
+                          <img style="width: 18px; height: 18px;" src="{{asset('back/assets/images/icons/twitter.png')}}">
+                      </a>
+                    </div>
+                  @endif
+                  @if ($compdetail->facebook)
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->facebook) }}">
+                          <img src="{{asset('back/assets/images/icons/footer-fb.svg')}}" alt="facebook">
+                      </a>
+                    </div>
+                  @endif
+                  @if ($compdetail->instagram)
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->instagram) }}">
+                          <img src="{{asset('back/assets/images/icons/footer-ig.svg')}}" alt="instagram">
+                      </a>
+                    </div>
+                  @endif
+                  @if ($compdetail->linkedin)
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->linkedin) }}">
+                          <img src="{{asset('back/assets/images/icons/footer-li.svg')}}" alt="linkedin">
+                      </a>
+                    </div>
+                  @endif
+
                 </div>
               </div>
             </div>
@@ -320,8 +331,8 @@
      <div class="my-modal-header">
        <img class="my-modal-header-img" src="{{asset($compdetail->image)}}" alt="" />
        <div class="modal-header-details">
-         <h1>{{$compdetail->name}}</h1>
-         @php
+        <h1>{!! htmlspecialchars_decode($compdetail->name)!!}</h1>
+        @php
               $stars = round($compdetail->average);
           @endphp
           @for($i = 1; $i <= 5; $i++)

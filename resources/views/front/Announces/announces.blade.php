@@ -245,15 +245,41 @@
                                             <img class="comp-insta-img" src="https://1is-new.netlify.app/images/companies-announces/twitter_company_modal.png" alt="twitter">
                                             
                                         </div>
-                                        <div class="form-group add-training-input-group ">
+
+                                        
+                                        <div class="form-group add-training-input-group">
                                             <label for="images">@lang('front.sekiladd')<span class="text-danger">*</span></label>
                                             <div class="custom-file training-custom-file edit-training-input-group">
-                                                <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="img"  accept="image/png, image/jpeg, image/svg+xml, image/webp" value="{{ old('image') }}">
+                                                <input type="file" name="image" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="img" accept="image/png, image/jpeg, image/svg+xml, image/webp" value="{{ old('image') }}">
                                                 <img src="https://1is-new.netlify.app/images/pic.png" alt="">
+
                                                 <label class="custom-file-label" for="image">@lang('front.sekilsec')</label>
-                                                
                                             </div>
                                         </div>
+                                        
+                                        <img src="" alt="Image Preview" id="image-preview" style="width: 300px; height: auto; display: none;">
+                                        
+                                        <script>
+                                            document.querySelector('#images').addEventListener('change', function() {
+                                                const fileInput = this;
+                                                const file = fileInput.files[0];
+                                                const imagePreview = document.querySelector('#image-preview');
+                                        
+                                                if (file) {
+                                                    const reader = new FileReader();
+                                                    reader.onload = function() {
+                                                        imagePreview.src = reader.result;
+                                                        imagePreview.style.display = 'block';
+                                                    }
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    imagePreview.src = '';
+                                                    imagePreview.style.display = 'none';
+                                                }
+                                            });
+                                        </script>
+                                        
+                                        
                                         <div class="add-training-form-button">
                                             <button type="submit">@lang('front.elaveet')</button>
                                         </div>

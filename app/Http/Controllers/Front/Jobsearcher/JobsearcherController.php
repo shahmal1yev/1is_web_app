@@ -23,8 +23,8 @@ class JobsearcherController extends Controller
 
     public function like(Request $request)
     {
-        if(!auth()->check()) {
-            return response()->json(['error' =>  __('messages.loginerror')], 403);
+        if (!auth()->check()) {
+            return redirect()->route('login');
         }
 
         $cv_id = $request->input('cv_id');
@@ -82,10 +82,12 @@ class JobsearcherController extends Controller
     public function downloadCV($id)
     {
         $jobdetail = Cv::find($id);
+
         $file_path = $jobdetail->cv;
-        
-        if (file_exists($file_path)) {
-            return response()->download($file_path);
+        $file_full_path = public_path() . $file_path;
+
+        if (file_exists($file_full_path)) {
+            return response()->download($file_full_path);
         } else {
             return __('messages.fileyox');
         }

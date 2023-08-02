@@ -37,137 +37,137 @@
     --slide-thumb-height: 3px;
     --slide-thumb-default-color: rgba(0, 0, 0, 0.4);
     --slide-thumb-active-color: rgba(255, 255, 255, 0.9);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--background-color);
-}
-
-.slide-items img {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    height: 100%;
-    object-fit: cover;
-}
-
-.sliders section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    box-shadow: var(--slide-width);
-    margin: 0px auto;
-    display: none;
-    background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8));
-    z-index: 10000;
-}
-
-.slide-items {
-    border-radius: 5px;
-    grid-area: 1/1;
-    overflow: hidden;
-    position: relative;
-    width: 80%;
-    margin: 0 auto;
-    z-index: 10;
-}
-
-.slide-items>* {
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    padding: 20px 0;
-}
-
-.slide-items .active {
-    opacity: 1;
-    pointer-events: initial;
-    position: relative;
-}
-
-.slide-nav {
-    display: grid;
-    grid-area: 1/1;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    z-index: 20;
-    max-width: 80%!important;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.slide-nav > div {
-    display: flex;
-    grid-column: 1 / 3;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.slide-thumb-item {
-    background-color: var(--slide-thumb-default-color);
-    border-radius: 3px;
-    display: block;
-    flex: 1;
-    height: var(--slide-thumb-height);
-    margin: 5px;
-    overflow: hidden;
-}
-
-.slide-thumb-item.active::after {
-    animation: thumb 5s forwards linear;
-    background-color: var(--slide-thumb-active-color);
-    border-radius: 3px;
-    content: '';
-    display: block;
-    height: inherit;
-    transform: translateX(-100%);
-}
-
-.slide-next,
-.slide-prev {
-    opacity: 0;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    width: 100%;
-    height: 100%!important;
-}
-
-.slide-prev {
-    margin-left: auto;
-}
-
-
-.slide-next {
-    margin-right: auto;
-}
-
-.close-button-img {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    cursor: pointer;
-}
-
-@keyframes thumb {
-    to {
-        transform: initial;
     }
-}
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: var(--background-color);
+    }
+
+    .slide-items img {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .sliders section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        box-shadow: var(--slide-width);
+        margin: 0px auto;
+        display: none;
+        background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+        z-index: 10000;
+    }
+
+    .slide-items {
+        border-radius: 5px;
+        grid-area: 1/1;
+        overflow: hidden;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+        z-index: 10;
+    }
+
+    .slide-items>* {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        padding: 20px 0;
+    }
+
+    .slide-items .active {
+        opacity: 1;
+        pointer-events: initial;
+        position: relative;
+    }
+
+    .slide-nav {
+        display: grid;
+        grid-area: 1/1;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        z-index: 20;
+        max-width: 80%!important;
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+
+    .slide-nav > div {
+        display: flex;
+        grid-column: 1 / 3;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .slide-thumb-item {
+        background-color: var(--slide-thumb-default-color);
+        border-radius: 3px;
+        display: block;
+        flex: 1;
+        height: var(--slide-thumb-height);
+        margin: 5px;
+        overflow: hidden;
+    }
+
+    .slide-thumb-item.active::after {
+        animation: thumb 5s forwards linear;
+        background-color: var(--slide-thumb-active-color);
+        border-radius: 3px;
+        content: '';
+        display: block;
+        height: inherit;
+        transform: translateX(-100%);
+    }
+
+    .slide-next,
+    .slide-prev {
+        opacity: 0;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        width: 100%;
+        height: 100%!important;
+    }
+
+    .slide-prev {
+        margin-left: auto;
+    }
 
 
-    /* STORY SLİDER */
+    .slide-next {
+        margin-right: auto;
+    }
+
+    .close-button-img {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+    }
+
+    @keyframes thumb {
+        to {
+            transform: initial;
+        }
+    }
+
+
+        /* STORY SLİDER */
 
     @media screen and (max-width: 1000px) {
         .swiper-slide-link {
@@ -246,7 +246,7 @@ body {
 
 <form class="main-filter home-filter" method="GET" action="{{route('vsearch')}}">
     <div class="active-filter active-filter-jobsearchinner">
-        <div class="filter1">
+        <div class="filter1 home-filter1">
             <img src="https://1is-new.netlify.app/images/search.png" alt="">
             <input class="filter-input" placeholder="@lang('front.açar')" type="search" name="query" value="{{ old('query') }}">
         </div>
@@ -366,7 +366,7 @@ body {
                     <select class="form-control custom-select" name="company">
                         <option value="">@lang('front.companies')</option>
                     @foreach($allcompanies as $comp)
-                    <option value="{{$comp->id}}" {{ $comp->id == $request->input('company') ? 'selected' : '' }}>{{$comp->name}}</option>
+                    <option value="{{$comp->id}}" {{ $comp->id == $request->input('company') ? 'selected' : '' }}>{!! html_entity_decode($comp->name) !!}</option>
                     @endforeach
                     </select>
                 </div>
@@ -424,92 +424,88 @@ body {
                 </p>  
         </a>
         <!-- </div> -->
-        <div class="block1">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15 12C15 11.1716 15.6716 10.5 16.5 10.5H40.5C41.3284 10.5 42 11.1716 42 12C42 12.8284 41.3284 13.5 40.5 13.5H16.5C15.6716 13.5 15 12.8284 15 12Z" fill="#F8F0FB"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15 24C15 23.1716 15.6716 22.5 16.5 22.5H40.5C41.3284 22.5 42 23.1716 42 24C42 24.8284 41.3284 25.5 40.5 25.5H16.5C15.6716 25.5 15 24.8284 15 24Z" fill="#F8F0FB"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15 36C15 35.1716 15.6716 34.5 16.5 34.5H40.5C41.3284 34.5 42 35.1716 42 36C42 36.8284 41.3284 37.5 40.5 37.5H16.5C15.6716 37.5 15 36.8284 15 36Z" fill="#F8F0FB"/>
-<path d="M8.25 14.25C9.49264 14.25 10.5 13.2426 10.5 12C10.5 10.7574 9.49264 9.75 8.25 9.75C7.00736 9.75 6 10.7574 6 12C6 13.2426 7.00736 14.25 8.25 14.25Z" fill="#F8F0FB"/>
-<path d="M8.25 26.25C9.49264 26.25 10.5 25.2426 10.5 24C10.5 22.7574 9.49264 21.75 8.25 21.75C7.00736 21.75 6 22.7574 6 24C6 25.2426 7.00736 26.25 8.25 26.25Z" fill="#F8F0FB"/>
-<path d="M8.25 38.25C9.49264 38.25 10.5 37.2426 10.5 36C10.5 34.7574 9.49264 33.75 8.25 33.75C7.00736 33.75 6 34.7574 6 36C6 37.2426 7.00736 38.25 8.25 38.25Z" fill="#F8F0FB"/>
-</svg>
+        <a class="block1" href="#popular_category">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 12C15 11.1716 15.6716 10.5 16.5 10.5H40.5C41.3284 10.5 42 11.1716 42 12C42 12.8284 41.3284 13.5 40.5 13.5H16.5C15.6716 13.5 15 12.8284 15 12Z" fill="#F8F0FB"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 24C15 23.1716 15.6716 22.5 16.5 22.5H40.5C41.3284 22.5 42 23.1716 42 24C42 24.8284 41.3284 25.5 40.5 25.5H16.5C15.6716 25.5 15 24.8284 15 24Z" fill="#F8F0FB"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 36C15 35.1716 15.6716 34.5 16.5 34.5H40.5C41.3284 34.5 42 35.1716 42 36C42 36.8284 41.3284 37.5 40.5 37.5H16.5C15.6716 37.5 15 36.8284 15 36Z" fill="#F8F0FB"/>
+                <path d="M8.25 14.25C9.49264 14.25 10.5 13.2426 10.5 12C10.5 10.7574 9.49264 9.75 8.25 9.75C7.00736 9.75 6 10.7574 6 12C6 13.2426 7.00736 14.25 8.25 14.25Z" fill="#F8F0FB"/>
+                <path d="M8.25 26.25C9.49264 26.25 10.5 25.2426 10.5 24C10.5 22.7574 9.49264 21.75 8.25 21.75C7.00736 21.75 6 22.7574 6 24C6 25.2426 7.00736 26.25 8.25 26.25Z" fill="#F8F0FB"/>
+                <path d="M8.25 38.25C9.49264 38.25 10.5 37.2426 10.5 36C10.5 34.7574 9.49264 33.75 8.25 33.75C7.00736 33.75 6 34.7574 6 36C6 37.2426 7.00736 38.25 8.25 38.25Z" fill="#F8F0FB"/>
+            </svg>
 
             <p>
-                
-                  {{count($allcategories)}} <br> @lang('front.cats')
-                
-        </p>
-        </div>
+                {{count($allcategories)}} <br> @lang('front.cats')
+            </p>
+        </a>
     </div>
 </div>
 </section>
 
 <div class="container custom-container">
 
-<section class="swiper-sec">
-<!-- CAROUSEL -->
-<div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-    @foreach ($stories as $st)
-        
-      <a href="#" id="slide{{$st->id}}" class="swiper-slide story_button">
-        <img src="{{$st->image}}" alt="">
-      </a>
-    @endforeach
 
+    @if (isset($stories))
+    <section class="swiper-sec">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+            @foreach ($stories as $st)
+                
+            <a href="#" id="slide{{$st->id}}" class="swiper-slide story_button">
+                <img src="{{$st->image}}" alt="">
+            </a>
+            @endforeach
 
+            </div>  
+            
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
 
-    </div>  
-    
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-</div>
+        <div class="sliders">
+            @foreach ($stories as $st)
+                @php
+                    $imagePaths = json_decode($st->stories); 
+                    
+                @endphp
 
-<div class="sliders">
-    @foreach ($stories as $st)
-    @php
-        $imagePaths = json_decode($st->stories); 
-        
-    @endphp
-
-    <section data-slide="slide{{$st->id}}" class="slide{{$st->id}}" id="story_slide">
-        <div class="slide-items">
-            @foreach ($imagePaths as $imagePath)
-                <img src="{{ asset($imagePath) }}" alt=""> {{-- Görsel yollarını asset() fonksiyonuyla doğru şekilde çözümlüyoruz --}}
+                <section data-slide="slide{{$st->id}}" class="slide{{$st->id}}" id="story_slide">
+                    <div class="slide-items">
+                        @foreach ($imagePaths as $imagePath)
+                            <img src="{{ asset($imagePath) }}" alt=""> {{-- Görsel yollarını asset() fonksiyonuyla doğru şekilde çözümlüyoruz --}}
+                        @endforeach
+                    </div>
+                    <nav class="slide-nav">
+                        <div class="slide{{$st->id}}"></div>
+                        <button class="slide-prev">Previous</button>
+                        <button class="slide-next">Next</button>
+                    </nav>
+                    <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
+                </section>
             @endforeach
         </div>
-        <nav class="slide-nav">
-            <div class="slide{{$st->id}}"></div>
-            <button class="slide-prev">Previous</button>
-            <button class="slide-next">Next</button>
-        </nav>
-        <img class="close-button-img" src="{{ asset('back/assets/images/close-button.png') }}" alt="close-button" />
-    </section>
-@endforeach
 
-          
-            
-        </div>
+    </section> 
+    @else
 
-</section>
+    @endif
 
-<script>
- 
-</script>
+
 
 
 <!-- POPULAR CATEGORIES -->
 <section class="popular-sec">
-    <h1 class="popular-h1">@lang('front.popcats')</h1>
+    <h1 class="popular-h1" id="popular_category">@lang('front.popcats')</h1>
     <!-- HTML -->
     <div class="popular-div" id="category-container">
         @foreach ($categories as $category)
-            <div class="pop-card1">
+            <a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}" class="pop-card1">
                 <i class="{{$category->icon}}"></i>
                 <div class="text-field">
                     <div class="text-field">
-                        <p><a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}">
+                        <p>
+                            <!-- <a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}"> -->
                             @switch(app()->getLocale())
                             @case('EN')
                                 {{ $category->title_en }}
@@ -523,12 +519,13 @@ body {
                             @default
                                 {{ $category->title_az }}
                         @endswitch
-                    </a></p>
+                    <!-- </a> -->
+                </p>
                     </div>
                     <p>@lang('front.vaccount'): {{ $category->total_vacancies }}</p>
                 </div>
                 <div class="border-div"></div>
-            </div>
+            </a>
         @endforeach
     </div>
     <div id="load-more-container">
@@ -599,13 +596,11 @@ body {
                 .then(response => response.json())
                 .then(data => {
                     var categories = data.data;
-                    totalCount = data.totalCount; // Toplam kategori sayısını güncelleyin
+                    totalCount = data.totalCount; 
     
-                    // Yeni kategorileri eklemeden önce mevcut kategorileri temizleyin
                     categoryContainer.innerHTML = '';
     
                     var remainingCategories = categories.slice(0, limit);
-    
                     remainingCategories.forEach(function(category) {
                         var div = document.createElement('div');
                         div.className = 'pop-card1';
@@ -652,7 +647,7 @@ body {
                 </div>
                 <div class="company-content">
                     <div class="inner1">
-                        <p>{{$company->name}}</p>
+                        <p>{!! htmlspecialchars_decode($company->name) !!}</p>
                     </div>
                     <div class="inner3">
                         <div class="stars">
@@ -718,9 +713,13 @@ body {
                     <p class="vac-time">{{ date('d-m-Y', strtotime($vacancy->deadline)) }}</p>
                 </div>
             </div>
+            @if ($vacancy->created_at->diffInDays(Carbon\Carbon::now()) <= 3)
             <div class="new-vac-badge">
-                <p>@lang('front.yeni')</p>
-            </div>
+                <p>@lang('front.yeni')</p>           
+
+            </div>              
+            @endif    
+              
         </div>
        
         

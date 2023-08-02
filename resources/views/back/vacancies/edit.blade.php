@@ -145,13 +145,13 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-lg-12 mb-4" id="type_link" style="@if($vacancy->accept_type == '0' || $vacancy->accept_type == '1') display:none; @endif">
+                            <div class="col-lg-12 mb-4" id="type_link" style="@if($vacancy->accept_type == '0') display:none; @endif">
                                 <label for="contact_link" class="form-label">Əlaqə linki <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" id="contact_link" name="contact_link" placeholder="Əlaqə linki daxil edin:" value="@if($vacancy->accept_type == '2') {{$vacancy->contact_info}} @endif">
                             </div>
                             <div class="col-lg-12 mb-4" id="type_email" style="@if($vacancy->accept_type == '2') display:none; @endif;">
                                 <label for="contact_email" class="form-label">Əlaqə maili <span class="text-danger">*</span></label>
-                                <input class="form-control" type="text" id="contact_email" name="contact_email" placeholder="Əlaqə maili daxil edin:" value="@if($vacancy->accept_type == '0' || $vacancy->accept_type == '1') {{$vacancy->contact_info}} @endif">
+                                <input class="form-control" type="text" id="contact_email" name="contact_email" placeholder="Əlaqə maili daxil edin:" value="@if($vacancy->accept_type == '0') {{$vacancy->contact_info}} @endif">
                             </div>
 
                         </div>
@@ -320,10 +320,16 @@
             $('#city').select2();
         });
         function getContact(id){
-            if(id == 0 || id == 1){
+            if(id == 0){
                 $('#type_email').slideDown()
                 $('#type_link').slideUp()
-            }else{
+            }
+            else if(id == 1)
+            {
+                $('#type_link').slideUp()
+                $('#type_email').slideUp()
+            }
+            else{
                 $('#type_link').slideDown()
                 $('#type_email').slideUp()
             }

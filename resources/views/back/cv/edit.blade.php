@@ -214,11 +214,34 @@
                             
                            
 
-                        <!-- <div class="container" data-repeater-list="group-a">
+                            <div class="container" data-repeater-list="group-a">
+                                <div id="repeater">
+                                    <label for="" class="form-label">@lang('front.portfolio')</label> <br>
+                                    <input type="button" id="createElement" class="btn btn-danger" value="İş Yeri Əlavə Et" />
+                                    <div class='row' id="structure" style="display:none">
+                                        <div class='col-lg-3'>
+                                            <label for='first-name'>@lang('front.isinadi')</label> <br>
+                                            <input type="text" name="work_name" id="job_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                        </div>
+                                        <div class='col-lg-3'>
+                                            <br>
+                                            <label for='first-name'> @lang('front.companies')</label> <br>
+                                            <input type="text" name="work_company" id="comp_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                        </div>
+                                        <div class='col-lg-3'>
+                                        <br>
+                                            <label for='first-name'>@lang('front.link')</label> <br>
+                                            <input type="url" name="work_link" id="comp_linkk" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                        </div>
+                                    </div>
+                                    <div id="containerElement"></div>   
+                                </div>
+                            </div>
+
+                        <div class="container" data-repeater-list="group-a">
 
                         @php
                             $portfolio = json_decode($cv->portfolio, true);
-                            
                             $itm = $portfolio['portfolio'];
                             
                             if (!$itm || !isset($itm[0]['job_name'])) {
@@ -276,111 +299,12 @@
                                 }
                                                                         
                             </script>
-                        </div> -->
-                        
 
-                        
-                <!-- NEW REPEATER START -->
-                <div class="row targetDiv" id="div0">
-                    <div class="col-md-12">
-                        <h4>Is Yeri</h4>
-                        <div id="group1">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Isin adi</label>
-                                        <input
-                                        class="form-control"
-                                        name=""
-                                        type="text"
-                                        placeholder="job name"
-                                        />
-                                    </div>
-                                </div>
-                                
-                                <div class="col-xs-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Sirket</label>
-                                        <input
-                                        class="form-control"
-                                        name=""
-                                        type="text"
-                                        placeholder="company"
-                                        />
-                                    </div>
-                                </div>
 
-                                <div class="col-xs-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Link</label>
-                                        <input
-                                        class="form-control"
-                                        name=""
-                                        type="text"
-                                        placeholder="link"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-  
-                <!-- REPEATING DIV -->
-                <div class="row targetDiv" id="div1">
-                    <div class="col-md-12">
-                        <div id="group2" class="fvrduplicate">
-                            <div class="row entry">
-                                <!-- Field Start -->
-                                <div class="col-xs-12 col-md-3">
-                                        <div class="form-group">
-                                            <label>Isin adi</label>
-                                            <input
-                                            class="form-control"
-                                            name=""
-                                            type="text"
-                                            placeholder="job name"
-                                            />
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-xs-12 col-md-3">
-                                        <div class="form-group">
-                                            <label>Sirket</label>
-                                            <input
-                                            class="form-control"
-                                            name=""
-                                            type="text"
-                                            placeholder="company"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 col-md-3">
-                                        <div class="form-group">
-                                            <label>Link</label>
-                                            <input
-                                            class="form-control"
-                                            name=""
-                                            type="text"
-                                            placeholder="link"
-                                            />
-                                        </div>
-                                    </div>
-                                <div class="col-xs-12 col-md-2 flexend">
-                                <div class="form-group">
-                                    <label>&nbsp;</label>
-                                    <button type="button" class="btn btn-success btn-sm btn-add ">
-                                            Portfolio Elave Et
-                                    </button>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- NEW REPEATER FINISH -->
-
+                <!-- NEW REPEATER FINISH -->  
 
                         <div class="row justify-content-end mt-5" >
                             <div class="col-lg-12 text-center">
@@ -396,35 +320,10 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(function () {
-            $(document)
-            .on("click", ".btn-add", function (e) {
-                e.preventDefault();
-                var controlForm = $(this).closest(".fvrduplicate"),
-                currentEntry = $(this).parents(".entry:first"),
-                newEntry = $(currentEntry.clone()).appendTo(controlForm);
-                newEntry.find("input").val("");
-                controlForm
-                .find(".entry:not(:first) .btn-add")
-                .removeClass("btn-add")
-                .addClass("btn-remove")
-                .removeClass("btn-success")
-                .addClass("btn-danger")
-                .html('<button class="btn btn-sm remove-btn" aria-hidden="true">Sil</button>');
-            })
-            .on("click", ".btn-remove", function (e) {
-                $(this).closest(".entry").remove();
-                return false;
-            });
-        });
-    </script>
+ 
     
     <!-- end row -->
 @endsection
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script> -->
-
-<!-- <script src="{{asset('front/js/repeater.js')}}"></script> -->
 
 @section('css')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -493,14 +392,12 @@
     </style>
 @endsection
 @section('js')
+
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-    <script src="{{asset('back/js/repeater.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/z18njsd2wp7b71bq9pvmfw9g8jmaaa2nog8tj87p4jdnkmk1/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <!-- form repeater js -->
-    <!-- <script src="{{asset('back/assets/libs/jquery.repeater/jquery.repeater.min.js')}}"></script> -->
+    <script src="{{asset('front/js/repeater.js')}}"></script>
 
-    <!-- <script src="{{asset('back/assets/js/pages/form-repeater.int.js')}}"></script> -->
     <script>
         const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
@@ -593,7 +490,7 @@
     </script>
 <script>
     $(function () {
-      $("#repeater1").repeater({
+      $("#repeater").repeater({
         items: [
           {
             elements: [

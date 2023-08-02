@@ -19,7 +19,7 @@ use Illuminate\Support\Str;
 class CvController extends Controller
 {
     public function cvList(){
-        $cvs = Cv::orderBy('id','DESC')->get();
+        $cvs = Cv::orderBy('created_at','DESC')->get();
         return view('back.cv.list',compact('cvs'));
     }
     public function cvAdd(){
@@ -74,6 +74,7 @@ class CvController extends Controller
         $genders = Gender::all();
         return view('back.cv.edit',compact('categories','cities','regions','jobtypes','experiences','educations','genders','cv','cv_path'));
     }
+
     public function cvEditPost(Request $request){
         $request->validate([
             'name'=>'required',
@@ -111,10 +112,11 @@ class CvController extends Controller
         $cv->skills = $request->skills;
         $cv->contact_mail = $request->contact_mail;
         $cv->contact_phone = $request->contact_phone;
+
         $portfolioData = [];
-
-
+        
         $group = $request->input('group');
+       
         if (is_array($group)) {
             
         
@@ -140,6 +142,8 @@ class CvController extends Controller
         ];
 
         $cv->portfolio = json_encode($portfolio);
+        
+     
 
         if ($request->hasFile('image')) {
             $request->validate([
@@ -171,6 +175,8 @@ class CvController extends Controller
             $name = $directory.$name;
             $cv->cv = $name;
         }
-        return redirect()->route('cvEdit',$request->id)->with($cv->save() ? 'success' : 'error',true);
-    }
+        $cv->save();
+           
+        return redirect()->route('cvList')->with('success', __('messages.cvyeni'));
+        }
 }

@@ -110,7 +110,7 @@ return [
     'yeni'=>'Yeni',
 
     //vakansiya 
-    'vaxtbit'=>'Vaxtı bitən elanları göstər',
+    'vaxtbit'=>'Vaxtı bitən elanları göstərmə',
     'sirala'=>'Sırala',
     'paysira'=>'Paylaşma sırası',
     'az'=>'A-dan Z-ə sırala',

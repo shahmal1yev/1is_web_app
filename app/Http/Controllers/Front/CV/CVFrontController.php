@@ -85,6 +85,7 @@ class CVFrontController extends Controller
 
 
     public function cveditPost(Request $request){
+        dd($request);
         {
             
             $req = $request->all();
@@ -209,7 +210,7 @@ class CVFrontController extends Controller
             'position' => 'max:1000',
             'image' => 'image|mimes:jpg,png,jpeg|max:5000',
             'contact_mail' => 'nullable|email',
-            'cv' => 'mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif,doc,docx,pdf|max:5000',
+            'cv' => 'max:5000',
         ];
         
         

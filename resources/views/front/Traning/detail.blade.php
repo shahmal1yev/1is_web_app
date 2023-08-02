@@ -68,7 +68,7 @@
                 <div class="right-card">
                     <h3>@lang('front.teltel'):</h3>
                     <img src="{{asset($tdetail->image)}}" alt="">
-                    <li>{!! html_entity_decode($tdetail->about) !!}</li>
+                    {!! html_entity_decode($tdetail->about) !!}
                     
                     <br>
                     <p><a href="{{$tdetail->redirect_link}}" target="_blank">@lang('front.kecidlink')</a><b> @lang('front.telimcumle').</b></p>
@@ -86,10 +86,10 @@
         <div class="col-md-6 col-lg-3 mt-3">   
           <div class="training-card">
             <div class="top-part">
-                <img src="https://1is.butagrup.az/{{$alltr->image}}" alt="">
+                <img src="{{asset($alltr->image)}}" alt="">
             </div>
             <div class="middle-part">
-                <a class="first-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{Str::limit($alltr->title, 50, '...')}}
+                <a class="first-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{Str::limit($alltr->title, 35, '...')}}
                     <a class="second-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{$alltr->name}}</a>
                     @if($alltr->price == NULL)
                     <span>@lang('front.pulsuz')</span>

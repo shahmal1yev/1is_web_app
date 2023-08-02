@@ -521,6 +521,7 @@ class VacancyFrontController extends Controller
         $candidate = Candidates::find($id);
         $file_path = $candidate->cv;
         
+        
         if (file_exists($file_path)) {
             return response()->download($file_path);
         } else {
@@ -750,8 +751,11 @@ class VacancyFrontController extends Controller
             $query->orderBy('view', 'DESC');
         }
         if ($is_expired == 'on') {
-            $query->where('deadline', '<', now());
-        }        
+            $now = now();
+            $query->whereDate('deadline', '>=', $now->toDateString()); 
+        }
+        
+             
         $query->where('vacancies.status','1');
 
         $vacancies = $query->orderBy('created_at', 'DESC')->paginate(30)->appends(request()->except('page'));
