@@ -1,8 +1,8 @@
 <?php
 return [
 
-    'succelan' => 'Elan uğurla elave edildi!',
-    'succomp' => 'Şirkət uğurla elave edildi!',
+    'succelan' => 'Elan uğurla əlavə edildi!',
+    'succomp' => 'Şirkət uğurla əlavə edildi!',
     'nesexeta' => 'Nəsə xəta baş verdi!',
     'loginerror' => 'Login olmadan bəyənə bilməzsiniz!',
     'vacsil' => 'Vakansiya uğurla silindi!',
@@ -14,7 +14,7 @@ return [
 
 
 
-    'suctelim' => 'Telim uğurla elave edildi, təsdiqlənməyini gözləyin!',
+    'suctelim' => 'Telim uğurla əlavə edildi, təsdiqlənməyini gözləyin!',
     'melyox' => 'Belə bir məlumat yoxdur!',
     'telimyeni' => 'Təlim uğurla yeniləndi!',
 
