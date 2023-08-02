@@ -110,7 +110,7 @@ return [
     'yeni'=>'New',
 
 //vakansiyalar
-    'vaxtbit'=>'Show expired announcements',
+    'vaxtbit'=>'Dont show expired announcements',
     'sirala'=>'Sort it out',
     'paysira'=>'Order of sharing',
     'az'=>'A to Z',
