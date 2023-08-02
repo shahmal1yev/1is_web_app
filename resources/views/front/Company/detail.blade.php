@@ -151,7 +151,7 @@
                 <h5>@lang('front.baxissay')</h5>
                 <span>
                     {{$compdetail->view}}
-                  <img src="{{asset('back/assets/images/icons/Icon.png')}}" alt="icon" />
+                  <img style="width: 20px; height: 20px;" src="{{asset('back/assets/images/icons/view.png')}}" alt="icon" />
                 </span>
               </div>
             </div>
@@ -168,26 +168,40 @@
               <div class="company-about-link">
                 <h5>@lang('front.vebsite') </h5>
                 <div class="company-about-socials">
-                  <div class="company-about-social-media" href="#">
-                    <a href="{{ str_replace('"', '', $compdetail->twitter) }}">
-                        <img src="{{asset('back/assets/images/icons/internet-explorer.svg')}}" alt="internet">
-                    </a>
-                  </div>
-                  <div class="company-about-social-media" href="#">
-                    <a href="{{ str_replace('"', '', $compdetail->facebook) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-fb.svg')}}" alt="facebook">
-                    </a>
-                  </div>
-                  <div class="company-about-social-media" href="#">
-                    <a href="{{ str_replace('"', '', $compdetail->instagram) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-ig.svg')}}" alt="instagram">
-                    </a>
-                  </div>
-                  <div class="company-about-social-media" href="#">
-                    <a href="{{ str_replace('"', '', $compdetail->linkedin) }}">
-                        <img src="{{asset('back/assets/images/icons/footer-li.svg')}}" alt="linkedin">
-                    </a>
-                  </div>
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->website) }}">
+                          <img src="{{asset('back/assets/images/icons/internet-explorer.svg')}}" alt="internet">
+                      </a>
+                    </div>
+                  @if ($compdetail->twitter)
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->twitter) }}">
+                          <img style="width: 18px; height: 18px;" src="{{asset('back/assets/images/icons/twitter.png')}}">
+                      </a>
+                    </div>
+                  @endif
+                  @if ($compdetail->facebook)
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->facebook) }}">
+                          <img src="{{asset('back/assets/images/icons/footer-fb.svg')}}" alt="facebook">
+                      </a>
+                    </div>
+                  @endif
+                  @if ($compdetail->instagram)
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->instagram) }}">
+                          <img src="{{asset('back/assets/images/icons/footer-ig.svg')}}" alt="instagram">
+                      </a>
+                    </div>
+                  @endif
+                  @if ($compdetail->linkedin)
+                    <div class="company-about-social-media" href="#">
+                      <a href="{{ str_replace('"', '', $compdetail->linkedin) }}">
+                          <img src="{{asset('back/assets/images/icons/footer-li.svg')}}" alt="linkedin">
+                      </a>
+                    </div>
+                  @endif
+
                 </div>
               </div>
             </div>

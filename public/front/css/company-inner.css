@@ -355,9 +355,10 @@
 
 .company-about-socials {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   padding: 0 20px;
+  gap: 12px;
 }
 
 .comment-profile-start span {
