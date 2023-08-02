@@ -37,137 +37,137 @@
     --slide-thumb-height: 3px;
     --slide-thumb-default-color: rgba(0, 0, 0, 0.4);
     --slide-thumb-active-color: rgba(255, 255, 255, 0.9);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--background-color);
-}
-
-.slide-items img {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    height: 100%;
-    object-fit: cover;
-}
-
-.sliders section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    box-shadow: var(--slide-width);
-    margin: 0px auto;
-    display: none;
-    background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8));
-    z-index: 10000;
-}
-
-.slide-items {
-    border-radius: 5px;
-    grid-area: 1/1;
-    overflow: hidden;
-    position: relative;
-    width: 80%;
-    margin: 0 auto;
-    z-index: 10;
-}
-
-.slide-items>* {
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    padding: 20px 0;
-}
-
-.slide-items .active {
-    opacity: 1;
-    pointer-events: initial;
-    position: relative;
-}
-
-.slide-nav {
-    display: grid;
-    grid-area: 1/1;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    z-index: 20;
-    max-width: 80%!important;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.slide-nav > div {
-    display: flex;
-    grid-column: 1 / 3;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.slide-thumb-item {
-    background-color: var(--slide-thumb-default-color);
-    border-radius: 3px;
-    display: block;
-    flex: 1;
-    height: var(--slide-thumb-height);
-    margin: 5px;
-    overflow: hidden;
-}
-
-.slide-thumb-item.active::after {
-    animation: thumb 5s forwards linear;
-    background-color: var(--slide-thumb-active-color);
-    border-radius: 3px;
-    content: '';
-    display: block;
-    height: inherit;
-    transform: translateX(-100%);
-}
-
-.slide-next,
-.slide-prev {
-    opacity: 0;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    width: 100%;
-    height: 100%!important;
-}
-
-.slide-prev {
-    margin-left: auto;
-}
-
-
-.slide-next {
-    margin-right: auto;
-}
-
-.close-button-img {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    cursor: pointer;
-}
-
-@keyframes thumb {
-    to {
-        transform: initial;
     }
-}
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: var(--background-color);
+    }
+
+    .slide-items img {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .sliders section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        box-shadow: var(--slide-width);
+        margin: 0px auto;
+        display: none;
+        background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+        z-index: 10000;
+    }
+
+    .slide-items {
+        border-radius: 5px;
+        grid-area: 1/1;
+        overflow: hidden;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+        z-index: 10;
+    }
+
+    .slide-items>* {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        padding: 20px 0;
+    }
+
+    .slide-items .active {
+        opacity: 1;
+        pointer-events: initial;
+        position: relative;
+    }
+
+    .slide-nav {
+        display: grid;
+        grid-area: 1/1;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        z-index: 20;
+        max-width: 80%!important;
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+
+    .slide-nav > div {
+        display: flex;
+        grid-column: 1 / 3;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .slide-thumb-item {
+        background-color: var(--slide-thumb-default-color);
+        border-radius: 3px;
+        display: block;
+        flex: 1;
+        height: var(--slide-thumb-height);
+        margin: 5px;
+        overflow: hidden;
+    }
+
+    .slide-thumb-item.active::after {
+        animation: thumb 5s forwards linear;
+        background-color: var(--slide-thumb-active-color);
+        border-radius: 3px;
+        content: '';
+        display: block;
+        height: inherit;
+        transform: translateX(-100%);
+    }
+
+    .slide-next,
+    .slide-prev {
+        opacity: 0;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        width: 100%;
+        height: 100%!important;
+    }
+
+    .slide-prev {
+        margin-left: auto;
+    }
 
 
-    /* STORY SLİDER */
+    .slide-next {
+        margin-right: auto;
+    }
+
+    .close-button-img {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+    }
+
+    @keyframes thumb {
+        to {
+            transform: initial;
+        }
+    }
+
+
+        /* STORY SLİDER */
 
     @media screen and (max-width: 1000px) {
         .swiper-slide-link {
@@ -366,7 +366,7 @@ body {
                     <select class="form-control custom-select" name="company">
                         <option value="">@lang('front.companies')</option>
                     @foreach($allcompanies as $comp)
-                    <option value="{{$comp->id}}" {{ $comp->id == $request->input('company') ? 'selected' : '' }}>{{$comp->name}}</option>
+                    <option value="{{$comp->id}}" {{ $comp->id == $request->input('company') ? 'selected' : '' }}>{!! html_entity_decode($comp->name) !!}</option>
                     @endforeach
                     </select>
                 </div>
