@@ -12,7 +12,7 @@ class Vacancies extends Model
     protected $table = 'vacancies';
     protected $guarded = [];
 
-    public function company(){
+    public function getCompany(){
         return $this->hasMany('App\Models\Companies','id','company_id')->first();
     }
     public function getCategory(){
