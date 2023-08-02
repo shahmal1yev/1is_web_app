@@ -751,8 +751,14 @@ class VacancyFrontController extends Controller
             $query->orderBy('view', 'DESC');
         }
         if ($is_expired == 'on') {
-            $query->where('deadline', '<', now());
-        }        
+            $now = now();
+            $query->whereDate('deadline', '>', $now->toDateString()) 
+                  ->orWhere(function ($query) use ($now) {
+                      $query->whereDate('deadline', $now->toDateString())
+                            ->whereTime('deadline', '>', $now->toTimeString()); 
+                  });
+        }
+             
         $query->where('vacancies.status','1');
 
         $vacancies = $query->orderBy('created_at', 'DESC')->paginate(30)->appends(request()->except('page'));
