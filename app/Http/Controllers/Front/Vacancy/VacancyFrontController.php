@@ -752,12 +752,9 @@ class VacancyFrontController extends Controller
         }
         if ($is_expired == 'on') {
             $now = now();
-            $query->whereDate('deadline', '>', $now->toDateString()) 
-                  ->orWhere(function ($query) use ($now) {
-                      $query->whereDate('deadline', $now->toDateString())
-                            ->whereTime('deadline', '>', $now->toTimeString()); 
-                  });
+            $query->whereDate('deadline', '>=', $now->toDateString()); 
         }
+        
              
         $query->where('vacancies.status','1');
 
