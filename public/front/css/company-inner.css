@@ -637,6 +637,9 @@ font-weight: 600;
 }
 
 .rate-span {
+  position: absolute;
+    bottom: -20px;
+    left: 9px;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
