@@ -94,20 +94,18 @@ class AccountController extends Controller
     
         Auth::login($user);
     
-        return redirect()->intended();
+        return redirect()->route('index');
     }
 
 
     public function login()
         {
-            Redirect::setIntendedUrl(url()->previous());
              view('front.Account.login');
     }
     
     
     public function register()
         {        
-            Redirect::setIntendedUrl(url()->previous());
             $categories = Categories::all();
 
             return view('front.Account.register', get_defined_vars());
@@ -279,7 +277,7 @@ class AccountController extends Controller
                     $user_verification->save();
 
                     DB::commit();
-                    return redirect()->intended()->with('success', __('messages.emailtesdiq'));
+                    return redirect()->route('index')->with('success', __('messages.emailtesdiq'));
 
                 }
 
@@ -305,7 +303,7 @@ class AccountController extends Controller
             if (Auth::attempt($login, $request->filled('remember')) ){
                 $request->session()->regenerate();
                 
-                return redirect()->intended();
+                return redirect()->route('index');
             }else{
                 return back()->with('error', __('messages.passyox'));
             }
