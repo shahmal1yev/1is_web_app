@@ -312,7 +312,6 @@ Route::get('/profile',[AccountController::class, 'profile'])->name('profile');
 Route::post('/profile',[AccountController::class, 'updatePassword'])->name('updatePassword');
 Route::post('/cats',[AccountController::class, 'updateCats'])->name('updateCats');
 Route::get('/logout', [AccountController::class, "logout"])->name('logout');
-Route::get('/register', [AccountController::class, 'register'])->name('register');
 Route::post('/registeru', [AccountController::class, 'register_post'])->name('register_post');
 Route::post('/news', [AccountController::class, 'newslatter'])->name('newslatter');
 

@@ -99,24 +99,20 @@ class AccountController extends Controller
 
     public function passwordChanged()
     {
-        return view('front.Account.login');
+        $categories = Categories::all();
+
+        return view('front.Account.login',get_defined_vars());
     }
 
     public function login()
         {
-            Redirect::setIntendedUrl(url()->previous());            
-            return view('front.Account.login');  
-
-    }
-    
-    
-    public function register()
-        {        
-            Redirect::setIntendedUrl(url()->previous());
+            Redirect::setIntendedUrl(url()->previous()); 
             $categories = Categories::all();
+           
+            return view('front.Account.login', get_defined_vars());  
 
-            return view('front.Account.register', get_defined_vars());
     }
+    
 
     public function forget()
         {

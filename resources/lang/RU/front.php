@@ -182,6 +182,7 @@ return [
     'veya'=>'или',
     'sifredaxilet'=>'Введите пароль',
     'passyenile'=>'Обновить пароль',
+    'google'=>'Войти через Google',
 
 
 //telim elave et
