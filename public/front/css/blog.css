@@ -40,14 +40,16 @@
 .slick-prev,
 .slick-next {
 	position:absolute;
-	top:50%;
+	top:45%;	
 	 z-index: 1;
+	 color: #fff;
+	 font-size: 22px!important;
 }
 .slick-prev {
-    left: 100px;
+    left: 70px;
 }
 .slick-next {
-    right: 100px;
+    right: 70px;
 }
 
 .slick .item .bg::before {
@@ -86,6 +88,7 @@
 	bottom: 26px;
 	display: flex;
 	flex-direction: column;
+	text-align: center;
 	align-items: center;
 }
 

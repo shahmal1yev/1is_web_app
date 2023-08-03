@@ -18,11 +18,7 @@ class Vacancies extends Model
     public function getCategory(){
         return $this->hasMany('App\Models\Categories','id','category_id')->first();
     }
-    
-
-    public function category(){
-        return $this->belongTo(Categories::class,'id');
-     }
+     
     
 }
 

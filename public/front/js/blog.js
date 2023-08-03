@@ -6,8 +6,8 @@ $('.slick').slick({
     slidesToShow: 5,
     slidesToScroll: 3,
 	centerMode: true,
-	nextArrow: '<button class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-	prevArrow: '<button class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+	nextArrow: '<i class="fa fa-arrow-right slick-next" aria-hidden="true"></i>',
+	prevArrow: '<i class="fa fa-arrow-left slick-prev" aria-hidden="true"></i>',
     responsive: [{
             breakpoint: 1100,
             settings: {

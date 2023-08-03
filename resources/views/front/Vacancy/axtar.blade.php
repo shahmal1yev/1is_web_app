@@ -12,6 +12,10 @@
         width: 90px;
         height: 35px;
     }
+    .category-li li{
+        max-width:1000px;
+        margin:0 auto;
+    }
 </style>
 
 @section('content')
@@ -153,7 +157,7 @@
                             <select class="form-control custom-select" name="company">
                               <option value="">@lang('front.companies')</option>
                                   @foreach($allcompanies as $comp)
-                                      <option value="{{$comp->id}}"  {{ $comp->id == $request->input('company') ? 'selected' : '' }}>{{$comp->name}}</option>
+                                      <option value="{{$comp->id}}"  {{ $comp->id == $request->input('company') ? 'selected' : '' }}>{!! html_entity_decode($comp->name) !!}</option>
                                   @endforeach
                             </select>
                         </div>
@@ -191,7 +195,7 @@
                   </div>
               </div>
           </form>
-        <div>
+        <div class="category-li">
           @php
           $city = App\Models\Cities::find($request->input('city'));
           $category = App\Models\Categories::find($request->input('category'));

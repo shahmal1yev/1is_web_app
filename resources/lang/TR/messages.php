@@ -24,7 +24,7 @@ return [
     'sucemail' => 'Başarıyla abone olundu!',
     'sendpass' => 'Parolanız e-postanıza gönderildi!',
     'passyaz' => 'Yeni şifrenizi yazın!',
-    'parollogin' => 'Parolanız güncellendi, giriş yapın!',
+    'parollogin' => 'Şifreniz başarıyla güncellendi.',
     'errorpasyeni' => 'Bir hata oluştu, yeniden deneyin!',
     'emailyoxla' => 'E-postanızı kontrol edin!',
     'emailtesdiq' => 'E-posta doğrulandı, giriş yapabilirsiniz!',
@@ -37,6 +37,7 @@ return [
     '8simvol' => 'Parolanız en az 8 karakter olmalıdır!',
     'passeyni' => 'Şifreleriniz aynı değil!',
     'catyeni' => 'Kategori başarıyla güncellendi!',
+    'emailvar' => 'Bu e-posta zaten kayıtlı!',
 
     'murgonder' => 'Başvurunuz başarıyla gönderildi!',
 

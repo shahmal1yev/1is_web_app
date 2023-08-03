@@ -20,6 +20,8 @@ use App\Mail\SendForgetMail ;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
+use Redirect;
+
 
 class AccountController extends Controller  
 { 
@@ -90,25 +92,30 @@ class AccountController extends Controller
             $user->save();
         }
     
-        // Giriş işlemi
         Auth::login($user);
     
-        // Index sayfasına yönlendir
-        return redirect()->route('index');
+        return redirect()->intended();
     }
 
+    public function passwordChanged()
+    {
+        return view('front.Account.login');
+    }
 
     public function login()
         {
-        return view('front.Account.login');
+            Redirect::setIntendedUrl(url()->previous());            
+            return view('front.Account.login');  
+
     }
     
     
     public function register()
         {        
-        $categories = Categories::all();
+            Redirect::setIntendedUrl(url()->previous());
+            $categories = Categories::all();
 
-        return view('front.Account.register', get_defined_vars());
+            return view('front.Account.register', get_defined_vars());
     }
 
     public function forget()
@@ -160,7 +167,7 @@ class AccountController extends Controller
 
                 $user_verification = User::where('email_verification_code', $verification)->first();
 
-                if ($user_verification && !$user_verification->status == NULL) {
+                if ($user_verification && $user_verification->status !== NULL) {
                     $user_verification->email_verification_code = "";
                     $user_verification->status = 1;
                     $user_verification->save();
@@ -199,7 +206,7 @@ class AccountController extends Controller
 
                     DB::commit();
 
-                    return redirect()->route('login')->with('success', __('messages.parollogin'));
+                    return redirect()->route('index')->with('success', __('messages.parollogin'));
                 }
 
                 DB::commit();
@@ -255,7 +262,7 @@ class AccountController extends Controller
         $user->save();
 
 
-        return redirect()->route('login')->with('warning', __('messages.emailyoxla'));
+        return redirect()->route('passwordChanged')->with('warning', __('messages.emailyoxla'));
     }
     
     
@@ -277,8 +284,8 @@ class AccountController extends Controller
                     $user_verification->save();
 
                     DB::commit();
+                    return redirect()->intended()->with('success', __('messages.emailtesdiq'));
 
-                    return redirect()->route('login')->with('success', __('messages.emailtesdiq'));
                 }
 
                 DB::commit();
@@ -286,7 +293,7 @@ class AccountController extends Controller
                 DB::rollBack();
             }
 
-            return redirect()->route('login');
+            return redirect()->route('passwordChanged');
     }
 
     
@@ -303,7 +310,7 @@ class AccountController extends Controller
             if (Auth::attempt($login, $request->filled('remember')) ){
                 $request->session()->regenerate();
                 
-                return redirect()->route('index');
+                return redirect()->intended();
             }else{
                 return back()->with('error', __('messages.passyox'));
             }

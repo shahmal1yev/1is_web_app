@@ -294,9 +294,12 @@ Route::middleware('isAdminLogin')->group(function () {
 
 
 
-Route::get('login/user-verification/{verification}',[AccountController::class,'user_verification'])->name('user_verification');
-Route::get('login/reset-password/{verification}',[AccountController::class,'forget_verification'])->name('forget_verification');
+Route::get('/user-verification/{verification}',[AccountController::class,'user_verification'])->name('user_verification');
+Route::get('/reset-password/{verification}',[AccountController::class,'forget_verification'])->name('forget_verification');
 Route::get('/login', [AccountController::class, 'login'])->name('login');
+Route::get('/giris', [AccountController::class, 'passwordChanged'])->name('passwordChanged');
+
+Route::post('/loginu', [AccountController::class, 'login_post'])->name('login_post');
 Route::get('/sel', [AccountController::class, 'sel'])->name('sel');
 Route::post('/select_post', [AccountController::class, 'select_post'])->name('select_post');
 Route::get('/forget', [AccountController::class, 'forget'])->name('forget');
@@ -308,13 +311,11 @@ Route::get('/google/login/callback', [AccountController::class, 'callback'])->na
 Route::get('/profile',[AccountController::class, 'profile'])->name('profile');
 Route::post('/profile',[AccountController::class, 'updatePassword'])->name('updatePassword');
 Route::post('/cats',[AccountController::class, 'updateCats'])->name('updateCats');
-
-
-Route::post('/loginu', [AccountController::class, 'login_post'])->name('login_post');
 Route::get('/logout', [AccountController::class, "logout"])->name('logout');
 Route::get('/register', [AccountController::class, 'register'])->name('register');
 Route::post('/registeru', [AccountController::class, 'register_post'])->name('register_post');
 Route::post('/news', [AccountController::class, 'newslatter'])->name('newslatter');
+
 
 Route::get('/', [GeneralController::class, 'index'])->name('index');
 Route::post('/like', [GeneralController::class, 'like'])->name('indexlike');

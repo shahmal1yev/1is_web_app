@@ -39,6 +39,7 @@ class CompanySeeder extends Seeder
     		$imageNewPath = "/back/assets/images/companies/" . $imageName;
 
     		Companies::create([
+				"id" => $data['id'],
     			'user_id' => $data['user_id'],
     			'sector_id' => $data['sector'],
 

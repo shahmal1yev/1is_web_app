@@ -1,8 +1,8 @@
 <?php
 return [
 
-    'succelan' => 'Elan uğurla elave edildi!',
-    'succomp' => 'Şirkət uğurla elave edildi!',
+    'succelan' => 'Elan uğurla əlavə edildi!',
+    'succomp' => 'Şirkət uğurla əlavə edildi!',
     'nesexeta' => 'Nəsə xəta baş verdi!',
     'loginerror' => 'Login olmadan bəyənə bilməzsiniz!',
     'vacsil' => 'Vakansiya uğurla silindi!',
@@ -14,7 +14,7 @@ return [
 
 
 
-    'suctelim' => 'Telim uğurla elave edildi, təsdiqlənməyini gözləyin!',
+    'suctelim' => 'Telim uğurla əlavə edildi, təsdiqlənməyini gözləyin!',
     'melyox' => 'Belə bir məlumat yoxdur!',
     'telimyeni' => 'Təlim uğurla yeniləndi!',
 
@@ -26,7 +26,7 @@ return [
     'sucemail' => 'Uğurla abunə olundu!',
     'sendpass' => 'Parolunuz emailinizə göndərildi!',
     'passyaz' => 'Yeni parolunuzu yazın!',
-    'parollogin' => 'Parolunuz yeniləndi,daxil olun!',
+    'parollogin' => 'Parolunuz uğurla yeniləndi!',
     'errorpasyeni' => 'Nəsə yanlışdır,yenidən sınayın!',
     'emailyoxla' => 'Emailinizi yoxlayın!',
     'emailtesdiq' => 'Email təsdiqləndi,giriş edə bilərsiniz!',
@@ -38,7 +38,7 @@ return [
     'sifreyeni' => 'Şifrəniz uğurla yeniləndi!',
     '8simvol' => 'Parolunuz ən az 8 simvol olmalıdı!',
     'passeyni' => 'Şifrələriniz eyni deyil!',
-    'passeyni' => 'Bu emaildən artıq qeydiyyatdan keçilib!',
+    'emailvar' => 'Bu emaildən artıq qeydiyyatdan keçilib!',
     'catyeni' => 'Kategoriya uğurla yeniləndi!',
 
     'murgonder' => 'Müraciətiniz uğurla göndərildi!',

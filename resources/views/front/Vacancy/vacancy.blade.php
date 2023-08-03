@@ -138,7 +138,7 @@
                           <select class="form-control custom-select" name="company">
                             <option value="">@lang('front.companies')</option>
                                 @foreach($allcompanies as $comp)
-                                    <option value="{{$comp->id}}" {{ $comp->id == $request->input('company') ? 'selected' : '' }}>{{$comp->name}}</option>
+                                    <option value="{{$comp->id}}" {{ $comp->id == $request->input('company') ? 'selected' : '' }}>{!! html_entity_decode($comp->name) !!}</option>
                                 @endforeach
                           </select>
                       </div>

@@ -16,6 +16,11 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-/public/back/assets/images
 /bootstrap/cache/packages.php
 /bootstrap/cache/services.php
+/public/back/assets/images/cv_photo
+/public/back/assets/images/adverts
+/public/back/assets/images/banner
+/public/back/assets/images/companies
+/public/back/assets/images/cvs
+/public/back/assets/images/trainings
