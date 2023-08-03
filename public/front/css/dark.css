@@ -10,6 +10,11 @@
   background: #fff;
 }
 
+.dark .login-background{
+  background-color: #000;
+}
+
+
 .dark iframe body {
   color: #fff!important;
 }
@@ -781,6 +786,11 @@
   font-family: 'Nunito' !important;
   font-size: 18.667px !important;
   font-weight: 400;
+}
+
+
+.dark .login-form-email{
+  color: #fff !important;
 }
 
 .dark .right-card li div {
