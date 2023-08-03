@@ -294,8 +294,8 @@ Route::middleware('isAdminLogin')->group(function () {
 
 
 
-Route::get('login/user-verification/{verification}',[AccountController::class,'user_verification'])->name('user_verification');
-Route::get('login/reset-password/{verification}',[AccountController::class,'forget_verification'])->name('forget_verification');
+Route::get('/user-verification/{verification}',[AccountController::class,'user_verification'])->name('user_verification');
+Route::get('/reset-password/{verification}',[AccountController::class,'forget_verification'])->name('forget_verification');
 Route::get('/login', [AccountController::class, 'login'])->name('login');
 Route::get('/giris', [AccountController::class, 'passwordChanged'])->name('passwordChanged');
 
