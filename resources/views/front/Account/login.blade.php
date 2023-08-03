@@ -49,34 +49,93 @@
                         <div class="reg-tab" id="reg_tab">Sign in</div>
                     </div>
                 </div> --}}
-                <form action="{{ route('login_post') }}" class="row login-form" method="POST" id="register_form">
-                    @csrf
-                    <div class="form-group login-form-group col-lg-9 col-md-7">
-                        <label for="login_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                        <input type="email" name="email" required placeholder="@lang('front.emaildaxilet')" />
-                    </div>
-                    <div class="form-group login-form-group col-lg-9 col-md-7">
-                        <label for="login_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                        <input type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
-                    </div>
-                    <div class="login-bottom">
-                        <div class="remember-me-checkbox">
-                            <input type="checkbox" name="remember" id="remember" />
-                            <label for="remember"><b>@lang('front.remember')</b></label>
-                        </div>
-                        <a class="forgot-password" href="{{route('forget')}}"><b>@lang('front.sifreunut')</b></a>
-                    </div>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+                </ul>
 
-                    <div class="col-lg-9 col-md-7 login-buttons">
-                        <button class="login-registration" type="submit">@lang('front.daxilol')</button>                 
-                        <span>@lang('front.veya')</span>
-                        <a class="login-google-registration" href="{{ route('google.login') }}">
-                            <img src="{{asset('back/assets/images/google-play.png')}}" alt="google-play" />
-                            Google ilə daxil olun
-                        </a>
-                        
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fadein active">
+                        <form action="{{ route('login_post') }}" class="row login-form" method="POST" id="register_form">
+                        @csrf
+                        <div class="form-group login-form-group col-lg-9 col-md-7">
+                            <label for="login_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                            <input type="email" name="email" required placeholder="@lang('front.emaildaxilet')" />
+                        </div>
+                        <div class="form-group login-form-group col-lg-9 col-md-7">
+                            <label for="login_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                            <input type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
+                        </div>
+                        <div class="login-bottom">
+                            <div class="remember-me-checkbox">
+                                <input type="checkbox" name="remember" id="remember" />
+                                <label for="remember"><b>@lang('front.remember')</b></label>
+                            </div>
+                            <a class="forgot-password" href="{{route('forget')}}"><b>@lang('front.sifreunut')</b></a>
+                        </div>
+
+                        <div class="col-lg-9 col-md-7 login-buttons">
+                            <button class="login-registration" type="submit">@lang('front.daxilol')</button>                 
+                            <span>@lang('front.veya')</span>
+                            <a class="login-google-registration" href="{{ route('google.login') }}">
+                                <img src="{{asset('back/assets/images/google-play.png')}}" alt="google-play" />
+                                Google ilə daxil olun
+                            </a>
+                            
+                        </div>
+                    </form>
                     </div>
-                </form>
+                    <div id="menu1" class="tab-pane fade">
+                                    
+                        <form action="{{ route('register_post') }}" class="row mx-0 register-form mt-4"  id="register_form" method="POST">
+                            @csrf
+                            <div class="form-group login-form-group col-md-5">
+                                <label for="reg_name">@lang('front.ad')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                <input placeholder="@lang('front.addaxilet')" type="text" name="name"/>
+                            </div>
+                            <div class="form-group login-form-group col-md-5">
+                                <label for="reg_name">@lang('front.soyad')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                <input placeholder="@lang('front.soyaddaxil')" type="text" name="surname"/>
+                            </div>
+                            <div class="form-group login-form-group col-md-5">
+                                <label for="reg_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                <input type="email" name="email" placeholder="@lang('front.emaildaxilet')"/>
+                                
+                            </div>
+                            <div class="form-group login-form-group col-md-5">
+                                <label for="reg_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                <input type="password" name="password" id="password" placeholder="@lang('front.sifredaxilet')"/>
+                            </div>
+                            <div class="form-group login-form-group col-md-10">
+                                <label for="reg_password">@lang('front.tekrarpass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('front.tekrarpass')"/>
+                            </div>
+                            
+                            
+                            <div class="form-group login-form-group col-md-10">
+                            <div id="no-limit">
+                                <p>@lang('front.cats')<span style="color: rgba(192, 0, 0, 1)">*</span></p>
+                                <select class="select2 form-select" style="width: 100%;" name="cat_id[]" multiple>
+                                    <option value="" disabled></option>
+
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->title_az}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            
+                        </div>
+
+                            <div class="col-lg-9 col-md-7 login-buttons">
+                                <button class="login-registration" type="submit">@lang('front.register')</button>                 
+                                <span>@lang('front.veya')</span>
+                                <a href="{{ route('login') }}" class="login-registration">@lang('front.daxilol')</a>
+                            </div>    
+                        </form>
+                    </div>
+                </div>
+
 
 
             </div>
