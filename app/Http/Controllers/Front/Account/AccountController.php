@@ -279,12 +279,11 @@ class AccountController extends Controller
                     
                     $user_verification->email_verification_code = "";
                     $user_verification->status = 1;
-                    $user_verification->is_email_verified = true;
 
                     $user_verification->save();
 
                     DB::commit();
-                    return redirect()->intended()->with('success', __('messages.emailtesdiq'));
+                    return redirect()->route('index')->with('success', __('messages.emailtesdiq'));
 
                 }
 

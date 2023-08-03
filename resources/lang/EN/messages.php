@@ -31,7 +31,7 @@ return [
     'parollogin' => 'Your password has been successfully updated!',
     'errorpasyeni' => 'Something went wrong, please try again!',
     'emailyoxla' => 'Check your email!',
-    'emailtesdiq' => 'Email verified, you can log in!',
+    'emailtesdiq' => 'Your profile has been successfully verified!',
     'passyox' => 'Your password is incorrect!',
     'emailyox' => 'Your email address is incorrect!',
     'bosdoldur' => 'Please fill in the empty fields!',
