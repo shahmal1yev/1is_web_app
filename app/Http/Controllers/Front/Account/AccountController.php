@@ -163,7 +163,7 @@ class AccountController extends Controller
 
                 $user_verification = User::where('email_verification_code', $verification)->first();
 
-                if ($user_verification && !$user_verification->status == NULL) {
+                if ($user_verification && $user_verification->status !== NULL) {
                     $user_verification->email_verification_code = "";
                     $user_verification->status = 1;
                     $user_verification->save();
@@ -202,7 +202,7 @@ class AccountController extends Controller
 
                     DB::commit();
 
-                    return redirect()->route('login')->with('success', __('messages.parollogin'));
+                    return redirect()->route('index')->with('success', __('messages.parollogin'));
                 }
 
                 DB::commit();

@@ -26,7 +26,7 @@ return [
     'sucemail' => 'Uğurla abunə olundu!',
     'sendpass' => 'Parolunuz emailinizə göndərildi!',
     'passyaz' => 'Yeni parolunuzu yazın!',
-    'parollogin' => 'Parolunuz yeniləndi,daxil olun!',
+    'parollogin' => 'Parolunuz uğurla yeniləndi!',
     'errorpasyeni' => 'Nəsə yanlışdır,yenidən sınayın!',
     'emailyoxla' => 'Emailinizi yoxlayın!',
     'emailtesdiq' => 'Email təsdiqləndi,giriş edə bilərsiniz!',

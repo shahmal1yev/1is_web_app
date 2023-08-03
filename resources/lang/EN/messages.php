@@ -28,7 +28,7 @@ return [
     'sucemail' => 'Email sent successfully!',
     'sendpass' => 'Your password has been sent to your email!',
     'passyaz' => 'Enter your new password!',
-    'parollogin' => 'Your password has been updated, log in!',
+    'parollogin' => 'Your password has been successfully updated!',
     'errorpasyeni' => 'Something went wrong, please try again!',
     'emailyoxla' => 'Check your email!',
     'emailtesdiq' => 'Email verified, you can log in!',
