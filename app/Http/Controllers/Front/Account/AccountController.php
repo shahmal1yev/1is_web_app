@@ -97,6 +97,10 @@ class AccountController extends Controller
         return redirect()->intended();
     }
 
+    public function passwordChanged()
+    {
+        return view('front.Account.login');
+    }
 
     public function login()
         {
@@ -258,7 +262,7 @@ class AccountController extends Controller
         $user->save();
 
 
-        return redirect()->route('login')->with('warning', __('messages.emailyoxla'));
+        return redirect()->route('passwordChanged')->with('warning', __('messages.emailyoxla'));
     }
     
     
@@ -289,7 +293,7 @@ class AccountController extends Controller
                 DB::rollBack();
             }
 
-            return redirect()->route('login');
+            return redirect()->route('passwordChanged');
     }
 
     
