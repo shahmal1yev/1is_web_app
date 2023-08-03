@@ -182,7 +182,7 @@ return [
     'sifredaxilet'=>'Şifrə daxil et',
     'pass'=>'Şifrə',
     'passyenile'=>'Parolu yenilə',
-
+    'google'=>'Google ilə daxil olun',
 
 
 //telim elave et

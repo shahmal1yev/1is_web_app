@@ -174,6 +174,7 @@ return [
 'veya'=>'veya',
 'sifredaxilet'=>'Parolayı girin',
 'passyenile'=>'Parolayı yenile',
+'google'=>'Google ile giriş yap',
 
 
 

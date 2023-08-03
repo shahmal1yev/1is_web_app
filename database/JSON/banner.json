@@ -3,9 +3,7 @@
 {"type":"database","name":"abdulkadirbudak_com_recruitment"},
 {"type":"table","name":"banner","database":"abdulkadirbudak_com_recruitment","data":
 [
-{"id":"1","image":".\/images\/kaizen.webp","mobile_image":".\/images\/kaizenm.webp","link":"https:\/\/kaizen.az\/","created":"2022-12-06 16:29:45"},
-{"id":"2","image":".\/images\/desktop.webp","mobile_image":".\/images\/mobile.webp","link":"https:\/\/employment.az\/","created":"2022-12-06 16:32:51"},
-{"id":"3","image":".\/images\/bitrix-desk.png","mobile_image":".\/images\/mobile-pic.png","link":"https:\/\/bitrix.butagrup.com.tr\/","created":"2023-07-26 13:38:25"}
+{"id":"1","image":".\/back\/assets\/images\/banner\/banner_0i6fDQ.jpg","mobile_image":".\/images\/kaizenm.webp","link":"https:\/\/kaizen.az\/","created":"2022-12-06 16:29:45"}
 ]
 }
 ]

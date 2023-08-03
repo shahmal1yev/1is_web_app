@@ -185,6 +185,7 @@ return [
     'veya'=>'or',
     'sifredaxilet'=>'Enter password',
     'passyenile'=>'Update password',
+    'google'=>'Sign in with Google',
 
 
 //telim elave et

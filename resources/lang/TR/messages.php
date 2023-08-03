@@ -27,7 +27,7 @@ return [
     'parollogin' => 'Şifreniz başarıyla güncellendi.',
     'errorpasyeni' => 'Bir hata oluştu, yeniden deneyin!',
     'emailyoxla' => 'E-postanızı kontrol edin!',
-    'emailtesdiq' => 'E-posta doğrulandı, giriş yapabilirsiniz!',
+    'emailtesdiq' => 'Profiliniz başarıyla doğrulandı!',
     'passyox' => 'Parolanız hatalıdır!',
     'emailyox' => 'E-posta adresiniz yanlıştır!',
     'bosdoldur' =>  'Lütfen boş alanları doldurun!',

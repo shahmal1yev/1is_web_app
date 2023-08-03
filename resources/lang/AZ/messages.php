@@ -29,7 +29,7 @@ return [
     'parollogin' => 'Parolunuz uğurla yeniləndi!',
     'errorpasyeni' => 'Nəsə yanlışdır,yenidən sınayın!',
     'emailyoxla' => 'Emailinizi yoxlayın!',
-    'emailtesdiq' => 'Email təsdiqləndi,giriş edə bilərsiniz!',
+    'emailtesdiq' => 'Profiliniz uğurla təsdiqləndi!',
     'passyox' => 'Parolunuz səhvdir!',
     'emailyox' => 'Emailiniz yanlışdır!',
     'bosdoldur' => 'Boş xanaları doldurun!',
