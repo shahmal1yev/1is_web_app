@@ -80,9 +80,11 @@
                                 <label class='login-form-email' for="login_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
                                 <input type="email" name="email" required placeholder="@lang('front.emaildaxilet')" />
                             </div>
-                            <div class="form-group login-form-group col-lg-9 col-md-7">
+                            <div class="form-group login-form-group col-lg-9 col-md-7 password-input">
                                 <label for="login_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                <input type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
+                                <input id="login-pass" type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
+                                <img src="{{asset('back/assets/images/view.png')}}" id="view-id" alt="" />
+                                <img src="{{asset('back/assets/images/hide.png')}}" id="hide-id" alt="" />
                             </div>
                             <div class="login-bottom">
                                 <div class="remember-me-checkbox">
@@ -120,13 +122,17 @@
                                     <input type="email" name="email" placeholder="@lang('front.emaildaxilet')"/>
                                     
                                 </div>
-                                <div class="form-group login-form-group col-md-5">
+                                <div class="form-group login-form-group col-md-5 sign-div">
                                     <label for="reg_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                    <input type="password" name="password" id="password" placeholder="@lang('front.sifredaxilet')"/>
+                                    <input id='sign-inpt1' type="password" name="password" id="password" placeholder="@lang('front.sifredaxilet')"/>
+                                    <img src="{{asset('back/assets/images/view.png')}}" id="view-id2" alt="" />
+                                    <img src="{{asset('back/assets/images/hide.png')}}" id="hide-id2" alt="" />
                                 </div>
-                                <div class="form-group login-form-group col-md-10">
+                                <div class="form-group login-form-group col-md-10 sign-div">
                                     <label for="reg_password">@lang('front.tekrarpass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                    <input type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('front.tekrarpass')"/>
+                                    <input id='sign-inpt2' type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('front.tekrarpass')"/>
+                                    <img src="{{asset('back/assets/images/view.png')}}" id="view-id3" alt="" />
+                                    <img src="{{asset('back/assets/images/hide.png')}}" id="hide-id3" alt="" />
                                 </div>
                                 
                                 
@@ -409,6 +415,60 @@
         }
     });
     });
+</script>
+
+<script>
+
+    // LOGIN SHOW AND HIDE
+    const viewBtn = document.getElementById('view-id')
+    const hideBtn = document.getElementById('hide-id')
+    const loginPas = document.getElementById('login-pass')
+
+    hideBtn.addEventListener('click' , () => {
+        loginPas.type = 'text'
+        hideBtn.style.display = 'none'
+        viewBtn.style.display = 'block'
+    })
+
+    viewBtn.addEventListener('click' , () => {
+        loginPas.type = 'password'
+        viewBtn.style.display = 'none'
+        hideBtn.style.display = 'block'
+    })
+
+
+    // SIGN SHOW AND HIDE
+    const viewBtn2 = document.getElementById('view-id2')
+    const hideBtn2 = document.getElementById('hide-id2')
+    const loginPas2 = document.getElementById('sign-inpt1')
+    const viewBtn3 = document.getElementById('view-id3')
+    const hideBtn3 = document.getElementById('hide-id3')
+    const loginPas3 = document.getElementById('sign-inpt2')
+
+    hideBtn2.addEventListener('click' , () => {
+        loginPas2.type = 'text'
+        hideBtn2.style.display = 'none'
+        viewBtn2.style.display = 'block'
+    })
+
+    viewBtn2.addEventListener('click' , () => {
+        loginPas2.type = 'password'
+        viewBtn2.style.display = 'none'
+        hideBtn2.style.display = 'block'
+    })
+
+    hideBtn3.addEventListener('click' , () => {
+        loginPas3.type = 'text'
+        hideBtn3.style.display = 'none'
+        viewBtn3.style.display = 'block'
+    })
+
+    viewBtn3.addEventListener('click' , () => {
+        loginPas3.type = 'password'
+        viewBtn3.style.display = 'none'
+        hideBtn3.style.display = 'block'
+    })
+
 </script>
 @endsection
 
