@@ -50,18 +50,18 @@ var swiper = new Swiper(".mySwiper", {
   },
   breakpoints: {
     640: {
-      slidesPerView: swiper_wrapper.children.length > 1 ? 1 :  swiper_wrapper.children.length,
-      loop: swiper_wrapper.children.length > 1 ? true : false,   
+      slidesPerView: swiper_wrapper?.children.length > 1 ? 1 :  swiper_wrapper?.children.length,
+      loop: swiper_wrapper?.children.length > 1 ? true : false,   
       spaceBetween: 10
     },
     768: {
-      slidesPerView: swiper_wrapper.children.length > 2 ? 2 :  swiper_wrapper.children.length,
-      loop: swiper_wrapper.children.length > 2 ? true : false,   
+      slidesPerView: swiper_wrapper?.children.length > 2 ? 2 :  swiper_wrapper?.children.length,
+      loop: swiper_wrapper?.children.length > 2 ? true : false,   
       spaceBetween: 20,
     },
     1024: {
-      slidesPerView: swiper_wrapper.children.length > 3 ? 3 :  swiper_wrapper.children.length,
-      loop: swiper_wrapper.children.length > 3 ? true : false,   
+      slidesPerView: swiper_wrapper?.children.length > 3 ? 3 :  swiper_wrapper?.children.length,
+      loop: swiper_wrapper?.children.length > 3 ? true : false,   
       spaceBetween: 0,
     },
   },
