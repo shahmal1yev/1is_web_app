@@ -29,7 +29,7 @@
     <section class="add-training">
         <div class="container add-training-container">
             <div class="row">   
-                <form action="{{route('trainingEditPost')}}" method="POST" enctype="multipart/form-data" class="tab-pane add-training-form fade show active col-12" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <form action="{{route('trainingEditPost')}}" method="POST" enctype="multipart/form-data" class="tab-pane add-training-form fade show active col-12" id="register_form" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     @csrf
                     <input type="hidden" name="id" value="{{$training->id}}">
                     <div class="form-group add-training-input-group">                            
@@ -37,31 +37,29 @@
 
                         <label for="images">@lang('front.sekiladd') <span class="text-danger">*</span></label>
 
-                        <div class="custom-file training-custom-file edit-training-input-group @error('image') has-error @enderror ">
+                        <div class="custom-file training-custom-file edit-training-input-group  ">
                             <input type="file" class="custom-file-input js-custom-file-input-enabled" data-toggle="custom-file-input" id="images" name="image" value="{{$training->image}}" accept="image/png, image/jpeg, image/svg+xml, image/webp">
                             <label class="custom-file-label" for="image">@lang('front.sekilsec')</label>   
-                            @error('image')
-                        <span class="text-danger" style="font-size: 14x">@lang('validation.image_max')</span>
-                        @enderror                   
+                                             
 
                         </div>
                     </div>
-                    <div class="form-group add-training-input-group @error('title') has-error @enderror">
+                    <div class="form-group add-training-input-group ">
                         <label for="training_name">@lang('front.tad') <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="training_name" name="title" placeholder="@lang('front.tad')" value="{{$training->title}}" required />
+                        <input type="text" class="form-control" id="training_name" name="title" placeholder="@lang('front.tad')" value="{{$training->title}}" />
                         
                     </div>
-                    <div class="form-group add-training-input-group @error('deadline') has-error @enderror">
+                    <div class="form-group add-training-input-group ">
                         <label for="training_date">@lang('front.sonmur') <span class="text-danger">*</span></label>
-                        <input type="date" class="form-control" name="deadline" id="training_date" value="{{$training->deadline}}" required />
+                        <input type="date" class="form-control" name="deadline" id="training_date" value="{{$training->deadline}}" />
                         
                     </div>
-                    <div class="form-group add-training-input-group @error('about') has-error @enderror">
+                    <div class="form-group add-training-input-group ">
                         <label for="training_information">@lang('front.telhaq') <span class="text-danger">*</span></label>
-                        <textarea class="form-control" id="training_information" name="about" rows="5" required>{!! html_entity_decode($training->about) !!}</textarea>
+                        <textarea class="form-control" id="training_information" name="about" rows="5">{!! html_entity_decode($training->about) !!}</textarea>
                         
                     </div>
-                    <div class="form-group add-training-input-group @error('company') has-error @enderror">
+                    <div class="form-group add-training-input-group ">
                         <label for="training_companies">@lang('front.companies') <span class="text-danger">*</span></label>
                         <select class="form-control" id="training_companies" name="company">
                             <option selected disabled>@lang('front.companies')</option>
@@ -70,21 +68,14 @@
                         @endforeach
                         </select>
                     </div>
-                    <div class="form-group add-training-input-group @error('link') has-error @enderror">
-                        <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
-                        <input type="url" placeholder="@lang('front.urldaxilet')" name="link" class="form-control" id="training_url" value="{{$training->redirect_link}}" required />
-                        
-                    </div>
-                    <div class="form-group add-training-input-group @error('payment_type') has-error @enderror">
+                    <div class="form-group add-training-input-group ">
                         <label for="training_payment">@lang('front.odenistip') <span class="text-danger">*</span></label>
-                        <select name="payment_type" id="payment_type" class="form-control" onchange="getPayment(this.value)" required>
+                        <select name="payment_type" id="payment_type" class="form-control" onchange="getPayment(this.value)">
                             <option disabled selected>@lang('front.odenistip')</option>
                             <option value="0" @if($training->payment_type == '0') selected @endif>@lang('front.pulsuz')</option>
                             <option value="1" @if($training->payment_type == '1') selected @endif>@lang('front.pullu')</option>
                         </select>
-                        @error('payment_type')
-                        <span class="text-danger" style="font-size: 14x">@lang('validation.payment_type_numeric')</span>
-                        @enderror
+                        
                     </div>
                     <div class="form-group add-training-input-group">                    
                         <div class="row mb-4" id="price" @if($training->payment_type == '0') style="display: none" @endif >
@@ -103,7 +94,6 @@
     </section>
 
     <script>
-        // In your Javascript (external .js resource or <script> tag)
         function getPayment(id){
             if(id == 1){
                 $('#price').slideDown()
@@ -112,6 +102,19 @@
             }
         }
     </script>
+@endsection
+
+
+
+@section('css-link')
+<link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
+<link rel="stylesheet" href="{{asset('front/css/add-training.css')}}">
+<link rel="stylesheet" href="{{asset('front/css/header.css')}}">
+@endsection
+
+@section('js-link')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="{{asset('front/js/bootstrap.min.js')}}"></script>
 @endsection
 
 <script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
@@ -180,17 +183,166 @@
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
     });
 </script>
+    <style>
+
+    .tox-notifications-container{
+        display:none !important;
+    }
+    </style>
 
 
+<script>
+    $(document).ready(function() {
+        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
 
-@section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/add-training.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/header.css')}}">
-@endsection
+        function getErrorMessage(field, lang) {
+            var errorMessages = {
+                required: {
+                    'AZ': 'Bu sahə doldurulmalıdır!',
+                    'EN': 'This field is required!',
+                    'RU': 'Поле обязательно для заполнения!',
+                    'TR': 'Bu alan zorunludur!'
+                },
+                
+                minlength: {
+                    'AZ': 'Bu sahə üçün minimum 9 simvol limiti keçilməlidir!',
+                    'EN': 'Minimum 9 characters limit should not be exceeded for this field!',
+                    'RU': 'Минимальное количество символов для этого поля - 9!',
+                    'TR': 'Bu alanda en az 9 karakter sınırı aşılmamalıdır!'
+                },
+                maxFileSize: {
+                    'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
+                    'EN': 'The maximum file size for the image should be 5MB!',
+                    'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
+                    'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
+                },
+                accept: {
+                    'AZ': 'Lütfen bir resim dosyası seçin!',
+                    'EN': 'Please select an image file!',
+                    'RU': 'Пожалуйста, выберите файл изображения!',
+                    'TR': 'Lütfen bir resim dosyası seçin!'
+                },
 
-@section('js-link')
-<script src="{{asset('front/js/bootstrap.min.js')}}"></script>
-@endsection
+               
+            };
+
+            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+        }
+
+        $("#register_form").validate({
+            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+            
+            rules: {
+                title: {
+                    required: true,
+                },
+                deadline: {
+                    required: true,
+                },
+                about: {
+                    required: true,
+                },
+
+                company: {
+                    required: true,
+                },
+
+                link: {
+                    required: true,
+                },
+
+                payment_type: {
+                    required: true,
+                },
+                price: {
+                    required: function(element) {
+                        return $("#training_payment").val() === '1';
+                    }
+                },
+
+                image: {
+                    required: true,
+                    
+                },
+                
+
+
+            },
+            messages: {
+                title: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                deadline: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                about: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                  
+                },
+
+                company: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                    
+                },
+                link: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+                payment_type: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                price: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                },
+
+                image: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
+
+                
+                
+            },
+            submitHandler: function(form) {
+                if (form.checkValidity()) {
+                    return false;
+                }
+            },
+            errorPlacement: function(error, element) {
+        error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+    }
+        });
+
+    
+    
+    });
+
+   
+</script>
+
+
 
 

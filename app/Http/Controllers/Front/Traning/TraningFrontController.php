@@ -102,18 +102,6 @@ class TraningFrontController extends Controller
     public function trainingAddPost(Request $request){
         
         try {
-            $request->validate([
-                'title'=>'required',
-                'company'=>'required',
-                'link'=>'required',                
-                'deadline' => 'required',
-                'payment_type'=>'required',
-                'about' => 'required',
-                'image' => 'required',
-
-
-
-            ]);
 
             $training = new Trainings();
             $training->user_id = Auth::user()->id;
@@ -173,18 +161,10 @@ class TraningFrontController extends Controller
             $rules = [
                 'company' => 'numeric',
                 'payment_type' => 'numeric',
-                'image' => 'image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:3072',
+                'image' => 'image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:5000',
             ];
             
-            $messages = [
-                'company.numeric' => 'Şirket alanı sayısal olmalıdır.',
-                'payment_type.numeric' => 'Ödeme türü alanı sayısal olmalıdır.',
-                'image.image' => 'Yüklenen dosya bir resim olmalıdır.',
-                'image.mimes' => 'Resim dosyası yalnızca :values formatında olabilir.',
-                'image.max' => 'Resim dosyası en fazla :max kilobayt olmalıdır.',
-            ];
-            
-            $request->validate($rules, $messages);
+            $request->validate($rules);
            
         try {
             $training = Trainings::find($request->id);

@@ -551,6 +551,12 @@
     });
 </script>
 
+<style>
+
+    .tox-notifications-container{
+        display:none !important;
+    }
+    </style>
 
 
 @section('js')

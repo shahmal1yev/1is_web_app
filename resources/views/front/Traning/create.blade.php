@@ -89,7 +89,6 @@
                     <div class="form-group add-training-input-group">
                         <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
                         <input type="url" name="link" placeholder="@lang('front.urldaxilet')" class="form-control" id="training_url" value="{{old('link')}}" />
-                        <label id="training_url-error" class="error" for="training_url">Bu sahə doldurulmalıdır!</label>
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_payment">@lang('front.odenistip') <span class="text-danger">*</span></label>
@@ -270,7 +269,12 @@
     });
 </script>
 
+    <style>
 
+        .tox-notifications-container{
+            display:none !important;
+        }
+    </style>
 
 
 
@@ -330,10 +334,6 @@
                     required: true,
                 },
 
-                link: {
-                    required: true,
-                },
-
                 payment_type: {
                     required: true,
                 },
@@ -380,12 +380,6 @@
                     
                     
                 },
-                link: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
                 payment_type: {
                     required: function() {
                         return getErrorMessage('required', lang);
@@ -415,55 +409,16 @@
                 }
             },
             errorPlacement: function(error, element) {
-        error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
-    }
+            error.insertAfter(element); 
+            }
         });
-
-    
     
     });
 
    
 </script>
 
-<script>
-    const training_url = document.querySelector('#training_url');
-    const register_form = document.querySelector('#register_form');
-    const training_url_error = document.querySelector('#training_url-error');
-    
-    register_form.addEventListener('submit', (e) => {
-        if(training_url.value === '') {
-            training_url_error.style.display = 'block';
-            e.preventDefault();
-        }else {
-            training_url_error.style.display = 'none';
-        }
-    });
-</script>
 
-<script>
-    const sendBtn = document.getElementById("send");
-      sendBtn.addEventListener("click", (e) => {
-
-          var errorIn = document.getElementById("training_url-error");
-          var nameVal = document.getElementById("training_url");
-          var latestVal = nameVal.value;
-          if (latestVal.length == 0) {
-          errorIn.innerText = "Link is required";
-          return false;
-          }
-
-        //   if (!latestVal.match(/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})/)) {
-        //   errorIn.innerText = "Please enter a valid URL.";
-        //   e.preventDefault()
-        //   return false;
-        //   }
-
-          errorIn.innerText = "Valid Link";
-          return true;
-          
-      });
-</script>
 <script>
     $(document).ready(function() {
         $('.js-example-basic-single').select2();

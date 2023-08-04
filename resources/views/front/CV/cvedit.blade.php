@@ -542,6 +542,12 @@
     });
 </script>
 
+<style>
+
+    .tox-notifications-container{
+        display:none !important;
+    }
+    </style>
 
 <script>
       $(function () {
