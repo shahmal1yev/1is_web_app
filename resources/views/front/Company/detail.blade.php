@@ -235,10 +235,10 @@
                       <img src="{{asset('back/assets/images/icons/building.png')}}" alt="building" />
                       <a  href="{{route('compdetail', $vacanc->company_id)}}" style="color:#ecdbfc">
                        
-                        @if(mb_strlen(html_entity_decode($vacancy->company_name)) > 30)
-                            {{ mb_substr(html_entity_decode($vacancy->company_name), 0, 30) . ' ...' }}
+                        @if(mb_strlen(html_entity_decode($vacanc->company_name)) > 30)
+                            {{ mb_substr(html_entity_decode($vacanc->company_name), 0, 30) . ' ...' }}
                         @else
-                            {{ html_entity_decode($vacancy->company_name) }}
+                            {{ html_entity_decode($vacanc->company_name) }}
                         @endif
                        
 

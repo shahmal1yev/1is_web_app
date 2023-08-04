@@ -58,15 +58,17 @@ class TraningFrontController extends Controller
     public function telimaxtar(Request $request)
     {        
     $banner = BannerImage::where('status','1')->get();
-    $query = Trainings::where('status', '1');
+    $query = Trainings::query();
     $training = $request->input('query');
     $sort_by = $request->input('type');
+    $query = $query->join('companies','companies.id','=','trainings.company_id')
+    ->select('companies.id','companies.name','trainings.company_id','trainings.id','trainings.title',
+    'trainings.about','trainings.about','trainings.redirect_link','trainings.image','trainings.payment_type','trainings.price','trainings.view','trainings.deadline','trainings.status','trainings.created_at');
 
     if (!empty($training)) {
         $query->where(function ($q) use ($training) {
-            $q->where('slug', 'like', '%' . $training . '%')
-                ->orWhere('title', 'like', '%' . $training . '%')
-                ->orWhere('slug', 'like', '%' . $training . '%');
+            $q->where('trainings.slug', 'like', '%' . $training . '%')
+                ->orWhere('trainings.title', 'like', '%' . $training . '%');
         });
     }
     if ($sort_by == '1') {

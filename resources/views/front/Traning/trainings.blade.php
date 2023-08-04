@@ -62,9 +62,9 @@
 
 
           <div class="middle-part">
-            <a class="first-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{Str::limit($alltr->title, 50, '...')}}
+            <a class="first-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{Str::limit($alltr->title, 35, '...')}}
             </a>
-            <a class="second-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{$alltr->name}}</a>
+            <a class="second-mid-a" href="{{route('compdetail', $alltr->id)}}">{{$alltr->name}}</a>
             @if($alltr->price == NULL)
               <span>@lang('front.pulsuz')</span>
             @else

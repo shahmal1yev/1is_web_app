@@ -95,7 +95,13 @@
             </div>
             <div class="middle-part">
                 <a class="first-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{Str::limit($alltr->title, 35, '...')}}
-                    <a class="second-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{$alltr->name}}</a>
+                    <a class="second-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">
+                        @if(mb_strlen(html_entity_decode($alltr->name)) > 30)
+                            {{ mb_substr(html_entity_decode($alltr->name), 0, 30) . ' ...' }}
+                        @else
+                            {{ html_entity_decode($alltr->name) }}
+                        @endif
+                    </a>
                     @if($alltr->price == NULL)
                     <span>@lang('front.pulsuz')</span>
                   @else
