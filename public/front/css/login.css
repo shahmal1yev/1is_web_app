@@ -4,13 +4,59 @@
 
 .login-background {
     background: url('https://1is.butagrup.az/back/assets/images/icons/login_desktop.png');
-    height: 100%;
+    height: auto;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     justify-content: flex-end;
 }
+
+.login-cont{
+    margin-top: 90px;
+    margin-bottom: 15px;
+}
+
+.login-cont > ul{
+    max-width: 275px;
+    width: 100%;
+    height: 43px;
+    border-radius: 40px;
+    background: #5B5B5B;
+    /* justify-content: space-between; */
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8%;
+}
+
+.login-cont > ul li a{
+    color: #FFF !important;
+    /* font-family: Outfit; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 40px !important;
+}
+
+.login-cont > ul li{
+    width: 125px;
+    height: 33px;
+    text-align: center;
+    line-height: 33px;
+}
+
+.login-cont > ul li a:focus , .login-cont > ul li a:hover , .login-cont > ul li a:focus-visible{
+    outline: none !important;
+    border: none !important ;
+}
+.login-cont > ul li a.active{
+    border: 1px solid #682DB2 !important;
+    background: #8843E1 !important;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
+}
+
 
 .login-authentification {
     width: 32%;
@@ -156,6 +202,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .login-google-registration {
@@ -264,6 +311,11 @@
 
     .login-form {
         margin-top: 30px;
+        justify-content: center;
+    }
+
+    #register_form{
+        justify-content: center;
     }
 
     .login-form-group label {
@@ -310,7 +362,11 @@
 @media screen and (max-width: 991px) {
     .login-section {
         width: 100%;
-        height: 800px;
+        /* height: 800px; */
+    }
+
+    .login-cont > ul{
+        margin: 0 auto;
     }
 
     .register-form {
@@ -456,8 +512,12 @@
 }
 
 @media screen and (max-width: 450px) {
-    .login-section {
+    /* .login-section {
         height: 1000px;
+    } */
+
+    .login-cont{
+        margin-top: 50px;
     }
 
     .login-authentification {
