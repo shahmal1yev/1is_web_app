@@ -94,8 +94,6 @@ class StoriesController extends Controller
             $story->stories = $namesJSON; 
         }
         
-        dd($story);
-        die;
         return redirect()->back()->with($story->save() ? 'success' : 'error',true);
     }
     public function storyStatus(Request $request){
