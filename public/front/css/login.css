@@ -17,6 +17,28 @@
     margin-bottom: 15px;
 }
 
+.password-input{
+    position: relative;
+}
+
+.sign-div{
+    position: relative;
+}
+
+ 
+#view-id , #hide-id , #view-id2 , #hide-id2, #view-id3 , #hide-id3{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 30px;
+    top: 41px;
+    cursor: pointer;
+}
+
+#view-id , #view-id2 , #view-id3{
+    display: none;
+}
+
 .login-cont > ul{
     max-width: 275px;
     width: 100%;

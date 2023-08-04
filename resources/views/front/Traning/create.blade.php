@@ -8,6 +8,20 @@
   height: 150px;
 }
 
+/* SELECT2  */
+
+
+
+.add-training-input-group span{
+        height: 60px!important;
+        border-radius: 8px!important;
+    }
+
+    .select2-selection__rendered {
+        display: flex!important;
+        align-items: center!important;
+    }
+
 </style>
 @section('content')
 @foreach ($banner as $ban)
@@ -65,14 +79,12 @@
                     
                     <div class="form-group add-training-input-group">
                         <label for="training_companies">@lang('front.companies') <span class="text-danger">*</span></label>
-                        <select class="form-control" id="training_companies" name="company" required>
-                            <option value="" disabled {{ old('company') ? '' : 'selected' }}>@lang('front.companies')</option>
+                        <select class="form-control js-example-basic-single" id="training_companies" name="company"  value="{{ old('company') }}" >
+                            <option value="" selected disabled>@lang('front.sirketsec')...</option>
                             @foreach($companies as $company)
-                                <option value="{{ $company->id }}" {{ old('company') == $company->id ? 'selected' : '' }}>{{ $company->name }}</option>
+                                <option value="{{$company->id}}"@if(old('company') == $company->id) selected @endif>{{$company->name}}</option>
                             @endforeach
                         </select>
-                        
-                        
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
@@ -451,5 +463,10 @@
           return true;
           
       });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
 </script>
 @endsection
