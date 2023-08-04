@@ -446,7 +446,7 @@
 
 
     @if (isset($stories))
-    <section class="swiper-sec">
+    <section class="swiper-sec" id="swiper_sec">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
             @foreach ($stories as $st)
@@ -819,23 +819,28 @@
         const story_slide = document.getElementById('story_slide');
         const story_slide2 = document.getElementById('story_slide2');
         const allSlide = document.querySelector('allSlide');
+        const swiper_sec = document.getElementById('swiper_sec');
 
         let elementsArray = document.querySelectorAll(".swiper-wrapper a");
-
-        elementsArray.forEach((item) => {
+        if(elementsArray.length === 0){
+            swiper_sec.style.display = 'none';
+        }else {
+            elementsArray.forEach((item) => {
             
-            item.addEventListener("click", () => {
-                let slide = document.querySelector(`.${item.id}`);
-                slide.style.display = 'grid';
-                new SlideStories(item.id);
-                const close_button_img = document.querySelector(`.${item.id} > img`);
-                let slide_thumbs = document.querySelector(`.${item.id} .slide-nav > div`); 
-                close_button_img.addEventListener('click', () => {
-                    slide.style.display = 'none';
-                    slide_thumbs.innerHTML = "";
-                })
+                item.addEventListener("click", () => {
+                    let slide = document.querySelector(`.${item.id}`);
+                    slide.style.display = 'grid';
+                    new SlideStories(item.id);
+                    const close_button_img = document.querySelector(`.${item.id} > img`);
+                    let slide_thumbs = document.querySelector(`.${item.id} .slide-nav > div`); 
+                    close_button_img.addEventListener('click', () => {
+                        slide.style.display = 'none';
+                        slide_thumbs.innerHTML = "";
+                    })
+                });
             });
-        });
+        }
+        
     </script>
 
 <script>

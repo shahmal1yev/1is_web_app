@@ -1572,7 +1572,7 @@ footer {
     width: 100% !important;
     margin: initial !important;
     max-width: initial !important;
-    margin-bottom: 25px;
+    margin-bottom: 20px!important;
 }
 
 .pagination-nav .footer{

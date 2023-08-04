@@ -4,12 +4,11 @@
 @section('content')
     @foreach ($banner as $ban)
 
-<section class="vacancy-section" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+<section class="vacancy-section header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
       url({{asset($ban->image)}})">
        @endforeach
-<section class="header-info">
+<section>
     <div>
-      <h3>@lang('front.training')</h3>
       <form class="container blog-header-container" method="GET" action="{{route('telimaxtar')}}">
         <div class="training-form-div">
           <div class="filter1">
@@ -30,7 +29,8 @@
   <!-- BLOG SLIDER -->
   <div class="training-container container pt-4">
     <div class="section-filter">
-            <h2>@lang('front.companies')</h2>
+
+            <h2>@lang('front.training')</h2>
             <div class="dropdown-comp-3">
                 <h2>@lang('front.sirala'):</h2>
                 <?php
