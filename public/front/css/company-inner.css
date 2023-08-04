@@ -348,6 +348,11 @@
   justify-content: center;
 }
 
+.company-about-social-media a{
+  display: flex;
+  align-items: center;
+}
+
 .company-about-social-media img {
   width: 12px;
   height: 12px;
