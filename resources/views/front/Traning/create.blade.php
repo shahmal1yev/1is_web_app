@@ -401,32 +401,14 @@
                 if (form.checkValidity()) {
                     return false;
                 }
-
-                // form.submit(); // Formu gönder
             },
             errorPlacement: function(error, element) {
-    // Hata mesajlarını görüntülemek için gerekli işlemleri yapın
-    error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
-  }
+        error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+    }
         });
 
-         // Sayfa yüklendiğinde ödeme tipine göre fiyat alanını göster/gizle
-    var initialPaymentType = $("#training_payment").val();
-    if (initialPaymentType === '1') {
-        $('#price').slideDown();
-    } else {
-        $('#price').slideUp();
-    }
     
-    // Ödeme tipi değiştiğinde fiyat alanını güncelle
-    $("#training_payment").change(function() {
-        var paymentType = $(this).val();
-        if (paymentType === '1') {
-            $('#price').slideDown();
-        } else {
-            $('#price').slideUp();
-        }
-    });
+    
     });
 
    

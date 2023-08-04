@@ -27,7 +27,9 @@ class TraningFrontController extends Controller
         ->where('trainings.id', $id)
         ->select('companies.id as company_id','companies.name','trainings.*')
         ->first();
-
+        if (!$tdetail || $tdetail->status == 0) {
+            abort(404);
+        }
         $alltrainings = Trainings::join('companies','companies.id','=','trainings.company_id')
         ->select('companies.id as company_id','companies.name','trainings.*')
         ->where('trainings.status','1')

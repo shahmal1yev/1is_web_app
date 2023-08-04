@@ -26,11 +26,12 @@
                             <img src="https://1is-new.netlify.app/images/dollar.png" alt="">
                             <div>
                                 <p>@lang('front.odenis'):</p>
-                                @if ($tdetail->payment_type == 0)
+                                @if (!$tdetail || empty($tdetail) || $tdetail->payment_type == 0)
                                     <span>@lang('front.pulsuz')</span>
                                 @elseif ($tdetail->payment_type == 1)
                                     <span>{{$tdetail->price}} AZN</span>
                                 @endif
+
 
                             </div>
                         </div>
@@ -38,7 +39,11 @@
                             <img src="https://1is-new.netlify.app/images/black-eye.png" alt="">
                             <div>
                                 <p>@lang('front.baxissay'):</p>
-                                <span>{{$tdetail->view}}</span>
+                                    @if ($tdetail && $tdetail->view !== null)
+                                        <span>{{$tdetail->view}}</span>
+                                    @else
+                                        <span>0</span>
+                                    @endif
                             </div>
                         </div>
                         <div>
@@ -46,7 +51,7 @@
                             <div>
                                 <p>@lang('front.tarix'):</p>
                                 
-                                <span>{{ date('d-m-Y', strtotime($tdetail->created_at))}}</span>
+                                <span>{{($tdetail->created_at) ->format('d.m.Y')}}</span>
                             </div>
                         </div>
                         <div>
