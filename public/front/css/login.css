@@ -67,6 +67,7 @@
     height: 33px;
     text-align: center;
     line-height: 33px;
+    margin-bottom: 2.45px!important;
 }
 
 .login-cont > ul li a:focus , .login-cont > ul li a:hover , .login-cont > ul li a:focus-visible{
@@ -242,6 +243,7 @@
     color: #1A1C1E;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 14.5px 20.5px;
     gap: 10px;
 }
