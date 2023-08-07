@@ -22,7 +22,7 @@ class TraningFrontController extends Controller
 
     public function detail($id){ 
         $banner = BannerImage::where('status','1')->get();
-        $userId = auth()->user()->id;
+        // $userId = auth()->user()->id;
 
         $tdetail = Trainings::join('companies','companies.id','=','trainings.company_id')
         ->where('trainings.id', $id)
