@@ -11,7 +11,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">                        
-                <input type="hidden" id="id" name="id">
+                <input type="hidden" name="id" value="{{$story->id}}">
                 <div class="row mb-4">
                     <div class="col-lg-12">
                         <label for="image" class="form-label">Şəkil seçin...</label>
@@ -22,7 +22,7 @@
                 <div class="row mb-4">
                     <div class="col-lg-12">
                         <label for="stories" class="form-label">Hekayə seçin:</label>
-                        <input class="form-control" type="file" name="stories">
+                        <input class="form-control" type="file" name="stories[]" multiple="">
                             @foreach (json_decode($story->stories) as $storyPath)
                                 <img src="{{ asset($storyPath) }}" alt="Story Preview" style="max-width: 200px;">
                             @endforeach
@@ -31,15 +31,12 @@
                 <div class="row mb-4">
                     <div class="col-lg-12">
                         <label for="link" class="form-label">Yönləndirmə linki</label>
-                        <input class="form-control" type="text" id="edit_link" name="edit_link" value="{{ $story->redirect_link }}">
+                        <input class="form-control" type="text" id="edit_link" name="link" value="{{ $story->redirect_link }}">
                     </div>
                 </div>
             </div>
             
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bağla</button>
                 <button type="submit" class="btn btn-success">Təsdiqlə</button>
-            </div>
         </div>
     </form>
 </div>

@@ -22,12 +22,17 @@ class TraningFrontController extends Controller
 
     public function detail($id){ 
         $banner = BannerImage::where('status','1')->get();
+        $userId = auth()->user()->id;
 
         $tdetail = Trainings::join('companies','companies.id','=','trainings.company_id')
         ->where('trainings.id', $id)
         ->select('companies.id as company_id','companies.name','trainings.*')
         ->first();
+        if (!$tdetail || $tdetail->status == 0) {
+            abort(404);
+        }
 
+        
         $alltrainings = Trainings::join('companies','companies.id','=','trainings.company_id')
         ->select('companies.id as company_id','companies.name','trainings.*')
         ->where('trainings.status','1')
@@ -53,33 +58,34 @@ class TraningFrontController extends Controller
     }
 
 
-    public function telimaxtar(Request $request)
-    {        
-    $banner = BannerImage::where('status','1')->get();
-    $query = Trainings::where('status', '1');
-    $training = $request->input('query');
-    $sort_by = $request->input('type');
+    public function telimaxtar(Request $request){        
+        $banner = BannerImage::where('status','1')->get();
+        $query = Trainings::query();
+        $training = $request->input('query');
+        $sort_by = $request->input('type');
+        $query = $query->join('companies','companies.id','=','trainings.company_id')
+        ->select('companies.id','companies.name','trainings.company_id','trainings.id','trainings.title',
+        'trainings.about','trainings.about','trainings.redirect_link','trainings.image','trainings.payment_type','trainings.price','trainings.view','trainings.deadline','trainings.status','trainings.created_at');
 
-    if (!empty($training)) {
-        $query->where(function ($q) use ($training) {
-            $q->where('slug', 'like', '%' . $training . '%')
-                ->orWhere('title', 'like', '%' . $training . '%')
-                ->orWhere('slug', 'like', '%' . $training . '%');
-        });
+        if (!empty($training)) {
+            $query->where(function ($q) use ($training) {
+                $q->where('trainings.slug', 'like', '%' . $training . '%')
+                    ->orWhere('trainings.title', 'like', '%' . $training . '%');
+            });
+        }
+        if ($sort_by == '1') {
+            $query->orderBy('trainings.title', 'ASC');
+        } if ($sort_by == '2') {
+            $query->orderBy('trainings.title', 'DESC');
+        } if ($sort_by == '3') {
+            $query->orderBy('trainings.view', 'DESC');
+        }
+            
+
+        $alltrainings = $query->paginate(30)->appends(request()->except('page'));
+
+        return view('front.Traning.axtar', get_defined_vars());
     }
-    if ($sort_by == '1') {
-        $query->orderBy('trainings.title', 'ASC');
-    } if ($sort_by == '2') {
-        $query->orderBy('trainings.title', 'DESC');
-    } if ($sort_by == '3') {
-        $query->orderBy('trainings.view', 'DESC');
-    }
-        
-
-    $alltrainings = $query->paginate(30)->appends(request()->except('page'));
-
-    return view('front.Traning.axtar', get_defined_vars());
-}
 
 
 
@@ -98,18 +104,6 @@ class TraningFrontController extends Controller
     public function trainingAddPost(Request $request){
         
         try {
-            $request->validate([
-                'title'=>'required',
-                'company'=>'required',
-                'link'=>'required',                
-                'deadline' => 'required',
-                'payment_type'=>'required',
-                'about' => 'required',
-                'image' => 'required',
-
-
-
-            ]);
 
             $training = new Trainings();
             $training->user_id = Auth::user()->id;
@@ -145,11 +139,10 @@ class TraningFrontController extends Controller
         
     }
 
-    public function trainingEdit($id){
+    public function trainingEdit(Trainings $training){
         $banner = BannerImage::where('status','1')->get();
 
-        $userId = auth()->user()->id;        
-        $training = Trainings::find($id);
+        $userId = auth()->user()->id;
 
         if(!$training || $training->user_id !== $userId) {
             abort(404);
@@ -163,24 +156,6 @@ class TraningFrontController extends Controller
     }
     
     public function trainingEditPost(Request $request){
-        {
-            $req = $request->all();
-    
-            $rules = [
-                'company' => 'numeric',
-                'payment_type' => 'numeric',
-                'image' => 'image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:3072',
-            ];
-            
-            $messages = [
-                'company.numeric' => 'Şirket alanı sayısal olmalıdır.',
-                'payment_type.numeric' => 'Ödeme türü alanı sayısal olmalıdır.',
-                'image.image' => 'Yüklenen dosya bir resim olmalıdır.',
-                'image.mimes' => 'Resim dosyası yalnızca :values formatında olabilir.',
-                'image.max' => 'Resim dosyası en fazla :max kilobayt olmalıdır.',
-            ];
-            
-            $request->validate($rules, $messages);
            
         try {
             $training = Trainings::find($request->id);
@@ -202,15 +177,13 @@ class TraningFrontController extends Controller
     
             if($request->payment_type != 0){
                 $training->price = $request->price;
-            }else{
+            }
+            else{
                 $training->price = NULL;
             }
             $training->deadline = $request->deadline;
     
             if ($request->hasFile('image')) {
-                $request->validate([
-                    'image'=>'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:3072',
-                ]);
                 $image = $request->file('image');
                 $name = 'training_'.Str::random(6).'.'.$image->getClientOriginalExtension();
                 $old_image = $training->image;
@@ -222,7 +195,6 @@ class TraningFrontController extends Controller
                 $name = $directory.$name;
                 $training->image = $name;
             }
-            
             $training->save();
     
             return redirect()->route('traningcreate')->with('success', __('messages.telimyeni'));
@@ -231,8 +203,8 @@ class TraningFrontController extends Controller
             die;
             return redirect()->route('traningcreate')->with('error', $ex->getMessage());
         }
-        }
     }
-    
-    
 }
+    
+    
+

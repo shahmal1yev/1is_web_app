@@ -3,6 +3,7 @@ const menuOpen = document.querySelector('.checkbox')
 const menuItems = document.querySelector('.menu-items')
 const sunIcon = document.querySelector('.dark-mode')
 // const moonIcon = document.querySelector('.moon')
+const swiper_wrapper = document.querySelector('.swiper-wrapper');
 
 // dropdown js
 const select = document.querySelector(".select");
@@ -33,6 +34,7 @@ options.forEach((option) => {
 });
 
 
+
 // swiper js
 var swiper = new Swiper(".mySwiper", {
   spaceBetween: 30,
@@ -48,15 +50,18 @@ var swiper = new Swiper(".mySwiper", {
   },
   breakpoints: {
     640: {
-      slidesPerView: 1,
+      slidesPerView: swiper_wrapper?.children.length > 1 ? 1 :  swiper_wrapper?.children.length,
+      loop: swiper_wrapper?.children.length > 1 ? true : false,   
       spaceBetween: 10
     },
     768: {
-      slidesPerView: 2,
+      slidesPerView: swiper_wrapper?.children.length > 2 ? 2 :  swiper_wrapper?.children.length,
+      loop: swiper_wrapper?.children.length > 2 ? true : false,   
       spaceBetween: 20,
     },
     1024: {
-      slidesPerView: 3,
+      slidesPerView: swiper_wrapper?.children.length > 3 ? 3 :  swiper_wrapper?.children.length,
+      loop: swiper_wrapper?.children.length > 3 ? true : false,   
       spaceBetween: 0,
     },
   },

@@ -101,7 +101,7 @@
 
 <section class="company-inner">
       <div class="container company-inner-container">
-        <h3>{!! htmlspecialchars_decode($compdetail->name) !!}</h3>
+        <h3>{!! html_entity_decode($compdetail->name) !!}</h3>
         <div class="about-company-wrapper">
           <div class="about-company-image">
 
@@ -113,10 +113,10 @@
               <div class="about-company">
                 <h5>@lang('front.comphaq')</h5>
                 <p>
-                  @if(mb_strlen(htmlspecialchars_decode($compdetail->about)) > 465)
-                  {{ mb_substr(htmlspecialchars_decode($compdetail->about), 0, 465) . ' ...' }}
+                  @if(mb_strlen(html_entity_decode($compdetail->about)) > 465)
+                  {{ mb_substr(html_entity_decode($compdetail->about), 0, 465) . ' ...' }}
               @else
-                  {{ htmlspecialchars_decode($compdetail->about) }}
+                  {{ html_entity_decode($compdetail->about) }}
               @endif
               
                 </p>
@@ -233,7 +233,16 @@
                   <div class="slider-vacancy-footer">
                     <span>
                       <img src="{{asset('back/assets/images/icons/building.png')}}" alt="building" />
-                      <a  href="{{route('compdetail', $vacanc->company_id)}}" style="color:#ecdbfc">{{$vacanc->company_name}}</a>
+                      <a  href="{{route('compdetail', $vacanc->company_id)}}" style="color:#ecdbfc">
+                       
+                        @if(mb_strlen(html_entity_decode($vacanc->company_name)) > 30)
+                            {{ mb_substr(html_entity_decode($vacanc->company_name), 0, 30) . ' ...' }}
+                        @else
+                            {{ html_entity_decode($vacanc->company_name) }}
+                        @endif
+                       
+
+                      </a>
                     </span>
                     <span>
                       <img src="{{asset('back/assets/images/icons/clock.png')}}" alt="clock" />

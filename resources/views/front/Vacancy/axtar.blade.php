@@ -295,7 +295,7 @@
       @endif
       
       @if (!empty($companyName))
-          <li>@lang('front.companies'): {{ $companyName }}</li>
+          <li>@lang('front.companies'): {{ htmlspecialchars_decode($companyName) }}</li>
       @endif
     </div>
       <div class="all-vacancies">
@@ -317,13 +317,24 @@
             </div>
           </div>
           <div class="vac-inner2">
-            <a href="{{route('vacancydetail', $vacancy->vacancy_id)}}" class="vac-name"
-              >{{$vacancy->position}}</a>
+            <a href="{{route('vacancydetail', $vacancy->vacancy_id)}}" class="vac-name">
+                @if(strlen($vacancy->position) > 50)
+                    {{ html_entity_decode(substr($vacancy->position, 0, 50)) . '...' }}
+                @else
+                    {!! html_entity_decode($vacancy->position) !!}
+                @endif
+            </a>
           </div>
           <div class="vac-inner3">
             <div class="vac-inn1">
               <img src="https://1is-new.netlify.app/images/building.png" alt="" />
-              <a class="comp-link" href="{{route('compdetail', $vacancy->company_id)}}">{{$vacancy->name}}</a>
+              <a class="comp-link" href="{{route('compdetail', $vacancy->company_id)}}">
+                @if(strlen($vacancy->name) > 30)
+                    {{ html_entity_decode(substr($vacancy->name, 0, 30)) . '...' }}
+                @else
+                    {!! html_entity_decode($vacancy->name) !!}
+                @endif
+            </a>
             </div>
             <div class="vac-inn2">
               <img src="https://1is-new.netlify.app/images/clock.png" alt="" />

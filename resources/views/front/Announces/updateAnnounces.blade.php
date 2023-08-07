@@ -533,6 +533,14 @@
     });
 </script>
 
+<style>
+
+    .tox-notifications-container{
+        display:none !important;
+    }
+    </style>
+
+
 @section('css-link')
 <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
 <link rel="stylesheet" href="{{asset('front/css/companies-announces.css')}}">

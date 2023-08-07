@@ -109,7 +109,7 @@
   
   .bottom-part {
     display: flex;
-    padding: 0 15px 8px 15px;
+    padding: 0 8px 8px 8px;
     flex-wrap: wrap;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -118,10 +118,10 @@
   
   .new-trainig {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 0;
-    left: 40%;
     width: 43.08px;
-    left: 71.5px;
     padding: 2px;
     background: #8843e1;
     border-radius: 6.47059px 6.47059px 0px 0px;
@@ -150,7 +150,7 @@
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 16px;
     color: #221238;
   }
@@ -159,14 +159,14 @@
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 16px;
     color: #221238;
   }
   
   .look-count img,
   .date-training img {
-    width: 12px;
+    width: 11px;
   }
   
   .pagination-ul {

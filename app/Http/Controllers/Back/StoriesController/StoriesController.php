@@ -58,44 +58,42 @@ class StoriesController extends Controller
     }
     public function storyEditPost(Request $request){
         $request->validate([
-            'edit_link' => 'required|min:3',
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:1024',
+            'stories.*' => 'image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif',
+            'link' => 'required|min:3',
         ]);
+
         $story = Stories::find($request->id);
         if(!$story){
             return redirect()->back()->with('error',true);
         }
-        $story->redirect_link = $request->edit_link;
+        
+        $story->redirect_link = $request->link;
+       
         if ($request->hasFile('image')) {
-            $request->validate([
-                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:5000',
-            ]);
             $image = $request->file('image');
-            $old_image = $story->image;
-            if(file_exists($old_image)){
-                unlink($old_image);
-            }
-            $name = 'story_'.Str::random(6).'.' . $image->getClientOriginalExtension();
+            $name = 'story_' . Str::random(6) . '.' . $image->getClientOriginalExtension();
             $directory = 'back/assets/images/stories/';
             $image->move($directory, $name);
-            $name = $directory.$name;
+            $name = $directory . $name;
             $story->image = $name;
         }
         
         if ($request->hasFile('stories')) {
-            $request->validate([
-                'stories.*' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif',
-            ]);
-            $stories = $request->file('stories');
-            $old_image = $story->stories;
-            if(file_exists($old_image)){
-                unlink($old_image);
+            $names = []; 
+    
+            foreach ($request->file('stories') as $storyFile) {
+                $name = 'story_' . Str::random(6) . '.' . $storyFile->getClientOriginalExtension();
+                $directory = 'back/assets/images/stories/';
+                $storyFile->move($directory, $name);
+                $name = $directory . $name;
+                $names[] = $name; 
             }
-            $name = 'story_'.Str::random(6).'.' . $stories->getClientOriginalExtension();
-            $directory = 'back/assets/images/stories/';
-            $stories->move($directory, $name);
-            $name = $directory.$name;
-            $story->stories = $name;
+    
+            $namesJSON = json_encode($names);
+            $story->stories = $namesJSON; 
         }
+        
         return redirect()->back()->with($story->save() ? 'success' : 'error',true);
     }
     public function storyStatus(Request $request){

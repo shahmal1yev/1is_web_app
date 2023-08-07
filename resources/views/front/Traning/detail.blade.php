@@ -26,11 +26,12 @@
                             <img src="https://1is-new.netlify.app/images/dollar.png" alt="">
                             <div>
                                 <p>@lang('front.odenis'):</p>
-                                @if ($tdetail->payment_type == 0)
-                                    <span>@lang('front.pulsuz')</span>
-                                @elseif ($tdetail->payment_type == 1)
+                                @if ($tdetail->payment_type)
                                     <span>{{$tdetail->price}} AZN</span>
+                                @else
+                                    <span>@lang('front.pulsuz')</span>
                                 @endif
+
 
                             </div>
                         </div>
@@ -38,7 +39,7 @@
                             <img src="https://1is-new.netlify.app/images/black-eye.png" alt="">
                             <div>
                                 <p>@lang('front.baxissay'):</p>
-                                <span>{{$tdetail->view}}</span>
+                                    {{ $tdetail->view ?? "0" }}
                             </div>
                         </div>
                         <div>
@@ -46,7 +47,7 @@
                             <div>
                                 <p>@lang('front.tarix'):</p>
                                 
-                                <span>{{ date('d-m-Y', strtotime($tdetail->created_at))}}</span>
+                                <span>{{($tdetail->created_at) ->format('d.m.Y')}}</span>
                             </div>
                         </div>
                         <div>
@@ -90,7 +91,13 @@
             </div>
             <div class="middle-part">
                 <a class="first-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{Str::limit($alltr->title, 35, '...')}}
-                    <a class="second-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">{{$alltr->name}}</a>
+                    <a class="second-mid-a" href="{{route('trainingsdetail', $alltr->id)}}">
+                        @if(mb_strlen(html_entity_decode($alltr->name)) > 30)
+                            {{ mb_substr(html_entity_decode($alltr->name), 0, 30) . ' ...' }}
+                        @else
+                            {{ html_entity_decode($alltr->name) }}
+                        @endif
+                    </a>
                     @if($alltr->price == NULL)
                     <span>@lang('front.pulsuz')</span>
                   @else

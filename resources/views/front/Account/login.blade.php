@@ -49,101 +49,119 @@
         <div class="login-background">
             <div class="login-authentification">
                 <img src="{{asset('back/assets/images/icons/oneJob-login.png')}}" alt="oneJob-login" />
-                <h3>@lang('front.saytagir')</h3>
+                <!-- <h3>@lang('front.saytagir')</h3> -->
                 {{-- <div class="log-reg-tabs-wrapper">
                     <div class="log-reg-tabs">
                         <div class="log-tab active" id="log_tab">Log in</div>
                         <div class="reg-tab" id="reg_tab">Sign in</div>
                     </div>
                 </div> --}}
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-                </ul>
+                
+                <div class="login-cont">
+                    <!-- <ul class="nav nav-tabs" role="tablist" >
+                        <li class="active"><a data-toggle="tab" href="#home">Log in</a></li>
+                        <li><a data-toggle="tab" href="#menu1">Sign in</a></li>
+                    </ul> -->
 
-                <div class="tab-content">
-                    <div id="home" class="tab-pane fadein active">
-                        <form action="{{ route('login_post') }}" class="row login-form" method="POST" id="login_form">
-                        @csrf
-                        <div class="form-group login-form-group col-lg-9 col-md-7">
-                            <label for="login_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                            <input type="email" name="email" required placeholder="@lang('front.emaildaxilet')" />
-                        </div>
-                        <div class="form-group login-form-group col-lg-9 col-md-7">
-                            <label for="login_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                            <input type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
-                        </div>
-                        <div class="login-bottom">
-                            <div class="remember-me-checkbox">
-                                <input type="checkbox" name="remember" id="remember" />
-                                <label for="remember"><b>@lang('front.remember')</b></label>
-                            </div>
-                            <a class="forgot-password" href="{{route('forget')}}"><b>@lang('front.sifreunut')</b></a>
-                        </div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false">Sign in</a>
+                        </li>
+                    </ul>
 
-                        <div class="col-lg-9 col-md-7 login-buttons">
-                            <button class="login-registration" type="submit">@lang('front.daxilol')</button>                 
-                            <span>@lang('front.veya')</span>
-                            <a class="login-google-registration" href="{{ route('google.login') }}">
-                                <img src="{{asset('back/assets/images/google-play.png')}}" alt="google-play" />
-                                @lang('front.google')
-                            </a>
-                            
-                        </div>
-                    </form>
-                    </div>
-                    <div id="menu1" class="tab-pane fade">
-                                    
-                        <form action="{{ route('register_post') }}" class="row mx-0 register-form mt-4"  id="register_form" method="POST">
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fadein active">
+                            <form action="{{ route('login_post') }}" class="row login-form" method="POST" id="login_form">
                             @csrf
-                            <div class="form-group login-form-group col-md-5">
-                                <label for="reg_name">@lang('front.ad')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                <input placeholder="@lang('front.addaxilet')" type="text" name="name"/>
+                            <div class="form-group login-form-group col-lg-9 col-md-7">
+                                <label class='login-form-email' for="login_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                <input type="email" name="email" required placeholder="@lang('front.emaildaxilet')" />
                             </div>
-                            <div class="form-group login-form-group col-md-5">
-                                <label for="reg_name">@lang('front.soyad')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                <input placeholder="@lang('front.soyaddaxil')" type="text" name="surname"/>
+                            <div class="form-group login-form-group col-lg-9 col-md-7 password-input">
+                                <label for="login_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                <input id="login-pass" type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
+                                <img src="{{asset('back/assets/images/view.png')}}" id="view-id" alt="" />
+                                <img src="{{asset('back/assets/images/hide.png')}}" id="hide-id" alt="" />
                             </div>
-                            <div class="form-group login-form-group col-md-5">
-                                <label for="reg_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                <input type="email" name="email" placeholder="@lang('front.emaildaxilet')"/>
-                                
+                            <div class="login-bottom">
+                                <div class="remember-me-checkbox">
+                                    <input type="checkbox" name="remember" id="remember" />
+                                    <label for="remember"><b>@lang('front.remember')</b></label>
+                                </div>
+                                <a class="forgot-password" href="{{route('forget')}}"><b>@lang('front.sifreunut')</b></a>
                             </div>
-                            <div class="form-group login-form-group col-md-5">
-                                <label for="reg_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                <input type="password" name="password" id="password" placeholder="@lang('front.sifredaxilet')"/>
-                            </div>
-                            <div class="form-group login-form-group col-md-10">
-                                <label for="reg_password">@lang('front.tekrarpass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('front.tekrarpass')"/>
-                            </div>
-                            
-                            
-                            <div class="form-group login-form-group col-md-10">
-                            <div id="no-limit">
-                                <p>@lang('front.cats')<span style="color: rgba(192, 0, 0, 1)">*</span></p>
-                                <select class="select2 form-select" style="width: 100%;" name="cat_id[]" multiple>
-                                    <option value="" disabled></option>
-
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->title_az}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            
-                        </div>
 
                             <div class="col-lg-9 col-md-7 login-buttons">
-                                <button class="login-registration" type="submit">@lang('front.register')</button>                 
+                                <button class="login-registration" type="submit">@lang('front.daxilol')</button>                 
                                 <span>@lang('front.veya')</span>
-                                    <a class="login-google-registration" href="{{ route('google.login') }}">
-                                        <img src="{{asset('back/assets/images/google-play.png')}}" alt="google-play" />
-                                        @lang('front.google')
-                                    </a>
-                                    
-                            </div>    
+                                <a class="login-google-registration" href="{{ route('google.login') }}">
+                                    <img src="{{asset('back/assets/images/google-play.png')}}" alt="google-play" />
+                                    @lang('front.google')
+                                </a>
+                                
+                            </div>
                         </form>
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                                        
+                            <form action="{{ route('register_post') }}" class="row mx-0 register-form mt-4"  id="register_form" method="POST">
+                                @csrf
+                                <div class="form-group login-form-group col-md-5">
+                                    <label for="reg_name">@lang('front.ad')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                    <input placeholder="@lang('front.addaxilet')" type="text" name="name"/>
+                                </div>
+                                <div class="form-group login-form-group col-md-5">
+                                    <label for="reg_name">@lang('front.soyad')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                    <input placeholder="@lang('front.soyaddaxil')" type="text" name="surname"/>
+                                </div>
+                                <div class="form-group login-form-group col-md-5">
+                                    <label for="reg_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                    <input type="email" name="email" placeholder="@lang('front.emaildaxilet')"/>
+                                    
+                                </div>
+                                <div class="form-group login-form-group col-md-5 sign-div">
+                                    <label for="reg_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                    <input id='sign-inpt1' type="password" name="password" id="password" placeholder="@lang('front.sifredaxilet')"/>
+                                    <img src="{{asset('back/assets/images/view.png')}}" id="view-id2" alt="" />
+                                    <img src="{{asset('back/assets/images/hide.png')}}" id="hide-id2" alt="" />
+                                </div>
+                                <div class="form-group login-form-group col-md-10 sign-div">
+                                    <label for="reg_password">@lang('front.tekrarpass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
+                                    <input id='sign-inpt2' type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('front.tekrarpass')"/>
+                                    <img src="{{asset('back/assets/images/view.png')}}" id="view-id3" alt="" />
+                                    <img src="{{asset('back/assets/images/hide.png')}}" id="hide-id3" alt="" />
+                                </div>
+                                
+                                
+                                <div class="form-group login-form-group col-md-10">
+                                <div id="no-limit">
+                                    <p>@lang('front.cats')<span style="color: rgba(192, 0, 0, 1)">*</span></p>
+                                    <select class="select2 form-select" style="width: 100%;" name="cat_id[]" multiple>
+                                        <option value="" disabled></option>
+
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->title_az}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                
+                            </div>
+
+                                <div class="col-lg-10 col-md-7 login-buttons">
+                                    <button class="login-registration" type="submit">@lang('front.register')</button>                 
+                                    <span>@lang('front.veya')</span>
+                                        <a class="login-google-registration" href="{{ route('google.login') }}">
+                                            <img src="{{asset('back/assets/images/google-play.png')}}" alt="google-play" />
+                                            @lang('front.google')
+                                        </a>
+                                        
+                                </div>    
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -397,6 +415,60 @@
         }
     });
     });
+</script>
+
+<script>
+
+    // LOGIN SHOW AND HIDE
+    const viewBtn = document.getElementById('view-id')
+    const hideBtn = document.getElementById('hide-id')
+    const loginPas = document.getElementById('login-pass')
+
+    hideBtn.addEventListener('click' , () => {
+        loginPas.type = 'text'
+        hideBtn.style.display = 'none'
+        viewBtn.style.display = 'block'
+    })
+
+    viewBtn.addEventListener('click' , () => {
+        loginPas.type = 'password'
+        viewBtn.style.display = 'none'
+        hideBtn.style.display = 'block'
+    })
+
+
+    // SIGN SHOW AND HIDE
+    const viewBtn2 = document.getElementById('view-id2')
+    const hideBtn2 = document.getElementById('hide-id2')
+    const loginPas2 = document.getElementById('sign-inpt1')
+    const viewBtn3 = document.getElementById('view-id3')
+    const hideBtn3 = document.getElementById('hide-id3')
+    const loginPas3 = document.getElementById('sign-inpt2')
+
+    hideBtn2.addEventListener('click' , () => {
+        loginPas2.type = 'text'
+        hideBtn2.style.display = 'none'
+        viewBtn2.style.display = 'block'
+    })
+
+    viewBtn2.addEventListener('click' , () => {
+        loginPas2.type = 'password'
+        viewBtn2.style.display = 'none'
+        hideBtn2.style.display = 'block'
+    })
+
+    hideBtn3.addEventListener('click' , () => {
+        loginPas3.type = 'text'
+        hideBtn3.style.display = 'none'
+        viewBtn3.style.display = 'block'
+    })
+
+    viewBtn3.addEventListener('click' , () => {
+        loginPas3.type = 'password'
+        viewBtn3.style.display = 'none'
+        hideBtn3.style.display = 'block'
+    })
+
 </script>
 @endsection
 

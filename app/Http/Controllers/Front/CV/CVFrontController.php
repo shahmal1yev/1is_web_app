@@ -206,15 +206,15 @@ class CVFrontController extends Controller
     public function cvPost(Request $request){
         try {
             $req = $request->all();
-        $rules = [
-            'position' => 'max:1000',
-            'image' => 'image|mimes:jpg,png,jpeg|max:5000',
-            'contact_mail' => 'nullable|email',
-            'cv' => 'max:5000',
-        ];
-        
-        
-        $request->validate($rules);
+            $rules = [
+                'position' => 'max:1000',
+                'image' => 'image|mimes:jpg,png,jpeg|max:5000',
+                'contact_mail' => 'nullable|email',
+                'cv' => 'max:5000',
+            ];
+            
+            
+            $request->validate($rules);
        
     
             $cv = new Cv();
