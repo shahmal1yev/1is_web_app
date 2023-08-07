@@ -155,16 +155,6 @@ class TraningFrontController extends Controller
     }
     
     public function trainingEditPost(Request $request){
-        {
-            $req = $request->all();
-    
-            $rules = [
-                'company' => 'numeric',
-                'payment_type' => 'numeric',
-                'image' => 'image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:5000',
-            ];
-            
-            $request->validate($rules);
            
         try {
             $training = Trainings::find($request->id);
@@ -186,15 +176,10 @@ class TraningFrontController extends Controller
     
             if($request->payment_type != 0){
                 $training->price = $request->price;
-            }else{
-                $training->price = NULL;
             }
             $training->deadline = $request->deadline;
     
             if ($request->hasFile('image')) {
-                $request->validate([
-                    'image'=>'required|image|mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif|max:3072',
-                ]);
                 $image = $request->file('image');
                 $name = 'training_'.Str::random(6).'.'.$image->getClientOriginalExtension();
                 $old_image = $training->image;
@@ -206,7 +191,6 @@ class TraningFrontController extends Controller
                 $name = $directory.$name;
                 $training->image = $name;
             }
-            
             $training->save();
     
             return redirect()->route('traningcreate')->with('success', __('messages.telimyeni'));
@@ -219,4 +203,4 @@ class TraningFrontController extends Controller
     }
     
     
-}
+
