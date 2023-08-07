@@ -117,12 +117,12 @@
                                     <label for="reg_name">@lang('front.soyad')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
                                     <input placeholder="@lang('front.soyaddaxil')" type="text" name="surname"/>
                                 </div>
-                                <div class="form-group login-form-group col-md-5">
+                                <div class="form-group login-form-group col-md-10">
                                     <label for="reg_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
                                     <input type="email" name="email" placeholder="@lang('front.emaildaxilet')"/>
                                     
                                 </div>
-                                <div class="form-group login-form-group col-md-5 sign-div">
+                                <div class="form-group login-form-group col-md-10 sign-div">
                                     <label for="reg_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
                                     <input id='sign-inpt1' type="password" name="password" id="password" placeholder="@lang('front.sifredaxilet')"/>
                                     <img src="{{asset('back/assets/images/view.png')}}" id="view-id2" alt="" />

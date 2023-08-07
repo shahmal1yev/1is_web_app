@@ -1291,7 +1291,7 @@ footer {
   }
 
   .detail-search {
-    width: 160px;
+    width: 130px;
     height: 30px;
     font-size: 13px;
   }
@@ -1333,6 +1333,7 @@ footer {
   width: 100%;
   background: #221238;
   padding-top: 50px;
+  margin-top: 10px;
 }
 
 .footer-container {
