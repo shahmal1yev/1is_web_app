@@ -153,10 +153,10 @@
                                     <img src="{{asset($train->image)}}" alt="training-list-avatar" />
                                 </div>
                                 <p>{{$train->title}}</p>
-                                @if($train->price == NULL)
+                                @if($train->payment_type)
+                                <span>{{$train->price}} AZN</span>
+                                @else
                                 <span>@lang('front.pulsuz')</span>
-                              @else
-                              <span>{{$train->price}} AZN</span>
                               @endif
                                 <a href="{{route('trainingsdetail', $train->id)}}" class="training-list-thin">@lang('front.readmore')</a>
                                 <a href="{{route('traniningedit', $train->id)}}" class="training-list-edit">

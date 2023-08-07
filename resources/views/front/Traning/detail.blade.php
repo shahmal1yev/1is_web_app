@@ -26,10 +26,10 @@
                             <img src="https://1is-new.netlify.app/images/dollar.png" alt="">
                             <div>
                                 <p>@lang('front.odenis'):</p>
-                                @if (!$tdetail || empty($tdetail) || $tdetail->payment_type == 0)
-                                    <span>@lang('front.pulsuz')</span>
-                                @elseif ($tdetail->payment_type == 1)
+                                @if ($tdetail->payment_type)
                                     <span>{{$tdetail->price}} AZN</span>
+                                @else
+                                    <span>@lang('front.pulsuz')</span>
                                 @endif
 
 
@@ -39,11 +39,7 @@
                             <img src="https://1is-new.netlify.app/images/black-eye.png" alt="">
                             <div>
                                 <p>@lang('front.baxissay'):</p>
-                                    @if ($tdetail && $tdetail->view !== null)
-                                        <span>{{$tdetail->view}}</span>
-                                    @else
-                                        <span>0</span>
-                                    @endif
+                                    {{ $tdetail->view ?? "0" }}
                             </div>
                         </div>
                         <div>

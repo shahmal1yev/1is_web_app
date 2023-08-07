@@ -22,6 +22,7 @@ class TraningFrontController extends Controller
 
     public function detail($id){ 
         $banner = BannerImage::where('status','1')->get();
+        $userId = auth()->user()->id;
 
         $tdetail = Trainings::join('companies','companies.id','=','trainings.company_id')
         ->where('trainings.id', $id)
@@ -30,6 +31,8 @@ class TraningFrontController extends Controller
         if (!$tdetail || $tdetail->status == 0) {
             abort(404);
         }
+
+        
         $alltrainings = Trainings::join('companies','companies.id','=','trainings.company_id')
         ->select('companies.id as company_id','companies.name','trainings.*')
         ->where('trainings.status','1')
@@ -55,35 +58,34 @@ class TraningFrontController extends Controller
     }
 
 
-    public function telimaxtar(Request $request)
-    {        
-    $banner = BannerImage::where('status','1')->get();
-    $query = Trainings::query();
-    $training = $request->input('query');
-    $sort_by = $request->input('type');
-    $query = $query->join('companies','companies.id','=','trainings.company_id')
-    ->select('companies.id','companies.name','trainings.company_id','trainings.id','trainings.title',
-    'trainings.about','trainings.about','trainings.redirect_link','trainings.image','trainings.payment_type','trainings.price','trainings.view','trainings.deadline','trainings.status','trainings.created_at');
+    public function telimaxtar(Request $request){        
+        $banner = BannerImage::where('status','1')->get();
+        $query = Trainings::query();
+        $training = $request->input('query');
+        $sort_by = $request->input('type');
+        $query = $query->join('companies','companies.id','=','trainings.company_id')
+        ->select('companies.id','companies.name','trainings.company_id','trainings.id','trainings.title',
+        'trainings.about','trainings.about','trainings.redirect_link','trainings.image','trainings.payment_type','trainings.price','trainings.view','trainings.deadline','trainings.status','trainings.created_at');
 
-    if (!empty($training)) {
-        $query->where(function ($q) use ($training) {
-            $q->where('trainings.slug', 'like', '%' . $training . '%')
-                ->orWhere('trainings.title', 'like', '%' . $training . '%');
-        });
+        if (!empty($training)) {
+            $query->where(function ($q) use ($training) {
+                $q->where('trainings.slug', 'like', '%' . $training . '%')
+                    ->orWhere('trainings.title', 'like', '%' . $training . '%');
+            });
+        }
+        if ($sort_by == '1') {
+            $query->orderBy('trainings.title', 'ASC');
+        } if ($sort_by == '2') {
+            $query->orderBy('trainings.title', 'DESC');
+        } if ($sort_by == '3') {
+            $query->orderBy('trainings.view', 'DESC');
+        }
+            
+
+        $alltrainings = $query->paginate(30)->appends(request()->except('page'));
+
+        return view('front.Traning.axtar', get_defined_vars());
     }
-    if ($sort_by == '1') {
-        $query->orderBy('trainings.title', 'ASC');
-    } if ($sort_by == '2') {
-        $query->orderBy('trainings.title', 'DESC');
-    } if ($sort_by == '3') {
-        $query->orderBy('trainings.view', 'DESC');
-    }
-        
-
-    $alltrainings = $query->paginate(30)->appends(request()->except('page'));
-
-    return view('front.Traning.axtar', get_defined_vars());
-}
 
 
 
@@ -137,11 +139,10 @@ class TraningFrontController extends Controller
         
     }
 
-    public function trainingEdit($id){
+    public function trainingEdit(Trainings $training){
         $banner = BannerImage::where('status','1')->get();
 
-        $userId = auth()->user()->id;        
-        $training = Trainings::find($id);
+        $userId = auth()->user()->id;
 
         if(!$training || $training->user_id !== $userId) {
             abort(404);
@@ -177,6 +178,9 @@ class TraningFrontController extends Controller
             if($request->payment_type != 0){
                 $training->price = $request->price;
             }
+            else{
+                $training->price = NULL;
+            }
             $training->deadline = $request->deadline;
     
             if ($request->hasFile('image')) {
@@ -199,8 +203,8 @@ class TraningFrontController extends Controller
             die;
             return redirect()->route('traningcreate')->with('error', $ex->getMessage());
         }
-        }
     }
+}
     
     
 

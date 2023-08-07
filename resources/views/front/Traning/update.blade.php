@@ -29,7 +29,9 @@
     <section class="add-training">
         <div class="container add-training-container">
             <div class="row">   
-                <form action="{{route('trainingEditPost')}}" method="POST" enctype="multipart/form-data" class="tab-pane add-training-form fade show active col-12" id="register_form" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+                <div class="tab-pane add-training-form fade show active col-md-12" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <form action="{{route('trainingEditPost')}}" method="POST" enctype="multipart/form-data" id="register_form">
                     @csrf
                     <input type="hidden" name="id" value="{{$training->id}}">
                     <div class="form-group add-training-input-group">                            
@@ -57,7 +59,13 @@
                     <div class="form-group add-training-input-group ">
                         <label for="training_information">@lang('front.telhaq') <span class="text-danger">*</span></label>
                         <textarea class="form-control" id="training_information" name="about" rows="5">{!! html_entity_decode($training->about) !!}</textarea>
-                        
+
+                    </div>
+                    <div class="form-group add-training-input-group">
+                        <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
+                        <input type="url" name="link" placeholder="@lang('front.urldaxilet')" class="form-control" id="training_url" value="{{$training->redirect_link}}" />
+                        <label id="training_url-error" class="error" for="training_url">Bu sahə doldurulmalıdır!</label>
+
                     </div>
                     <div class="form-group add-training-input-group ">
                         <label for="training_companies">@lang('front.companies') <span class="text-danger">*</span></label>
@@ -68,24 +76,23 @@
                         @endforeach
                         </select>
                     </div>
-                    <div class="form-group add-training-input-group ">
+
+                    <div class="form-group add-training-input-group @error('payment_type') has-error @enderror">
                         <label for="training_payment">@lang('front.odenistip') <span class="text-danger">*</span></label>
-                        <select name="payment_type" id="payment_type" class="form-control" onchange="getPayment(this.value)">
+                        <select name="payment_type" id="payment_type" class="form-control" onchange="getPayment(this.value)" required>
                             <option disabled selected>@lang('front.odenistip')</option>
                             <option value="0" @if($training->payment_type == '0') selected @endif>@lang('front.pulsuz')</option>
                             <option value="1" @if($training->payment_type == '1') selected @endif>@lang('front.pullu')</option>
                         </select>
-                        
+                       
                     </div>
                     <div class="form-group add-training-input-group">                    
                         <div class="row mb-4" id="price" @if($training->payment_type == '0') style="display: none" @endif >
-
                         <label for="training_name">@lang('front.qiymetpul')</label>
                         <input class="form-control" type="number"  name="price" step="1" placeholder="@lang('front.qiymetpul'):" value="{{$training->price}}">
                     </div>
-                    
                     <div class="add-training-form-button">
-                        <button type="submit">@lang('front.daxilet')</button>
+                        <button id="send" type="submit">@lang('front.daxilet')</button>
                     </div>
                 </form>
                 
@@ -100,8 +107,9 @@
             }else{
                 $('#price').slideUp()
             }
-        }
-    </script>
+        }    
+        </script>
+
 @endsection
 
 
@@ -112,10 +120,8 @@
 <link rel="stylesheet" href="{{asset('front/css/header.css')}}">
 @endsection
 
-@section('js-link')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+@section('js')
 <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
-@endsection
 
 <script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
@@ -184,10 +190,9 @@
     });
 </script>
     <style>
-
-    .tox-notifications-container{
-        display:none !important;
-    }
+        .tox-notifications-container{
+            display:none !important;
+        }
     </style>
 
 
@@ -256,14 +261,11 @@
                 },
                 price: {
                     required: function(element) {
-                        return $("#training_payment").val() === '1';
+                        return $("#training_payment").val() !== '0';
                     }
                 },
 
-                image: {
-                    required: true,
-                    
-                },
+
                 
 
 
@@ -316,19 +318,13 @@
                     },
                 },
 
-                image: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
 
                 
                 
             },
             submitHandler: function(form) {
                 if (form.checkValidity()) {
-                    return false;
+                    return true;
                 }
             },
             errorPlacement: function(error, element) {
@@ -342,6 +338,48 @@
 
    
 </script>
+
+
+<script>
+    const training_url = document.querySelector('#training_url');
+    const register_form = document.querySelector('#register_form');
+    const training_url_error = document.querySelector('#training_url-error');
+    
+    register_form.addEventListener('submit', (e) => {
+        if(training_url.value === '') {
+            training_url_error.style.display = 'block';
+            e.preventDefault();
+        }else {
+            training_url_error.style.display = 'none';
+        }
+    });
+</script>
+
+<script>
+    const sendBtn = document.getElementById("send");
+      sendBtn.addEventListener("click", (e) => {
+
+          var errorIn = document.getElementById("training_url-error");
+          var nameVal = document.getElementById("training_url");
+          var latestVal = nameVal.value;
+          if (latestVal.length == 0) {
+          errorIn.innerText = "Link is required";
+          return false;
+          }
+
+        //   if (!latestVal.match(/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})/)) {
+        //   errorIn.innerText = "Please enter a valid URL.";
+        //   e.preventDefault()
+        //   return false;
+        //   }
+
+          errorIn.innerText = "Valid Link";
+          return true;
+          
+      });
+</script>
+@endsection
+
 
 
 
