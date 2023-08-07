@@ -50,7 +50,7 @@
         <div class="container add-training-container">
             <div class="row">   
                 <div class="nav flex-column nav-pills add-training-tabs col-md-6" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active trending-nav-link1" id="v-pills-home-tab" data-toggle="pill" href="#register_form" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    <a class="nav-link active trending-nav-link1" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                         <img id="training_icon1" src="{{asset('back/assets/images/icons/add-training-white.png')}}" alt="add-training-white" /> @lang('front.telimadd')
                     </a>
                     <a class="nav-link nav-link-2 trending-nav-link2" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
@@ -60,21 +60,23 @@
                 </div>
 
 
-                <form class="tab-pane add-training-form fade show active col-md-6" action="{{route('trainingAddPost')}}" method="POST" enctype="multipart/form-data" id="register_form" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="tab-pane add-training-form fade show active col-md-6" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <form action="{{route('trainingAddPost')}}" method="POST" enctype="multipart/form-data" id="register_form">
                         @csrf
                     <div class="form-group add-training-input-group">
                         <label for="training_name">@lang('front.tad') <span class="text-danger">*</span></label>
-                        <input type="text" name="title" class="form-control" id="training_name" placeholder="@lang('front.tad')" value="{{old('title')}}" required />
+                        <input type="text" name="title" class="form-control" id="training_name" placeholder="@lang('front.tad')" value="{{old('title')}}" />
                         
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_date">@lang('front.sonmur') <span class="text-danger">*</span></label>
-                        <input type="date" name="deadline" class="form-control" id="training_date" value="{{old('deadline')}}" required />
+                        <input type="date" name="deadline" class="form-control" id="training_date" value="{{old('deadline')}}" />
                         
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_information">@lang('front.telhaq') <span class="text-danger">*</span></label>
-                        <textarea class="form-control" name="about" id="training_information" rows="5" required placeholder="@lang('front.melumatver')!">{{old('about', isset($data) ? $data->about : '')}}</textarea>
+                        <textarea class="form-control" name="about" id="training_information" rows="5" placeholder="@lang('front.melumatver')!">{{old('about', isset($data) ? $data->about : '')}}</textarea>
+
                     </div>
                     
                     <div class="form-group add-training-input-group">
@@ -89,10 +91,12 @@
                     <div class="form-group add-training-input-group">
                         <label for="training_url">@lang('front.yonlink') <span class="text-danger">*</span></label>
                         <input type="url" name="link" placeholder="@lang('front.urldaxilet')" class="form-control" id="training_url" value="{{old('link')}}" />
+                        <label id="training_url-error" class="error" for="training_url">Bu sahə doldurulmalıdır!</label>
+
                     </div>
                     <div class="form-group add-training-input-group">
                         <label for="training_payment">@lang('front.odenistip') <span class="text-danger">*</span></label>
-                        <select name="payment_type" class="form-control" id="training_payment" onchange="getPayment(this.value)" required>
+                        <select name="payment_type" class="form-control" id="training_payment" onchange="getPayment(this.value)" >
                             <option disabled selected>@lang('front.odenismetod')...</option>
                             <option value="0" {{ old('payment_type') == '0' ? 'selected' : '' }}>@lang('front.pulsuz')</option>
                             <option value="1" {{ old('payment_type') == '1' ? 'selected' : '' }}>@lang('front.pullu')</option>
@@ -102,7 +106,7 @@
                     <div class="form-group add-training-input-group">
                         <div class="row mb-4" id="price" @if(old('payment_type') == '0' || !old('payment_type')) style="display: none" @endif>
                         <label for="training_name">@lang('front.qiymetpul')</label>
-                            <input class="form-control" type="number" name="price" step="1" placeholder="@lang('front.qiymetpul'):" value="{{ old('price') }}" required>
+                            <input class="form-control" type="number" name="price" step="1" placeholder="@lang('front.qiymetpul'):" value="{{ old('price') }}">
                         </div>
                     </div>
                     
@@ -137,6 +141,7 @@
                         <button id="send" type="submit">@lang('front.elaveet')</button>
                     </div>
                 </form>
+                </div> 
 
                 
                 <div class="tab-pane add-training-card-wrapper col-12 fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -268,13 +273,14 @@
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
     });
 </script>
+<style>
 
-    <style>
-
-        .tox-notifications-container{
-            display:none !important;
-        }
+    .tox-notifications-container{
+        display:none !important;
+    }
     </style>
+
+
 
 
 
@@ -334,14 +340,19 @@
                     required: true,
                 },
 
+                link: {
+                    required: true,
+                },
+
                 payment_type: {
                     required: true,
                 },
                 price: {
                     required: function(element) {
-                        return $("#training_payment").val() === '1';
+                        return $("#training_payment").val() !== '0';
                     }
                 },
+
 
                 image: {
                     required: true,
@@ -380,6 +391,12 @@
                     
                     
                 },
+                link: {
+                    required: function() {
+                        return getErrorMessage('required', lang);
+                    },
+                    
+                },
                 payment_type: {
                     required: function() {
                         return getErrorMessage('required', lang);
@@ -405,20 +422,59 @@
             },
             submitHandler: function(form) {
                 if (form.checkValidity()) {
-                    return false;
+                    return true;
                 }
             },
             errorPlacement: function(error, element) {
-            error.insertAfter(element); 
-            }
+        error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+    }
         });
+
+    
     
     });
 
    
 </script>
 
+<script>
+    const training_url = document.querySelector('#training_url');
+    const register_form = document.querySelector('#register_form');
+    const training_url_error = document.querySelector('#training_url-error');
+    
+    register_form.addEventListener('submit', (e) => {
+        if(training_url.value === '') {
+            training_url_error.style.display = 'block';
+            e.preventDefault();
+        }else {
+            training_url_error.style.display = 'none';
+        }
+    });
+</script>
 
+<script>
+    const sendBtn = document.getElementById("send");
+      sendBtn.addEventListener("click", (e) => {
+
+          var errorIn = document.getElementById("training_url-error");
+          var nameVal = document.getElementById("training_url");
+          var latestVal = nameVal.value;
+          if (latestVal.length == 0) {
+          errorIn.innerText = "Link is required";
+          return false;
+          }
+
+        //   if (!latestVal.match(/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})/)) {
+        //   errorIn.innerText = "Please enter a valid URL.";
+        //   e.preventDefault()
+        //   return false;
+        //   }
+
+          errorIn.innerText = "Valid Link";
+          return true;
+          
+      });
+</script>
 <script>
     $(document).ready(function() {
         $('.js-example-basic-single').select2();
