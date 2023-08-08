@@ -1,829 +1,878 @@
 .dark {
-  background-color: #131313;
+    background-color: #131313;
 }
 
 .dark header {
-  background-color: #000;
+    background-color: #000;
 }
 
 .dark .line {
-  background: #fff;
+    background: #fff;
 }
 
-.dark .login-background{
-  background-color: #000;
+.dark .login-background {
+    background-color: #000;
 }
-
 
 .dark iframe body {
-  color: #fff!important;
+    color: #fff !important;
 }
 
 .dark .header-links:hover {
-  background: #1B1523 !important;
-  color: #9559e5;
+    background: #1b1523 !important;
+    color: #9559e5;
 }
 
 .dark .dark-mode {
-  background-image: url("https://1is.butagrup.az/back/assets/images/icons/light.png");
-  background-size: cover;
-  background-position: center;
-  width: 30px;
-  height: 30px;
+    background-image: url("https://1is.butagrup.az/back/assets/images/icons/light.png");
+    background-size: cover;
+    background-position: center;
+    width: 30px;
+    height: 30px;
 }
 
 .dark .training-card {
-  background-color: #131313;
+    background-color: #000;
+}
+
+.dark .first-mid-a,
+.dark .middle-part span,
+.dark .second-mid-a,
+.dark .look-count span,
+.dark .date-training span {
+    color: #ccc6c6;
 }
 
 .dark .menu-items ul li a {
-  color: #fff;
+    color: #fff;
 }
 
-.dark .sortclass select{
-  border: 2px solid #9559E5;
-  color: #fff;
-  background-color: #131313;
+.dark .home-filter1 img {
+    filter: invert(1);
 }
 
-.dark label[for='login_email'] , .dark label[for='login_password']{
-  color: #000 !important;
+.dark .sortclass select {
+    border: 2px solid #9559e5;
+    color: #fff;
+    background-color: #131313;
 }
 
-.dark #show-pass img{
-  filter: invert(1);
+.dark label[for="login_email"],
+.dark label[for="login_password"] {
+    color: #000 !important;
 }
 
-
-
-.dark #hide-pass img{
-  filter: invert(1);
+.dark #show-pass img {
+    filter: invert(1);
 }
 
-.dark .policy-p-text{
-  color: #fff;
+.dark #hide-pass img {
+    filter: invert(1);
+}
+
+.dark .policy-p-text {
+    color: #fff;
 }
 .dark .active-filter {
-  background-color: #131313!important;
+    background-color: #131313 !important;
 }
 
 .dark .active-filters {
-  background-color: #131313;
+    background-color: #131313;
 }
 
 .dark .blog-header-container {
-  background-color: #131313!important;
+    background-color: #131313 !important;
 }
 
 .dark .blog-header-container > div {
-  background-color: #131313!important;
+    background-color: #131313 !important;
 }
 
 .dark .blog-header-container > div > input {
-  background-color: #131313!important;
-  color: #fff!important;
+    background-color: #131313 !important;
+    color: #fff !important;
 }
 
 .dark .text-field p a {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .training-form-div {
-  background-color: #131313!important;
+    background-color: #131313 !important;
 }
 
 .dark .training-form-div input {
-  background-color: #131313!important;
-  color: #fff;
+    background-color: #131313 !important;
+    color: #fff;
 }
 
 .dark .filter-input {
-  background-color: #131313!important;
-  color: #fff;
+    background-color: #131313 !important;
+    color: #fff;
 }
 
 .dark .detail-search {
-  background-color: #131313;
+    background-color: #131313;
 }
 
 .dark .popular-h1 {
-  color: #fdfdfd;
+    color: #fdfdfd;
 }
 
 .dark .pop-card1 {
-  background-color: #000;
+    background-color: #000;
 }
 
 .dark .text-field p {
-  color: #fdfdfd;
+    color: #fdfdfd;
 }
 
 .dark .vac-card {
-  background-color: #131313;
+    background-color: #131313;
 }
 
 .dark .vac-name {
-  color: #fdfdfd;
+    color: #fdfdfd;
 }
 
 .dark .vac-inner1-a {
-  background-color: #21053c;
+    background-color: #21053c;
 }
 
 .dark .select {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .caret {
-  filter: invert(0);
+    filter: invert(0);
 }
 
 .dark .caret-rotate {
-  filter: invert(1) !important;
+    filter: invert(1) !important;
 }
 
 .dark .new-vac-badge {
-  background: #21053c;
+    background: #21053c;
 }
 
 /* VACANCY ALL DARK */
 .dark .all-vacantions {
-  background-color: #131313 !important;
+    background-color: #131313 !important;
 }
 
 .dark .vac-card {
-  background-color: #000;
+    background-color: #000;
 }
 
 .dark .section-filter h2 {
-  color: #D3D1D1;
+    color: #d3d1d1;
 }
 
 .dark #check-label {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .dropdown2 h2 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .blog-all-result-text {
-  color: #fff;
+    color: #fff;
 }
 
 /* JOB SEARCHERS */
 .dark .main-container h3 {
-  color: #d3d1d1;
+    color: #d3d1d1;
 }
 
 .dark .contentclass {
-  background-color: #0d0d0d;
+    background-color: #0d0d0d;
 }
 
 .dark .name {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .profession {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .salary {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .jobsearchers p {
-  color: #d3d1d1;
+    color: #d3d1d1;
 }
 
 .dark .jobsearcher-inner {
-  background-color: rgba(19, 19, 19, 1);
+    background-color: rgba(19, 19, 19, 1);
 }
 
-.dark .job-information-row, .dark .jobsearcher-profile, .dark .job-information-row2, .dark .job-information-row3, .dark .jobsearcher-ability {
-  background: #0D0D0D;
+.dark .job-information-row,
+.dark .jobsearcher-profile,
+.dark .job-information-row2,
+.dark .job-information-row3,
+.dark .jobsearcher-ability {
+    background: #0d0d0d;
 }
 
 .dark .jobsearcher-profile {
-  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
 }
 
-.dark .jobsearcher-text h3, .dark .job-information h5, .dark .job-information span, .dark .job-information p {
-  color: #fff;
+.dark .jobsearcher-text h3,
+.dark .job-information h5,
+.dark .job-information span,
+.dark .job-information p {
+    color: #fff;
 }
 
-.dark .input-cv label span, .dark .jobsearcher-inner-container header {
-  color: #0D0D0D;
+.dark .input-cv label span,
+.dark .jobsearcher-inner-container header {
+    color: #0d0d0d;
 }
 
-.dark .job-information-img, .dark .jobsearcher-ability span {
-  background: #27153F;
-  color: #fff;
+.dark .job-information-img,
+.dark .jobsearcher-ability span {
+    background: #27153f;
+    color: #fff;
 }
 
 .dark .job-search-card {
-  background-color: #0d0d0d;
+    background-color: #0d0d0d;
 }
 
 .dark .jobsearch-card-information h4 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .sortclass span {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .jobsearch-card-information p {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .jobsearch-card-information h3 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .jobsearch-all-result-text {
-  color: #fff;
+    color: #fff;
 }
 
 /* blog page dark */
 .dark h2.blog-head {
-  color: #d3d1d1;
+    color: #d3d1d1;
 }
 
 .dark .blog-card-container h3 {
-  color: #d3d1d1;
+    color: #d3d1d1;
 }
 
 /* CONTACT DARK MODE */
 .dark .contact-right {
-  color: #fff;
+    color: #fff;
 }
 
 /* INSTRUCTIONS DARK MODE */
 .dark .position-instructions-container {
-  background-color: #1b1523;
+    background-color: #1b1523;
 }
 
 .dark .position-instructions-container li {
-  color: #fdfdfd;
+    color: #fdfdfd;
 }
 
 .dark .instructions-div1 {
-  background-color: #21053c;
+    background-color: #21053c;
 }
 
 /* terms page dark */
 .dark .terms-content {
-  background-color: #1e1e1e;
+    background-color: #1e1e1e;
 }
 
-.dark .terms-content>.container>div {
-  background-color: #696c76;
-  color: #fdfdfd;
+.dark .terms-content > .container > div {
+    background-color: #696c76;
+    color: #fdfdfd;
 }
 
 .dark .container h2 {
-  color: #fdfdfd;
+    color: #fdfdfd;
 }
 
 .dark .add-training-input-group label {
-  color: #fdfdfd;
+    color: #fdfdfd;
 }
-
 
 .dark .trending-nav-link1.active,
 .dark .trending-nav-link2.active {
-  color: #000 !important;
+    color: #000 !important;
 }
 
 .dark .tox div {
-  background-color: #000!important;
+    background-color: #000 !important;
 }
 
 .dark .tox iframe {
-  background-color: #000!important;
+    background-color: #000 !important;
 }
 
 .dark .tox span {
-  color: #D3D1D1 !important;
+    color: #d3d1d1 !important;
 }
 
 .dark .tox .tox-tbtn--bespoke {
-  background-color: #000!important;
-  border: 1px solid #fff;
+    background-color: #000 !important;
+    border: 1px solid #fff;
 }
 
 .dark .tox .tox-mbtn:hover span {
-  color: #000!important;
+    color: #000 !important;
 }
 
 .dark .tox-collection__item-label {
-  color: #D3D1D1 !important;
+    color: #d3d1d1 !important;
 }
 
 .dark .tox-collection__item-icon svg {
-  color: #D3D1D1 !important;
+    color: #d3d1d1 !important;
 }
 
 .dark .mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {
-  color: #D3D1D1!important;
+    color: #d3d1d1 !important;
 }
 
-.dark .mce-content-body:not([dir=rtl])[data-mce-placeholder]:not(.mce-visualblocks)::before {
-  color: #D3D1D1!important;
+.dark
+    .mce-content-body:not([dir="rtl"])[data-mce-placeholder]:not(
+        .mce-visualblocks
+    )::before {
+    color: #d3d1d1 !important;
 }
 
 .dark .add-training-input-group input,
 .dark .add-training-input-group select,
 .dark .add-training-input-group textarea {
-  background-color: #000 !important;
-  color: #fff;
+    background-color: #000 !important;
+    color: #fff;
 }
 
 .dark .add-training-input-group .add-image-label {
-  background-color: #000 !important;
-  color: #D3D1D1 !important;
+    background-color: #000 !important;
+    color: #d3d1d1 !important;
 }
 
-.dark #structure input::placeholder{
-  color: #fff !important;
+.dark #structure input::placeholder {
+    color: #fff !important;
 }
 
-.dark .custom-select:focus{
- background-color: #000; 
- color: #fff;
+.dark .custom-select:focus {
+    background-color: #000;
+    color: #fff;
 }
 
-
-
-.dark #structure input[type='text'] , .dark #structure input[type='url']{
-  background: #000 !important;
-  color: #fff !important;
+.dark #structure input[type="text"],
+.dark #structure input[type="url"] {
+    background: #000 !important;
+    color: #fff !important;
 }
 
-.dark .silinmeli input{
-  background: #000 !important;
-  color: #fff !important;
+.dark .silinmeli input {
+    background: #000 !important;
+    color: #fff !important;
 }
 
 .dark .profile-section {
-  background: #1e1e1e;
+    background: #1e1e1e;
 }
 
 .dark .prof-cont-left {
-  background: #1b1523;
+    background: #1b1523;
 }
 
 .dark .nav-pills .nav-link {
-  background: #1b1523;
-  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
+    background: #1b1523;
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
 }
 
 .dark .nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-  background: #9559e5;
-  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
+.nav-pills .show > .nav-link {
+    background: #9559e5;
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
 }
 
 .dark .form-group input {
-  background: #0D0D0D;
-  color: #9559E5;
+    background: #0d0d0d;
+    color: #9559e5;
 }
 
-.dark #comp_link, 
-.dark #comp_name, 
+.dark #comp_link,
+.dark #comp_name,
 .dark #job_name {
-  background-color: #000!important;
+    background-color: #000 !important;
 }
 
 .dark #structure label {
-  color: #FDFDFD;
+    color: #fdfdfd;
 }
 
 .dark #repeater label {
-  color: #FDFDFD;
+    color: #fdfdfd;
 }
 
 .dark .form-innerdiv span {
-  color: #9559E5;
+    color: #9559e5;
 }
 
-.dark .form-group label , #no-limit p {
-  color: #FDFDFD;
+.dark .form-group label,
+#no-limit p {
+    color: #fdfdfd;
 }
 
-.dark .create-cv-input-group input::placeholder{
-  color: #fff !important;
+.dark .create-cv-input-group input::placeholder {
+    color: #fff !important;
 }
 
-.dark .select2-selection__rendered{
-  background-color: #000;
-  color: #fff;
+.dark .select2-selection__rendered {
+    background-color: #000;
+    color: #fff;
 }
 
-.dark #training_url::placeholder , .dark #training_name::placeholder{
-  color: #fff !important;
+.dark #training_url::placeholder,
+.dark #training_name::placeholder {
+    color: #fff !important;
 }
 
-.dark .add-comp-close{
-  border: 1px solid #fff;
+.dark .add-comp-close {
+    border: 1px solid #fff;
 }
 
-.dark .add-comp-close span{
-  color: #fff;
+.dark .add-comp-close span {
+    color: #fff;
 }
 
-
-.dark #website-error , .dark #map-error , .dark #about-error{
-  color: red !important;
+.dark #website-error,
+.dark #map-error,
+.dark #about-error {
+    color: red !important;
 }
 
-.dark .company-announce-input-group label:last-child{
-  color: red;
+.dark .company-announce-input-group label:last-child {
+    color: red;
 }
 
-.dark select{
-  color: #fff;
+.dark select {
+    color: #fff;
 }
 
-.dark input[type="date"]::-webkit-calendar-picker-indicator{
-  filter: invert(1);
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
-.dark input[type="date"]{
-  color: #fff !important;
+.dark input[type="date"] {
+    color: #fff !important;
 }
 
-.dark .company-announce-input-group input::placeholder{
-  color: #fff !important;
+.dark .company-announce-input-group input::placeholder {
+    color: #fff !important;
 }
 
-.dark .company-announce-input-group select option:disabled{
-  color: #fff !important;
+.dark .company-announce-input-group select option:disabled {
+    color: #fff !important;
 }
 
-
-.dark .add-training-input-group textarea::placeholder{
-  color: #fff !important;
+.dark .add-training-input-group textarea::placeholder {
+    color: #fff !important;
 }
 
-.dark .add-training-input-group input::placeholder{
-  color: #fff !important;
+.dark .add-training-input-group input::placeholder {
+    color: #fff !important;
 }
 
-.dark .select2-selection__choice{
-  background: black !important;
+.dark .select2-selection__choice {
+    background: black !important;
 }
 
-.dark .form-innerdiv label{
-  color: red !important;
-  margin-top: 2px;
+.dark .form-innerdiv label {
+    color: red !important;
+    margin-top: 2px;
 }
 
 .dark #password-field:focus {
-  background-color: #000;
+    background-color: #000;
 }
 
 .dark input:-webkit-autofill,
-.dark input:-webkit-autofill:hover, 
-.dark input:-webkit-autofill:focus, 
-.dark input:-webkit-autofill:active{
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #000 inset !important;
 }
 
-.dark input:-webkit-autofill{
-  -webkit-text-fill-color: #9559E5 !important;
+.dark input:-webkit-autofill {
+    -webkit-text-fill-color: #9559e5 !important;
 }
 
 .dark .proftab-1 {
-  background: #1B1523;
+    background: #1b1523;
 }
 
-
-.dark .nav-link.active>.icon-1 {
-  background: url("https://1is.butagrup.az/back/assets/images/icons/prof-white.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.dark .nav-link.active > .icon-1 {
+    background: url("https://1is.butagrup.az/back/assets/images/icons/prof-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-
-.dark .nav-link.active>.icon-2 {
-  background: url("https://1is.butagrup.az/back/assets/images/icons/hear-white.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.dark .nav-link.active > .icon-2 {
+    background: url("https://1is.butagrup.az/back/assets/images/icons/hear-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-
-.dark .nav-link.active>.icon-3 {
-  background: url("https://1is.butagrup.az/back/assets/images/icons/setting-white.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.dark .nav-link.active > .icon-3 {
+    background: url("https://1is.butagrup.az/back/assets/images/icons/setting-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .dark .add-training-tabs {
-  background-color: #1B1523;
+    background-color: #1b1523;
 }
 
 .dark .add-training-tabs a {
-  background-color: #1B1523 !important;
+    background-color: #1b1523 !important;
 }
 
 .dark .add-training-card {
-  background-color: #000000;
+    background-color: #000000;
 }
 
 .dark .add-training-card p {
-  color: #fdfdfd;
+    color: #fdfdfd;
 }
 
 .dark .create-cv-header {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .create-cv-tabs {
-  background-color: #1B1523;
+    background-color: #1b1523;
 }
 
 .dark .create-cv-tabs a {
-  background-color: #1B1523 !important;
+    background-color: #1b1523 !important;
 }
 
 .dark .create-cv-input-group label {
-  color: #FDFDFD;
+    color: #fdfdfd;
 }
 
 .dark .create-cv-input-group input,
 .dark .create-cv-input-group select,
 .dark .create-cv-input-group textarea {
-  background-color: #000;
-  color: #D3D1D1;
+    background-color: #000;
+    color: #d3d1d1;
 }
 
 .dark .create-cv-input-group .add-image-label {
-  background-color: #000!important;
-  color: #D3D1D1!important;
+    background-color: #000 !important;
+    color: #d3d1d1 !important;
 }
 
 .dark .create-cv-form h3 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .add-cv-custom-file label:after {
-  background-color: #ddd;
-  color: #000;
+    background-color: #ddd;
+    color: #000;
 }
 
 .dark .edit-training-input-group label {
-  background: #000000 !important;
-  color: #fff !important;
+    background: #000000 !important;
+    color: #fff !important;
 }
 
 .dark .company-announce-tabs {
-  background-color: #1B1523;
+    background-color: #1b1523;
 }
 
 .dark .trending-nav-link1,
 .dark .trending-nav-link2,
 .dark .trending-nav-link3,
 .dark .trending-nav-link4 {
-  background-color: #1B1523 !important;
+    background-color: #1b1523 !important;
 }
 
 .dark .trending-nav-link1.active,
 .dark .trending-nav-link2.active,
 .dark .trending-nav-link3.active,
 .dark .trending-nav-link4.active {
-  color: #fff !important;
+    color: #fff !important;
 }
 
 .dark .company-announce-input-group select,
 .dark .company-announce-input-group textarea {
-  background-color: #0D0D0D;
+    background-color: #0d0d0d;
 }
 
 .dark .musahibe-check-label,
 .dark .accept-demand-label {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .side-link {
-  background-color: #0d0d0d;
+    background-color: #0d0d0d;
 }
 
 .dark .company-inner h3 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .carousel-vacancy h3 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .company-inner-comment-header {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .comment-bottom-section span {
-  color: #Fff;
+    color: #fff;
 }
 
 .dark .comment-profile-name p {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .about-company {
-  background: #000000;
+    background: #000000;
 }
 
 .dark .comment {
-  background: #000000;
+    background: #000000;
 }
 
-
 .dark .slider-vacancy-header {
-  background: #21053C;
+    background: #21053c;
 }
 
 .dark .slider-vacancy h3 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .slider-vacancy {
-  background: #000000;
+    background: #000000;
 }
 
 .dark .about-company-col span {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .about-company-col p {
-  color: #Fff;
+    color: #fff;
 }
 
 .dark .about-company-col h5 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .main-office {
-  background: #000000;
+    background: #000000;
 }
 
 .dark .company-about-link {
-  background: #000000;
+    background: #000000;
 }
 
 .dark .number-of-vacancies {
-  background: #000000;
+    background: #000000;
 }
 
 .dark .number-of-employees {
-  background: #000000;
+    background: #000000;
 }
 
-
 .dark .modal-content {
-  background: #1E1E1E;
+    background: #1e1e1e;
 }
 
 .dark p.comp-detail {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .modal-header-details h1 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .nav-tabs {
-  border: none !important;
+    border: none !important;
 }
 
 .dark .rate-span {
-  color: #Fff;
+    color: #fff;
 }
 
 .dark .rate-left-p2 form label {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .location-div span {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .your-com {
-  color: #fff;
+    color: #fff;
 }
 
-
 .dark #value-span {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .rating-div h1 {
-  color: #fff;
+    color: #fff;
 }
 
 .dark .rate-per {
-  color: #fff;
+    color: #fff;
 }
 
 .dark #training_name {
-  background: #000000 !important;
-  color: #fff !important;
+    background: #000000 !important;
+    color: #fff !important;
 }
 
 .dark #training_date {
-  background: #000000 !important;
-  color: #D3D1D1 !important;
+    background: #000000 !important;
+    color: #d3d1d1 !important;
 }
 
 .dark #training_information {
-  background: #000000 !important;
-  color: #fff !important;
+    background: #000000 !important;
+    color: #fff !important;
 }
 
 .dark #training_companies {
-  background: #000000 !important;
-  color: #D3D1D1 !important;
+    background: #000000 !important;
+    color: #d3d1d1 !important;
 }
 
 .dark #training_url {
-  background: #000000 !important;
-  color: #fff !important;
+    background: #000000 !important;
+    color: #fff !important;
 }
 
 .dark #training_payment {
-  background: #000000 !important;
-  color: #D3D1D1 !important;
+    background: #000000 !important;
+    color: #d3d1d1 !important;
 }
 
 .dark #getshow {
-  background: #131313;
+    background: #131313;
 }
 
 .dark .vac-select {
-  color: #adb5bd;
+    color: #adb5bd;
 }
 
 .dark .select_box:after {
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid #8843E1;
-  position: absolute;
-  top: 43%;
-  right: 5.67px;
-  content: "";
-  z-index: 99;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #8843e1;
+    position: absolute;
+    top: 43%;
+    right: 5.67px;
+    content: "";
+    z-index: 99;
 }
 
 .dark .right-card li p span {
-  color: #fff !important;
-  font-family: 'Nunito' !important;
-  font-size: 18.667px !important;
-  font-weight: 400;
+    color: #fff !important;
+    font-family: "Nunito" !important;
+    font-size: 18.667px !important;
+    font-weight: 400;
 }
 
-
-.dark .login-form-email{
-  color: #fff !important;
+.dark .login-form-email {
+    color: #fff !important;
 }
 
 .dark .right-card li div {
-  color: #fff !important;
-  font-family: 'Nunito' !important;
-  font-size: 18.667px !important;
-  font-weight: 400;
+    color: #fff !important;
+    font-family: "Nunito" !important;
+    font-size: 18.667px !important;
+    font-weight: 400;
 }
 
-
 .dark .right-card h3 {
-  color: #FDFDFD;
+    color: #fdfdfd;
 }
 
 .dark .blog-text p {
-  color: #FDFDFD;
+    color: #fdfdfd;
 }
 
 .dark .similar-blogs .custom-container h1 {
-  color: #FDFDFD;
+    color: #fdfdfd;
 }
 
 .dark .position-instructions-container ul ul li {
-  color: #FDFDFD !important;
+    color: #fdfdfd !important;
 }
-.dark .position-instructions-container ul ul li span font, .dark .position-instructions-container ul ul li span   {
-
-  color: #FDFDFD !important;
+.dark .position-instructions-container ul ul li span font,
+.dark .position-instructions-container ul ul li span {
+    color: #fdfdfd !important;
 }
 
+.dark .login-form-group label {
+    color: #000 !important;
+}
+
+.dark .login-form-group input::placeholder {
+    color: #fff !important;
+}
+
+.dark .home-filter1 input::placeholder,
+.dark .active-filter-jobsearchinner input::placeholder {
+    color: #dddcdc !important;
+}
+
+
+.dark .active-filter-jobsearchinner img{
+    filter: invert(1);
+}
 
 @media screen and (max-width: 801px) {
-  .dark .menu-items ul {
-    background: #131313;
-  }
+    .dark .menu-items ul {
+        background: #131313;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .dark .login-form-group label {
+        color: #fff !important;
+    }
+
+    .dark #no-limit p {
+        color: #fff !important;
+    }
+
+    .dark label[for="remember"] {
+        color: #fff;
+    }
+
+    .dark .forgot-password {
+        color: #fff;
+    }
 }
