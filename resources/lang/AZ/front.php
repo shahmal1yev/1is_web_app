@@ -183,7 +183,6 @@ return [
     'pass'=>'Şifrə',
     'passyenile'=>'Parolu yenilə',
     'google'=>'Google ilə daxil olun',
-    'geri'=>'Geri',
 
 
 //telim elave et
@@ -201,6 +200,7 @@ return [
     'urldaxilet'=>'Url daxil edin',
     'odenismetod'=>'Ödəniş metodunu seçin',
     'sekilsec'=>'Şəkil seçin',
+    'duzenle'=>'Düzənlə',
 
 
 
