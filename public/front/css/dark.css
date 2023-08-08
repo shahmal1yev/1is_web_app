@@ -848,9 +848,20 @@
     color: #dddcdc !important;
 }
 
-
-.dark .active-filter-jobsearchinner img{
+.dark .active-filter-jobsearchinner > img {
     filter: invert(1);
+}
+
+.dark .right-card p,
+.dark .right-card span,
+.dark .right-card li,
+.dark .right-card h1,
+.dark .right-card h2,
+.dark .right-card h3, 
+.dark .right-card h4, 
+.dark .right-card h5, 
+.dark .right-card h5 {
+    color: #fff;
 }
 
 @media screen and (max-width: 801px) {
