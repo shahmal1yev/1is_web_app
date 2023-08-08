@@ -223,6 +223,11 @@
   width: 100% !important;
 }
 
+.owl-none .owl-prev,
+.owl-none .owl-next {
+  display: none!important;
+}
+
 .slider-vacancy {
   padding: 14px;
 }
