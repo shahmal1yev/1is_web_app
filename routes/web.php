@@ -374,7 +374,7 @@ Route::get('/tranings',[TraningFrontController::class, 'alltrainings'])->name('t
 Route::get('/traningview/{id}',[TraningFrontController::class, 'detail'])->name('trainingsdetail');
 Route::get('/traning/create',[TraningFrontController::class, 'trainingCreate'])->name('traningcreate');
 Route::post('/traning/createe',[TraningFrontController::class, 'trainingAddPost'])->name('trainingAddPost');
-Route::get('/traning/edit/{training}',[TraningFrontController::class, 'trainingEdit'])->name('traniningedit')->middleware('check.training.owner');
+Route::get('/traning/edit/{training}',[TraningFrontController::class, 'trainingEdit'])->name('traniningedit');
 Route::post('/training/edit/training/post', [TraningFrontController::class, "trainingEditPost"])->name('trainingEditPost');
 Route::get('/telimaxtar',[TraningFrontController::class, 'telimaxtar'])->name('telimaxtar');
 
