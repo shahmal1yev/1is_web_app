@@ -89,6 +89,7 @@
     gap: 12px;
     background-color: white;
     border-radius: 36px;
+    position: relative;
     padding: 0 5px 0 0;
 }
 
