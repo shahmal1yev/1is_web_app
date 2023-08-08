@@ -9,7 +9,7 @@
        @endforeach
 
         <div>
-            <h3>@lang('front.vacancies')</h3>
+            <h3>@lang('front.jobsearch')</h3>
         </div>
         <form class="main-filter" method="GET" action="{{route('cvaxtar')}}">
             <div class="active-filter active-filter-jobsearchinner">
