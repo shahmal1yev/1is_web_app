@@ -41,7 +41,7 @@
                         @foreach($ads as $key=>$ad)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td><img src="{{asset($ad->image)}}" alt="" width="250px" height="100px"></td>
+                                <td><img src="{{asset($ad->image_az)}}" alt="" width="250px" height="100px"></td>
                                 <td>{{$ad->redirect_link}}</td>
                                 <td>
                                     <p class="d-none">{{$ad->status == 1 ? "Active" : "Deactive"}}</p>
@@ -77,14 +77,41 @@
                                 <input type="text" class="form-control" id="redirect_link" name="redirect_link">
                             </div>
                             <div class="col-lg-12 mb-2">
-                                <label for="image" class="form-label">Şəkil seçin...</label>
-                                <input class="form-control mb-2" type="file" id="image" name="image">
+                                <label for="image" class="form-label">Şəkil seçin...(az)</label>
+                                <input class="form-control mb-2" type="file" id="image" name="image_az">
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    <i class="mdi mdi-check-all me-2"></i>
+                                    Tövsiyyə olunan şəkil ölçüsü: 1330x300
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-2">
+                                <label for="image" class="form-label">Şəkil seçin...(en)</label>
+                                <input class="form-control mb-2" type="file" id="image" name="image_en">
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    <i class="mdi mdi-check-all me-2"></i>
+                                    Tövsiyyə olunan şəkil ölçüsü: 1330x300
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 mb-2">
+                                <label for="image" class="form-label">Şəkil seçin...(ru)</label>
+                                <input class="form-control mb-2" type="file" id="image" name="image_ru">
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    <i class="mdi mdi-check-all me-2"></i>
+                                    Tövsiyyə olunan şəkil ölçüsü: 1330x300
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 mb-2">
+                                <label for="image" class="form-label">Şəkil seçin...(tr)</label>
+                                <input class="form-control mb-2" type="file" id="image" name="image_tr">
                                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                                     <i class="mdi mdi-check-all me-2"></i>
                                     Tövsiyyə olunan şəkil ölçüsü: 1330x300
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             </div>
+
 
                         </div>
                     </div>

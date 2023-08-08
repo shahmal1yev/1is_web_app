@@ -736,7 +736,7 @@
             @foreach ($reklam as $rek)
                 
             <div class="main-reklam">
-                <a href="#" class="w-100">
+                <a href="{{$rek->redirect_link}}" target="_blank" class="w-100">
                     <img src="{{$rek->image}}" style="width: ">
                 </a>
             </div>
