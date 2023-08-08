@@ -100,6 +100,7 @@
 	line-height: 12px;
 	color: #FFFFFF;
 	margin-bottom: 8px;
+	padding: 0 10px;
 }
 
 .blog-bg-bottom button {
@@ -253,6 +254,7 @@
 	font-style: normal;
 	font-weight: 600;
 	font-size: 10px;
+	text-align: center;
 	line-height: 12px;
 	color: #FFFFFF;
 	margin-bottom: 14px;
@@ -322,6 +324,7 @@
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 600;
+	text-align: center;
 	font-size: 10px;
 	line-height: 12px;
 	color: #FFFFFF;
@@ -392,6 +395,7 @@
 	font-style: normal;
 	font-weight: 600;
 	font-size: 10px;
+	text-align: center;
 	line-height: 12px;
 	color: #FFFFFF;
 	margin-bottom: 14px;
