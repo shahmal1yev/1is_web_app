@@ -133,7 +133,7 @@ class TraningFrontController extends Controller
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $name = 'training_'.Str::random(6).'.'.$image->getClientOriginalExtension();
-                $directory = '/back/assets/images/trainings/';
+                $directory = 'back/assets/images/trainings/';
                 $image->move($directory, $name);
                 $name = $directory.$name;
                 $training->image = $name;
@@ -199,7 +199,7 @@ class TraningFrontController extends Controller
                 if(file_exists($old_image)){
                     unlink($old_image);
                 }
-                $directory = '/back/assets/images/trainings/';
+                $directory = 'back/assets/images/trainings/';
                 $image->move($directory, $name);
                 $name = $directory.$name;
                 $training->image = $name;
