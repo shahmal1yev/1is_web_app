@@ -186,6 +186,7 @@ return [
     'sifredaxilet'=>'Enter password',
     'passyenile'=>'Update password',
     'google'=>'Sign in with Google',
+    'geri'=>'Back',
 
 
 //telim elave et

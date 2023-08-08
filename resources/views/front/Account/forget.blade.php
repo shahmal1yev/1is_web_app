@@ -23,7 +23,7 @@
                         <button class="login-registration" type="submit">@lang('front.daxilet')</button>
                     </div>
                     <div class="col-lg-9 col-md-7 login-buttons">
-                        <a href="{{ route('passwordChanged') }}" class="login-registration">geri</a>
+                        <a href="{{ route('passwordChanged') }}" class="login-registration">@lang('front.geri')</a>
 
                     </div>
                 </form>

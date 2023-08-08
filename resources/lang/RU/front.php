@@ -183,6 +183,7 @@ return [
     'sifredaxilet'=>'Введите пароль',
     'passyenile'=>'Обновить пароль',
     'google'=>'Войти через Google',
+    'geri'=>'Назад',
 
 
 //telim elave et
