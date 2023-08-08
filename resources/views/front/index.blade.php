@@ -507,18 +507,18 @@
                         <p>
                             <!-- <a href="{{ route('vsearch', ['query' => '', 'category' => $category->id, 'city' => '', 'find_worker' => '', 'education' => '', 'experience' => '', 'work_type' => '']) }}"> -->
                             @switch(app()->getLocale())
-                            @case('EN')
-                                {{ $category->title_en }}
+                                @case('EN')
+                                    {{ $category->title_en }}
+                                    @break
+                                @case('TR')
+                                    {{ $category->title_tr }}
                                 @break
-                            @case('TR')
-                                {{ $category->title_tr }}
-                            @break
-                            @case('RU')
-                                {{ $category->title_ru }}
-                                @break
-                            @default
-                                {{ $category->title_az }}
-                        @endswitch
+                                @case('RU')
+                                    {{ $category->title_ru }}
+                                    @break
+                                @default
+                                    {{ $category->title_az }}
+                            @endswitch
                     <!-- </a> -->
                 </p>
                     </div>
@@ -736,8 +736,20 @@
             @foreach ($reklam as $rek)
                 
             <div class="main-reklam">
-                <a href="#" class="w-100">
-                    <img src="{{$rek->image}}" style="width: ">
+                <a href="{{$rek->redirect_link}}" target="_blank" class="w-100">
+                    @switch(app()->getLocale())
+                                @case('EN')
+                                    <img src="{{$rek->image_en}}" style="width: ">
+                                @break
+                                @case('TR')
+                                    <img src="{{$rek->image_tr}}" style="width: ">
+                                @break
+                                @case('RU')
+                                    <img src="{{$rek->image_ru}}" style="width: ">
+                                @break
+                                @default
+                                    <img src="{{$rek->image_az}}" style="width: ">
+                                @endswitch
                 </a>
             </div>
             @endforeach

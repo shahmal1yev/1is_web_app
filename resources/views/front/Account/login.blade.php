@@ -78,11 +78,11 @@
                             @csrf
                             <div class="form-group login-form-group col-lg-9 col-md-7">
                                 <label class='login-form-email' for="login_email">@lang('front.epoct')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                <input type="email" name="email" required placeholder="@lang('front.emaildaxilet')" />
+                                <input type="email" name="email" placeholder="@lang('front.emaildaxilet')" />
                             </div>
                             <div class="form-group login-form-group col-lg-9 col-md-7 password-input">
                                 <label for="login_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                <input id="login-pass" type="password" name="password" required placeholder="@lang('front.sifredaxilet')" />
+                                <input id="login-pass" type="password" name="password" placeholder="@lang('front.sifredaxilet')" />
                                 <img src="{{asset('back/assets/images/view.png')}}" id="view-id" alt="" />
                                 <img src="{{asset('back/assets/images/hide.png')}}" id="hide-id" alt="" />
                             </div>
@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="form-group login-form-group col-md-10 sign-div">
                                     <label for="reg_password">@lang('front.pass')<span style="color: rgba(192, 0, 0, 1)">*</span></label>
-                                    <input id='sign-inpt1' type="password" name="password" id="password" placeholder="@lang('front.sifredaxilet')"/>
+                                    <input id='sign-inpt1' type="password" name="password" placeholder="@lang('front.sifredaxilet')"/>
                                     <img src="{{asset('back/assets/images/view.png')}}" id="view-id2" alt="" />
                                     <img src="{{asset('back/assets/images/hide.png')}}" id="hide-id2" alt="" />
                                 </div>
@@ -233,7 +233,7 @@
         });
     });
 
-    </script>
+</script>
     <script>
         $(document).ready(function() {
         var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
@@ -297,7 +297,7 @@
                 },
                 password_confirmation: {
                     required: true,
-                    equalTo: "#password",
+                    equalTo: "#sign-inpt1",
                     minlength: 8
 
                 },

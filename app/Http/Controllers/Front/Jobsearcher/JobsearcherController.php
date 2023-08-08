@@ -116,10 +116,10 @@ class JobsearcherController extends Controller
             ->leftJoin('job_type','job_type.id','=','cv.job_type_id')
             ->leftJoin('educations','educations.id','=','cv.education_id')
             ->leftJoin('experiences','experiences.id','=','cv.experience_id')
-            ->select('cv.id','cv.image','cv.name','cv.surname','job_type.id as job_type_id','gender.title_az','gender.id as gender_id','cities.id as city_id','categories.id as category_id','cv.position','educations.id as education_id','experiences.id as experience_id','cv.status','cv.view','cv.created_at')
+            ->select('cv.id','cv.image','cv.salary','cv.name','cv.surname','job_type.id as job_type_id','gender.title_az','gender.id as gender_id','cities.id as city_id','categories.id as category_id','cv.position','educations.id as education_id','experiences.id as experience_id','cv.status','cv.view','cv.created_at')
             ->where('cv.status','1')
             ->orderBy('cv.created_at', 'desc');
-            
+   
             $allcvs = $allcvs->paginate(9)->appends(request()->except('page'));
 
 
@@ -159,7 +159,7 @@ public function cvaxtar(Request $request){
         ->leftJoin('job_type','job_type.id','=','cv.job_type_id')
         ->leftJoin('educations','educations.id','=','cv.education_id')
         ->leftJoin('experiences','experiences.id','=','cv.experience_id')
-        ->select('cv.id','cv.image','cv.name','cv.surname','job_type.id as job_type_id','gender.title_az','gender.id as gender_id','cities.id as city_id','categories.id as category_id','cv.position','educations.id as education_id','experiences.id as experience_id','cv.status','cv.view','cv.created_at')
+        ->select('cv.id','cv.image','cv.name','cv.surname','cv.salary','job_type.id as job_type_id','gender.title_az','gender.id as gender_id','cities.id as city_id','categories.id as category_id','cv.position','educations.id as education_id','experiences.id as experience_id','cv.status','cv.view','cv.created_at')
         ->where('cv.status','1');
         
         if (!empty($vacname)) {

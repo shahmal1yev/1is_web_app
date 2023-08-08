@@ -4,14 +4,12 @@
 @section('content')
 @foreach ($banner as $ban)
 
-<section class="vacancy-section" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+<section class="vacancy-section header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
       url({{asset($ban->image)}})">
        @endforeach
-    <section class="header-info">
-      <div>
-        <h3>@lang('front.training')</h3>
-      </div>
-    </section>
+    <div>
+        <h3>{{$tdetail->title}}</h3>
+    </div>
 </section>
 
     <div class="training-container container">
