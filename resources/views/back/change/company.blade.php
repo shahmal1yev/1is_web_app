@@ -35,7 +35,7 @@
                                 <select name="request_company" id="request-company" class="form-control ">
                                     <option value="0" selected disabled>Əvvəlki Şirkət seçin...</option>
                                     @foreach($companies as $company)
-                                        <option value="{{$company->id}}">{{$company->name}} - {{$company->getUser()->name}}</option>
+                                    <option value="{{ $company->id }}">{{ $company->name }} - {{ $company->getUser() ? $company->getUser()->name : 'User yoxdu' }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -44,7 +44,7 @@
                                 <select name="accept_company" id="accept-company" class="form-control ">
                                     <option value="0" selected disabled>Yeni Şirkət seçin...</option>
                                     @foreach($companies as $company)
-                                        <option value="{{$company->id}}">{{$company->name}} - {{$company->getUser()->name}} </option>
+                                        <option value="{{$company->id}}">{{$company->name}} - {{ $company->getUser() ? $company->getUser()->name : 'User yoxdu' }} </option>
                                     @endforeach
                                 </select>
                             </div>
