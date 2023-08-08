@@ -34,7 +34,7 @@ class BlogController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = 'post_'.Str::random(6).'.' . $image->getClientOriginalExtension();
-            $directory = 'back/assets/images/posts/';
+            $directory = '/back/assets/images/posts/';
             $image->move($directory, $name);
             $name = $directory.$name;
         }
@@ -93,7 +93,7 @@ class BlogController extends Controller
                 unlink($image);
             }
             $name = 'post_'.Str::random(6).'.' . $image->getClientOriginalExtension();
-            $directory = 'back/assets/images/posts/';
+            $directory = '/back/assets/images/posts/';
             $image->move($directory, $name);
             $name = $directory.$name;
             $blog->image = $name;
