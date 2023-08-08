@@ -441,7 +441,7 @@
                    
                     <input type="hidden" name="company_id" value="{{ $compdetail->id }}"> 
 
-                    <label class="name-label" for="name">@lang('front.adsoyad')* <br />
+                    <label class="name-label" for="name">@lang('front.adsoyad')  <span style="color: rgba(192, 0, 0, 1)">*</span><br />
                             @auth
                               <input type="text" id="name" name="fullname" value="{{ auth()->user()->name }}" />
                             @else
@@ -450,7 +450,7 @@
                     </label>
 
                      <br />
-                     <label for="name">@lang('front.qiy')*</label>
+                     <label for="name">@lang('front.qiy') <span style="color: rgba(192, 0, 0, 1)">*</span></label>
                      <div></div>
                      <button class="rating-send">@lang('front.gonder')</button>
                  </div>
