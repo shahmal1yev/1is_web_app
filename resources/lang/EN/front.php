@@ -205,6 +205,7 @@ return [
     'odenismetod'=>'Choose a payment method',
     'sekilsec'=>'Select a picture',
     'likecv'=>'Resumes I like',
+    'duzenle'=>'Edit',
 
 
 //cv elave et

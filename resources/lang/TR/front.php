@@ -196,6 +196,7 @@ return [
 'sekilsec'=>'Resim seçin',
 'qiymetpul'=>'Fiyat',
 'likecv'=>'Sevdiğim özgeçmişler',
+'duzenle'=>'Düzenle',
 
 
 
