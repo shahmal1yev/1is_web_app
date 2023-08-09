@@ -138,9 +138,13 @@
 /* Carousel Section */
 
 .carousel-vacancy {
-  margin: 20px 0;
+  margin: 10px 0; 
   display: flex;
   justify-content: space-between;
+}
+
+.no-comment {
+  font-size: 14px;
 }
 
 .carousel-vacancy div {

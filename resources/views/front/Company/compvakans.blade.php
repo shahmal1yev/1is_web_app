@@ -32,7 +32,7 @@
       <div class="all-vacancies">
         @if($compvacancies->isEmpty())
                 <div class="no-vacancies-message">
-                    <p>Bu şirkətə aid heç bir vakansiya yoxdur!</p>
+                    <p>no-vacancies-message</p>
                 </div>
         @else
             @foreach($compvacancies as $key=>$vacancy)

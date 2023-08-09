@@ -346,7 +346,9 @@ button.sun , button.moon{
   height: 30px;
 }
 
-
+.no-vacancies-message p {
+  font-size: 14px;
+}
 
 
 .menu-items ul{
@@ -603,6 +605,10 @@ button:focus {
 .mySwiper .swiper-slide {
   height: 130px!important;
 }
+
+/* .story-link {
+  position: absolute;
+} */
 
 .swiper-slide img {
   display: block;

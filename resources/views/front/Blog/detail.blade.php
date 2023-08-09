@@ -40,22 +40,22 @@
             @endphp
             
             @if ($lang == 'EN')
-        @if (!empty($bdetail->content_en))
-            {!! html_entity_decode($bdetail->content_en) !!}
-        @endif
-    @elseif ($lang == 'RU')
-        @if (!empty($bdetail->content_ru))
-            {!! html_entity_decode($bdetail->content_ru) !!}
-        @endif
-    @elseif ($lang == 'TR')
-        @if (!empty($bdetail->content_tr))
-            {!! html_entity_decode($bdetail->content_tr) !!}
-        @endif
-    @else
-        @if (!empty($bdetail->content_az))
-            {!! html_entity_decode($bdetail->content_az) !!}
-        @endif
-    @endif
+                @if (!empty($bdetail->content_en))
+                    {!! html_entity_decode($bdetail->content_en) !!}
+                @endif
+                @elseif ($lang == 'RU')
+                    @if (!empty($bdetail->content_ru))
+                        {!! html_entity_decode($bdetail->content_ru) !!}
+                    @endif
+                @elseif ($lang == 'TR')
+                    @if (!empty($bdetail->content_tr))
+                        {!! html_entity_decode($bdetail->content_tr) !!}
+                    @endif
+                @else
+                    @if (!empty($bdetail->content_az))
+                        {!! html_entity_decode($bdetail->content_az) !!}
+                    @endif
+                @endif
                         </div>
 
 
@@ -75,7 +75,7 @@
             <h1>@lang('front.oxsarmeq')</h1>
             <div class="similar-blogs-cards">
                 @foreach($allblogs as $key=>$blogs)
-                <div class="similar-blogs-card" style="background: url(https://1is.butagrup.az/{{$blogs->image}});">
+                <div class="similar-blogs-card" style="background-image: url(https://1is.butagrup.az/{{$blogs->image}});">
                     <div class="blog-dates">
                         <img src="https://1is-new.netlify.app/images/similar-blog-date.png" alt="">
                         <span>{{date('d-m-Y', strtotime($blogs->created_at))}}</span>

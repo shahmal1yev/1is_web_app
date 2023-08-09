@@ -56,7 +56,7 @@ class VacancyFrontController extends Controller
     public function dislike(Request $request)
         {
         if(!auth()->check()) {
-            return redirect()->route('allvacancies')->with('error', __('messages.loginerror'));
+            return redirect()->route('login');
         }
 
         $vacancy_id = $request->input('vacancy_id');
@@ -65,7 +65,6 @@ class VacancyFrontController extends Controller
         $favorite = Favorits::where('user_id', $user_id)->where('vacancy_id', $vacancy_id)->first();
 
         $favorite->delete();
-        return redirect()->route('allvacancies')->with('success', 'Vakansiya sevimlilərdən silindi!');
         
     }
 

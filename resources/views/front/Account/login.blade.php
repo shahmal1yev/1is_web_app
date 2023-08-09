@@ -48,7 +48,7 @@
 <section class="login-section">
         <div class="login-background">
             <div class="login-authentification">
-                <img src="{{asset('back/assets/images/icons/oneJob-login.png')}}" alt="oneJob-login" />
+                <img class="login-logo" src="{{asset('back/assets/images/icons/oneJob-login.png')}}" alt="oneJob-login" />
                 <!-- <h3>@lang('front.saytagir')</h3> -->
                 {{-- <div class="log-reg-tabs-wrapper">
                     <div class="log-reg-tabs">

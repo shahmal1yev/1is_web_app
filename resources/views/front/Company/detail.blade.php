@@ -258,12 +258,7 @@
               @elseif(count($vacancies) <= 4)
                 @if(count($vacancies) == 0)
                   <div class="owl-item">
-                    <div class="slider-vacancy aaa">
-                      <div class="slider-vacancy-header">
-                        <span></span>
-                        <p>@lang('front.vakansiyayoxdur')</p>
-                      </div>
-                    </div>
+                      <p class="no-carousel-item" style="font-size: 14px;">@lang('front.vakansiyayoxdur')</p>
                   </div>
                 @else
                   @foreach($vacancies as $vacanc)
@@ -347,7 +342,7 @@
             @endforeach
         @else
             <div class="col-md-12 mt-6 m-auto">
-                <p>@lang('front.reyyoxdur')!</p>
+                <p class="no-comment">@lang('front.reyyoxdur')!</p>
             </div>
         @endif
 

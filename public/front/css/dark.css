@@ -24,7 +24,7 @@
 }
 
 .dark .dark-mode {
-    background-image: url("https://1is.butagrup.az/back/assets/images/icons/light.png");
+    background-image: url("../back/assets/images/icons/light.png");
     background-size: cover;
     background-position: center;
     width: 30px;
@@ -524,21 +524,30 @@
 }
 
 .dark .nav-link.active > .icon-1 {
-    background: url("https://1is.butagrup.az/back/assets/images/icons/prof-white.png");
+    background: url("../back/assets/images/icons/prof-white.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
 .dark .nav-link.active > .icon-2 {
-    background: url("https://1is.butagrup.az/back/assets/images/icons/hear-white.png");
+    background: url("../back/assets/images/icons/hear-white.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
+.dark .no-comment,
+.dark .no-carousel-item {
+color: #fff;
+}
+
+.dark .no-vacancies-message p {
+    color: #fff;
+}
+
 .dark .nav-link.active > .icon-3 {
-    background: url("https://1is.butagrup.az/back/assets/images/icons/setting-white.png");
+    background: url("../back/assets/images/icons/setting-white.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

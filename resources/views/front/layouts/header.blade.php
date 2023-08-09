@@ -1,6 +1,6 @@
     <style>
         .dark-mode{
-            background-image: url('https://1is.butagrup.az/back/assets/images/icons/dark.png');
+            background-image: url('../back/assets/images/icons/dark.png');
             background-size: cover;
             background-position: center;
             width: 38px;
@@ -8,7 +8,7 @@
             }
 
         .dark .dark-mode {
-            background-image: url("https://1is.butagrup.az/back/assets/images/icons/light.png");
+            background-image: url("../back/assets/images/icons/light.png");
             background-size: cover;
             background-position: center;
             width: 38px;
@@ -68,11 +68,11 @@
                 <div class="dark-mode"></div>
                     @auth
                         <a href="{{ route('profile') }}" style="background-color: transparent;">
-                            <img src="https://1is-new.netlify.app/images/profile.png" alt="">
+                            <img src="../back/assets/images/icons/profile.png" alt="">
                         </a>
                     @else
                         <a href="{{ route('login') }}" style="background-color: transparent;">
-                            <img src="https://1is-new.netlify.app/images/profile.png" alt="">
+                            <img src="../back/assets/images/icons/profile.png" alt="">
                         </a>
                     @endauth
                 
