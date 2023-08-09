@@ -183,6 +183,7 @@ return [
     'pass'=>'Şifrə',
     'passyenile'=>'Parolu yenilə',
     'google'=>'Google ilə daxil olun',
+    'geri'=>'Geri',
 
 
 //telim elave et
