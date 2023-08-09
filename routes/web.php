@@ -291,16 +291,16 @@ Route::middleware('isAdminLogin')->group(function () {
     Route::get('/admin/logout', [AuthController::class, "adminLogout"])->name('adminLogout');
 });
 
+Route::group(['middleware'=>'isLogout'],function(){
 
 
 Route::get('/user-verification/{verification}',[AccountController::class,'user_verification'])->name('user_verification');
 Route::get('/reset-password/{verification}',[AccountController::class,'forget_verification'])->name('forget_verification');
 Route::get('/login', [AccountController::class, 'login'])->name('login');
 Route::get('/giris', [AccountController::class, 'passwordChanged'])->name('passwordChanged');
-
+Route::get('/google/login/redirect', [AccountController::class, 'loginWithGoogle'])->name('google.login');
+Route::get('/auth/login/callback', [AccountController::class, 'getGoogleToken']);
 Route::post('/loginu', [AccountController::class, 'login_post'])->name('login_post');
-Route::get('/sel', [AccountController::class, 'sel'])->name('sel');
-Route::post('/select_post', [AccountController::class, 'select_post'])->name('select_post');
 Route::get('/forget', [AccountController::class, 'forget'])->name('forget');
 Route::post('/forget_post', [AccountController::class, 'forget_post'])->name('forget_post');
 Route::get('/confirmpass', [AccountController::class, 'confirmpass'])->name('confirmpass');
@@ -308,6 +308,8 @@ Route::post('/confirm_post', [AccountController::class, 'confirm_post'])->name('
 Route::get('/google/login', [AccountController::class, 'googlelogin'])->name('googlelogin');
 Route::get('/google/login/callback', [AccountController::class, 'callback'])->name('callback');
 Route::get('/profile',[AccountController::class, 'profile'])->name('profile');
+
+});
 Route::post('/profile',[AccountController::class, 'updatePassword'])->name('updatePassword');
 Route::post('/cats',[AccountController::class, 'updateCats'])->name('updateCats');
 Route::get('/logout', [AccountController::class, "logout"])->name('logout');
@@ -395,8 +397,5 @@ Route::get('/terms',[TermsController::class, 'index'])->name('terms');
 
 
 Route::get('/help', [HelperController::class, 'ChangeUserData'])->name('help');
-
-Route::get('/google/login/redirect', [AccountController::class, 'loginWithGoogle'])->name('google.login');
-Route::get('/auth/login/callback', [AccountController::class, 'getGoogleToken']);
 
 Route::get('/{lang}', [LanguageController::class, 'setLang']);
