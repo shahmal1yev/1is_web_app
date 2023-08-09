@@ -307,9 +307,9 @@ Route::get('/confirmpass', [AccountController::class, 'confirmpass'])->name('con
 Route::post('/confirm_post', [AccountController::class, 'confirm_post'])->name('confirm_post');
 Route::get('/google/login', [AccountController::class, 'googlelogin'])->name('googlelogin');
 Route::get('/google/login/callback', [AccountController::class, 'callback'])->name('callback');
-Route::get('/profile',[AccountController::class, 'profile'])->name('profile');
 
 });
+Route::get('/profile',[AccountController::class, 'profile'])->name('profile');
 Route::post('/profile',[AccountController::class, 'updatePassword'])->name('updatePassword');
 Route::post('/cats',[AccountController::class, 'updateCats'])->name('updateCats');
 Route::get('/logout', [AccountController::class, "logout"])->name('logout');
