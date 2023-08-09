@@ -22,7 +22,7 @@ return [
 
 
     'sucemail' => 'Başarıyla abone olundu!',
-    'sendpass' => 'Parolanız e-postanıza gönderildi!',
+    'sendpass' => 'Mailinize gelen link ile şifrenizi güncelleyin!',
     'passyaz' => 'Yeni şifrenizi yazın!',
     'parollogin' => 'Şifreniz başarıyla güncellendi.',
     'errorpasyeni' => 'Bir hata oluştu, yeniden deneyin!',
