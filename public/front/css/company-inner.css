@@ -203,6 +203,12 @@
   display: block !important;
 }
 
+.owl-stage .owl-item:has(+ .no-carousel-item) .owl-stage{
+  width: 100%;
+}
+
+
+
 .owl-nav .owl-prev img {
   width: 25px;
   height: 25px;
@@ -225,6 +231,10 @@
 
 .owl-carousel {
   width: 100% !important;
+}
+
+.carousel-row {
+  justify-content: center;
 }
 
 .owl-none .owl-prev,
@@ -484,6 +494,10 @@
     width: 250px;
     height: 250px;
     object-fit: cover;
+  }
+
+  .carousel-row {
+    justify-content: flex-start;
   }
 }
 

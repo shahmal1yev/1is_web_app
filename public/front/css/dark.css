@@ -793,6 +793,11 @@ color: #fff;
     color: #adb5bd;
 }
 
+.dark .owl-prev span,
+.dark .owl-next span {
+    color: #fff;
+}
+
 .dark .select_box:after {
     width: 0;
     height: 0;
