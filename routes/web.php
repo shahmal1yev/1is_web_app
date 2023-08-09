@@ -22,6 +22,8 @@ use App\Http\Controllers\Back\TrainingsController\TrainingsController;
 use App\Http\Controllers\Back\UserPolicyController\UserPolicyController;
 use App\Http\Controllers\Back\VacancyController\VacancyController;
 use App\Http\Controllers\Back\UsersController\UsersController;
+use App\Http\Controllers\Back\AdminLogsController\AdminLogsController;
+
 use App\Http\Controllers\Back\HelperController;
 
 use App\Http\Controllers\Front\Blog\BlogFrontController;
@@ -72,6 +74,11 @@ Route::middleware('isAdminLogin')->group(function () {
     Route::post('/admin/list/password', [AdminProfileController::class, "adminListPassword"])->name('adminListPassword');
     Route::post('/admin/list/delete', [AdminProfileController::class, "adminListDelete"])->name('adminListDelete');
     //Profile End
+
+    //Admin logs
+    Route::get('/admin/logs', [AdminLogsController::class, "adminListLogs"])->name('adminListLogs');
+
+    //Logs end
 
     //Start Settings
     Route::get('/admin/settings/seo', [SettingsController::class, "settingsSeoIndex"])->name('settingsSeoIndex');
