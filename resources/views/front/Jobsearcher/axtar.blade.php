@@ -398,10 +398,19 @@
     });
 </script>
 
+    <script>
+        const moreSearch = document.getElementById('detail-btn')
+        const moreSearchSect = document.getElementById('getshow')
+        moreSearch.addEventListener('click', () => {
+            moreSearchSect.classList.toggle('filter-active');
+        })
+    </script>
+
 @endsection
 
 @section('css-link')
 <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
+
 @endsection
 
 
