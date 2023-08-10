@@ -194,6 +194,11 @@
                         <p class="name">{{$cv->name}} {{$cv->surname}}</p>
                         <p class="profession">{{$cv->position}}</p>
                     </div>
+                    {{-- <div class="likeclass">
+                        <img src="{{ asset('back/assets/images/icons/heart.png') }}" alt="heart" data-cv-id="{{$cv->id}}" style="{{ in_array($cv->id, $likes) ? 'display: none;' : 'display: inline-block;' }}">
+                    <img src="{{ asset('back/assets/images/icons/red-heart.png') }}" alt="red-heart"  data-cv-id="{{$cv->id}}" style="{{in_array($cv->id, $likes) ? 'display: inline-block;' : 'display: none;' }}">
+                    </div> --}}
+                    
                     
                     <div class="salary">{{ $cv->salary ? $cv->salary.'₼' : '~' }}</div>
 

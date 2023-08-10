@@ -221,49 +221,13 @@
 
       <div class="row w-100 m-0 d-flex justify-content-center">     
 
-        <div class="owl-carousel owl-theme w-100">
-            @if(count($vacancies) > 4)
-              @foreach($vacancies as $vacanc)
-                <div class="slider-vacancy">
-                  <div class="slider-vacancy-header">
-                    <span></span>
-                    <a href="{{route('vacancydetail', $vacanc->id)}}"><p>{{Str::limit($vacanc->title_az, 20, '...')}}</p></a>
-                  </div>
-                  <a href="{{route('vacancydetail', $vacanc->id)}}"><h3>{{Str::limit($vacanc->position, 10, '...')}}</h3></a>
-                  <div class="slider-vacancy-footer">
-                    <span>
-                      <img src="{{asset('back/assets/images/icons/building.png')}}" alt="building" />
-                      <a  href="{{route('compdetail', $vacanc->company_id)}}" style="color:#ecdbfc">
-                       
-                        @if(mb_strlen(html_entity_decode($vacanc->company_name)) > 30)
-                            {{ mb_substr(html_entity_decode($vacanc->company_name), 0, 30) . ' ...' }}
-                        @else
-                            {{ html_entity_decode($vacanc->company_name) }}
-                        @endif
-                       
-
-                      </a>
-                    </span>
-                    <span>
-                      <img src="{{asset('back/assets/images/icons/clock.png')}}" alt="clock" />
-                      {{$vacanc->created_at->format('d.m.Y')}}
-                    </span>
-                  </div>
-                </div>
-              @endforeach
-            @elseif(count($vacancies) <= 4)
-              @if(count($vacancies) == 0)
-                <div class="slider-vacancy aaa">
-                  <div class="slider-vacancy-header">
-                    <span></span>
-                    <p>@lang('front.vakansiyayoxdur')</p>
-                  </div>
-                 
-                  </div>
-                </div>
-              @else
+        <div class="owl-carousel owl-theme w-100" style="display: block">
+            <div class="owl-stage-outer">
+              <div class="owl-stage">
+                @if(count($vacancies) > 4)
                 @foreach($vacancies as $vacanc)
-                <div class="slider-vacancy aaa">
+                 <div class="owl-item">
+                  <div class="slider-vacancy">
                     <div class="slider-vacancy-header">
                       <span></span>
                       <a href="{{route('vacancydetail', $vacanc->id)}}"><p>{{Str::limit($vacanc->title_az, 20, '...')}}</p></a>
@@ -272,7 +236,16 @@
                     <div class="slider-vacancy-footer">
                       <span>
                         <img src="{{asset('back/assets/images/icons/building.png')}}" alt="building" />
-                        <a class="comp-link" href="{{route('compdetail', $vacanc->company_id)}}" >{{$vacanc->company_name}}</a>
+                        <a  href="{{route('compdetail', $vacanc->company_id)}}" style="color:#ecdbfc">
+                         
+                          @if(mb_strlen(html_entity_decode($vacanc->company_name)) > 30)
+                              {{ mb_substr(html_entity_decode($vacanc->company_name), 0, 30) . ' ...' }}
+                          @else
+                              {{ html_entity_decode($vacanc->company_name) }}
+                          @endif
+                         
+  
+                        </a>
                       </span>
                       <span>
                         <img src="{{asset('back/assets/images/icons/clock.png')}}" alt="clock" />
@@ -280,9 +253,60 @@
                       </span>
                     </div>
                   </div>
+                 </div>
                 @endforeach
+              @elseif(count($vacancies) <= 4)
+                @if(count($vacancies) == 0)
+                  <div class="owl-item">
+                    <div class="slider-vacancy aaa">
+                      <div class="slider-vacancy-header">
+                        <span></span>
+                        <p>@lang('front.vakansiyayoxdur')</p>
+                      </div>
+                    </div>
+                  </div>
+                @else
+                  @foreach($vacancies as $vacanc)
+                  <div class="owl-item">
+                    <div class="slider-vacancy aaa">
+                      <div class="slider-vacancy-header">
+                        <span></span>
+                        <a href="{{route('vacancydetail', $vacanc->id)}}"><p>{{Str::limit($vacanc->title_az, 20, '...')}}</p></a>
+                      </div>
+                      <a href="{{route('vacancydetail', $vacanc->id)}}"><h3>{{Str::limit($vacanc->position, 10, '...')}}</h3></a>
+                      <div class="slider-vacancy-footer">
+                        <span>
+                          <img src="{{asset('back/assets/images/icons/building.png')}}" alt="building" />
+                          <a class="comp-link" href="{{route('compdetail', $vacanc->company_id)}}" >
+                            @if(mb_strlen(html_entity_decode($vacanc->company_name)) > 30)
+                                {{ mb_substr(html_entity_decode($vacanc->company_name), 0, 30) . ' ...' }}
+                            @else
+                                {{ html_entity_decode($vacanc->company_name) }}
+                            @endif
+                          </a>
+                        </span>
+                        <span>
+                          <img src="{{asset('back/assets/images/icons/clock.png')}}" alt="clock" />
+                          {{$vacanc->created_at->format('d.m.Y')}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  @endforeach
+                @endif
               @endif
-            @endif
+              </div>
+              <div class="owl-nav">
+                <button type="button" role="presentation" class="owl-prev" fdprocessedid="4ug2j">
+                  <span aria-label="Previous">
+                  </span>
+                </button>
+                <button type="button" role="presentation" class="owl-next" fdprocessedid="2h56g3">
+                  <span aria-label="Next">
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
           
         
@@ -291,7 +315,7 @@
     </div>
 
     <!-- COMMENTS SECTION -->
-    <div class="container company-inner-container">
+    <div class="container company-inner-container mt-3">
       <h3 class="company-inner-comment-header">@lang('front.comments')</h3>
       <div class="row">
         @if(count($comments) > 0)
@@ -417,7 +441,7 @@
                    
                     <input type="hidden" name="company_id" value="{{ $compdetail->id }}"> 
 
-                    <label class="name-label" for="name">@lang('front.adsoyad')* <br />
+                    <label class="name-label" for="name">@lang('front.adsoyad')  <span style="color: rgba(192, 0, 0, 1)">*</span><br />
                             @auth
                               <input type="text" id="name" name="fullname" value="{{ auth()->user()->name }}" />
                             @else
@@ -426,7 +450,7 @@
                     </label>
 
                      <br />
-                     <label for="name">@lang('front.qiy')*</label>
+                     <label for="name">@lang('front.qiy') <span style="color: rgba(192, 0, 0, 1)">*</span></label>
                      <div></div>
                      <button class="rating-send">@lang('front.gonder')</button>
                  </div>
@@ -557,6 +581,18 @@
     
     <script src="{{asset('front/js/owl.carousel.min.js')}}"></script> 
     <script>
+
+      const owlStage = document.querySelector('.owl-stage');
+      const owlCarousel = document.querySelector('.owl-carousel');
+      const owlNav = document.querySelector('.owl-nav');
+
+      if(owlStage.children.length <= 1) {
+        owlCarousel.classList.add('owl-none');
+      }
+
+      console.log(owlCarousel);
+
+
       $('.owl-carousel').owlCarousel({
         loop:true,
         margin:10,

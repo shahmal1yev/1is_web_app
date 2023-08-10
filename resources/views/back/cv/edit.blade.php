@@ -31,10 +31,10 @@
         margin-top: 2% !important;
     }
 
-    .removeElement{
+    .removeElement , .delete-btn{
         margin-left: 15px;
         /* padding: 0px 15px; */
-        padding: 15px 29px;
+        padding: 10px 29px;
         border: none;
         background: #9559E5;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -229,7 +229,7 @@
                                             <input type="text" name="work_company" id="comp_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
                                         </div>
                                         <div class='col-lg-3'>
-                                        <br>
+                                            <br>
                                             <label for='first-name'>@lang('front.link')</label> <br>
                                             <input type="url" name="work_link" id="comp_linkk" value="" class="form-control" placeholder="@lang('front.daxilet')" />
                                         </div>
@@ -277,7 +277,7 @@
                                     <label for='first-name'>@lang('front.link')</label> <br>
                                     <input type="text" name="group[{{ $rnd }}][work_link]" value="{{ $link }}" class="form-control" placeholder="@lang('front.daxilet')" />
                                 </div>
-                                <button onclick="deleteRow('{{ $portId }}')" type="button" class="delete-btn">SIL</button>
+                                <button onclick="deleteRow('{{ $portId }}')" type="button" class="delete-btn removeElement col-lg-2">Sil</button>
                             </div>
 
                             <script>

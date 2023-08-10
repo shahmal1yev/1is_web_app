@@ -34,7 +34,6 @@
                     <option value="1"<?php if($selected_sort == 1) echo ' selected'; ?>>@lang('front.az')</option>
                     <option value="2"<?php if($selected_sort == 2) echo ' selected'; ?>>@lang('front.za')</option>
                     <option value="3"<?php if($selected_sort == 3) echo ' selected'; ?>>@lang('front.baxsay')</option>
-                    <option value="4"<?php if($selected_sort == 4) echo ' selected'; ?>>@lang('front.vacsay')</option>
                    </select>
                 </div>
               </div>
