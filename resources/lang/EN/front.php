@@ -188,6 +188,7 @@ return [
     'google'=>'Sign in with Google',
     'geri'=>'Back',
     'hobby'=>'Your interests',
+    'company'=>'Company',
 
 
 
@@ -265,7 +266,7 @@ return [
     'expsec'=>'Choose an experience',
     'tehsilsec'=>'Choose education',
     'sirketsec'=>'Select a company',
-    'cvqebull'=>'Acceptance of CVs',
+    'cvqebull'=>'Application type',
     'contactlink'=>'Contact link ',
     'cvqebul'=>'I accept the rules for posting a CV on the site',
 

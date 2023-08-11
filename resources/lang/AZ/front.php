@@ -8,6 +8,7 @@ return [
     'vacancies'=>'İş elanları',
     'jobsearch'=>'İş axtaranlar',
     'companies'=>'Şirkətlər',
+    'company'=>'Şirkət',
     'training'=>'Təlimlər',
     'blog'=>'Bloq',
     'digerblog'=>'Digər bloqlar',
@@ -264,7 +265,7 @@ return [
     'expsec'=>'Təcrübə seçin',
     'tehsilsec'=>'Təhsil seçin',
     'sirketsec'=>'Şirkət seç',
-    'cvqebull'=>'Cv-lərin qəbulu',
+    'cvqebull'=>'Müraciətin növü',
     'contactlink'=>'Əlaqə linki ',
     'cvqebul'=>'Saytda CV yerləşdirmək üçün qaydaları qəbul edirəm',
 

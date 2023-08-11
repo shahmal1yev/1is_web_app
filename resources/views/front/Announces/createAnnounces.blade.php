@@ -219,7 +219,7 @@
                                
                             </div>
                             <div class="form-group company-announce-input-group col-12">
-                                <label for="companies">@lang('front.companies') <span class="text-danger">*</span></label>
+                                <label for="companies">@lang('front.company') <span class="text-danger">*</span></label>
                                 <select class="form-control js-example-basic-single" id="companies" name="company"  value="{{ old('company') }}" >
                                     <option value="" selected disabled>@lang('front.sirketsec')...</option>
                                     @foreach($companies as $company)
