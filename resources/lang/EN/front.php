@@ -177,7 +177,7 @@ return [
 // login regsiter forget confirmpass
     'pass'=>'Password',
     'remember'=>'Remember me',
-    'sifreunut'=>'You have forgotten your password',
+    'sifreunut'=>'Forgot password',
     'daxilol'=>'Sign in',
     'register'=>'Sign up',
     'saytagir'=>'Login to the site',
@@ -187,6 +187,9 @@ return [
     'passyenile'=>'Update password',
     'google'=>'Sign in with Google',
     'geri'=>'Back',
+    'hobby'=>'Your interests',
+    'company'=>'Company',
+
 
 
 //telim elave et
@@ -263,7 +266,7 @@ return [
     'expsec'=>'Choose an experience',
     'tehsilsec'=>'Choose education',
     'sirketsec'=>'Select a company',
-    'cvqebull'=>'Acceptance of CVs',
+    'cvqebull'=>'Application type',
     'contactlink'=>'Contact link ',
     'cvqebul'=>'I accept the rules for posting a CV on the site',
 

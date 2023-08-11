@@ -176,6 +176,8 @@ return [
 'passyenile'=>'Parolayı yenile',
 'google'=>'Google ile giriş yap',
 'geri'=>'Geri',
+'hobby'=>'İlgi alanınız',
+
 
 
 
@@ -236,6 +238,7 @@ return [
 'elanyarat'=>'Duyuru oluştur',
 'elanlarim'=>'Duyurularım',
 'namizedler'=>'Adaylar',
+'company'=>'Şirket',
 
 // şirket duyurusu ekle
 'unvan'=>'Adres',
@@ -256,7 +259,7 @@ return [
 'expsec'=>'Deneyim seçin',
 'tehsilsec'=>'Eğitim seçin',
 'sirketsec'=>'Şirket seçin',
-'cvqebull'=>'CV kabulü',
+'cvqebull'=>'Başvuru türü',
 'contactlink'=>'İletişim bağlantısı',
 'cvqebul'=>'Siteye CV yüklemek için kuralları kabul ediyorum',
 

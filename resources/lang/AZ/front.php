@@ -8,6 +8,7 @@ return [
     'vacancies'=>'İş elanları',
     'jobsearch'=>'İş axtaranlar',
     'companies'=>'Şirkətlər',
+    'company'=>'Şirkət',
     'training'=>'Təlimlər',
     'blog'=>'Bloq',
     'digerblog'=>'Digər bloqlar',
@@ -173,9 +174,9 @@ return [
 // login regsiter forget confirmpass
     'pass'=>'Şifrə',
     'remember'=>'Yadda Saxla',
-    'sifreunut'=>'Şifrənizi Unutmusunuz?',
-    'daxilol'=>'Daxil olun',
-    'register'=>'Qeydiyyatdan keçin',
+    'sifreunut'=>'Şifrəmi unutmuşam',
+    'daxilol'=>'Giriş',
+    'register'=>'Qeydiyyat',
     'saytagir'=>'Sayta giriş',
     'tekrarpass'=>'Şifrənin təkrarı',
     'veya'=>'və ya',
@@ -184,6 +185,7 @@ return [
     'passyenile'=>'Parolu yenilə',
     'google'=>'Google ilə daxil olun',
     'geri'=>'Geri',
+    'hobby'=>'Maraq dairəniz',
 
 
 //telim elave et
@@ -263,7 +265,7 @@ return [
     'expsec'=>'Təcrübə seçin',
     'tehsilsec'=>'Təhsil seçin',
     'sirketsec'=>'Şirkət seç',
-    'cvqebull'=>'Cv-lərin qəbulu',
+    'cvqebull'=>'Müraciətin növü',
     'contactlink'=>'Əlaqə linki ',
     'cvqebul'=>'Saytda CV yerləşdirmək üçün qaydaları qəbul edirəm',
 
