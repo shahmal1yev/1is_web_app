@@ -214,83 +214,77 @@
                             
                            
 
-                            <div class="container" data-repeater-list="group-a">
-                                <div id="repeater">
-                                    <label for="" class="form-label">@lang('front.portfolio')</label> <br>
-                                    <input type="button" id="createElement" class="btn btn-danger" value="İş Yeri Əlavə Et" />
-                                    <div class='row' id="structure" style="display:none">
-                                        <div class='col-lg-3'>
-                                            <label for='first-name'>@lang('front.isinadi')</label> <br>
-                                            <input type="text" name="work_name" id="job_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
-                                        </div>
-                                        <div class='col-lg-3'>
-                                            <br>
-                                            <label for='first-name'> @lang('front.companies')</label> <br>
-                                            <input type="text" name="work_company" id="comp_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
-                                        </div>
-                                        <div class='col-lg-3'>
-                                            <br>
-                                            <label for='first-name'>@lang('front.link')</label> <br>
-                                            <input type="url" name="work_link" id="comp_linkk" value="" class="form-control" placeholder="@lang('front.daxilet')" />
-                                        </div>
+                        {{-- <div class="container" data-repeater-list="group-a">
+                            <div id="repeater">
+                                <label for="" class="form-label">@lang('front.portfolio')</label> <br>
+                                <input type="button" id="createElement" class="btn btn-danger" value="İş Yeri Əlavə Et" />
+                                <div class='row' id="structure" style="display:none">
+                                    <div class='col-lg-3'>
+                                        <label for='first-name'>@lang('front.isinadi')</label> <br>
+                                        <input type="text" name="work_name" id="job_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
                                     </div>
-                                    <div id="containerElement"></div>   
+                                    <div class='col-lg-3'>
+                                        <br>
+                                        <label for='first-name'> @lang('front.companies')</label> <br>
+                                        <input type="text" name="work_company" id="comp_namee" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                    </div>
+                                    <div class='col-lg-3'>
+                                        <br>
+                                        <label for='first-name'>@lang('front.link')</label> <br>
+                                        <input type="url" name="work_link" id="comp_linkk" value="" class="form-control" placeholder="@lang('front.daxilet')" />
+                                    </div>
                                 </div>
+                                <div id="containerElement"></div>   
                             </div>
+                        </div>
 
                         <div class="container" data-repeater-list="group-a">
-
-                        @php
-                            $portfolio = json_decode($cv->portfolio, true);
-                            $itm = $portfolio['portfolio'];
-                            
-                            if (!$itm || !isset($itm[0]['job_name'])) {
-                                $itm = [['job_name' => '', 'company' => '', 'link' => '']];
-                            }
-                            
-                            $count = count($itm);
-                        @endphp
-
-
-                            @for ($i = 0; $i < $count; $i++)
                             @php
-                                $job_name = isset($itm[$i]['job_name']) ? $itm[$i]['job_name'] : '';
-                                $company = isset($itm[$i]['company']) ? $itm[$i]['company'] : '';
-                                $link = isset($itm[$i]['link']) ? $itm[$i]['link'] : '';
-                                $rnd =  rand().time();
-                                $portId = "port_id_" . $rnd;
-                            
+                                $portfolio = json_decode($cv->portfolio, true);
+                                $itm = $portfolio['portfolio'];
+                                
+                                if (!$itm || !isset($itm[0]['job_name'])) {
+                                    $itm = [['job_name' => '', 'company' => '', 'link' => '']];
+                                }
+                                
+                                $count = count($itm);
                             @endphp
-
-                            <div class='row silinmeli' id="{{ $portId }}">
-                                <div class='col-lg-3'>
-                                    <label for='first-name'>@lang('front.isinadi')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_name]" value="{{ $job_name }}" class="form-control" placeholder="@lang('front.daxilet')" />
+                            @for ($i = 0; $i < $count; $i++)
+                                @php
+                                    $job_name = isset($itm[$i]['job_name']) ? $itm[$i]['job_name'] : '';
+                                    $company = isset($itm[$i]['company']) ? $itm[$i]['company'] : '';
+                                    $link = isset($itm[$i]['link']) ? $itm[$i]['link'] : '';
+                                    $rnd =  rand().time();
+                                    $portId = "port_id_" . $rnd;
+                                
+                                @endphp
+                                <div class='row silinmeli' id="{{ $portId }}">
+                                    <div class='col-lg-3'>
+                                        <label for='first-name'>@lang('front.isinadi')</label> <br>
+                                        <input type="text" name="group[{{ $rnd }}][work_name]" value="{{ $job_name }}" class="form-control" placeholder="@lang('front.daxilet')" />
+                                    </div>
+                                    <div class='col-lg-3'>
+                                        <br>
+                                        <label for='first-name'> @lang('front.companies')</label> <br>
+                                        <input type="text" name="group[{{ $rnd }}][work_company]" value="{{ $company }}" class="form-control" placeholder="@lang('front.daxilet')" />
+                                    </div>
+                                    <div class='col-lg-3'>
+                                        <br>
+                                        <label for='first-name'>@lang('front.link')</label> <br>
+                                        <input type="text" name="group[{{ $rnd }}][work_link]" value="{{ $link }}" class="form-control" placeholder="@lang('front.daxilet')" />
+                                    </div>
+                                    <button onclick="deleteRow('{{ $portId }}')" type="button" class="delete-btn removeElement col-lg-2">Sil</button>
                                 </div>
-                                <div class='col-lg-3'>
-                                    <br>
-                                    <label for='first-name'> @lang('front.companies')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_company]" value="{{ $company }}" class="form-control" placeholder="@lang('front.daxilet')" />
-                                </div>
-                                <div class='col-lg-3'>
-                                    <br>
-                                    <label for='first-name'>@lang('front.link')</label> <br>
-                                    <input type="text" name="group[{{ $rnd }}][work_link]" value="{{ $link }}" class="form-control" placeholder="@lang('front.daxilet')" />
-                                </div>
-                                <button onclick="deleteRow('{{ $portId }}')" type="button" class="delete-btn removeElement col-lg-2">Sil</button>
-                            </div>
-
-                            <script>
-                            function deleteRow(portId) {
-                                var element = document.getElementById(portId);
-                                element.parentNode.removeChild(element);
-                            }
-                            </script>
-
+                                <script>
+                                    function deleteRow(portId) {
+                                        var element = document.getElementById(portId);
+                                        element.parentNode.removeChild(element);
+                                    }
+                                </script>
                             @endfor
-                            </div>
+                        </div> --}}
 
-
+{{-- 
                             <script>
                                 function deleteElement(){
                                     const deleteDiv=document.querySelector(".silinmeli");
@@ -298,7 +292,7 @@
 
                                 }
                                                                         
-                            </script>
+                            </script> --}}
 
 
                         </div>
@@ -396,7 +390,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/z18njsd2wp7b71bq9pvmfw9g8jmaaa2nog8tj87p4jdnkmk1/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="{{asset('front/js/repeater.js')}}"></script>
+    {{-- <script src="{{asset('front/js/repeater.js')}}"></script> --}}
 
     <script>
         const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -488,7 +482,7 @@
             }
         }
     </script>
-<script>
+{{-- <script>
     $(function () {
       $("#repeater").repeater({
         items: [
@@ -510,7 +504,7 @@
 
     const removeBtn = document.querySelector('.removeElement')
     console.log('Remove BTN',removeBtn)
-  </script>
+  </script> --}}
 
 @endsection
 
