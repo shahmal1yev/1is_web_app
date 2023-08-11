@@ -65,10 +65,13 @@
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Log in</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                                @lang('front.daxilol')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false">Sign in</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false">
+                                @lang('front.register')
+                            </a>
                         </li>
                     </ul>
 
@@ -138,7 +141,7 @@
                                 
                                 <div class="form-group login-form-group col-md-10">
                                 <div id="no-limit">
-                                    <p>@lang('front.cats')<span style="color: rgba(192, 0, 0, 1)">*</span></p>
+                                    <p>@lang('front.hobby')<span style="color: rgba(192, 0, 0, 1)">*</span></p>
                                     <select class="select2 form-select" style="width: 100%;" name="cat_id[]" multiple>
                                         <option value="" disabled></option>
 

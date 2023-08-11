@@ -176,6 +176,8 @@ return [
 'passyenile'=>'Parolayı yenile',
 'google'=>'Google ile giriş yap',
 'geri'=>'Geri',
+'hobby'=>'İlgi alanınız',
+
 
 
 

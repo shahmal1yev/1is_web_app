@@ -173,9 +173,9 @@ return [
 // login regsiter forget confirmpass
     'pass'=>'Şifrə',
     'remember'=>'Yadda Saxla',
-    'sifreunut'=>'Şifrənizi Unutmusunuz?',
-    'daxilol'=>'Daxil olun',
-    'register'=>'Qeydiyyatdan keçin',
+    'sifreunut'=>'Şifrəmi unutmuşam',
+    'daxilol'=>'Giriş',
+    'register'=>'Qeydiyyat',
     'saytagir'=>'Sayta giriş',
     'tekrarpass'=>'Şifrənin təkrarı',
     'veya'=>'və ya',
@@ -184,6 +184,7 @@ return [
     'passyenile'=>'Parolu yenilə',
     'google'=>'Google ilə daxil olun',
     'geri'=>'Geri',
+    'hobby'=>'Maraq dairəniz',
 
 
 //telim elave et

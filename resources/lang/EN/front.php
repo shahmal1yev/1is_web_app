@@ -177,7 +177,7 @@ return [
 // login regsiter forget confirmpass
     'pass'=>'Password',
     'remember'=>'Remember me',
-    'sifreunut'=>'You have forgotten your password',
+    'sifreunut'=>'Forgot password',
     'daxilol'=>'Sign in',
     'register'=>'Sign up',
     'saytagir'=>'Login to the site',
@@ -187,6 +187,8 @@ return [
     'passyenile'=>'Update password',
     'google'=>'Sign in with Google',
     'geri'=>'Back',
+    'hobby'=>'Your interests',
+
 
 
 //telim elave et

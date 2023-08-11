@@ -174,9 +174,9 @@ return [
 // login regsiter forget confirmpass
     'pass'=>'Пароль',
     'remember'=>'Запомнить меня',
-    'sifreunut'=>'Вы забыли свой пароль',
+    'sifreunut'=>'Я забыл пароль',
     'daxilol'=>'Bойти',
-    'register'=>'Зарегистрироваться',
+    'register'=>'Pегистр',
     'saytagir'=>'Войти на сайт',
     'tekrarpass'=>'Повторите пароль',
     'veya'=>'или',
@@ -184,6 +184,7 @@ return [
     'passyenile'=>'Обновить пароль',
     'google'=>'Войти через Google',
     'geri'=>'Назад',
+    'hobby'=>'Ваша интересов',
 
 
 //telim elave et
