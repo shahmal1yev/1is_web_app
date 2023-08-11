@@ -95,7 +95,6 @@
                     <a class="dropdown-item" href="{{route('adminProfilePassword')}}"><i class="fas fa-lock font-size-16 align-middle me-1"></i> <span key="t-profile">Şifrə dəyiş</span></a>
                    @if($user->is_superadmin == '1')
                         <a class="dropdown-item" href="{{route('adminList')}}"><i class="fas fa-user-lock font-size-16 align-middle me-1"></i> <span key="t-profile">Adminlər</span></a>
-                        <a class="dropdown-item" href="{{route('adminListLogs')}}"><i class="fas fa-user-lock font-size-16 align-middle me-1"></i> <span key="t-profile">Logs</span></a>
                     @endif
 
                     <div class="dropdown-divider"></div>
