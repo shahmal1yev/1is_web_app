@@ -41,7 +41,7 @@ class JobsearcherController extends Controller
     public function dislike(Request $request)
     {
         if(!auth()->check()) {
-            return redirect()->route('jobsearch')->with('error',  __('messages.loginerror'));
+            return redirect()->route('login');
         }
 
         $cv_id = $request->input('cv_id');

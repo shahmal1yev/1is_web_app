@@ -219,7 +219,7 @@
         </div>
       </div>
 
-      <div class="row w-100 m-0 d-flex justify-content-center">     
+      <div class="row w-100 m-0 d-flex carousel-row">     
 
         <div class="owl-carousel owl-theme w-100" style="display: block">
             <div class="owl-stage-outer">
@@ -258,12 +258,7 @@
               @elseif(count($vacancies) <= 4)
                 @if(count($vacancies) == 0)
                   <div class="owl-item">
-                    <div class="slider-vacancy aaa">
-                      <div class="slider-vacancy-header">
-                        <span></span>
-                        <p>@lang('front.vakansiyayoxdur')</p>
-                      </div>
-                    </div>
+                      <p class="no-carousel-item" style="font-size: 14px;min-width: 300px; width: 100%">@lang('front.vakansiyayoxdur')</p>
                   </div>
                 @else
                   @foreach($vacancies as $vacanc)
@@ -347,7 +342,7 @@
             @endforeach
         @else
             <div class="col-md-12 mt-6 m-auto">
-                <p>@lang('front.reyyoxdur')!</p>
+                <p class="no-comment">@lang('front.reyyoxdur')!</p>
             </div>
         @endif
 
