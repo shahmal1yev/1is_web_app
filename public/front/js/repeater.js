@@ -6,7 +6,7 @@
             items: [],
             repeatElement: 'structure',
             createElement: 'createElement',
-            removeElement: 'removeElement col-lg-2',
+            removeElement: 'removeElement',
             containerElement: 'containerElement',
             groupName: 'group'
         }, options);
