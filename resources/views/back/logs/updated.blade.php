@@ -29,21 +29,60 @@
                         <thead>
                         <tr>
                             <th>№</th>
-                            <th>Istifadəçi</th>
-                            <th>Əməliyyatın adı</th>
+                            <th>İstifadəçi</th>
                             <th>Əməliyyat</th>
+                            <th>Tarix</th>
+                            <th>Proses</th>
+
+
 
                         </tr>
                         </thead>
                         <tbody>
-                        {{-- @foreach($admins as $key=>$admin)
+                            @foreach($activityLogs as $key => $log)
                             <tr>
-                                <td>{{$key+1}}</td>
-                                <td>{{$admin->name}}</td>
-                                <td>{{$admin->email}}</td>
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $log->causer->name ?? '' }}</td>
                                 
+
+                                <td>{{ $log->description }}</td>
+                                <td>{{ $log->created_at }}</td>
+                                    @php
+                                        $properties = json_decode($log->properties, true);
+                                        
+                                        $subjectType = $log['subject_type'];
+
+                                        $modelDisplayName = '';
+
+                                        if ($log->event === 'updated') {
+                                            if (isset($properties)) {
+                                                $modelAttributes = $properties['attributes'];
+                                                $modelOld = $properties['old'];
+                                                
+                                                // Değiştirilen alanları bul
+                                                $changedFields = [];
+                                                foreach ($modelAttributes as $key => $value) {
+                                                    if ($value !== $modelOld[$key]) {
+                                                        $changedFields[] = $key;
+                                                    }
+                                                }
+
+                                                $changeMessage = ' deyişdirildi: ';
+                                                foreach ($changedFields as $field) {
+                                                    $oldValue = $modelOld[$field];
+                                                    $newValue = $modelAttributes[$field];
+                                                    $changeMessage .= "$field: $oldValue -> $newValue, ";
+                                                }
+                                                
+                                                $modelDisplayName = class_basename($subjectType);
+                                                $modelDisplayName .= rtrim($changeMessage, ', ');
+                                            }
+                                        }
+                                    @endphp
+                                    <td>{{ $modelDisplayName }}</td>
+
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

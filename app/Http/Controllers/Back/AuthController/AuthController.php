@@ -18,13 +18,14 @@ class AuthController extends Controller
             'password'=>'required'
         ]);
         $login = $request->only(['email', 'password']);
-$user = User::where('is_admin', '1')
-            ->where('status', '1')
-            ->where('email', $request->email)
-            ->first();
+        
+        $user = User::where('is_admin', 1)
+                    ->where('status', 1)
+                    ->where('email', $request->email)
+                    ->first();
+                    
         if ($user){
             if (Auth::attempt($login)){
-                // dd($request->session());
                 $request->session()->regenerate();
                 return redirect()->route('adminIndex');
             }else{
