@@ -64,9 +64,48 @@
 
             </div>                 
             @endforeach
+            @endif
+           
+    <nav aria-label="..." class="d-flex justify-content-center">
+        @if ($compvacancies->hasPages())
+        <ul class="pagination pagination-ul">
+            {{-- Previous Page Link --}}
+            @if ($compvacancies->onFirstPage())
+            @else
+                <li class="page-item"><a class="page-link" href="{{ $compvacancies->appends(request()->except('page'))->previousPageUrl() }}" rel="prev">«</a></li>
+            @endif
+    
+            @if($compvacancies->currentPage() > 3)
+                <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $compvacancies->appends(request()->except('page'))->url(1) }}">1</a></li>
+            @endif
+            @if($compvacancies->currentPage() > 4)
+            <li class="page-item"><a class="page-link">...</a></li>
+            @endif
+            @foreach(range(1, $compvacancies->lastPage()) as $i)
+                @if($i >= $compvacancies->currentPage() - 1 && $i <= $compvacancies->currentPage() + 1)
+                    @if ($i == $compvacancies->currentPage())
+                        <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
+                    @else
+                        <li class="page-item "><a class="page-link" href="{{ $compvacancies->appends(request()->except('page'))->url($i) }}">{{ $i }}</a></li>
+                    @endif
+                @endif
+            @endforeach
+            @if($compvacancies->currentPage() < $compvacancies->lastPage() - 2)
+            <li class="page-item"><a class="page-link">...</a></li>
+            @endif
+            @if($compvacancies->currentPage() < $compvacancies->lastPage() - 1)
+                <li class="page-item hidden-xs"><a class="page-link" href="{{ $compvacancies->appends(request()->except('page'))->url($compvacancies->lastPage()) }}">{{ $compvacancies->lastPage() }}</a></li>
+            @endif
+    
+            {{-- Next Page Link --}}
+            @if ($compvacancies->hasMorePages())
+                <li><a class="page-link" href="{{ $compvacancies->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
+            @endif
+        </ul>
+    </nav>
+    <h3 class="blog-all-result-text" style="margin: 0 auto;">@lang('front.umumisay') : {{$compvacancies->total()}}</h3>
         @endif
     </div>
-
 </section>
 
 <script>
@@ -78,17 +117,17 @@
                 var vacancyId = this.getAttribute('data-vacancy-id');
                 var redHeartIcon = document.querySelector('.red-heart-icon[data-vacancy-id="' + vacancyId + '"]');
                 var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
-                window.location.href = '{{ route('login') }}';
-
 
                 if (isLoggedIn) {
                     this.style.display = 'none';
                     redHeartIcon.style.display = 'inline-block';
+                } else {
+                    window.location.href = '{{ route('login') }}';
                 }
 
                 // AJAX isteği
                 var xhr = new XMLHttpRequest();
-                var url = '{{ route('like') }}'; // Favori əlavəsi üçün uyğun URL'yi buraya yazın
+                var url = '{{ route('complike') }}'; // Favori ekleme için uygun URL'yi buraya yazın
                 var params = 'vacancy_id=' + vacancyId + '&_token=' + '{{ csrf_token() }}';
 
                 xhr.open('POST', url, true);
@@ -103,7 +142,11 @@
                             }
                         } else if (xhr.status === 403) {
                             var response = JSON.parse(xhr.responseText);
-                            alert(response.error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: `${response.error}`,
+                                footer: `<a href="{{ route('login') }}">@lang('front.daxilol')</a>`,
+                            });
                         }
                     }
                 };
@@ -117,46 +160,49 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-var heartIcons = document.querySelectorAll('.red-heart-icon');
+    document.addEventListener('DOMContentLoaded', function () {
+    var heartIcons = document.querySelectorAll('.red-heart-icon');
 
-heartIcons.forEach(function (icon) {
-icon.addEventListener('click', function () {
-    var vacancyId = this.getAttribute('data-vacancy-id');
-    var redHeartIcon = document.querySelector('.heart-icon[data-vacancy-id="' + vacancyId + '"]');
-    var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
+    heartIcons.forEach(function (icon) {
+    icon.addEventListener('click', function () {
+        var vacancyId = this.getAttribute('data-vacancy-id');
+        var redHeartIcon = document.querySelector('.heart-icon[data-vacancy-id="' + vacancyId + '"]');
+        var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
 
-    if (isLoggedIn) {
-        this.style.display = 'none';
-        redHeartIcon.style.display = 'inline-block';
-    }
-
-    // AJAX isteği
-    var xhr = new XMLHttpRequest();
-    var url = '{{ route('dislike') }}'; // Dislike işlemi için uygun URL'yi buraya yazın
-    var params = 'vacancy_id=' + vacancyId + '&_token=' + '{{ csrf_token() }}';
-
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                console.log(xhr.responseText);
-                if (!isLoggedIn) {
-                    redHeartIcon.style.display = 'inline-block';
-                }
-            } else if (xhr.status === 403) {
-                var response = JSON.parse(xhr.responseText);
-                alert(response.error);
-            }
+        if (isLoggedIn) {
+            this.style.display = 'none';
+            redHeartIcon.style.display = 'inline-block';
+        } else {
+            window.location.href = '{{ route('login') }}';
         }
-    };
+    
 
-    xhr.send(params);
-});
-});
-});
+        // AJAX isteği
+        var xhr = new XMLHttpRequest();
+        var url = '{{ route('dislike') }}'; // Dislike işlemi için uygun URL'yi buraya yazın
+        var params = 'vacancy_id=' + vacancyId + '&_token=' + '{{ csrf_token() }}';
+
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    if (!isLoggedIn) {
+                        redHeartIcon.style.display = 'inline-block';
+                    }
+                } else if (xhr.status === 403) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert(response.error);
+                }
+            }
+        };
+
+        xhr.send(params);
+    });
+    });
+    });
 </script>
 @endsection
 

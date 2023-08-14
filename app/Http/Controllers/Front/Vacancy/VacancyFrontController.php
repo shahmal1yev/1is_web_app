@@ -34,21 +34,19 @@ class VacancyFrontController extends Controller
 
  
     public function like(Request $request)
-        {
-            if (!auth()->check()) {
-                return redirect()->route('login');
-            }
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
 
-            $vacancy_id = $request->input('vacancy_id');
-            $user_id = auth()->user()->id;
+        $vacancy_id = $request->input('vacancy_id');
+        $user_id = auth()->user()->id;
 
-            $favorite = new Favorits();
-            $favorite->vacancy_id = $vacancy_id;
-            $favorite->user_id = $user_id;
+        $favorite = new Favorits();
+        $favorite->vacancy_id = $vacancy_id;
+        $favorite->user_id = $user_id;
 
-            $favorite->save();
-      
-
+        $favorite->save();
     }
 
 

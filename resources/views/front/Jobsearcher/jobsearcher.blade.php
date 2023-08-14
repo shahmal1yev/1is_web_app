@@ -313,14 +313,13 @@
             var cvId = this.getAttribute('data-cv-id');
             var redHeartIcon = document.querySelector('.red-heart-icon[data-cv-id="' + cvId + '"]');
             var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
-            window.location.href = '{{ route('login') }}';
-
-
             if (isLoggedIn) {
                 this.style.display = 'none';
                 redHeartIcon.style.display = 'inline-block';
+            } else {
+                window.location.href = '{{ route('login') }}';
             }
-
+    
             // AJAX request
             var xhr = new XMLHttpRequest();
             var url = '{{ route('cvlike') }}';
@@ -366,7 +365,10 @@
                 if (isLoggedIn) {
                     this.style.display = 'none';
                     redHeartIcon.style.display = 'inline-block';
+                } else {
+                    window.location.href = '{{ route('login') }}';
                 }
+    
 
                 // AJAX isteği
                 var xhr = new XMLHttpRequest();
