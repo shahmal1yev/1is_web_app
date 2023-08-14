@@ -225,7 +225,7 @@ class AccountController extends Controller
 
         ]);
         if (User::where('email', $request->email)->first()) {
-            return redirect()->route('register')->with('error', __('messages.emailvar'));
+            return redirect()->route('login')->with('error', __('messages.emailvar'));
         }
         
         $user = User::create([
