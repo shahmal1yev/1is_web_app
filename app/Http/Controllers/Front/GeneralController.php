@@ -33,7 +33,17 @@ class GeneralController extends Controller
         $blogs = Blogs::where('status','1')->get();
         $banner = BannerImage::where('status','1')->get();
         $trainings = Trainings::where('status','1')->get();
-        $allvacancies = Vacancies::where('status','1')->get();
+        // allvac muveqqeti elave olunub sayi dzu cixmadigina gore
+        $allvacancies = Vacancies::join('companies','companies.id','=','vacancies.company_id')
+                ->join('sectors','sectors.id','=','companies.sector_id')
+                ->join('cities','cities.id','=','vacancies.city_id')
+                ->join('categories','categories.id','=','vacancies.category_id')
+                ->join('job_type','job_type.id','=','vacancies.job_type_id')
+                ->join('educations','educations.id','=','vacancies.education_id')
+                ->join('experiences','experiences.id','=','vacancies.experience_id')
+                ->select('vacancies.id','job_type.id as job_type_id','companies.id as company_id','sectors.id as sector_id','cities.id as city_id','categories.id as category_id','companies.name','vacancies.position','educations.id as education_id','experiences.id as experience_id','vacancies.status','vacancies.view','categories.title_az as sectors_title','vacancies.deadline','vacancies.created_at')
+                ->where('vacancies.status','1')->get();
+        
         $allcompanies = Companies::where('status','1')->orderBy('name','ASC')->get();
         $companies = Companies::where('status','1')->orderBy('view', 'DESC')->paginate(9);
         $cvs = Cv::where('status','1')->get();
