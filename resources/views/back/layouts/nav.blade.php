@@ -185,7 +185,19 @@
                         <li><a href="{{route('companiesDataIndex')}}" key="t-change-company">Şirkət məlumatları</a></li>
                     </ul>
                 </li>
-
+                @if($user->is_superadmin == '1')
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="far fa-sun"></i>
+                        <span key="t-other">Loglar</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('adminCreatedLogs')}}" key="t-category">Created</a></li>
+                        <li><a href="{{route('adminUpdatedLogs')}}" key="t-sector">Updated</a></li>
+                        <li><a href="{{route('adminDeletedLogs')}}" key="t-city">Deleted</a></li>
+                    </ul>
+                </li>
+                @endif
 
             </ul>
         </div>

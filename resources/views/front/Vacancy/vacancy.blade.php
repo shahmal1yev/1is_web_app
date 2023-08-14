@@ -289,16 +289,17 @@
                     var vacancyId = this.getAttribute('data-vacancy-id');
                     var redHeartIcon = document.querySelector('.red-heart-icon[data-vacancy-id="' + vacancyId + '"]');
                     var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
-                    window.location.href = '{{ route('login') }}';
-                    return;
+    
                     if (isLoggedIn) {
                         this.style.display = 'none';
                         redHeartIcon.style.display = 'inline-block';
+                    } else {
+                        window.location.href = '{{ route('login') }}';
                     }
     
                     // AJAX isteği
                     var xhr = new XMLHttpRequest();
-                    var url = '{{ route('like') }}'; // Favori əlavəsi üçün uyğun URL'yi buraya yazın
+                    var url = '{{ route('like') }}'; // Favori ekleme için uygun URL'yi buraya yazın
                     var params = 'vacancy_id=' + vacancyId + '&_token=' + '{{ csrf_token() }}';
     
                     xhr.open('POST', url, true);
@@ -316,9 +317,8 @@
                                 Swal.fire({
                                     icon: 'error',
                                     title: `${response.error}`,
-                                    footer: `<a href="{{route('login')}}">@lang('front.daxilol')</a>`,
-
-                                    })    
+                                    footer: `<a href="{{ route('login') }}">@lang('front.daxilol')</a>`,
+                                });
                             }
                         }
                     };
@@ -344,7 +344,10 @@
         if (isLoggedIn) {
             this.style.display = 'none';
             redHeartIcon.style.display = 'inline-block';
+        } else {
+            window.location.href = '{{ route('login') }}';
         }
+
 
         // AJAX isteği
         var xhr = new XMLHttpRequest();

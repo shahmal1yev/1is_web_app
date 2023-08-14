@@ -76,7 +76,9 @@ Route::middleware('isAdminLogin')->group(function () {
     //Profile End
 
     //Admin logs
-    Route::get('/admin/logs', [AdminLogsController::class, "adminListLogs"])->name('adminListLogs');
+    Route::get('/admin/logs/created', [AdminLogsController::class, "adminCreatedLogs"])->name('adminCreatedLogs');
+    Route::get('/admin/logs/updated', [AdminLogsController::class, "adminUpdatedLogs"])->name('adminUpdatedLogs');
+    Route::get('/admin/logs/deleted', [AdminLogsController::class, "adminDeletedLogs"])->name('adminDeletedLogs');
 
     //Logs end
 

@@ -949,7 +949,10 @@
         if (isLoggedIn) {
             this.style.display = 'none';
             redHeartIcon.style.display = 'inline-block';
+        } else {
+            window.location.href = '{{ route('login') }}';
         }
+    
 
         // AJAX isteği
         var xhr = new XMLHttpRequest();

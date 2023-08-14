@@ -76,7 +76,7 @@ class CompanyFrontController extends Controller
                 $likes = [];
             }
 
-            $compvacancies = $query->paginate(15)->appends(request()->except('page'));
+            $compvacancies = $query->paginate(20)->appends(request()->except('page'));
 
             return view('front.Company.compvakans', get_defined_vars());
     }
@@ -98,7 +98,6 @@ class CompanyFrontController extends Controller
 
         $favorite->save();
 
-        return redirect()->route('compvac', ['id' => $request->vacancy_id])->with('success', 'Vakansiya favorilərə əlavə olundu!');
     }
 
 
