@@ -274,22 +274,19 @@
         <div class="vac-apply-button">
         <?php
                 $contact_info = str_replace('https://1is.butagrup.az/vacancy/', '', $vacdetail->contact_info);
-                ?>
-            @if (Auth::check())
-                @if ($vacdetail->accept_type == 1)
+        ?>
+        @if (Auth::check())
+            @if ($vacdetail->accept_type == 2)
 
-                    <button id="apply_button">Müraciət</button>
-                @else
+                <button id="apply_button">Müraciət</button>
+            @else
 
-                @if (strpos($contact_info, '@') !== false)
-                    <a class="apply-button" href="mailto:{{ $contact_info }}">@lang('front.muraciet')</a>
-                @else
-                    @if (Auth::check())
-                        <a class="apply-button" href="{{ $contact_info }}">@lang('front.muraciet')</a>
-                    @else
-                        <a class="apply-button" href="{{ route('login') }}">@lang('front.muraciet')</a>
-                    @endif
-                @endif
+            @if (strpos($contact_info, '@') !== false)
+                <a class="apply-button" href="mailto:{{ $contact_info }}">@lang('front.muraciet')</a>
+            @else
+                    <a class="apply-button" href="{{ $contact_info }}" target="_blank">@lang('front.muraciet')</a>
+                
+            @endif
         @endif
 
             
