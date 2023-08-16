@@ -18,6 +18,12 @@
             position: relative;
         }
 
+        .company-pag{
+            justify-content: center;
+            position: absolute;
+            bottom: 0;
+        }
+
         .inner1 {
             padding: 0 5px;
         }
@@ -108,6 +114,15 @@
 
     .inner-right a {
         margin-right: 5px;
+    }
+
+    @media screen and (max-width: 992px) {
+        .company-pag{
+            position: absolute;
+            bottom: -45px;
+            left: 0;
+            right: 0;
+        }
     }
 </style>
 
@@ -342,8 +357,16 @@
                     </div>
                  
                     @endforeach
-                    
                 </div>
+                <ul class="pagination pagination-ul company-pag">
+                        <li class="page-item"><a class="page-link" href="" rel="prev">«</a></li>
+                        <li class="page-item" class="hidden-xs"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link">2</a></li>
+                        <li class="page-item "><a class="page-link" href="">3</a></li>
+                        <li class="page-item"><a class="page-link">...</a></li>
+                        <li class="page-item hidden-xs"><a class="page-link" href="">8</a></li>
+                        <li><a class="page-link" href="" rel="next">»</a></li>
+                    </ul>
             </div>
         </div>
     </section>
