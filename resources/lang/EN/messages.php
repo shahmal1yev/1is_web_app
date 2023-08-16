@@ -12,6 +12,7 @@ return [
 
     'yildizerror' => 'The rating star must be selected!',
 
+    'acaryox'=>'no results were found for the keyword',
 
 
 

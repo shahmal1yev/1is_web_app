@@ -43,6 +43,7 @@ return [
 
     'fileyox' => 'Dosya bulunamadı!',
 
+    'acaryox'=>'anahtar kelime için sonuç bulunamadı',
 
 
 

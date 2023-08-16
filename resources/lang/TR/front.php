@@ -264,6 +264,7 @@ return [
 'cvqebul'=>'Siteye CV yüklemek için kuralları kabul ediyorum',
 
 
+'vacyox'=>'Bu şirket için boş pozisyon yok!',
 
 
 

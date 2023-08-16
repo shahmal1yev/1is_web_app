@@ -66,7 +66,10 @@ class CompanyFrontController extends Controller
 
             if (!empty($compname)) {
                 $query->where(function ($q) use ($compname) {
-                    $q->where('vacancies.slug', 'like', '%' . $compname . '%');
+                    $q->where('vacancies.slug', 'like', '%' . $compname . '%')
+                    ->orWhere('vacancies.description', 'like', '%' . $compname . '%')
+                    ->orWhere('vacancies.requirement', 'like', '%' . $compname . '%')
+                    ->orWhere('vacancies.position', 'like', '%' . $compname . '%');
                 });
             }
 
@@ -250,9 +253,13 @@ class CompanyFrontController extends Controller
        
         if (!empty($compname)) {
             $query->where(function ($q) use ($compname) {
-                $q->where('companies.slug', 'like', '%' . $compname . '%');
+                $q->where('companies.slug', 'like', '%' . $compname . '%')
+                ->orWhere('companies.name', 'like', '%' . $compname . '%');
+
             });
         }    
+
+        
         if ($sector) {
             $query->where('companies.sector_id', $sector);
         }

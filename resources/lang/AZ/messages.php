@@ -1,6 +1,6 @@
 <?php
 return [
-
+    'acaryox'=>'açar sözünə uyğun nəticə tapılmadı',
     'succelan' => 'Elan uğurla əlavə edildi!',
     'succomp' => 'Şirkət uğurla əlavə edildi!',
     'nesexeta' => 'Nəsə xəta baş verdi!',

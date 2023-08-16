@@ -301,7 +301,7 @@
       <div class="all-vacancies">
             
         @if($vacancies->isEmpty())
-          <p style="margin-left: 15px; font-size: 24px;"><span style="color: #F96D00;">{{ $vacname }}</span> açar sözünə uyğun nəticə tapılmadı </p>
+          <p style="margin-left: 15px; font-size: 24px;"><span style="color: #F96D00;">{{ $vacname }}</span> @lang('messages.acaryox') </p>
           @else
                 @foreach($vacancies as $key=>$vacancy)
 
@@ -318,8 +318,8 @@
           </div>
           <div class="vac-inner2">
             <a href="{{route('vacancydetail', $vacancy->vacancy_id)}}" class="vac-name">
-                @if(strlen($vacancy->position) > 50)
-                    {{ html_entity_decode(substr($vacancy->position, 0, 50)) . '...' }}
+                @if(mb_strlen($vacancy->position) > 50)
+                    {{ html_entity_decode(mb_substr($vacancy->position, 0, 50)) . '...' }}
                 @else
                     {!! html_entity_decode($vacancy->position) !!}
                 @endif
@@ -338,7 +338,7 @@
             </div>
             <div class="vac-inn2">
               <img src="https://1is-new.netlify.app/images/clock.png" alt="" />
-              <p class="vac-time">{{ date('d-m-Y', strtotime($vacancy->deadline)) }}</p>
+              <p class="vac-time">{{ date('d-m-Y', strtotime($vacancy->created_at)) }}</p>
             </div>
           </div>
           @if ($vacancy->created_at->diffInDays(Carbon\Carbon::now()) <= 3)

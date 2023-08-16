@@ -150,7 +150,7 @@ class VacancyFrontController extends Controller
         $banner = BannerImage::where('status','1')->get();
 
         $userId = auth()->user()->id;
-        $companies = Companies::where('user_id', $userId)->get();
+        $companies = Companies::where('user_id', $userId)->paginate(10);
         $sectors = Sectors::where('status','1')->orderBy('title_az','ASC')->get();
         
                     

@@ -32,7 +32,7 @@
       <div class="all-vacancies">
         @if($compvacancies->isEmpty())
                 <div class="no-vacancies-message">
-                    <p>no-vacancies-message</p>
+                    <p style="margin-left: 15px; font-size: 24px;"><span style="color: #F96D00;">@lang('front.vacyox')</span> </p>
                 </div>
         @else
             @foreach($compvacancies as $key=>$vacancy)

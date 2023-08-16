@@ -18,6 +18,12 @@
             position: relative;
         }
 
+        .company-pag{
+            justify-content: center;
+            position: absolute;
+            bottom: 0;
+        }
+
         .inner1 {
             padding: 0 5px;
         }
@@ -108,6 +114,15 @@
 
     .inner-right a {
         margin-right: 5px;
+    }
+
+    @media screen and (max-width: 992px) {
+        .company-pag{
+            position: absolute;
+            bottom: -45px;
+            left: 0;
+            right: 0;
+        }
     }
 </style>
 
@@ -310,7 +325,7 @@
                                 @endif
                                     <div class="inner-right">
                                         <a href="{{route('compedit', $allcomp->id)}}">
-                                            <img src="https://1is.butagrup.az/back/assets/images/icons/Vector2.png" alt="">
+                                            <img src="https://1is.butagrup.az/back/assets/images/icons/Vector2.png)}}" alt="">
                                         </a>
 
                                         <p>{{ ($allcomp->vacanc_say) }} </p>
@@ -342,8 +357,47 @@
                     </div>
                  
                     @endforeach
-                    
                 </div>
+                <nav aria-label="..." class="d-flex justify-content-center">
+                    @if ($companies->hasPages())
+                    <ul class="pagination pagination-ul">
+                        {{-- Previous Page Link --}}
+                        @if ($companies->onFirstPage())
+                        @else
+                            <li class="page-item"><a class="page-link" href="{{ $companies->appends(request()->except('page'))->previousPageUrl() }}" rel="prev">«</a></li>
+                        @endif
+                
+                        @if($companies->currentPage() > 3)
+                            <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $companies->appends(request()->except('page'))->url(1) }}">1</a></li>
+                        @endif
+                        @if($companies->currentPage() > 4)
+                        <li class="page-item"><a class="page-link">...</a></li>
+                        @endif
+                        @foreach(range(1, $companies->lastPage()) as $i)
+                            @if($i >= $companies->currentPage() - 1 && $i <= $companies->currentPage() + 1)
+                                @if ($i == $companies->currentPage())
+                                    <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
+                                @else
+                                    <li class="page-item "><a class="page-link" href="{{ $companies->appends(request()->except('page'))->url($i) }}">{{ $i }}</a></li>
+                                @endif
+                            @endif
+                        @endforeach
+                        @if($companies->currentPage() < $companies->lastPage() - 2)
+                        <li class="page-item"><a class="page-link">...</a></li>
+                        @endif
+                        @if($companies->currentPage() < $companies->lastPage() - 1)
+                            <li class="page-item hidden-xs"><a class="page-link" href="{{ $companies->appends(request()->except('page'))->url($companies->lastPage()) }}">{{ $companies->lastPage() }}</a></li>
+                        @endif
+                
+                        {{-- Next Page Link --}}
+                        @if ($companies->hasMorePages())
+                            <li><a class="page-link" href="{{ $companies->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
+                        @endif
+                    </ul>
+                    </nav>
+                @endif
+            
+               
             </div>
         </div>
     </section>
