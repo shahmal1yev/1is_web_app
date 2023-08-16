@@ -52,7 +52,10 @@
                                     <a class="vac-inner1-a" href="#">{{$vac->sectors_title}}</a>
                                     <div class="second-part">
                                         <a href="{{route('elanEdit', $vac->id)}}"><img src="{{asset('back/assets/images/icons/edit_announce.png')}}" class="edit-announce-icon" alt="edit-announce" /></a>
-                                        <a href="{{route('delete', $vac->id)}}"><img src="{{asset('back/assets/images/icons/announce-close.png')}}" alt="close-announce" /></a>
+                                        <a href="#" onclick="confirmAndDelete({{ $vac->id }})">
+                                            <img src="{{ asset('back/assets/images/icons/announce-close.png') }}" alt="close-announce" />
+                                        </a>
+                                        
 
                                         @if($vac->status == 1)
                                             <img src="{{asset('back/assets/images/icons/green-circ.png')}}"/>
@@ -97,6 +100,39 @@
 <script src="{{asset('front/js/slick.min.js')}}"></script>
 <script src="{{asset('front/js/companies-announces.js')}}"></script>
 @endsection
+
+<script>
+    function confirmAndDelete(id) {
+        Swal.fire({
+            title: 'Silmək istədiyinzə əminsiz?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Bəli',
+            cancelButtonText: 'Geri',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteVacancy(id);
+            }
+        });
+    }
+
+    function deleteVacancy(id) {
+        $.ajax({
+            type: "GET",
+            url: "{{ route('delete', '') }}" + '/' + id,
+            data: {
+                "_token": "{{ csrf_token() }}"
+            },
+            success: function(response) {
+                location.reload(); 
+                Swal.fire({
+                    icon: 'success',
+                    title: '{{ __("messages.vacsil") }}',
+                });
+            }
+        });
+    }
+</script>
 
 
 

@@ -185,11 +185,11 @@
                     </select>
                 </div>
                 
-                <div class="col-lg-12 mb-4" id="type_link" style="@if($vacancy->accept_type == '0') display:none; @endif">
+                <div class="col-lg-12 mb-4" id="type_link" style="@if($vacancy->accept_type == '2') display:none; @endif">
                     <label for="contact_link" class="form-label">@lang('front.contactlink') <span class="text-danger">*</span></label>
                     <input class="form-control" type="text" id="contact_link" name="contact_link" placeholder="@lang('front.contactlink'):" value="@if($vacancy->accept_type == '2') {{$vacancy->contact_info}} @endif">
                 </div>
-                <div class="col-lg-12 mb-4" id="type_email" style="@if($vacancy->accept_type == '2') display:none; @endif;">
+                <div class="col-lg-12 mb-4" id="type_email" style="@if($vacancy->accept_type == '0') display:none; @endif;">
                     <label for="contact_email" class="form-label">@lang('front.conmail') <span class="text-danger">*</span></label>
                     <input class="form-control" type="text" id="contact_email" name="contact_email" placeholder="@lang('front.conmail'):" value="@if($vacancy->accept_type == '0') {{$vacancy->contact_info}} @endif">
                 </div>
@@ -269,12 +269,6 @@
                     }
                 },
                 
-                min_age: {
-                    required: true,
-                },
-                max_age: {
-                    required: true,
-                },
                 experience: {
                     required: true,
                 },
@@ -342,18 +336,6 @@
                 },
 
                 salary_type: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                min_age: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                max_age: {
                     required: function() {
                         return getErrorMessage('required', lang);
                     },
