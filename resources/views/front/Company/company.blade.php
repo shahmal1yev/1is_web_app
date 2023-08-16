@@ -128,8 +128,8 @@
                 <div class="company-content">
                     <div class="inner1">
                         <p>
-                            @if (mb_strlen($allcomp->name) > 45)
-                            {{ html_entity_decode(mb_substr($allcomp->name, 0, 45)) . '...' }}
+                            @if (mb_strlen($allcomp->name) > 50)
+                            {{ html_entity_decode(mb_substr($allcomp->name, 0, 50)) . '...' }}
                         @else
                             {!! html_entity_decode($allcomp->name) !!}
                         @endif
