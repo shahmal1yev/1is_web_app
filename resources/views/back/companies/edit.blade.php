@@ -85,6 +85,7 @@
                             <div class="col-lg-12">
                                 <label for="map" class="form-label">Xəritə <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" id="map" name="map" placeholder="Xəritə linki daxil edin:" value="{{$company->map}}">
+                                {!! htmlspecialchars_decode($company->map) !!}
                             </div>
                         </div>
                         <div class="row mb-4">
