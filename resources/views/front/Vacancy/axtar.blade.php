@@ -318,8 +318,8 @@
           </div>
           <div class="vac-inner2">
             <a href="{{route('vacancydetail', $vacancy->vacancy_id)}}" class="vac-name">
-                @if(strlen($vacancy->position) > 50)
-                    {{ html_entity_decode(substr($vacancy->position, 0, 50)) . '...' }}
+                @if(mb_strlen($vacancy->position) > 50)
+                    {{ html_entity_decode(mb_substr($vacancy->position, 0, 50)) . '...' }}
                 @else
                     {!! html_entity_decode($vacancy->position) !!}
                 @endif
