@@ -301,7 +301,7 @@
       <div class="all-vacancies">
             
         @if($vacancies->isEmpty())
-          <p style="margin-left: 15px; font-size: 24px;"><span style="color: #F96D00;">{{ $vacname }}</span> açar sözünə uyğun nəticə tapılmadı </p>
+          <p style="margin-left: 15px; font-size: 24px;"><span style="color: #F96D00;">{{ $vacname }}</span> @lang('messages.acaryox') </p>
           @else
                 @foreach($vacancies as $key=>$vacancy)
 
