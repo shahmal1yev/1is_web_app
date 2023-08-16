@@ -310,7 +310,7 @@
                                 @endif
                                     <div class="inner-right">
                                         <a href="{{route('compedit', $allcomp->id)}}">
-                                            <img src="https://1is.butagrup.az/back/assets/images/icons/Vector2.png" alt="">
+                                            <img src="{{assets(back/assets/images/icons/Vector2.png)}}" alt="">
                                         </a>
 
                                         <p>{{ ($allcomp->vacanc_say) }} </p>
