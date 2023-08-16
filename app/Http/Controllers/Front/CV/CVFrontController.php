@@ -85,7 +85,6 @@ class CVFrontController extends Controller
 
 
     public function cveditPost(Request $request){
-        dd($request);
         {
             
             $req = $request->all();
