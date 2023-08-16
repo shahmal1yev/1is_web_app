@@ -66,7 +66,10 @@ class CompanyFrontController extends Controller
 
             if (!empty($compname)) {
                 $query->where(function ($q) use ($compname) {
-                    $q->where('vacancies.slug', 'like', '%' . $compname . '%');
+                    $q->where('vacancies.slug', 'like', '%' . $compname . '%')
+                    ->orWhere('vacancies.description', 'like', '%' . $compname . '%')
+                    ->orWhere('vacancies.requirement', 'like', '%' . $compname . '%')
+                    ->orWhere('vacancies.position', 'like', '%' . $compname . '%');
                 });
             }
 

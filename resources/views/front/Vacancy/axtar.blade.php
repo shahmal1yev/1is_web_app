@@ -338,7 +338,7 @@
             </div>
             <div class="vac-inn2">
               <img src="https://1is-new.netlify.app/images/clock.png" alt="" />
-              <p class="vac-time">{{ date('d-m-Y', strtotime($vacancy->deadline)) }}</p>
+              <p class="vac-time">{{ date('d-m-Y', strtotime($vacancy->created_at)) }}</p>
             </div>
           </div>
           @if ($vacancy->created_at->diffInDays(Carbon\Carbon::now()) <= 3)
