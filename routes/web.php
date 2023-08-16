@@ -200,6 +200,9 @@ Route::middleware('isAdminLogin')->group(function () {
 
     Route::post('/admin/vacancy/status', [VacancyController::class, "vacancyStatus"])->name('vacancyStatus');
     Route::post('/admin/vacancy/delete', [VacancyController::class, "vacancyDelete"])->name('vacancyDelete');
+
+    Route::get('/admin/vacancies/archive', [VacancyController::class, "archiveVac"])->name('archiveVac');
+
     //End Vacancies
 
     //Start CV

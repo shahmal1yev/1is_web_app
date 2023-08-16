@@ -66,35 +66,9 @@ class VacancyFrontController extends Controller
         
     }
 
-    public function elanPost(Request $request)
-        {
-
-        $req = $request->all();
-        $rules = [
-            'position' => 'max:1000',
-            'accept_type' => 'numeric',
-            'deadline' => 'date',
-            'min_age' => 'numeric',
-            'max_age' => 'numeric',
-            ];
-            
-
-            $rules['max_salary'] = isset($req['salary_type']) && $req['salary_type'] ? 'nullable' : 'required';
-            $rules['min_salary'] = isset($req['salary_type']) && $req['salary_type'] ? 'nullable' : 'required';
-
-            $acceptType = isset($req['accept_type']) ? $req['accept_type'] : '1';
-
-            if ($acceptType == '0') {
-                $rules['contact_email'] = 'required|email';
-            } else if ($acceptType == '2') {
-                $rules['contact_link'] = 'required|active_url';
-            }
-
-            
-            $request->validate($rules);
-
-
+    public function elanPost(Request $request){
         try {
+
         $vacancy = new Vacancies();
         $vacancy->user_id = Auth::user()->id;
         $vacancy->company_id = $request->company;
@@ -137,10 +111,6 @@ class VacancyFrontController extends Controller
         $vacancy->description = $request->description;
         $vacancy->contact_name = $request->contact_name;
 
-        if (empty($request->accept_type)) {
-            $request->merge(['accept_type' => '1']);
-        }
-
         if ($request->accept_type == '0') {
             $request->validate([
                 'contact_email' => 'email'
@@ -152,13 +122,11 @@ class VacancyFrontController extends Controller
             ]);
             $vacancy->contact_info = $request->contact_link;
         }
-                $vacancy->accept_type = $request->accept_type;
+        $vacancy->accept_type = $request->accept_type;
 
 
 
         $vacancy->deadline = $request->deadline;
-       
-       
 
 
         $user = Auth::user();
@@ -272,28 +240,7 @@ class VacancyFrontController extends Controller
         return view('front.Announces.updateAnnounces', get_defined_vars());
     }
 
-    public function elanEditPost(Request $request){
-        $req = $request->all();
-        $rules = [
-            'position' => 'max:1000',
-            'accept_type' => 'numeric',
-            'deadline' => 'date',
-            'min_age' => 'numeric',
-            'max_age' => 'numeric',
-            ];
-            
-
-            $acceptType = isset($req['accept_type']) ? $req['accept_type'] : '1';
-
-            if ($acceptType == '0') {
-                $rules['contact_email'] = 'required|email';
-            } else if ($acceptType == '2') {
-                $rules['contact_link'] = 'required|active_url';
-            }
-
-            
-            $request->validate($rules);
-           
+    public function elanEditPost(Request $request){   
         try{
             $vacancy = Vacancies::findOrFail($request->id);
             $vacancy->user_id = Auth::user()->id;
@@ -339,13 +286,10 @@ class VacancyFrontController extends Controller
             $vacancy->requirement = $request->requirements;
             $vacancy->description = $request->description;
             $vacancy->contact_name = $request->contact_name;
-            if (empty($request->accept_type)) {
-                $request->merge(['accept_type' => '1']);
-            }
     
             if ($request->accept_type == '0') {
                 $request->validate([
-                    'contact_email' => 'email'
+                    'contact_email' => 'required|email'
                 ]);
                 $vacancy->contact_info = $request->contact_email;
             } else if ($request->accept_type == '2') {
@@ -354,8 +298,7 @@ class VacancyFrontController extends Controller
                 ]);
                 $vacancy->contact_info = $request->contact_link;
             }
-                    $vacancy->accept_type = $request->accept_type;
-                      
+            $vacancy->accept_type = $request->accept_type;
     
             $vacancy->deadline = $request->deadline;
             

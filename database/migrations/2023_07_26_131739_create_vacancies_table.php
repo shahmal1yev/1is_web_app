@@ -27,8 +27,8 @@ return new class extends Migration
             $table->boolean('salary_type')->default(true);
             $table->integer('min_salary')->nullable();
             $table->integer('max_salary')->nullable();
-            $table->integer('min_age');
-            $table->integer('max_age');
+            $table->integer('min_age')->nullable();
+            $table->integer('max_age')->nullable();
             $table->longtext('requirement');
             $table->longtext('description');
             $table->string('contact_name', 50)->nullable();

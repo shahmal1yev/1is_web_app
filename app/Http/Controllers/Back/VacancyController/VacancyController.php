@@ -18,8 +18,16 @@ use Illuminate\Support\Str;
 
 class VacancyController extends Controller
 {
-    public function vacanciesList(){
+    public function archiveVac(){
         $vacancies = Vacancies::orderBy('id','DESC')->get();
+        return view('back.vacancies.archive',compact('vacancies'));
+
+    }
+
+    public function vacanciesList(){
+        $vacancies = Vacancies::orderBy('id', 'DESC')
+                                ->take(1000)
+                                ->get();
         return view('back.vacancies.list',compact('vacancies'));
     }
     public function vacanciesAdd(){
