@@ -271,6 +271,7 @@ return [
     'cvqebul'=>'I accept the rules for posting a CV on the site',
 
 
+    'vacyox'=>'There are no vacancies for this company!',
 
 
 

@@ -270,7 +270,7 @@ return [
     'cvqebul'=>'Saytda CV yerləşdirmək üçün qaydaları qəbul edirəm',
 
 
-
+    'vacyox'=>'Bu şirkətə aid vakansiya yoxdur!',
 
 
 
