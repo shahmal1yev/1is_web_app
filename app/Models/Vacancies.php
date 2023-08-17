@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Categories;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class Vacancies extends Model
 {
@@ -27,7 +29,10 @@ class Vacancies extends Model
     public function getCategory(){
         return $this->hasMany('App\Models\Categories','id','category_id')->first();
     }
-     
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
     
 }
 

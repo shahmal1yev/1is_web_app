@@ -142,7 +142,7 @@ class VacancyFrontController extends Controller
         }
         return redirect()->route('createAnnounces')->with('success', __('messages.succelan'));
         } catch (\Throwable $e) {
-            return redirect()->route('createAnnounces')->with('error', $e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
             }
     }
 
@@ -214,7 +214,7 @@ class VacancyFrontController extends Controller
         return redirect()->route('announcesindex')->with('success', __('messages.succomp'));
         } 
         catch (\Throwable $e) {
-            return redirect()->route('announcesindex')->with('error', $e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
      }
 
@@ -249,7 +249,7 @@ class VacancyFrontController extends Controller
     
             if ($request->city == 1) {
             $request->validate([
-            'region' => 'numeric'
+                'region' => 'numeric'
             ]);
             $vacancy->village_id = $request->region;
             }
@@ -273,8 +273,8 @@ class VacancyFrontController extends Controller
             }else{
                 $vacancy->salary_type = '0';
                 $request->validate([
-                    'min_salary'=>'required|numeric',
-                    'max_salary'=>'required|numeric',
+                    'min_salary'=>'numeric',
+                    'max_salary'=>'numeric',
                 ]);
                 $vacancy->min_salary = $request->min_salary;
                 $vacancy->max_salary = $request->max_salary;
@@ -311,7 +311,7 @@ class VacancyFrontController extends Controller
             $vacancy->save();
             return redirect()->route('myAnnounces')->with('success', __('messages.elanyeni'));
         } catch (\Exception $e) {
-            return redirect()->route('myAnnounces')->with('error',$e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
     }
     
@@ -395,7 +395,7 @@ class VacancyFrontController extends Controller
         return redirect()->route('announcesindex')->with('success', __('messages.compyeni'));
         } 
         catch (\Throwable $e) {
-            return redirect()->route('announcesindex')->with('error', $e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
         }
     }
@@ -438,7 +438,7 @@ class VacancyFrontController extends Controller
         ->select('vacancies.id','companies.id as company_id','categories.id as category_id','companies.name','vacancies.position','vacancies.view','vacancies.created_at','users.id as user_id','sectors.id as sector_id','categories.title_az as sectors_title', 'vacancies.status')
         ->where('vacancies.user_id', $userId)
         ->orderBy('vacancies.created_at','desc')
-        ->get();
+        ->paginate(10);
         return View('front.Announces.myAnnounces', get_defined_vars());
     }  
 
@@ -473,11 +473,11 @@ class VacancyFrontController extends Controller
     public function detail($id) { 
         $job = Vacancies::find($id);
         $banner = BannerImage::where('status','1')->get();
+        $job->view++;
+        $job->save();
 
-        if (!$job || $job->status == 0) {
-            abort(404);
-        }
         
+
         if (auth()->check()) {
             $userId = auth()->user()->id;
             $cvs = Cv::where('user_id', $userId)->get();
@@ -492,13 +492,23 @@ class VacancyFrontController extends Controller
         ->join('categories','categories.id','=','vacancies.category_id')
         ->join('job_type','job_type.id','=','vacancies.job_type_id')
         ->join('experiences','experiences.id','=','vacancies.experience_id')
-
         ->where('vacancies.id', $id)
         ->select('job_type.id as job_type_id','job_type.title_az as job_type_title','companies.id as company_id','cities.id as city_id','categories.id as category_id','cities.title_az as city_title', 'companies.name', 'vacancies.id as vacancy_id',  'sectors.id as sector_id', 'categories.title_az as sectors_title','experiences.title_az as experience_title','vacancies.*')
         ->first();
-        $job->view++;
-        $job->save();
+        if (!$vacdetail)
+        {
+            return abort(404);
+        }
 
+        if((auth()->check() && $vacdetail->user->id != auth()->user()->id && $vacdetail->status == 0)){
+            return abort(404);
+        }
+
+        if (!(auth()->check()) && $vacdetail->status == 0){
+            return abort(404);
+
+        }
+        
         return view('front.Vacancy.detail', get_defined_vars());
     }
 
@@ -570,7 +580,7 @@ class VacancyFrontController extends Controller
             return redirect()->back()->with('success', __('messages.succv'));
         } 
         catch (\Throwable $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
     }
 

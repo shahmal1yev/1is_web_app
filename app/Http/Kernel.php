@@ -69,7 +69,7 @@ class Kernel extends HttpKernel
         'isAdminLogin'=> \App\Http\Middleware\isAdminLogin::class,
         'isAdminLogout'=> \App\Http\Middleware\isAdminLogout::class,
         'isLogout'=> \App\Http\Middleware\isLogout::class,
-
+        'check.vacancies.owner'=>  \App\Http\Middleware\CheckVacanciesOvner::class,
         'check.training.owner'=>  \App\Http\Middleware\CheckTrainingOvner::class,
 
     ];

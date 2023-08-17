@@ -33,7 +33,7 @@ class CVFrontController extends Controller
         $banner = BannerImage::where('status','1')->get();
 
         $userId = auth()->user()->id;
-        $cvs = Cv::where('user_id', $userId)->get();
+        $cvs = Cv::where('user_id', $userId)->orderBy('created_at','DESC')->paginate(6);
 
         $categories = Categories::all();
         $cities = Cities::all();
@@ -84,10 +84,8 @@ class CVFrontController extends Controller
     }
 
 
-    public function cveditPost(Request $request){
-        {
-            
-            $req = $request->all();
+    public function cveditPost(Request $request){    
+        $req = $request->all();
         $rules = [
             'position' => 'max:1000',
             'image' => 'image|mimes:jpg,png,jpeg|max:5000',
@@ -95,7 +93,7 @@ class CVFrontController extends Controller
             'cv' => 'mimes:jpg,png,jpeg,gif,svg,webp,jfif,avif,doc,docx,pdf|max:5000',
         ];
         
-        
+            
         $request->validate($rules);
        
         try {
@@ -188,17 +186,10 @@ class CVFrontController extends Controller
            
             return redirect()->route('cvindex')->with('success', __('messages.cvyeni'));
         } catch (\Exception $ex) {
-            dd($ex->getMessage());
-              return redirect()->route('cvindex')->with('error',$ex->getMessage());
-          }
+            return redirect()->back()->with('error', __('messages.nesexeta'));
+
+        }
     }    
-    
-
-    }
-
-    
-    
-    
     
 
 
@@ -308,7 +299,7 @@ class CVFrontController extends Controller
             return redirect()->route('cvindex')->with('success', __('messages.succv'));
     
         } catch (\Throwable $e) {
-            return redirect()->route('cvindex')->with('error',$e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
         }
     

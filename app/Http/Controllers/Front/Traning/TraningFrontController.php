@@ -21,8 +21,12 @@ class TraningFrontController extends Controller
     }
 
     public function detail($id){ 
+        $job = Trainings::find($id);
+        
+        $job->view++;
+        $job->save();
+        
         $banner = BannerImage::where('status','1')->get();
-        // $userId = auth()->user()->id;
 
         $tdetail = Trainings::join('companies','companies.id','=','trainings.company_id')
         ->where('trainings.id', $id)
@@ -103,7 +107,7 @@ class TraningFrontController extends Controller
 
         $userId = auth()->user()->id;
         $companies = Companies::where('user_id', $userId)->get();
-        $trainings = Trainings::where('user_id', $userId)->get();
+        $trainings = Trainings::where('user_id', $userId)->orderBy('created_at','DESC')->get();
 
         return view('front.Traning.create', get_defined_vars());
 
@@ -208,9 +212,8 @@ class TraningFrontController extends Controller
     
             return redirect()->route('traningcreate')->with('success', __('messages.telimyeni'));
         } catch (\Exception $ex) {
-            dd($e);
-            die;
-            return redirect()->route('traningcreate')->with('error', $ex->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
+
         }
     }
 }

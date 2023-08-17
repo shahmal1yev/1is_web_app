@@ -1,72 +1,12 @@
-<!DOCTYPE html>
-
 @extends('front.layouts.master')
 
-
 @section('content')
-<style>
 
-    .create-cv{
-        margin-top: 50px;
-    }
+    @foreach ($banner as $ban)
 
-    #structure{
-            align-items: flex-end;
-        }
-
-    #structure label{
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        color: #020202;
-    }
-
-        #comp_linkk, #comp_namee, #job_namee, .silinmeli input{
-        background: #FFFFFF;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        padding: 12px 14px!important;
-    }
-
-    .removeElement , .silinmeli button{
-        margin-left: 15px;
-        /* padding: 0px 15px; */
-        padding: 15px 29px;
-        border: none;
-        background: #9559E5;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        color: #FFFFFF;
-    }
-
-    .silinmeli{
-        align-items: end;
-        margin-bottom: 15px;
-    }
-
-    .silinmeli label{
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        color: #020202;
-    }
-</style>
-
-
-@foreach ($banner as $ban)
-
-<section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
-        @endforeach
+        <section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+            url({{asset($ban->image)}})">
+    @endforeach
 
     </section>
     <section class="create-cv" >
@@ -120,29 +60,29 @@
 
                         <div class="form-group create-cv-input-group col-md-6  ">
                             <label for="name">@lang('front.ad')  <span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control" id="name" value="{{$cv->name}}" placeholder="@lang('front.addaxilet')" required />
+                            <input type="text" name="name" class="form-control" id="name" value="{{$cv->name}}" placeholder="@lang('front.addaxilet')" />
                              
                         </div>
                         <div class="form-group create-cv-input-group col-md-6 ">
                             <label for="surName">@lang('front.soyad')  <span class="text-danger">*</span></label>
-                            <input type="text" name="surname" class="form-control" id="surName" value="{{$cv->surname}}" placeholder="@lang('front.soyaddaxil')" required />
+                            <input type="text" name="surname" class="form-control" id="surName" value="{{$cv->surname}}" placeholder="@lang('front.soyaddaxil')" />
                             
                         </div>
                         <div class="form-group create-cv-input-group col-md-6 ">
                             <label for="fatherName">@lang('front.ata')  <span class="text-danger">*</span></label>
-                            <input type="text" name="father_name" class="form-control" id="fatherName" value="{{$cv->father_name}}" placeholder="@lang('front.atadaxilet')" required/>
+                            <input type="text" name="father_name" class="form-control" id="fatherName" value="{{$cv->father_name}}" placeholder="@lang('front.atadaxilet')"/>
                             
                         </div>
                         <div class="form-group create-cv-input-group col-md-6 ">
                             <label for="Email">@lang('front.epoct')  <span class="text-danger">*</span></label>
-                            <input type="email" name="email" class="form-control" id="Email" value="{{$cv->email}}" placeholder="@lang('front.emaildaxilet')" required />
+                            <input type="email" name="email" class="form-control" id="Email" value="{{$cv->email}}" placeholder="@lang('front.emaildaxilet')" />
                             @error('email')
                                 <span class="text-danger" style="font-size: 14x">@lang('validation.email_email')</span>
                                 @enderror
                         </div>
                         <div class="form-group create-cv-input-group col-12  ">
                             <label for="possession">@lang('front.vezife')  <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="position" value="{{$cv->position}}" id="possession" placeholder="@lang('front.vezifedaxilet')" required />
+                            <input type="text" class="form-control" name="position" value="{{$cv->position}}" id="possession" placeholder="@lang('front.vezifedaxilet')" />
                             
                         </div>
                         <h3 class="col-12">@lang('front.gostericiler')</h3>
@@ -448,10 +388,7 @@
                             <button type="submit">@lang('front.elaveet')</button>
                         </div>
                     </form>
-
-
-
-                    
+       
                    
                 </div>
             </div>
@@ -460,245 +397,252 @@
 @endsection
 
 @section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/create-cv.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/header.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/create-cv.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/header.css')}}">
+    <style>
+        .tox-notifications-container{
+            display:none !important;
+        }
+    </style>
+    <style>
+
+        .create-cv{
+            margin-top: 50px;
+        }
+
+        #structure{
+                align-items: flex-end;
+            }
+
+        #structure label{
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            color: #020202;
+        }
+
+            #comp_linkk, #comp_namee, #job_namee, .silinmeli input{
+            background: #FFFFFF;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            padding: 12px 14px!important;
+        }
+
+        .removeElement , .silinmeli button{
+            margin-left: 15px;
+            /* padding: 0px 15px; */
+            padding: 15px 29px;
+            border: none;
+            background: #9559E5;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            color: #FFFFFF;
+        }
+
+        .silinmeli{
+            align-items: end;
+            margin-bottom: 15px;
+        }
+
+        .silinmeli label{
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            color: #020202;
+        }
+    </style>
 @endsection
 
 @section('js-link')
-<script src="{{asset('front/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('front/js/slick.min.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-<script src="{{asset('front/js/repeater.js')}}"></script>
-@endsection
+    <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front/js/slick.min.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="{{asset('front/js/repeater.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
 
-@section('js')
-<script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+            function getErrorMessage(field, lang) {
+                var errorMessages = {
+                    required: {
+                        'AZ': 'Bu sahə doldurulmalıdır!',
+                        'EN': 'This field is required!',
+                        'RU': 'Поле обязательно для заполнения!',
+                        'TR': 'Bu alan zorunludur!'
+                    },
+                    email: {
+                        'AZ': 'Düzgün bir email adresi daxil edin.',
+                        'EN': 'Please enter a valid email address.',
+                        'RU': 'Введите действительный адрес электронной почты.',
+                        'TR': 'Geçerli bir email adresi giriniz.'
+                    },
+                    
+                    maxlength: {
+                        'AZ': 'Bu sahə üçün maksimum 100 simvol limiti keçilməlidir!',
+                        'EN': 'Maximum 100 characters limit should not be exceeded for this field!',
+                        'RU': 'Максимальное количество символов для этого поля - 100!',
+                        'TR': 'Bu alan için maksimum 100 karakter sınırı aşılmamalıdır!'
+                    },
+                    maxFileSize: {
+                        'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
+                        'EN': 'The maximum file size for the image should be 5MB!',
+                        'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
+                        'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
+                    },
+                    accept: {
+                        'AZ': 'Lütfen bir resim dosyası seçin!',
+                        'EN': 'Please select an image file!',
+                        'RU': 'Пожалуйста, выберите файл изображения!',
+                        'TR': 'Lütfen bir resim dosyası seçin!'
+                    },
 
-    tinymce.init({
-        selector: 'textarea',
-        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-        editimage_cors_hosts: ['picsum.photos'],
-        menubar: 'file edit view insert format tools table help',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-        toolbar_sticky: true,
-        toolbar_sticky_offset: isSmallScreen ? 102 : 108,
-        autosave_ask_before_unload: true,
-        autosave_interval: '30s',
-        autosave_prefix: '{path}{query}-{id}-',
-        autosave_restore_when_empty: false,
-        autosave_retention: '2m',
-        image_advtab: true,
-        link_list: [
-            { title: 'My page 1', value: 'https://www.tiny.cloud' },
-            { title: 'My page 2', value: 'http://www.moxiecode.com' }
-        ],
-        image_list: [
-            { title: 'My page 1', value: 'https://www.tiny.cloud' },
-            { title: 'My page 2', value: 'http://www.moxiecode.com' }
-        ],
-        image_class_list: [
-            { title: 'None', value: '' },
-            { title: 'Some class', value: 'class-name' }
-        ],
-        importcss_append: true,
-        file_picker_callback: (callback, value, meta) => {
-            /* Provide file and text for the link dialog */
-            if (meta.filetype === 'file') {
-                callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+                
+                };
+
+                return errorMessages[field][lang] || errorMessages[field]['AZ']; 
             }
 
-            /* Provide image and alt text for the image dialog */
-            if (meta.filetype === 'image') {
-                callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
-            }
+            $("#v-pills-home").validate({
+                onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+                
+                rules: {
+                    position: {
+                        required: true,
+                        maxlength: 255,
 
-            /* Provide alternative source and posted for the media dialog */
-            if (meta.filetype === 'media') {
-                callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
-            }
-        },
-        templates: [
-            { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
-            { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
-            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
-        ],
-        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-        height: 400,
-        image_caption: true,
-        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-        noneditable_class: 'mceNonEditable',
-        toolbar_mode: 'sliding',
-        contextmenu: 'link image table',
-        skin: useDarkMode ? 'oxide-dark' : 'oxide',
-        content_css: useDarkMode ? 'dark' : 'default',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-    });
-</script>
+                    },
+                    name: {
+                        required: true,
+                    },
+                    surname: {
+                        required: true,
+                    },
+                    father_name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                        email: true,
 
-<style>
+                    },
+                    
+                    
+                    
 
-    .tox-notifications-container{
-        display:none !important;
-    }
-    </style>
-
-<script>
-      $(function () {
-        $("#repeater").repeater({
-          items: [
-            {
-              elements: [
-                {
-                  id: "first_name",
-                  value: "",
                 },
-                {
-                  id: "languages",
-                  value: "css",
+                messages: {
+                    position: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                        maxlength: function() {
+                            return getErrorMessage('maxlength', lang);
+                        }
+                    },
+
+
+                    name: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    surname: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+
+                    father_name: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                        
+                    },
+                    email: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        email: function() {
+                            return getErrorMessage('email', lang);
+                        },
+                        
+                    },
+                    
+                
+                    
                 },
-              ],
-            },
-          ],
+                submitHandler: function(form) {
+                    form.submit(); // Formu gönder
+                },
+                errorPlacement: function(error, element) {
+                error.insertAfter(element); 
+                }
+            });
         });
-      });
+    </script>
 
-      const removeBtn = document.querySelector('.removeElement')
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#education_information' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+            .create( document.querySelector( '#exprience_information' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+            .create( document.querySelector( '#certificate_information' ) )
+            .catch( error => {
+                console.error( error );
+            } );
     </script>
 
 
-<script>
-    $(document).ready(function() {
-        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
-
-        function getErrorMessage(field, lang) {
-            var errorMessages = {
-                required: {
-                    'AZ': 'Bu sahə doldurulmalıdır!',
-                    'EN': 'This field is required!',
-                    'RU': 'Поле обязательно для заполнения!',
-                    'TR': 'Bu alan zorunludur!'
-                },
-                email: {
-                    'AZ': 'Düzgün bir email adresi daxil edin.',
-                    'EN': 'Please enter a valid email address.',
-                    'RU': 'Введите действительный адрес электронной почты.',
-                    'TR': 'Geçerli bir email adresi giriniz.'
-                },
-                
-                maxlength: {
-                    'AZ': 'Bu sahə üçün maksimum 100 simvol limiti keçilməlidir!',
-                    'EN': 'Maximum 100 characters limit should not be exceeded for this field!',
-                    'RU': 'Максимальное количество символов для этого поля - 100!',
-                    'TR': 'Bu alan için maksimum 100 karakter sınırı aşılmamalıdır!'
-                },
-                maxFileSize: {
-                    'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
-                    'EN': 'The maximum file size for the image should be 5MB!',
-                    'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
-                    'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
-                },
-                accept: {
-                    'AZ': 'Lütfen bir resim dosyası seçin!',
-                    'EN': 'Please select an image file!',
-                    'RU': 'Пожалуйста, выберите файл изображения!',
-                    'TR': 'Lütfen bir resim dosyası seçin!'
-                },
-
-               
-            };
-
-            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
-        }
-
-        $("#v-pills-home").validate({
-            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
-            
-            rules: {
-                position: {
-                    required: true,
-                    maxlength: 255,
-
-                },
-                name: {
-                    required: true,
-                },
-                surname: {
-                    required: true,
-                },
-                father_name: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true,
-
-                },
-                
-                
-                
-
-            },
-            messages: {
-                position: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
+    <script>
+        $(function () {
+            $("#repeater").repeater({
+            items: [
+                {
+                elements: [
+                    {
+                    id: "first_name",
+                    value: "",
                     },
-                    
-                    maxlength: function() {
-                        return getErrorMessage('maxlength', lang);
-                    }
-                },
-
-
-                name: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
+                    {
+                    id: "languages",
+                    value: "css",
                     },
-                    
+                ],
                 },
-
-                surname: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-
-                father_name: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                    
-                },
-                email: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    email: function() {
-                        return getErrorMessage('email', lang);
-                    },
-                    
-                },
-                
-            
-                
-            },
-            submitHandler: function(form) {
-                form.submit(); // Formu gönder
-            },
-            errorPlacement: function(error, element) {
-    // Hata mesajlarını görüntülemek için gerekli işlemleri yapın
-    error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
-            }
+            ],
+            });
         });
-    });
-</script>
+
+        const removeBtn = document.querySelector('.removeElement')
+    </script>
+
+
+   
 @endsection

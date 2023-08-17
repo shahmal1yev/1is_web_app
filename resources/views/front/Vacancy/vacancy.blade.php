@@ -2,11 +2,10 @@
 
 
 @section('content')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-@foreach ($banner as $ban)
+        @foreach ($banner as $ban)
 
-<section class="vacancy-section" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
+        <section class="vacancy-section" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+            url({{asset($ban->image)}})">
        @endforeach
 
       <div class="vacancy-header">
@@ -178,16 +177,11 @@
         </form>
         
 
-
-
-
       <div class="all-vacancies">
         @foreach($vacancies as $key=>$vacancy)
 
-        <div class="vac-card">    
-            
+        <div class="vac-card">     
           <div class="vac-inner1">
-
             <a href="{{route('vacancydetail', ['id' => $vacancy->id, 'locale' => app()->getLocale()])}}" class="vac-inner1-a">{{$vacancy->sectors_title}}</a>
             <div class="second-part">
                 <span style="margin-right: 15px;" class="look-numb"> {{$vacancy->view}} <img src="https://1is-new.netlify.app/images/eye.png"></span>
@@ -198,114 +192,134 @@
             </div>
               
           </div>
-          <div class="vac-inner2">
-            <a href="{{ route('vacancydetail', $vacancy->id) }}" class="vac-name">
-                @if(mb_strlen($vacancy->position) > 50)
-                    {{ html_entity_decode(mb_substr($vacancy->position, 0, 50)) . '...' }}
-                @else
-                    {!! html_entity_decode($vacancy->position) !!}
-                @endif
-                
-        </a>
-          </div>
-          <div class="vac-inner3">
-            <div class="vac-inn1">
-              <img src="https://1is-new.netlify.app/images/building.png" alt="" />
-              <a class="comp-link" href="{{route('compdetail', $vacancy->company_id)}}">
-                @if(strlen($vacancy->name) > 30)
-                    {{ html_entity_decode(substr($vacancy->name, 0, 30)) . '...' }}
-                @else
-                    {!! html_entity_decode($vacancy->name) !!}
-                @endif
-            </a>
+            <div class="vac-inner2">
+                <a href="{{ route('vacancydetail', $vacancy->id) }}" class="vac-name">
+                    @if(mb_strlen($vacancy->position) > 50)
+                        {{ html_entity_decode(mb_substr($vacancy->position, 0, 50)) . '...' }}
+                    @else
+                        {!! html_entity_decode($vacancy->position) !!}
+                    @endif
+                    
+                </a>
             </div>
-            <div class="vac-inn2">
-              <img src="https://1is-new.netlify.app/images/clock.png" alt="" />
-              <p class="vac-time">{{ date('d-m-Y', strtotime($vacancy->created_at)) }}</p>
-            </div>
-          </div>            
-          @if ($vacancy->created_at->diffInDays(Carbon\Carbon::now()) <= 3)
-            <div class="new-vac-badge">
-                <p>@lang('front.yeni')</p>
-            
-            </div>           
-           @endif
+            <div class="vac-inner3">
+                <div class="vac-inn1">
+                <img src="https://1is-new.netlify.app/images/building.png" alt="" />
+                <a class="comp-link" href="{{route('compdetail', $vacancy->company_id)}}">
+                    @if(mb_strlen($vacancy->name) > 30)
+                        {{ html_entity_decode(mb_substr($vacancy->name, 0, 30)) . '...' }}
+                    @else
+                        {!! html_entity_decode($vacancy->name) !!}
+                    @endif
+                </a>
+                </div>
+                <div class="vac-inn2">
+                <img src="https://1is-new.netlify.app/images/clock.png" alt="" />
+                <p class="vac-time">{{ date('d-m-Y', strtotime($vacancy->created_at)) }}</p>
+                </div>
+            </div>            
+                @if ($vacancy->created_at->diffInDays(Carbon\Carbon::now()) <= 3)
+                    <div class="new-vac-badge">
+                        <p>@lang('front.yeni')</p>
+                    
+                    </div>           
+                @endif
+            </div>                 
+        @endforeach
 
 
-        </div>                 
-         @endforeach
-
-        
         </div>
 
-      <!-- BLOG PAGİNATİON -->
-      <nav aria-label="..." class="d-flex justify-content-center">
-        @if ($vacancies->hasPages())
-        <ul class="pagination pagination-ul">
-            {{-- Previous Page Link --}}
-            @if ($vacancies->onFirstPage())
-            @else
-                <li class="page-item"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->previousPageUrl() }}" rel="prev">«</a></li>
-            @endif
-    
-            @if($vacancies->currentPage() > 3)
-                <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url(1) }}">1</a></li>
-            @endif
-            @if($vacancies->currentPage() > 4)
-            <li class="page-item"><a class="page-link">...</a></li>
-            @endif
-            @foreach(range(1, $vacancies->lastPage()) as $i)
-                @if($i >= $vacancies->currentPage() - 1 && $i <= $vacancies->currentPage() + 1)
-                    @if ($i == $vacancies->currentPage())
-                        <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
-                    @else
-                        <li class="page-item "><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url($i) }}">{{ $i }}</a></li>
-                    @endif
+        <!-- BLOG PAGİNATİON -->
+        <nav aria-label="..." class="d-flex justify-content-center">
+            @if ($vacancies->hasPages())
+            <ul class="pagination pagination-ul">
+                {{-- Previous Page Link --}}
+                @if ($vacancies->onFirstPage())
+                @else
+                    <li class="page-item"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->previousPageUrl() }}" rel="prev">«</a></li>
                 @endif
-            @endforeach
-            @if($vacancies->currentPage() < $vacancies->lastPage() - 2)
-            <li class="page-item"><a class="page-link">...</a></li>
-            @endif
-            @if($vacancies->currentPage() < $vacancies->lastPage() - 1)
-                <li class="page-item hidden-xs"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url($vacancies->lastPage()) }}">{{ $vacancies->lastPage() }}</a></li>
-            @endif
-    
-            {{-- Next Page Link --}}
-            @if ($vacancies->hasMorePages())
-                <li><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
-            @endif
-        </ul>
+        
+                @if($vacancies->currentPage() > 3)
+                    <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url(1) }}">1</a></li>
+                @endif
+                @if($vacancies->currentPage() > 4)
+                <li class="page-item"><a class="page-link">...</a></li>
+                @endif
+                @foreach(range(1, $vacancies->lastPage()) as $i)
+                    @if($i >= $vacancies->currentPage() - 1 && $i <= $vacancies->currentPage() + 1)
+                        @if ($i == $vacancies->currentPage())
+                            <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
+                        @else
+                            <li class="page-item "><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url($i) }}">{{ $i }}</a></li>
+                        @endif
+                    @endif
+                @endforeach
+                @if($vacancies->currentPage() < $vacancies->lastPage() - 2)
+                <li class="page-item"><a class="page-link">...</a></li>
+                @endif
+                @if($vacancies->currentPage() < $vacancies->lastPage() - 1)
+                    <li class="page-item hidden-xs"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url($vacancies->lastPage()) }}">{{ $vacancies->lastPage() }}</a></li>
+                @endif
+        
+                {{-- Next Page Link --}}
+                @if ($vacancies->hasMorePages())
+                    <li><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
+                @endif
+            </ul>
         </nav>
-          <h3 class="blog-all-result-text">@lang('front.umumisay') : {{$vacancies->total()}}</h3>
+            <h3 class="blog-all-result-text">@lang('front.umumisay') : {{$vacancies->total()}}</h3>
 
-    @endif
+            @endif
 
     </section>
+  
+
+@endsection
+
+@section('css-link')
+    <link rel="stylesheet" href="{{asset('front/css/vacancy-all.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/search-more.css')}}">
+@endsection
+
+
+@section('js')
+
+    <script>
+      const moreSearch = document.getElementById("detail-btn");
+      console.log(moreSearch)
+      const moreSearchSect = document.getElementById("getshow");
+      moreSearch.addEventListener("click", () => {
+        moreSearchSect.classList.toggle("filter-active");
+        console.log('Salam')
+      });
+    </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var heartIcons = document.querySelectorAll('.heart-icon');
-    
+
             heartIcons.forEach(function (icon) {
                 icon.addEventListener('click', function () {
                     var vacancyId = this.getAttribute('data-vacancy-id');
                     var redHeartIcon = document.querySelector('.red-heart-icon[data-vacancy-id="' + vacancyId + '"]');
                     var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
-    
+
                     if (isLoggedIn) {
                         this.style.display = 'none';
                         redHeartIcon.style.display = 'inline-block';
                     } else {
                         window.location.href = '{{ route('login') }}';
                     }
-    
+
                     // AJAX isteği
                     var xhr = new XMLHttpRequest();
                     var url = '{{ route('like') }}'; // Favori ekleme için uygun URL'yi buraya yazın
                     var params = 'vacancy_id=' + vacancyId + '&_token=' + '{{ csrf_token() }}';
-    
+
                     xhr.open('POST', url, true);
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    
+
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4) {
                             if (xhr.status === 200) {
@@ -323,78 +337,59 @@
                             }
                         }
                     };
-    
+
                     xhr.send(params);
                 });
             });
         });
     </script>
-    
-
-   
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    var heartIcons = document.querySelectorAll('.red-heart-icon');
-
-    heartIcons.forEach(function (icon) {
-    icon.addEventListener('click', function () {
-        var vacancyId = this.getAttribute('data-vacancy-id');
-        var redHeartIcon = document.querySelector('.heart-icon[data-vacancy-id="' + vacancyId + '"]');
-        var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
-
-        if (isLoggedIn) {
-            this.style.display = 'none';
-            redHeartIcon.style.display = 'inline-block';
-        } else {
-            window.location.href = '{{ route('login') }}';
-        }
 
 
-        // AJAX isteği
-        var xhr = new XMLHttpRequest();
-        var url = '{{ route('dislike') }}'; // Dislike işlemi için uygun URL'yi buraya yazın
-        var params = 'vacancy_id=' + vacancyId + '&_token=' + '{{ csrf_token() }}';
 
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var heartIcons = document.querySelectorAll('.red-heart-icon');
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    console.log(xhr.responseText);
-                    if (!isLoggedIn) {
-                        redHeartIcon.style.display = 'inline-block';
-                    }
-                } else if (xhr.status === 403) {
-                    var response = JSON.parse(xhr.responseText);
-                    alert(response.error);
-                }
+        heartIcons.forEach(function (icon) {
+        icon.addEventListener('click', function () {
+            var vacancyId = this.getAttribute('data-vacancy-id');
+            var redHeartIcon = document.querySelector('.heart-icon[data-vacancy-id="' + vacancyId + '"]');
+            var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
+
+            if (isLoggedIn) {
+                this.style.display = 'none';
+                redHeartIcon.style.display = 'inline-block';
+            } else {
+                window.location.href = '{{ route('login') }}';
             }
-        };
-
-        xhr.send(params);
-    });
-});
-});
-</script>
 
 
-@endsection
+            // AJAX isteği
+            var xhr = new XMLHttpRequest();
+            var url = '{{ route('dislike') }}'; // Dislike işlemi için uygun URL'yi buraya yazın
+            var params = 'vacancy_id=' + vacancyId + '&_token=' + '{{ csrf_token() }}';
 
-@section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/vacancy-all.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/search-more.css')}}">
-@endsection
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log(xhr.responseText);
+                        if (!isLoggedIn) {
+                            redHeartIcon.style.display = 'inline-block';
+                        }
+                    } else if (xhr.status === 403) {
+                        var response = JSON.parse(xhr.responseText);
+                        alert(response.error);
+                    }
+                }
+            };
 
-@section('js')
-<script>
-      const moreSearch = document.getElementById("detail-btn");
-      console.log(moreSearch)
-      const moreSearchSect = document.getElementById("getshow");
-      moreSearch.addEventListener("click", () => {
-        moreSearchSect.classList.toggle("filter-active");
-        console.log('Salam')
-      });
+            xhr.send(params);
+                });
+            });
+        });
     </script>
+
 @endsection
