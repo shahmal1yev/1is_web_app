@@ -1,34 +1,13 @@
-<!DOCTYPE html>
 
 @extends('front.layouts.master')
 
-<style>
-    .image-preview {
-  width: 150px;
-  height: 150px;
-}
 
-/* SELECT2  */
-
-
-
-.add-training-input-group span{
-        height: 60px!important;
-        border-radius: 8px!important;
-    }
-
-    .select2-selection__rendered {
-        display: flex!important;
-        align-items: center!important;
-    }
-
-</style>
 @section('content')
-@foreach ($banner as $ban)
+    @foreach ($banner as $ban)
 
-<section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
-       @endforeach
+        <section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+            url({{asset($ban->image)}})">
+    @endforeach
 
         <div class="header-links-div">
             <a class="header-links" href="{{route('profile')}}">
@@ -180,7 +159,6 @@
     </section>
 
     <script>
-        // In your Javascript (external .js resource or <script> tag)
         function getPayment(id){
             if(id == 1){
                 $('#price').slideDown()
@@ -194,290 +172,301 @@
 
 @endsection
 
-@section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/add-training.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/header.css')}}">
-@endsection
+
+
 
 @section('js-link')
-<script src="{{asset('front/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('front/js/slick.min.js')}}"></script>
-@endsection
+    <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front/js/slick.min.js')}}"></script>
+    <script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
 
-@section('js')
-<script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+        tinymce.init({
+            selector: '#training_information',
+            plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+            editimage_cors_hosts: ['picsum.photos'],
+            menubar: 'file edit view insert format tools table help',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+            toolbar_sticky: true,
+            toolbar_sticky_offset: isSmallScreen ? 102 : 108,
+            autosave_ask_before_unload: true,
+            autosave_interval: '30s',
+            autosave_prefix: '{path}{query}-{id}-',
+            autosave_restore_when_empty: false,
+            autosave_retention: '2m',
+            image_advtab: true,
+            link_list: [
+                { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                { title: 'My page 2', value: 'http://www.moxiecode.com' }
+            ],
+            image_list: [
+                { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                { title: 'My page 2', value: 'http://www.moxiecode.com' }
+            ],
+            image_class_list: [
+                { title: 'None', value: '' },
+                { title: 'Some class', value: 'class-name' }
+            ],
+            importcss_append: true,
+            file_picker_callback: (callback, value, meta) => {
+                /* Provide file and text for the link dialog */
+                if (meta.filetype === 'file') {
+                    callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+                }
 
-    tinymce.init({
-        selector: '#training_information',
-        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-        editimage_cors_hosts: ['picsum.photos'],
-        menubar: 'file edit view insert format tools table help',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-        toolbar_sticky: true,
-        toolbar_sticky_offset: isSmallScreen ? 102 : 108,
-        autosave_ask_before_unload: true,
-        autosave_interval: '30s',
-        autosave_prefix: '{path}{query}-{id}-',
-        autosave_restore_when_empty: false,
-        autosave_retention: '2m',
-        image_advtab: true,
-        link_list: [
-            { title: 'My page 1', value: 'https://www.tiny.cloud' },
-            { title: 'My page 2', value: 'http://www.moxiecode.com' }
-        ],
-        image_list: [
-            { title: 'My page 1', value: 'https://www.tiny.cloud' },
-            { title: 'My page 2', value: 'http://www.moxiecode.com' }
-        ],
-        image_class_list: [
-            { title: 'None', value: '' },
-            { title: 'Some class', value: 'class-name' }
-        ],
-        importcss_append: true,
-        file_picker_callback: (callback, value, meta) => {
-            /* Provide file and text for the link dialog */
-            if (meta.filetype === 'file') {
-                callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
-            }
+                /* Provide image and alt text for the image dialog */
+                if (meta.filetype === 'image') {
+                    callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+                }
 
-            /* Provide image and alt text for the image dialog */
-            if (meta.filetype === 'image') {
-                callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
-            }
-
-            /* Provide alternative source and posted for the media dialog */
-            if (meta.filetype === 'media') {
-                callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
-            }
-        },
-        templates: [
-            { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
-            { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
-            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
-        ],
-        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-        height: 400,
-        image_caption: true,
-        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-        noneditable_class: 'mceNonEditable',
-        toolbar_mode: 'sliding',
-        contextmenu: 'link image table',
-        skin: useDarkMode ? 'oxide-dark' : 'oxide',
-        content_css: useDarkMode ? 'dark' : 'default',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-    });
-</script>
-<style>
-
-    .tox-notifications-container{
-        display:none !important;
-    }
-    </style>
-
-
-
-
-
-<script>
-    $(document).ready(function() {
-        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
-
-        function getErrorMessage(field, lang) {
-            var errorMessages = {
-                required: {
-                    'AZ': 'Bu sahə doldurulmalıdır!',
-                    'EN': 'This field is required!',
-                    'RU': 'Поле обязательно для заполнения!',
-                    'TR': 'Bu alan zorunludur!'
-                },
-                
-                minlength: {
-                    'AZ': 'Bu sahə üçün minimum 9 simvol limiti keçilməlidir!',
-                    'EN': 'Minimum 9 characters limit should not be exceeded for this field!',
-                    'RU': 'Минимальное количество символов для этого поля - 9!',
-                    'TR': 'Bu alanda en az 9 karakter sınırı aşılmamalıdır!'
-                },
-                maxFileSize: {
-                    'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
-                    'EN': 'The maximum file size for the image should be 5MB!',
-                    'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
-                    'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
-                },
-                accept: {
-                    'AZ': 'Lütfen bir resim dosyası seçin!',
-                    'EN': 'Please select an image file!',
-                    'RU': 'Пожалуйста, выберите файл изображения!',
-                    'TR': 'Lütfen bir resim dosyası seçin!'
-                },
-
-               
-            };
-
-            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
-        }
-
-        $("#register_form").validate({
-            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
-            
-            rules: {
-                title: {
-                    required: true,
-                },
-                deadline: {
-                    required: true,
-                },
-                about: {
-                    required: true,
-                },
-
-                company: {
-                    required: true,
-                },
-
-                link: {
-                    required: true,
-                },
-
-                payment_type: {
-                    required: true,
-                },
-                price: {
-                    required: function(element) {
-                        return $("#training_payment").val() !== '0';
-                    }
-                },
-
-
-                image: {
-                    required: true,
-                    
-                },
-                
-
-
-            },
-            messages: {
-                title: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-                deadline: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-                about: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-
-                company: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                    
-                },
-                link: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-                payment_type: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-                price: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                },
-
-                image: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-                
-                
-            },
-            submitHandler: function(form) {
-                if (form.checkValidity()) {
-                    return true;
+                /* Provide alternative source and posted for the media dialog */
+                if (meta.filetype === 'media') {
+                    callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
                 }
             },
-            errorPlacement: function(error, element) {
-        error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
-    }
+            templates: [
+                { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+                { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+                { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+            ],
+            template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+            template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+            height: 400,
+            image_caption: true,
+            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            noneditable_class: 'mceNonEditable',
+            toolbar_mode: 'sliding',
+            contextmenu: 'link image table',
+            skin: useDarkMode ? 'oxide-dark' : 'oxide',
+            content_css: useDarkMode ? 'dark' : 'default',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+        });
+    </script>
+        <style>
+            .tox-notifications-container{
+                display:none !important;
+            }
+        </style>
+
+
+
+
+
+    <script>
+        $(document).ready(function() {
+            var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+
+            function getErrorMessage(field, lang) {
+                var errorMessages = {
+                    required: {
+                        'AZ': 'Bu sahə doldurulmalıdır!',
+                        'EN': 'This field is required!',
+                        'RU': 'Поле обязательно для заполнения!',
+                        'TR': 'Bu alan zorunludur!'
+                    },
+                    
+                    minlength: {
+                        'AZ': 'Bu sahə üçün minimum 9 simvol limiti keçilməlidir!',
+                        'EN': 'Minimum 9 characters limit should not be exceeded for this field!',
+                        'RU': 'Минимальное количество символов для этого поля - 9!',
+                        'TR': 'Bu alanda en az 9 karakter sınırı aşılmamalıdır!'
+                    },
+                    maxFileSize: {
+                        'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
+                        'EN': 'The maximum file size for the image should be 5MB!',
+                        'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
+                        'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
+                    },
+                    accept: {
+                        'AZ': 'Lütfen bir resim dosyası seçin!',
+                        'EN': 'Please select an image file!',
+                        'RU': 'Пожалуйста, выберите файл изображения!',
+                        'TR': 'Lütfen bir resim dosyası seçin!'
+                    },
+
+                
+                };
+
+                return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+            }
+
+            $("#register_form").validate({
+                onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+                
+                rules: {
+                    title: {
+                        required: true,
+                    },
+                    deadline: {
+                        required: true,
+                    },
+                    about: {
+                        required: true,
+                    },
+
+                    company: {
+                        required: true,
+                    },
+
+                    link: {
+                        required: true,
+                    },
+
+                    payment_type: {
+                        required: true,
+                    },
+                    price: {
+                        required: function(element) {
+                            return $("#training_payment").val() !== '0';
+                        }
+                    },
+
+
+                    image: {
+                        required: true,
+                        
+                    },
+                    
+
+
+                },
+                messages: {
+                    title: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    deadline: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    about: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+
+                    company: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                        
+                    },
+                    link: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+                    payment_type: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    price: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    },
+
+                    image: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    
+                    
+                },
+                submitHandler: function(form) {
+                    if (form.checkValidity()) {
+                        return true;
+                    }
+                },
+                errorPlacement: function(error, element) {
+            error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+        }
+            });
+
+        
+        
         });
 
     
-    
-    });
+    </script>
 
-   
-</script>
+    <script>
+        const training_url = document.querySelector('#training_url');
+        const register_form = document.querySelector('#register_form');
+        const training_url_error = document.querySelector('#training_url-error');
+        
+        register_form.addEventListener('submit', (e) => {
+            if(training_url.value === '') {
+                training_url_error.style.display = 'block';
+                e.preventDefault();
+            }else {
+                training_url_error.style.display = 'none';
+            }
+        });
+    </script>
 
-<script>
-    const training_url = document.querySelector('#training_url');
-    const register_form = document.querySelector('#register_form');
-    const training_url_error = document.querySelector('#training_url-error');
-    
-    register_form.addEventListener('submit', (e) => {
-        if(training_url.value === '') {
-            training_url_error.style.display = 'block';
-            e.preventDefault();
-        }else {
-            training_url_error.style.display = 'none';
+    <script>
+        const sendBtn = document.getElementById("send");
+        sendBtn.addEventListener("click", (e) => {
+
+            var errorIn = document.getElementById("training_url-error");
+            var nameVal = document.getElementById("training_url");
+            var latestVal = nameVal.value;
+            if (latestVal.length == 0) {
+            errorIn.innerText = "Link is required";
+            return false;
+            }
+
+            errorIn.innerText = "Valid Link";
+            return true;
+            
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+@endsection
+
+@section('css-link')
+    <link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/add-training.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/header.css')}}">
+    <style>
+        .image-preview {
+            width: 150px;
+            height: 150px;
+            }
+
+    /* SELECT2  */
+        .add-training-input-group span{
+            height: 60px!important;
+            border-radius: 8px!important;
         }
-    });
-</script>
 
-<script>
-    const sendBtn = document.getElementById("send");
-      sendBtn.addEventListener("click", (e) => {
+        .select2-selection__rendered {
+            display: flex!important;
+            align-items: center!important;
+        }
 
-          var errorIn = document.getElementById("training_url-error");
-          var nameVal = document.getElementById("training_url");
-          var latestVal = nameVal.value;
-          if (latestVal.length == 0) {
-          errorIn.innerText = "Link is required";
-          return false;
-          }
-
-        //   if (!latestVal.match(/^((ftp|http|https):\/\/)?([A-z]+)\.([A-z]{2,})/)) {
-        //   errorIn.innerText = "Please enter a valid URL.";
-        //   e.preventDefault()
-        //   return false;
-        //   }
-
-          errorIn.innerText = "Valid Link";
-          return true;
-          
-      });
-</script>
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
-    });
-</script>
+    </style>
 @endsection

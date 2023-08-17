@@ -1,43 +1,12 @@
-<!DOCTYPE html>
-
 @extends('front.layouts.master')
-
-<style>
-    #structure{
-        align-items: flex-end;
-    }
-
-    #comp_link, #comp_name, #job_name{
-        background: #FFFFFF;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        padding: 12px 14px!important;
-    }
-
-    .removeElement{
-        margin-left: 15px;
-        /* padding: 0px 15px; */
-        padding: 15px 29px;
-        border: none;
-        background: #9559E5;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        color: #FFFFFF;
-    }
-</style>
 
 
 @section('content')
-@foreach ($banner as $ban)
+    @foreach ($banner as $ban)
 
-<section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
-       @endforeach
+        <section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+            url({{asset($ban->image)}})">
+    @endforeach
 
         <div class="header-links-div">
             <a class="header-links" href="{{route('profile')}}">
@@ -53,32 +22,26 @@
                  @lang('front.isegotur')
              </a>
         </div>
+
+        
     </section>
-    @if($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+    
     <section class="create-cv" >
         <div class="container create-cv-container">
             <div class="row m-0">   
                 <div class="nav flex-column nav-pills create-cv-tabs col-lg-4 col-md-8" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active trending-nav-link1" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                        <img id="training_icon1" src="{{asset('back/assets/images/icons/add-training-white.png')}}" alt="add-training-white" /> @lang('front.cvadd')
+                    <a class="nav-link active nav-link-2 trending-nav-link2" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                        <img id="training_icon2" src="{{asset('back/assets/images/icons/training-list-white.png')}}" alt="training-list-purple" /> @lang('front.cvler')
                     </a>
-                    <a class="nav-link nav-link-2 trending-nav-link2" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                        <img id="training_icon2" src="{{asset('back/assets/images/icons/training-list-purple1.png')}}" alt="training-list-purple" /> @lang('front.cvler')
+                    <a class="nav-link trending-nav-link1" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                        <img id="training_icon1" src="{{asset('back/assets/images/icons/add-training-purple.png')}}" alt="add-training-white" /> @lang('front.cvadd')
                     </a>
                     <a class="nav-link nav-link-2 trending-nav-link3" id="v-pills-liked-cv-tab" data-toggle="pill" href="#v-pills-liked-cv" role="tab" aria-controls="v-pills-liked-cv" aria-selected="false">
                         <img id="training_icon3" src="{{asset('back/assets/images/icons/training-list-purple1.png')}}" alt="training-list-purple" /> @lang('front.likecv')
                     </a>
                 </div>
                 <div class="tab-content col-lg-8" id="v-pills-tabContent">
-                    <form class="tab-pane row create-cv-form fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" method="POST" action="{{route('cvPost')}}" enctype="multipart/form-data">
+                    <form class="tab-pane row create-cv-form fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" method="POST" action="{{route('cvPost')}}" enctype="multipart/form-data">
                         @csrf
                         <h3 class="col-12"></h3>
                         <div class="form-group create-cv-input-group col-md-6">
@@ -370,17 +333,12 @@
                             <button type="submit">@lang('front.elaveet')</button>
                         </div>
                     </form>
-                    <div class="tab-pane create-cv-card-wrapper fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                        <h4 class="create-cv-header">@lang('front.cvler')</h4>
+                    <div class="tab-pane create-cv-card-wrapper fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                         <div class="row">
                             @foreach($cvs as $key=>$cv)
                             <div class="col-lg-6 col-md-6 d-flex justify-content-center create-cv-card-col">
                                 <a href="{{route('cvedit', $cv->id)}}" class="job-search-card cv-jobsearcher cv-jobsearcher">
                                     <img class="job-search-avatar" src="{{$cv->image}}" alt="job-search-card1">
-
-                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.38092 12.2816L8.30584 12.3566L8.22325 12.2816C4.65696 9.04914 2.29945 6.91164 2.29945 4.74414C2.29945 3.24414 3.42565 2.11914 4.92724 2.11914C6.08347 2.11914 7.20967 2.86914 7.60759 3.88914H9.00408C9.402 2.86914 10.5282 2.11914 11.6844 2.11914C13.186 2.11914 14.3122 3.24414 14.3122 4.74414C14.3122 6.91164 11.9547 9.04914 8.38092 12.2816ZM11.6844 0.619141C10.378 0.619141 9.12421 1.22664 8.30584 2.17914C7.48747 1.22664 6.23363 0.619141 4.92724 0.619141C2.61478 0.619141 0.797852 2.42664 0.797852 4.74414C0.797852 7.57164 3.35057 9.88914 7.21718 13.3916L8.30584 14.3816L9.3945 13.3916C13.2611 9.88914 15.8138 7.57164 15.8138 4.74414C15.8138 2.42664 13.9969 0.619141 11.6844 0.619141Z" fill="#8843E1"></path>
-                                    </svg>
                                     <img class="job-edit-img" src="{{asset('back/assets/images/icons/training-list-message.png')}}" alt=""/>
 
                                     <div class="jobsearch-card-information">
@@ -394,6 +352,46 @@
                             <div class="add-training-card-more-button">
                             </div>
                         </div>
+                        
+                    <nav aria-label="..." class="d-flex justify-content-center">
+                        @if ($cvs->hasPages())
+                        <ul class="pagination pagination-ul">
+                            {{-- Previous Page Link --}}
+                            @if ($cvs->onFirstPage())
+                            @else
+                                <li class="page-item"><a class="page-link" href="{{ $cvs->appends(request()->except('page'))->previousPageUrl() }}" rel="prev">«</a></li>
+                            @endif
+                    
+                            @if($cvs->currentPage() > 3)
+                                <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $cvs->appends(request()->except('page'))->url(1) }}">1</a></li>
+                            @endif
+                            @if($cvs->currentPage() > 4)
+                            <li class="page-item"><a class="page-link">...</a></li>
+                            @endif
+                            @foreach(range(1, $cvs->lastPage()) as $i)
+                                @if($i >= $cvs->currentPage() - 1 && $i <= $cvs->currentPage() + 1)
+                                    @if ($i == $cvs->currentPage())
+                                        <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
+                                    @else
+                                        <li class="page-item "><a class="page-link" href="{{ $cvs->appends(request()->except('page'))->url($i) }}">{{ $i }}</a></li>
+                                    @endif
+                                @endif
+                            @endforeach
+                            @if($cvs->currentPage() < $cvs->lastPage() - 2)
+                            <li class="page-item"><a class="page-link">...</a></li>
+                            @endif
+                            @if($cvs->currentPage() < $cvs->lastPage() - 1)
+                                <li class="page-item hidden-xs"><a class="page-link" href="{{ $cvs->appends(request()->except('page'))->url($cvs->lastPage()) }}">{{ $cvs->lastPage() }}</a></li>
+                            @endif
+                    
+                            {{-- Next Page Link --}}
+                            @if ($cvs->hasMorePages())
+                                <li><a class="page-link" href="{{ $cvs->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
+                            @endif
+                        </ul>               
+                        @endif
+    
+                    </nav>
                     </div>
                     <div class="tab-pane row cv-liked-card-wrapper fade" id="v-pills-liked-cv" role="tabpanel" aria-labelledby="v-pills-liked-cv-tab">
                         @foreach ($favorits as $fav)
@@ -419,6 +417,53 @@
         </div>
     </section>
     
+    
+@endsection
+
+@section('css-link')
+    <link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/create-cv.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/header.css')}}">
+    <style>
+        .tox-notifications-container{
+            display:none !important;
+        }
+    </style>
+    <style>
+        #structure{
+            align-items: flex-end;
+        }
+
+        #comp_link, #comp_name, #job_name{
+            background: #FFFFFF;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            padding: 12px 14px!important;
+        }
+
+        .removeElement{
+            margin-left: 15px;
+            /* padding: 0px 15px; */
+            padding: 15px 29px;
+            border: none;
+            background: #9559E5;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            color: #FFFFFF;
+        }
+    </style>
+
+@endsection
+
+@section('js-link')
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
         var heartIcons = document.querySelectorAll('.red-heart-icon');
@@ -463,251 +508,228 @@
         });
         });
     </script>
-@endsection
+    <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front/js/slick.min.js')}}"></script>
+    <script src="{{asset('front/js/add-training.js')}}"></script>
 
-@section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/create-cv.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/header.css')}}">
-@endsection
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="{{asset('front/js/repeater.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
 
-@section('js-link')
-<script src="{{asset('front/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('front/js/slick.min.js')}}"></script>
-<script src="{{asset('front/js/add-training.js')}}"></script>
+            function getErrorMessage(field, lang) {
+                var errorMessages = {
+                    required: {
+                        'AZ': 'Bu sahə doldurulmalıdır!',
+                        'EN': 'This field is required!',
+                        'RU': 'Поле обязательно для заполнения!',
+                        'TR': 'Bu alan zorunludur!'
+                    },
+                    email: {
+                        'AZ': 'Düzgün bir email adresi daxil edin.',
+                        'EN': 'Please enter a valid email address.',
+                        'RU': 'Введите действительный адрес электронной почты.',
+                        'TR': 'Geçerli bir email adresi giriniz.'
+                    },
+                    
+                    maxlength: {
+                        'AZ': 'Bu sahə üçün maksimum 100 simvol limiti keçilməlidir!',
+                        'EN': 'Maximum 100 characters limit should not be exceeded for this field!',
+                        'RU': 'Максимальное количество символов для этого поля - 100!',
+                        'TR': 'Bu alan için maksimum 100 karakter sınırı aşılmamalıdır!'
+                    },
+                    maxFileSize: {
+                        'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
+                        'EN': 'The maximum file size for the image should be 5MB!',
+                        'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
+                        'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
+                    },
+                    accept: {
+                        'AZ': 'Lütfen bir resim dosyası seçin!',
+                        'EN': 'Please select an image file!',
+                        'RU': 'Пожалуйста, выберите файл изображения!',
+                        'TR': 'Lütfen bir resim dosyası seçin!'
+                    },
 
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-<script src="{{asset('front/js/repeater.js')}}"></script>
-@endsection
+                
+                };
 
-
-<script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-    const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
-
-    tinymce.init({
-        selector: 'textarea',
-        
-        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-        editimage_cors_hosts: ['picsum.photos'],
-        menubar: 'file edit view insert format tools table help',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-        toolbar_sticky: true,
-        toolbar_sticky_offset: isSmallScreen ? 102 : 108,
-        autosave_ask_before_unload: true,
-        autosave_interval: '30s',
-        autosave_prefix: '{path}{query}-{id}-',
-        autosave_restore_when_empty: false,
-        autosave_retention: '2m',
-        image_advtab: true,
-        link_list: [
-            { title: 'My page 1', value: 'https://www.tiny.cloud' },
-            { title: 'My page 2', value: 'http://www.moxiecode.com' }
-        ],
-        image_list: [
-            { title: 'My page 1', value: 'https://www.tiny.cloud' },
-            { title: 'My page 2', value: 'http://www.moxiecode.com' }
-        ],
-        image_class_list: [
-            { title: 'None', value: '' },
-            { title: 'Some class', value: 'class-name' }
-        ],
-        importcss_append: true,
-        file_picker_callback: (callback, value, meta) => {
-            /* Provide file and text for the link dialog */
-            if (meta.filetype === 'file') {
-                callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+                return errorMessages[field][lang] || errorMessages[field]['AZ']; 
             }
 
-            /* Provide image and alt text for the image dialog */
-            if (meta.filetype === 'image') {
-                callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
-            }
-
-            /* Provide alternative source and posted for the media dialog */
-            if (meta.filetype === 'media') {
-                callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
-            }
-        },
-        templates: [
-            { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
-            { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
-            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
-        ],
-        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-        height: 400,
-        image_caption: true,
-        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-        noneditable_class: 'mceNonEditable',
-        toolbar_mode: 'sliding',
-        contextmenu: 'link image table',
-        skin: useDarkMode ? 'oxide-dark' : 'oxide',
-        content_css: useDarkMode ? 'dark' : 'default',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-    });
-</script>
-
-<style>
-
-    .tox-notifications-container{
-        display:none !important;
-    }
-    </style>
-
-
-@section('js')
-
-<script>
-    $(document).ready(function() {
-        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
-
-        function getErrorMessage(field, lang) {
-            var errorMessages = {
-                required: {
-                    'AZ': 'Bu sahə doldurulmalıdır!',
-                    'EN': 'This field is required!',
-                    'RU': 'Поле обязательно для заполнения!',
-                    'TR': 'Bu alan zorunludur!'
-                },
-                email: {
-                    'AZ': 'Düzgün bir email adresi daxil edin.',
-                    'EN': 'Please enter a valid email address.',
-                    'RU': 'Введите действительный адрес электронной почты.',
-                    'TR': 'Geçerli bir email adresi giriniz.'
-                },
+            $("#v-pills-home").validate({
+                onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
                 
-                maxlength: {
-                    'AZ': 'Bu sahə üçün maksimum 100 simvol limiti keçilməlidir!',
-                    'EN': 'Maximum 100 characters limit should not be exceeded for this field!',
-                    'RU': 'Максимальное количество символов для этого поля - 100!',
-                    'TR': 'Bu alan için maksimum 100 karakter sınırı aşılmamalıdır!'
-                },
-                maxFileSize: {
-                    'AZ': 'Şəkil üçün maksimum fayl ölçüsü 5MB olmalıdır!',
-                    'EN': 'The maximum file size for the image should be 5MB!',
-                    'RU': 'Максимальный размер файла для изображения должен быть 5 МБ!',
-                    'TR': 'Resim için maksimum dosya boyutu 5MB olmalıdır!'
-                },
-                accept: {
-                    'AZ': 'Lütfen bir resim dosyası seçin!',
-                    'EN': 'Please select an image file!',
-                    'RU': 'Пожалуйста, выберите файл изображения!',
-                    'TR': 'Lütfen bir resim dosyası seçin!'
-                },
+                rules: {
+                    position: {
+                        required: true,
+                        maxlength: 255,
 
-               
-            };
-
-            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
-        }
-
-        $("#v-pills-home").validate({
-            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
-            
-            rules: {
-                position: {
-                    required: true,
-                    maxlength: 255,
-
-                },
-                name: {
-                    required: true,
-                },
-                surname: {
-                    required: true,
-                },
-                father_name: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true,
-
-                },
-                image: {
-                    required: true,
-                },
-                cv: {
-                    required: true,
-                },
-                
-                
-
-            },
-            messages: {
-                position: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
                     },
-                    
-                    maxlength: function() {
-                        return getErrorMessage('maxlength', lang);
-                    }
-                },
-
-
-                name: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
+                    name: {
+                        required: true,
                     },
-                    
-                },
-
-                surname: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
+                    surname: {
+                        required: true,
                     },
-                  
-                },
+                    father_name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                        email: true,
 
-                father_name: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
+                    },
+                    image: {
+                        required: true,
+                    },
+                    cv: {
+                        required: true,
                     },
                     
                     
-                },
-                email: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    email: function() {
-                        return getErrorMessage('email', lang);
-                    },
-                    
-                },
-                
-                image: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-                cv: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
 
-                
-                
-            },
-            submitHandler: function(form) {
-                form.submit(); // Formu gönder
-            },
-            errorPlacement: function(error, element) {
-    // Hata mesajlarını görüntülemek için gerekli işlemleri yapın
-    error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
-            }
+                },
+                messages: {
+                    position: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                        maxlength: function() {
+                            return getErrorMessage('maxlength', lang);
+                        }
+                    },
+
+
+                    name: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    surname: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+
+                    father_name: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                        
+                    },
+                    email: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        email: function() {
+                            return getErrorMessage('email', lang);
+                        },
+                        
+                    },
+                    
+                    image: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+                    cv: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    
+                    
+                },
+                submitHandler: function(form) {
+                    form.submit(); // Formu gönder
+                },
+                errorPlacement: function(error, element) {
+        // Hata mesajlarını görüntülemek için gerekli işlemleri yapın
+        error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+                }
+            });
         });
-    });
-</script>
-<script>
+    </script>
+
+    <script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+
+        tinymce.init({
+            selector: 'textarea',
+            
+            plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+            editimage_cors_hosts: ['picsum.photos'],
+            menubar: 'file edit view insert format tools table help',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+            toolbar_sticky: true,
+            toolbar_sticky_offset: isSmallScreen ? 102 : 108,
+            autosave_ask_before_unload: true,
+            autosave_interval: '30s',
+            autosave_prefix: '{path}{query}-{id}-',
+            autosave_restore_when_empty: false,
+            autosave_retention: '2m',
+            image_advtab: true,
+            link_list: [
+                { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                { title: 'My page 2', value: 'http://www.moxiecode.com' }
+            ],
+            image_list: [
+                { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                { title: 'My page 2', value: 'http://www.moxiecode.com' }
+            ],
+            image_class_list: [
+                { title: 'None', value: '' },
+                { title: 'Some class', value: 'class-name' }
+            ],
+            importcss_append: true,
+            file_picker_callback: (callback, value, meta) => {
+                /* Provide file and text for the link dialog */
+                if (meta.filetype === 'file') {
+                    callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+                }
+
+                /* Provide image and alt text for the image dialog */
+                if (meta.filetype === 'image') {
+                    callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+                }
+
+                /* Provide alternative source and posted for the media dialog */
+                if (meta.filetype === 'media') {
+                    callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+                }
+            },
+            templates: [
+                { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+                { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+                { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+            ],
+            template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+            template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+            height: 400,
+            image_caption: true,
+            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            noneditable_class: 'mceNonEditable',
+            toolbar_mode: 'sliding',
+            contextmenu: 'link image table',
+            skin: useDarkMode ? 'oxide-dark' : 'oxide',
+            content_css: useDarkMode ? 'dark' : 'default',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+        });
+    </script>
+
+    <script>
       $(function () {
         $("#repeater").repeater({
           items: [
@@ -730,4 +752,6 @@
       const removeBtn = document.querySelector('.removeElement')
       console.log('Remove BTN',removeBtn)
     </script>
+
+   
 @endsection

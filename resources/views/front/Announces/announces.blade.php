@@ -1,130 +1,4 @@
-<!DOCTYPE html>
-
 @extends('front.layouts.master')
-
-<style>
-    .comp-card {
-            width: 100%;
-            background: linear-gradient(180deg, #966ace 0%, #7235c0 100%);
-            border-radius: 10px;
-            display: flex;
-            margin: 10px;
-            gap: 10px;
-            
-        }
-
-        .company-content {
-            width: calc(100% - 100px);
-            position: relative;
-        }
-
-        .company-pag{
-            justify-content: center;
-            position: absolute;
-            bottom: 0;
-        }
-
-        .inner1 {
-            padding: 0 5px;
-        }
-
-        .inner2 {
-            width: 100px!important;
-            height: 100px!important;
-            padding: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    
-        .inner2-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background-color: #fff;
-            border-radius: 5px;
-        }
-        
-        .look-comp {
-            position: absolute;
-            right: 10px;
-        }
-
-        .inner3 {
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-        }
-
-
-        .add-company{
-            display: flex;
-            align-items: center;
-            }
-
-
-    .add-company > button{
-        width: 100%;
-        height: 58px;
-        margin-top: 30px;
-        background: #FFFFFF;
-        box-shadow: 0px 0px 5px 1px rgba(253, 253, 253, 0.25);
-        border-radius: 10px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        color: #9559E5;
-    }
-
-    .add-company-modal{
-        padding: 30px;
-        position: relative;
-    }
-
-    .add-comp-close{
-        position: absolute;
-        right: 10px;
-        top: 5px;
-        padding: 5px 10px;
-        background: transparent;
-        border-radius: 10px;
-        border: 1px solid black;
-        font-weight: bold;
-    }
-
-    .company-announce-social {
-        position: relative;
-    }
-
-    .company-announce-social input {
-        padding-left: 47px!important;
-    }
-
-    .comp-insta-img {
-        position: absolute;
-        top: 40px;
-    left: 8px;
-    }
-
-    .inner-right a {
-        margin-right: 5px;
-    }
-
-    @media screen and (max-width: 992px) {
-        .company-pag{
-            position: absolute;
-            bottom: -45px;
-            left: 0;
-            right: 0;
-        }
-    }
-</style>
 
 @section('content')
 @foreach ($banner as $ban)
@@ -310,51 +184,50 @@
             <div class="col-lg-4">
                 <div class="row tab-pane company-announce-row" id="sirketlerim">
                     @foreach($companies as $key=>$allcomp)
-                    <div class="col-lg-12 col-md-6 company-announce-col">
-                       
-                        <div class="comp-card">
-                            <div class="inner2">
-                                <img src="{{$allcomp->image}}" class="inner2-img" alt="">
-                            </div>
-                            <div class="company-content">
-                                <div class="inner1">
-                                    @if(mb_strlen($allcomp->name) > 13)
-                                    {{ mb_substr(($allcomp->name), 0, 13) . ' ...' }}
-                                @else
-                                    {{ ($allcomp->name) }}
-                                @endif
-                                    <div class="inner-right">
-                                        <a href="{{route('compedit', $allcomp->id)}}">
-                                            <img src="https://1is.butagrup.az/back/assets/images/icons/Vector2.png)}}" alt="">
-                                        </a>
+                        <div class="col-lg-12 col-md-6 company-announce-col">
+                            <div class="comp-card">
+                                <div class="inner2">
+                                    <img src="{{$allcomp->image}}" class="inner2-img" alt="">
+                                </div>
+                                <div class="company-content">
+                                    <div class="inner1">
+                                        @if(mb_strlen($allcomp->name) > 13)
+                                        {{ mb_substr(($allcomp->name), 0, 13) . ' ...' }}
+                                    @else
+                                        {{ ($allcomp->name) }}
+                                    @endif
+                                        <div class="inner-right">
+                                            <a href="{{route('compedit', $allcomp->id)}}">
+                                                <img src="https://1is.butagrup.az/back/assets/images/icons/Vector2.png)}}" alt="">
+                                            </a>
 
-                                        <p>{{ ($allcomp->vacanc_say) }} </p>
-                                        <img src="https://1is-new.netlify.app/images/bag.png" alt="">
+                                            <p>{{ ($allcomp->vacanc_say) }} </p>
+                                            <img src="https://1is-new.netlify.app/images/bag.png" alt="">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="inner3">
-                                    <div class="stars">
-                                        @php
-                                            $stars = round($allcomp->average);
-                                        @endphp
-                                        @for($i = 1; $i <= 5; $i++)
-                                            @if($i <= $stars)
-                                                <img src="https://1is-new.netlify.app/images/star-fil.png" alt="">
-                                            @else
-                                                <img src="https://1is-new.netlify.app/images/star-emp.png" alt="">
-                                            @endif
-                                        @endfor
-                                    </div>  
-            
-                                    <div class="look-comp">
-                                        <img src="https://1is-new.netlify.app/images/look-comp.png" alt="">
-                                        <p>{{$allcomp->view}}</p>
+                                    <div class="inner3">
+                                        <div class="stars">
+                                            @php
+                                                $stars = round($allcomp->average);
+                                            @endphp
+                                            @for($i = 1; $i <= 5; $i++)
+                                                @if($i <= $stars)
+                                                    <img src="https://1is-new.netlify.app/images/star-fil.png" alt="">
+                                                @else
+                                                    <img src="https://1is-new.netlify.app/images/star-emp.png" alt="">
+                                                @endif
+                                            @endfor
+                                        </div>  
+                
+                                        <div class="look-comp">
+                                            <img src="https://1is-new.netlify.app/images/look-comp.png" alt="">
+                                            <p>{{$allcomp->view}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        
                         </div>
-                       
-                    </div>
                  
                     @endforeach
                 </div>
@@ -393,149 +266,147 @@
                         @if ($companies->hasMorePages())
                             <li><a class="page-link" href="{{ $companies->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
                         @endif
-                    </ul>
-                    </nav>
-                @endif
+                    </ul>               
+                    @endif
+
+                </nav>
             
-               
             </div>
         </div>
     </section>
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
-
-        function getErrorMessage(field, lang) {
-            var errorMessages = {
-                required: {
-                    'AZ': 'Bu sahə doldurulmalıdır!',
-                    'EN': 'This field is required!',
-                    'RU': 'Поле обязательно для заполнения!',
-                    'TR': 'Bu alan zorunludur!'
-                },
-
-                minlength: {
-                    'AZ': 'Bu sahə üçün minimum 20 simvol limiti keçilməlidir!',
-                    'EN': 'Minimum 20 characters limit should not be exceeded for this field!',
-                    'RU': 'Минимальное количество символов для этого поля - 20!',
-                    'TR': 'Bu alanda en az 20 karakter sınırı aşılmamalıdır!'
-                },
-               
-            };
-
-            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
-        }
-
-        $("#v-pills-home").validate({
-            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
-            
-            rules: {
-                name: {
-                    required: true,
-
-                },
-                sector: {
-                    required: true,
-                },
-                address: {
-                    required: true,
-                },
-                website: {
-                    required: true,
-                },
-                
-                map: {
-                    required: true,
-                },
-                about: {
-                    required: true,
-                    minlength: 20,
-
-                },
-            
-                image: {
-                    required: true,
-                },
-                
-                
-                
-
-            },
-            messages: {
-                name: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-
-                sector: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-                address: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                website: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-
-                map: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                about: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    minlength: function() {
-                        return getErrorMessage('minlength', lang);
-                    },
-                  
-                },
-                image: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-            
-                
-                           
-            },
-            submitHandler: function(form) {
-                form.submit(); // Formu gönder
-            },
-            errorPlacement: function(error, element) {
-            error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
-            }
-        });
-    });
-
-</script>
 @section('js-link')
-<script src="{{asset('front/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('front/js/slick.min.js')}}"></script>
-<script src="{{asset('front/js/companies-announces.js')}}"></script>
+    <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front/js/slick.min.js')}}"></script>
+    <script src="{{asset('front/js/companies-announces.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+
+            function getErrorMessage(field, lang) {
+                var errorMessages = {
+                    required: {
+                        'AZ': 'Bu sahə doldurulmalıdır!',
+                        'EN': 'This field is required!',
+                        'RU': 'Поле обязательно для заполнения!',
+                        'TR': 'Bu alan zorunludur!'
+                    },
+
+                    minlength: {
+                        'AZ': 'Bu sahə üçün minimum 20 simvol limiti keçilməlidir!',
+                        'EN': 'Minimum 20 characters limit should not be exceeded for this field!',
+                        'RU': 'Минимальное количество символов для этого поля - 20!',
+                        'TR': 'Bu alanda en az 20 karakter sınırı aşılmamalıdır!'
+                    },
+                
+                };
+
+                return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+            }
+
+            $("#v-pills-home").validate({
+                onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+                
+                rules: {
+                    name: {
+                        required: true,
+
+                    },
+                    sector: {
+                        required: true,
+                    },
+                    address: {
+                        required: true,
+                    },
+                    website: {
+                        required: true,
+                    },
+                    
+                    map: {
+                        required: true,
+                    },
+                    about: {
+                        required: true,
+                        minlength: 20,
+
+                    },
+                
+                    image: {
+                        required: true,
+                    },
+                    
+                    
+                    
+
+                },
+                messages: {
+                    name: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+
+                    sector: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    address: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    website: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+
+                    map: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    about: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        minlength: function() {
+                            return getErrorMessage('minlength', lang);
+                        },
+                    
+                    },
+                    image: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                
+                    
+                            
+                },
+                submitHandler: function(form) {
+                    form.submit(); // Formu gönder
+                },
+                errorPlacement: function(error, element) {
+                error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+                }
+            });
+        });
+
+    </script>
 @endsection
-
-<script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-
 
 @section('css-link')
     <link rel="stylesheet" href="{{asset('front/css/slick.css')}}"/>
@@ -543,4 +414,127 @@
     <link rel="stylesheet" href="{{asset('front/css/companies-announces.css')}}" />
     <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}" />
     <link rel="stylesheet" href="{{asset('front/css/header.css')}}" />
+    <style>
+        .comp-card {
+                width: 100%;
+                background: linear-gradient(180deg, #966ace 0%, #7235c0 100%);
+                border-radius: 10px;
+                display: flex;
+                margin: 10px;
+                gap: 10px;
+                
+            }
+    
+            .company-content {
+                width: calc(100% - 100px);
+                position: relative;
+            }
+    
+            .company-pag{
+                justify-content: center;
+                position: absolute;
+                bottom: 0;
+            }
+    
+            .inner1 {
+                padding: 0 5px;
+            }
+    
+            .inner2 {
+                width: 100px!important;
+                height: 100px!important;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        
+            .inner2-img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                background-color: #fff;
+                border-radius: 5px;
+            }
+            
+            .look-comp {
+                position: absolute;
+                right: 10px;
+            }
+    
+            .inner3 {
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                right: 0;
+            }
+    
+    
+            .add-company{
+                display: flex;
+                align-items: center;
+                }
+    
+    
+        .add-company > button{
+            width: 100%;
+            height: 58px;
+            margin-top: 30px;
+            background: #FFFFFF;
+            box-shadow: 0px 0px 5px 1px rgba(253, 253, 253, 0.25);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            color: #9559E5;
+        }
+    
+        .add-company-modal{
+            padding: 30px;
+            position: relative;
+        }
+    
+        .add-comp-close{
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            padding: 5px 10px;
+            background: transparent;
+            border-radius: 10px;
+            border: 1px solid black;
+            font-weight: bold;
+        }
+    
+        .company-announce-social {
+            position: relative;
+        }
+    
+        .company-announce-social input {
+            padding-left: 47px!important;
+        }
+    
+        .comp-insta-img {
+            position: absolute;
+            top: 40px;
+        left: 8px;
+        }
+    
+        .inner-right a {
+            margin-right: 5px;
+        }
+    
+        @media screen and (max-width: 992px) {
+            .company-pag{
+                position: absolute;
+                bottom: -45px;
+                left: 0;
+                right: 0;
+            }
+        }
+    </style>
 @endsection

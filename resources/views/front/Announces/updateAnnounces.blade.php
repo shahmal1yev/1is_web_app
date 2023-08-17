@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 @extends('front.layouts.master')
 
 @section('content')
@@ -207,6 +205,8 @@
         </div>
     </section>
 @endsection
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -438,15 +438,14 @@
     }
 }
 
+    function getRegion(id){
+        if(id == 1){
+            $('#type_region').slideDown()
 
-        function getRegion(id){
-            if(id == 1){
-                $('#type_region').slideDown()
-
-            }else{
-                $('#type_region').slideUp()
-            }
+        }else{
+            $('#type_region').slideUp()
         }
+    }
 </script>
 <script>
     const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -515,11 +514,10 @@
     });
 </script>
 
-<style>
-
-    .tox-notifications-container{
-        display:none !important;
-    }
+    <style>
+        .tox-notifications-container{
+            display:none !important;
+        }
     </style>
 
 

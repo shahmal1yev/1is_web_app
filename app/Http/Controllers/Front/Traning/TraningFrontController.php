@@ -103,7 +103,7 @@ class TraningFrontController extends Controller
 
         $userId = auth()->user()->id;
         $companies = Companies::where('user_id', $userId)->get();
-        $trainings = Trainings::where('user_id', $userId)->get();
+        $trainings = Trainings::where('user_id', $userId)->orderBy('created_at','DESC')->get();
 
         return view('front.Traning.create', get_defined_vars());
 

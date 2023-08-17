@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('contact_phone', 50)->nullable();
             $table->string('cv', 500);
             $table->string('image', 500);
-            $table->longtext('portfolio')->nullable();
+            $table->longtext('portfolio')->default('{"portfolio":[]}');
             $table->integer('view')->default(0);
             $table->boolean('status')->default(false);
 
