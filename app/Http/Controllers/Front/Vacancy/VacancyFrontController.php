@@ -142,7 +142,7 @@ class VacancyFrontController extends Controller
         }
         return redirect()->route('createAnnounces')->with('success', __('messages.succelan'));
         } catch (\Throwable $e) {
-            return redirect()->route('createAnnounces')->with('error', $e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
             }
     }
 
@@ -214,7 +214,7 @@ class VacancyFrontController extends Controller
         return redirect()->route('announcesindex')->with('success', __('messages.succomp'));
         } 
         catch (\Throwable $e) {
-            return redirect()->route('announcesindex')->with('error', $e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
      }
 
@@ -311,7 +311,7 @@ class VacancyFrontController extends Controller
             $vacancy->save();
             return redirect()->route('myAnnounces')->with('success', __('messages.elanyeni'));
         } catch (\Exception $e) {
-            return redirect()->route('myAnnounces')->with('error',$e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
     }
     
@@ -395,7 +395,7 @@ class VacancyFrontController extends Controller
         return redirect()->route('announcesindex')->with('success', __('messages.compyeni'));
         } 
         catch (\Throwable $e) {
-            return redirect()->route('announcesindex')->with('error', $e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
         }
     }
@@ -570,7 +570,7 @@ class VacancyFrontController extends Controller
             return redirect()->back()->with('success', __('messages.succv'));
         } 
         catch (\Throwable $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
     }
 

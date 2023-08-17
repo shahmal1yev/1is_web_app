@@ -47,7 +47,8 @@ class CompanyFrontController extends Controller
     
             return redirect()->route('compdetail', ['id' => $request->company_id])->with('success', __('messages.sucrey'));
         } catch (\Throwable $e) {
-            return redirect()->route('compdetail', ['id' => $request->company_id])->with('error', $e->getMessage());
+            return redirect()->route('compdetail', ['id' => $request->company_id])->with('error', __('messages.nesexeta'));
+
         }
     }
     

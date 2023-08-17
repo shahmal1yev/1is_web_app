@@ -208,9 +208,8 @@ class TraningFrontController extends Controller
     
             return redirect()->route('traningcreate')->with('success', __('messages.telimyeni'));
         } catch (\Exception $ex) {
-            dd($e);
-            die;
-            return redirect()->route('traningcreate')->with('error', $ex->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
+
         }
     }
 }

@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 
-<style>
-    /* SELECT2  */
-
-    .company-announce-input-group span{
-        height: 100%!important;
-        border-radius: 8px!important;
-    }
-
-    .select2-selection__rendered {
-        display: flex!important;
-        align-items: center!important;
-    }
-</style>
-
 @extends('front.layouts.master')
+
+
+
 
 @section('content')
 @foreach ($banner as $ban)
@@ -210,12 +199,12 @@
                             </div>
                             <div class="form-group company-announce-input-group col-12">
                                 <label for="demands">@lang('front.namteleb') <span class="text-danger">*</span></label>
-                                <textarea name="requirements" class="form-control" id="demands" rows="5" placeholder="@lang('front.melumatver')!">{{ old('requirements') }}</textarea>
+                                <textarea name="requirements" class="form-control" id="demands" rows="5" placeholder="@lang('front.melumatver')!" required>{{ old('requirements') }}</textarea>
                             </div>
                             
                             <div class="form-group company-announce-input-group col-12 ">
                                 <label for="about_work">@lang('front.ismelumat') <span class="text-danger">*</span></label>
-                                <textarea name="description" class="form-control" id="about_work" rows="5" placeholder="@lang('front.melumatver')!">{{ old('description') }}</textarea>
+                                <textarea name="description" class="form-control" id="about_work" rows="5" placeholder="@lang('front.melumatver')!" required>{{ old('description') }}</textarea>
                                
                             </div>
                             <div class="form-group company-announce-input-group col-12">
@@ -287,7 +276,16 @@
     </section>
 @endsection
 
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+
+@section('js-link')
+
+<script src="{{asset('front/js/bootstrap.min.js')}}"></script> 
+<script src="{{asset('front/js/slick.min.js')}}"></script>
+<script src="{{asset('front/js/companies-announces.js')}}"></script>
 
 
 
@@ -582,25 +580,6 @@
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
     });
 </script>
-
-    <style>
-
-        .tox-notifications-container{
-            display:none !important;
-        }
-    </style>
-
-<script>
-    // In your Javascript (external .js resource or <script> tag)
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
-    });
-</script>
-
-@section('js-link')
-<script src="{{asset('front/js/bootstrap.min.js')}}"></script> 
-<script src="{{asset('front/js/slick.min.js')}}"></script>
-<script src="{{asset('front/js/companies-announces.js')}}"></script>
 @endsection
 
 
@@ -611,4 +590,31 @@
 <link rel="stylesheet" href="{{asset('front/css/companies-announces.css')}}">
 <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
 <link rel="stylesheet" href="{{asset('front/css/header.css')}}">
+<style>
+    /* SELECT2  */
+
+    .company-announce-input-group span{
+        height: 100%!important;
+        border-radius: 8px!important;
+    }
+
+    .select2-selection__rendered {
+        display: flex!important;
+        align-items: center!important;
+    }
+</style>
+
+<style>
+
+    .tox-notifications-container{
+        display:none !important;
+    }
+</style>
+
+<script>
+// In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
 @endsection

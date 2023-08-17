@@ -188,8 +188,8 @@ class CVFrontController extends Controller
            
             return redirect()->route('cvindex')->with('success', __('messages.cvyeni'));
         } catch (\Exception $ex) {
-            dd($ex->getMessage());
-              return redirect()->route('cvindex')->with('error',$ex->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
+
           }
     }    
     
@@ -308,7 +308,7 @@ class CVFrontController extends Controller
             return redirect()->route('cvindex')->with('success', __('messages.succv'));
     
         } catch (\Throwable $e) {
-            return redirect()->route('cvindex')->with('error',$e->getMessage());
+            return redirect()->back()->with('error', __('messages.nesexeta'));
         }
         }
     

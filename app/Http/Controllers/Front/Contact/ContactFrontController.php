@@ -63,7 +63,7 @@ class ContactFrontController extends Controller
             return redirect()->route('contactindex')->with('success',  __('messages.murgonder'));
     
         } catch (\Throwable $e) {
-            return redirect()->route('contactindex')->with('error',$e->getMessage());
+            return redirect()->route('contactindex')->with('error', __('messages.nesexeta'));
         }
     }
 }
