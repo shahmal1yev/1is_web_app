@@ -249,7 +249,7 @@ class VacancyFrontController extends Controller
     
             if ($request->city == 1) {
             $request->validate([
-            'region' => 'numeric'
+                'region' => 'numeric'
             ]);
             $vacancy->village_id = $request->region;
             }
@@ -273,8 +273,8 @@ class VacancyFrontController extends Controller
             }else{
                 $vacancy->salary_type = '0';
                 $request->validate([
-                    'min_salary'=>'required|numeric',
-                    'max_salary'=>'required|numeric',
+                    'min_salary'=>'numeric',
+                    'max_salary'=>'numeric',
                 ]);
                 $vacancy->min_salary = $request->min_salary;
                 $vacancy->max_salary = $request->max_salary;
