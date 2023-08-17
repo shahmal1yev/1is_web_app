@@ -32,5 +32,5 @@
         title: '{{ session('warning') }}',
         })
     @endif
-  </script>
+</script>
 

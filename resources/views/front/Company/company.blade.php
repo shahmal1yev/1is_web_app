@@ -1,48 +1,12 @@
 @extends('front.layouts.master')
  
-<head>
-    <style>
-        .comp-card {
-            width: 100%;
-            background: linear-gradient(180deg, #966ace 0%, #7235c0 100%);
-            border-radius: 10px;
-            display: flex;
-            margin: 10px;
-        }
 
-        .inner2 {
-            width: 100px;
-            height: 100px;
-            padding: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    
-        .inner2-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background-color: #fff;
-            border-radius: 5px;
-        }
-        
-        .inner3 {
-            position: absolute;
-            bottom: 10px;
-        }
-        
-        .company-div .mr-0, .mx-0{
-        width: 100%;
-    }
-    </style>
-</head>
 
 @section('content')
-@foreach ($banner as $ban)
+        @foreach ($banner as $ban)
 
-<section class="vacancy-section" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
+        <section class="vacancy-section" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+            url({{asset($ban->image)}})">
        @endforeach
     <div class="vacancy-header">
       <div class="maintitle">
@@ -50,19 +14,16 @@
       </div>
       <form class="main-filter" method="GET" action="{{route('compsearch')}}">
        
-
-
-
         <div class="active-filter active-filter-jobsearchinner">
-        <div class="filter1">
-            <img src="https://1is-new.netlify.app/images/search.png" alt="">
-            <input class="filter-input" placeholder="@lang('front.compaxtar')" type="search" name="query" value="{{ old('query') }}">
-        </div>
-        <div class="filter2">
-            <button class="filter-searc">@lang('front.axtar')</button>
+            <div class="filter1">
+                <img src="https://1is-new.netlify.app/images/search.png" alt="">
+                <input class="filter-input" placeholder="@lang('front.compaxtar')" type="search" name="query" value="{{ old('query') }}">
+            </div>
+            <div class="filter2">
+                <button class="filter-searc">@lang('front.axtar')</button>
+            </div>
         </div>
     </div>
-        </div>
         
     </div>
   </section>
@@ -202,14 +163,51 @@
                 <li><a class="page-link" href="{{ $allcompanies->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
             @endif
         </ul>
-        </nav>
-            <h3 class="blog-all-result-text">@lang('front.umumisay') : {{$allcompanies->total()}}</h3>
+    </nav>
+        <h3 class="blog-all-result-text">@lang('front.umumisay') : {{$allcompanies->total()}}</h3>
 
-    @endif
+        @endif
     </section>
 @endsection
 
 @section("css-link")
-<link rel="stylesheet" href="{{asset('front/css/companyall.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/vacancy-all.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/companyall.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/vacancy-all.css')}}">
+    <style>
+        .comp-card {
+            width: 100%;
+            background: linear-gradient(180deg, #966ace 0%, #7235c0 100%);
+            border-radius: 10px;
+            display: flex;
+            margin: 10px;
+        }
+
+        .inner2 {
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inner2-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        
+        .inner3 {
+            position: absolute;
+            bottom: 10px;
+        }
+        .company-content{
+            width: calc(100% - 100px);
+        }
+        .company-div .mr-0, .mx-0{
+        width: 100%;
+    }
+    </style>
 @endsection

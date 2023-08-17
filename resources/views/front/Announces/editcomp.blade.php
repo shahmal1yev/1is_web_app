@@ -151,163 +151,165 @@
         </div>
     </section>
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
-
-        function getErrorMessage(field, lang) {
-            var errorMessages = {
-                required: {
-                    'AZ': 'Bu sahə doldurulmalıdır!',
-                    'EN': 'This field is required!',
-                    'RU': 'Поле обязательно для заполнения!',
-                    'TR': 'Bu alan zorunludur!'
-                },
-
-                minlength: {
-                    'AZ': 'Bu sahə üçün minimum 20 simvol limiti keçilməlidir!',
-                    'EN': 'Minimum 20 characters limit should not be exceeded for this field!',
-                    'RU': 'Минимальное количество символов для этого поля - 20!',
-                    'TR': 'Bu alanda en az 20 karakter sınırı aşılmamalıdır!'
-                },
-               
-            };
-
-            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
-        }
-
-        $("#v-pills-home").validate({
-            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
-            
-            rules: {
-                name: {
-                    required: true,
-
-                },
-                sector: {
-                    required: true,
-                },
-                address: {
-                    required: true,
-                },
-                website: {
-                    required: true,
-                },
-                
-                map: {
-                    required: true,
-                },
-                about: {
-                    required: true,
-                    minlength: 20,
-
-                },
-                
- 
-            },
-            messages: {
-                name: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
 
 
-                sector: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-                address: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                website: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-
-                map: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                about: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    minlength: function() {
-                        return getErrorMessage('minlength', lang);
-                    },
-                  
-                },
-                
-            
-                
-                           
-            },
-            submitHandler: function(form) {
-                form.submit(); // Formu gönder
-            },
-            errorPlacement: function(error, element) {
-            error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
-            }
-        });
-    });
-
-</script>
-
-
-<script>
-    
-        function getContact(id){
-            if(id == 0){
-                $('#type_email').slideDown();
-                $('#type_link').slideUp();
-            }else if(id == 2){
-                $('#type_link').slideDown();
-                $('#type_email').slideUp();
-            }else{
-                $('#type_email').slideUp();
-                $('#type_link').slideUp();
-            }
-}
-
-    function getRegion(id){
-        if(id == 1){
-            $('#type_region').slideDown()
-
-        }else{
-            $('#type_region').slideUp()
-        }
-    }
-</script>
 
 
 
 
 @section('js-link')
-<script src="{{asset('front/js/bootstrap.min.js')}}"></script> 
-<script src="{{asset('front/js/slick.min.js')}}"></script>
-<script src="{{asset('front/js/companies-announces.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+    <script src="{{asset('front/js/bootstrap.min.js')}}"></script> 
+    <script src="{{asset('front/js/slick.min.js')}}"></script>
+    <script src="{{asset('front/js/companies-announces.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+    
+            function getErrorMessage(field, lang) {
+                var errorMessages = {
+                    required: {
+                        'AZ': 'Bu sahə doldurulmalıdır!',
+                        'EN': 'This field is required!',
+                        'RU': 'Поле обязательно для заполнения!',
+                        'TR': 'Bu alan zorunludur!'
+                    },
+    
+                    minlength: {
+                        'AZ': 'Bu sahə üçün minimum 20 simvol limiti keçilməlidir!',
+                        'EN': 'Minimum 20 characters limit should not be exceeded for this field!',
+                        'RU': 'Минимальное количество символов для этого поля - 20!',
+                        'TR': 'Bu alanda en az 20 karakter sınırı aşılmamalıdır!'
+                    },
+                   
+                };
+    
+                return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+            }
+    
+            $("#v-pills-home").validate({
+                onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+                
+                rules: {
+                    name: {
+                        required: true,
+    
+                    },
+                    sector: {
+                        required: true,
+                    },
+                    address: {
+                        required: true,
+                    },
+                    website: {
+                        required: true,
+                    },
+                    
+                    map: {
+                        required: true,
+                    },
+                    about: {
+                        required: true,
+                        minlength: 20,
+    
+                    },
+                    
+     
+                },
+                messages: {
+                    name: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+    
+    
+                    sector: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+    
+                    address: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                      
+                    },
+                    website: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                      
+                    },
+    
+                    map: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                      
+                    },
+                    about: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        minlength: function() {
+                            return getErrorMessage('minlength', lang);
+                        },
+                      
+                    },
+                    
+                
+                    
+                               
+                },
+                submitHandler: function(form) {
+                    form.submit(); // Formu gönder
+                },
+                errorPlacement: function(error, element) {
+                error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+                }
+            });
+        });
+    
+    </script>
+    
+    
+    <script>
+        
+            function getContact(id){
+                if(id == 0){
+                    $('#type_email').slideDown();
+                    $('#type_link').slideUp();
+                }else if(id == 2){
+                    $('#type_link').slideDown();
+                    $('#type_email').slideUp();
+                }else{
+                    $('#type_email').slideUp();
+                    $('#type_link').slideUp();
+                }
+    }
+    
+        function getRegion(id){
+            if(id == 1){
+                $('#type_region').slideDown()
+    
+            }else{
+                $('#type_region').slideUp()
+            }
+        }
+    </script>
 @endsection
 
 
 
 @section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/companies-announces.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/header.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/companies-announces.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/header.css')}}">
 @endsection

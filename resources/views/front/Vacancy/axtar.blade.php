@@ -1,28 +1,11 @@
 @extends('front.layouts.master')
 
-<style>
-    .search-company-inner {
-        flex-wrap: nowrap!important;
-    }
-    #resetButton {
-        color: #fff;
-        background: #8843e1;
-        border-radius: 4px;
-        font-size: 14px;
-        width: 90px;
-        height: 35px;
-    }
-    .category-li li{
-        max-width:1000px;
-        margin:0 auto;
-    }
-</style>
 
 @section('content')
-@foreach ($banner as $ban)
+    @foreach ($banner as $ban)
 
-<section class="vacancy-section" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
+    <section class="vacancy-section" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+        url({{asset($ban->image)}})">
        @endforeach
 
       <div class="vacancy-header">
@@ -329,8 +312,8 @@
             <div class="vac-inn1">
               <img src="https://1is-new.netlify.app/images/building.png" alt="" />
               <a class="comp-link" href="{{route('compdetail', $vacancy->company_id)}}">
-                @if(strlen($vacancy->name) > 30)
-                    {{ html_entity_decode(substr($vacancy->name, 0, 30)) . '...' }}
+                @if(mb_strlen($vacancy->name) > 30)
+                    {{ html_entity_decode(mb_substr($vacancy->name, 0, 30)) . '...' }}
                 @else
                     {!! html_entity_decode($vacancy->name) !!}
                 @endif
@@ -404,31 +387,59 @@
     @endif
     </section>
 
+
+@endsection
+
+@section('css-link')
+    <link rel="stylesheet" href="{{asset('front/css/vacancy-all.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/search-more.css')}}">
+    <style>
+        .search-company-inner {
+            flex-wrap: nowrap!important;
+        }
+        #resetButton {
+            color: #fff;
+            background: #8843e1;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 90px;
+            height: 35px;
+        }
+        .category-li li{
+            max-width:1000px;
+            margin:0 auto;
+        }
+    </style>
+@endsection
+
+
+@section('js')
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var heartIcons = document.querySelectorAll('.heart-icon');
-    
+
             heartIcons.forEach(function (icon) {
                 icon.addEventListener('click', function () {
                     var vacancyId = this.getAttribute('data-vacancy-id');
                     var redHeartIcon = document.querySelector('.red-heart-icon[data-vacancy-id="' + vacancyId + '"]');
                     var isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
-    
+
                     if (isLoggedIn) {
                         this.style.display = 'none';
                         redHeartIcon.style.display = 'inline-block';
                     } else {
                         window.location.href = '{{ route('login') }}';
                     }
-    
+
                     // AJAX isteği
                     var xhr = new XMLHttpRequest();
                     var url = '{{ route('like') }}'; // Favori ekleme için uygun URL'yi buraya yazın
                     var params = 'vacancy_id=' + vacancyId + '&_token=' + '{{ csrf_token() }}';
-    
+
                     xhr.open('POST', url, true);
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    
+
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4) {
                             if (xhr.status === 200) {
@@ -446,13 +457,13 @@
                             }
                         }
                     };
-    
+
                     xhr.send(params);
                 });
             });
         });
     </script>
-    
+
     <script>
         document.getElementById('resetButton').addEventListener('click', function(e) {
             e.preventDefault();
@@ -460,8 +471,8 @@
             window.location.href = '/allvacancy';
         });
     </script>
-    
-   
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
         var heartIcons = document.querySelectorAll('.red-heart-icon');
@@ -478,7 +489,7 @@
                 } else {
                     window.location.href = '{{ route('login') }}';
                 }
-    
+
 
                 // AJAX isteği
                 var xhr = new XMLHttpRequest();
@@ -507,17 +518,7 @@
         });
         });
     </script>
-
-@endsection
-
-@section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/vacancy-all.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/search-more.css')}}">
-@endsection
-
-
-@section('js')
-<script>
+    <script>
       const moreSearch = document.getElementById("detail-btn");
       console.log(moreSearch)
       const moreSearchSect = document.getElementById("getshow");

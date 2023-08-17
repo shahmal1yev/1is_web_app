@@ -1,11 +1,10 @@
 @extends('front.layouts.master')
 
 @section('content')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-@foreach ($banner as $ban)
+        @foreach ($banner as $ban)
 
-<section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
+            <section class="header-info" style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+                url({{asset($ban->image)}})">
        @endforeach
 
         <div>
@@ -207,319 +206,265 @@
 @endsection
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.tiny.cloud/1/fnxhgzthj2q2iqh3di27mlytx4bdj9wbroguqsoawsbwwfyn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+@section('js-link')
 
-<script>
-    $(document).ready(function() {
-        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        function getErrorMessage(field, lang) {
-            var errorMessages = {
-                required: {
-                    'AZ': 'Bu sahə doldurulmalıdır!',
-                    'EN': 'This field is required!',
-                    'RU': 'Поле обязательно для заполнения!',
-                    'TR': 'Bu alan zorunludur!'
+    <script>
+        $(document).ready(function() {
+            var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+
+            function getErrorMessage(field, lang) {
+                var errorMessages = {
+                    required: {
+                        'AZ': 'Bu sahə doldurulmalıdır!',
+                        'EN': 'This field is required!',
+                        'RU': 'Поле обязательно для заполнения!',
+                        'TR': 'Bu alan zorunludur!'
+                    },
+                    email: {
+                        'AZ': 'Düzgün bir email adresi daxil edin.',
+                        'EN': 'Please enter a valid email address.',
+                        'RU': 'Введите действительный адрес электронной почты.',
+                        'TR': 'Geçerli bir email adresi giriniz.'
+                    },
+
+                
+                };
+
+                return errorMessages[field][lang] || errorMessages[field]['AZ']; 
+            }
+
+            $("#v-pills-home").validate({
+                onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+                
+                rules: {
+                    position: {
+                        required: true,
+                        maxlength: 1000,
+
+                    },
+                    city: {
+                        required: true,
+                    },
+                    category: {
+                        required: true,
+                    },
+                    jobtype: {
+                        required: true,
+                    },
+                    salary_type: {
+                        required: function(element) {
+                            return !$("#min").val() && !$("#max").val();
+                        }
+                    },
+                    min_salary: {
+                        required: function(element) {
+                            return !$("#musahibe").is(":checked");
+                        }
+                    },
+                    max_salary: {
+                        required: function(element) {
+                            return !$("#musahibe").is(":checked");
+                        }
+                    },
+                    
+                    experience: {
+                        required: true,
+                    },
+                    education: {
+                        required: true,
+                    },
+                    requirements: {
+                        required: true,
+                    },
+                    description: {
+                        required: true,
+                    },
+                    company: {
+                        required: true,
+                    },
+                    accept_type: {
+                        required: true,
+                    },
+                    contact_link: {
+                        required: function(element) {
+                            return $("#accept_type").val() === '2';
+                        }
+                    },
+                    contact_email: {
+                        required: function(element) {
+                            return $("#accept_type").val() === '0';
+                        },
+                        email: true,
+
+                    },
+                    deadline: {
+                        required: true,
+                    },
+                    
+                    
+
                 },
-                email: {
-                    'AZ': 'Düzgün bir email adresi daxil edin.',
-                    'EN': 'Please enter a valid email address.',
-                    'RU': 'Введите действительный адрес электронной почты.',
-                    'TR': 'Geçerli bir email adresi giriniz.'
+                messages: {
+                    position: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+
+                    city: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                    },
+
+                    category: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    jobtype: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+
+                    salary_type: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    experience: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    education: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    requirements: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    description: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    company: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    accept_type: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    contact_email: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        email: function() {
+                            return getErrorMessage('email', lang);
+                        },
+                    
+                    },
+                    contact_link: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                    deadline: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                    
+                    },
+                            
                 },
+                submitHandler: function(form) {
+                    form.submit(); // Formu gönder
+                },
+                errorPlacement: function(error, element) {
+                error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
+                }
+            });
+        });
 
-               
-            };
+    </script>
 
-            return errorMessages[field][lang] || errorMessages[field]['AZ']; 
-        }
-
-        $("#v-pills-home").validate({
-            onclick: false, // Tıklama yapıldığında hata mesajlarını gösterme
+    <script>
+        $(document).ready(function() {
+            var acceptType = $('#accept_cv').val();
             
-            rules: {
-                position: {
-                    required: true,
-                    maxlength: 1000,
-
-                },
-                city: {
-                    required: true,
-                },
-                category: {
-                    required: true,
-                },
-                jobtype: {
-                    required: true,
-                },
-                salary_type: {
-                    required: function(element) {
-                        return !$("#min").val() && !$("#max").val();
-                    }
-                },
-                min_salary: {
-                    required: function(element) {
-                        return !$("#musahibe").is(":checked");
-                    }
-                },
-                max_salary: {
-                    required: function(element) {
-                        return !$("#musahibe").is(":checked");
-                    }
-                },
-                
-                experience: {
-                    required: true,
-                },
-                education: {
-                    required: true,
-                },
-                requirements: {
-                    required: true,
-                },
-                description: {
-                    required: true,
-                },
-                company: {
-                    required: true,
-                },
-                accept_type: {
-                    required: true,
-                },
-                contact_link: {
-                    required: function(element) {
-                        return $("#accept_type").val() === '2';
-                    }
-                },
-                contact_email: {
-                    required: function(element) {
-                        return $("#accept_type").val() === '0';
-                    },
-                    email: true,
-
-                },
-                deadline: {
-                    required: true,
-                },
-                
-                
-
-            },
-            messages: {
-                position: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-
-                city: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                },
-
-                category: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                jobtype: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-
-                salary_type: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                experience: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                education: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                requirements: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                description: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                company: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                accept_type: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                contact_email: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    email: function() {
-                        return getErrorMessage('email', lang);
-                    },
-                  
-                },
-                contact_link: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                deadline: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                  
-                },
-                           
-            },
-            submitHandler: function(form) {
-                form.submit(); // Formu gönder
-            },
-            errorPlacement: function(error, element) {
-            error.insertAfter(element); // Hata mesajını alanın hemen altına yerleştirin
-            }
+            getContact(acceptType);
+            
+            $('#accept_cv').on('change', function() {
+            var selectedType = $(this).val();
+            
+            getContact(selectedType);
+            });
         });
-    });
-
-</script>
-<script>
-    $(document).ready(function() {
-        var acceptType = $('#accept_cv').val();
-        
-        getContact(acceptType);
-        
-        $('#accept_cv').on('change', function() {
-        var selectedType = $(this).val();
-        
-        getContact(selectedType);
-        });
-    });
-  function getContact(id) {
-    if (id == 1) {
-        $('#type_email').slideUp();
-        $('#type_link').slideUp();
-    } else if (id == 0) {
-        $('#type_email').slideDown();
-        $('#type_link').slideUp();
-    } else if (id == 2) {
-        $('#type_email').slideUp();
-        $('#type_link').slideDown();
-    } else {
-        $('#type_email').slideUp();
-        $('#type_link').slideUp();
-    }
-}
-
-    function getRegion(id){
-        if(id == 1){
-            $('#type_region').slideDown()
-
-        }else{
-            $('#type_region').slideUp()
+        function getContact(id) {
+            if (id == 1) {
+                $('#type_email').slideUp();
+                $('#type_link').slideUp();
+            } else if (id == 0) {
+                $('#type_email').slideDown();
+                $('#type_link').slideUp();
+            } else if (id == 2) {
+                $('#type_email').slideUp();
+                $('#type_link').slideDown();
+            } else {
+                $('#type_email').slideUp();
+                $('#type_link').slideUp();
+            }
         }
-    }
-</script>
-<script>
-    const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
 
-    tinymce.init({
-        selector: 'textarea',
-        
-        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-        editimage_cors_hosts: ['picsum.photos'],
-        menubar: 'file edit view insert format tools table help',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-        toolbar_sticky: true,
-        toolbar_sticky_offset: isSmallScreen ? 102 : 108,
-        autosave_ask_before_unload: true,
-        autosave_interval: '30s',
-        autosave_prefix: '{path}{query}-{id}-',
-        autosave_restore_when_empty: false,
-        autosave_retention: '2m',
-        image_advtab: true,
-        link_list: [
-            { title: 'My page 1', value: 'https://www.tiny.cloud' },
-            { title: 'My page 2', value: 'http://www.moxiecode.com' }
-        ],
-        image_list: [
-            { title: 'My page 1', value: 'https://www.tiny.cloud' },
-            { title: 'My page 2', value: 'http://www.moxiecode.com' }
-        ],
-        image_class_list: [
-            { title: 'None', value: '' },
-            { title: 'Some class', value: 'class-name' }
-        ],
-        importcss_append: true,
-        file_picker_callback: (callback, value, meta) => {
-            /* Provide file and text for the link dialog */
-            if (meta.filetype === 'file') {
-                callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+        function getRegion(id){
+            if(id == 1){
+                $('#type_region').slideDown()
+
+            }else{
+                $('#type_region').slideUp()
             }
-
-            /* Provide image and alt text for the image dialog */
-            if (meta.filetype === 'image') {
-                callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
-            }
-
-            /* Provide alternative source and posted for the media dialog */
-            if (meta.filetype === 'media') {
-                callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
-            }
-        },
-        templates: [
-            { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
-            { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
-            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
-        ],
-        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-        height: 400,
-        image_caption: true,
-        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-        noneditable_class: 'mceNonEditable',
-        toolbar_mode: 'sliding',
-        contextmenu: 'link image table',
-        skin: useDarkMode ? 'oxide-dark' : 'oxide',
-        content_css: useDarkMode ? 'dark' : 'default',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-    });
-</script>
-
-    <style>
-        .tox-notifications-container{
-            display:none !important;
         }
-    </style>
+    </script>
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#about_work' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+            .create( document.querySelector( '#demands' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+    </script>
+@endsection
 
 @section('css-link')
 <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">

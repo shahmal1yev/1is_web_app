@@ -1,94 +1,5 @@
 @extends('front.layouts.master')
 
-<style>
-    /* APPLY */
-
-    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
-        color: #221238!important;
-        background-color: #fff!important;
-        border-color: #221238!important;
-        outline: #221238!important;
-    }
-
-    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-        color: #fff!important;
-        background-color: #221238!important;
-        /* border-color: blue!important;
-        outline: blue!important; */
-    }
-
-    .cv-pills-form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 7px;
-    }
-
-    .cv-pills-form button,
-    .easy-apply-form button {
-        width: 200px;
-        height: 40px;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #221238;
-        border: 1px solid #221238;
-        outline: #221238;
-    }
-
-    .cv-pills-form select {
-        width: 50%;
-        padding: 8px;
-        border-radius: 5px;
-        border: 1px solid #221238;
-        outline: #221238;
-    }
-
-    .cv-pills-form button:hover,
-    .easy-apply-form button:hover {
-        background-color: #221238;
-        color: #fff;
-    }
-
-    .easy-apply-form div {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .form-control:focus {
-        border-color: #22123850!important;
-        box-shadow: 0 0 0 .2rem rgba(34,18,56,.25)!important;
-    }
-
-    .apply-buttons-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .apply-pills-nav {
-        margin: 0!important;
-        width: auto!important;
-        max-width: auto!important;
-    }
-
-    .apply-button {
-        margin: 0!important;
-    }
-
-    .nav-link {
-        padding: .44rem 1rem!important;
-        font-family: montserrat!important;
-        font-style: normal!important;
-        font-weight: 400!important;
-    }
-
-    .nav-tabs .nav-link {
-        border-top-left-radius: 0!important;
-        border-top-right-radius: 0!important;
-    }
-</style>
 
 @section('content')
 @foreach ($banner as $ban)
@@ -126,7 +37,8 @@
                             fill="#C7C7C7" />
                     </svg>
 
-                    <a href="{{route('compdetail', $vacdetail->company_id)}}" style="color: #ffff;"><span>{{$vacdetail->name}}</span></a>
+                    <a href="{{route('compdetail', $vacdetail->company_id)}}" style="color: #ffff;"><span>{{html_entity_decode($vacdetail->name)}}
+                    </span></a>
                 </div>
             </div>
         </div>
@@ -278,7 +190,7 @@
         @if (Auth::check())
             @if ($vacdetail->accept_type == 2)
 
-                <button id="apply_button">Müraciət</button>
+                <button id="apply_button">@lang('front.muraciet')</button>
             @else
 
             @if (strpos($contact_info, '@') !== false)
@@ -292,7 +204,7 @@
             
             @else
                 <a href="{{ route('login') }}">
-                    <button id="dsdf">Müraciət</button>
+                    <button id="dsdf">@lang('front.muraciet')</button>
                 </a>
                 
             @endif
@@ -375,6 +287,8 @@
 
 
 
+@endsection
+@section('js-link')
     <script>
         $(document).ready(function() {
             var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
@@ -522,8 +436,96 @@
         })
     </script>
 @endsection
-
-
 @section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/instruction.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/instruction.css')}}">
+
+    <style>
+        /* APPLY */
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+            color: #221238!important;
+            background-color: #fff!important;
+            border-color: #221238!important;
+            outline: #221238!important;
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #fff!important;
+            background-color: #221238!important;
+            /* border-color: blue!important;
+            outline: blue!important; */
+        }
+
+        .cv-pills-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 7px;
+        }
+
+        .cv-pills-form button,
+        .easy-apply-form button {
+            width: 200px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #221238;
+            border: 1px solid #221238;
+            outline: #221238;
+        }
+
+        .cv-pills-form select {
+            width: 50%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #221238;
+            outline: #221238;
+        }
+
+        .cv-pills-form button:hover,
+        .easy-apply-form button:hover {
+            background-color: #221238;
+            color: #fff;
+        }
+
+        .easy-apply-form div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-control:focus {
+            border-color: #22123850!important;
+            box-shadow: 0 0 0 .2rem rgba(34,18,56,.25)!important;
+        }
+
+        .apply-buttons-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .apply-pills-nav {
+            margin: 0!important;
+            width: auto!important;
+            max-width: auto!important;
+        }
+
+        .apply-button {
+            margin: 0!important;
+        }
+
+        .nav-link {
+            padding: .44rem 1rem!important;
+            font-family: montserrat!important;
+            font-style: normal!important;
+            font-weight: 400!important;
+        }
+
+        .nav-tabs .nav-link {
+            border-top-left-radius: 0!important;
+            border-top-right-radius: 0!important;
+        }
+    </style>
 @endsection

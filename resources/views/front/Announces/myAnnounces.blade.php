@@ -2,10 +2,10 @@
 
 
 @section('content')
-@foreach ($banner as $ban)
+        @foreach ($banner as $ban)
 
-<section class="header-info"  style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
-      url({{asset($ban->image)}})">
+        <section class="header-info"  style="background-image:linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)),
+            url({{asset($ban->image)}})">
        @endforeach
 
         <div class="header-links-div">
@@ -65,12 +65,23 @@
                                     </div>
                                 </div>
                                 <div class="vac-inner2">
-                                    <a href="{{route('vacancydetail', $vac->id)}}" class="vac-name">{{$vac->position}}</a>
+                                    <a href="{{route('vacancydetail', $vac->id)}}" class="vac-name">
+                                        @if(mb_strlen($vac->position) > 50)
+                                        {{ html_entity_decode(mb_substr($vac->position, 0, 50)) . '...' }}
+                                    @else
+                                        {!! html_entity_decode($vac->position) !!}
+                                    @endif
+                                </a>
                                 </div>
                                 <div class="vac-inner3">
                                     <div class="vac-inn1">
                                         <img src="https://1is-new.netlify.app/images/building.png" alt="">
-                                        <a class="comp-link" href="#">{{$vac->name}}</a>
+                                        <a class="comp-link" href="{{route('compdetail', $vac->company_id)}}">
+                                            @if(strlen($vac->name) > 30)
+                                            {{ html_entity_decode(substr($vac->name, 0, 30)) . '...' }}
+                                        @else
+                                            {!! html_entity_decode($vac->name) !!}
+                                        @endif</a>
                                     </div>
                                     <div class="vac-inn2">
                                         <img src="{{asset('back/assets/images/icons/clock.png')}}" alt="clock">
@@ -80,13 +91,48 @@
                             </div>                            
                             @endforeach
 
+                            <nav aria-label="..." class="d-flex justify-content-center">
+                                @if ($vacancies->hasPages())
+                                <ul class="pagination pagination-ul">
+                                    {{-- Previous Page Link --}}
+                                    @if ($vacancies->onFirstPage())
+                                    @else
+                                        <li class="page-item"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->previousPageUrl() }}" rel="prev">«</a></li>
+                                    @endif
+                            
+                                    @if($vacancies->currentPage() > 3)
+                                        <li class="page-item" class="hidden-xs"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url(1) }}">1</a></li>
+                                    @endif
+                                    @if($vacancies->currentPage() > 4)
+                                    <li class="page-item"><a class="page-link">...</a></li>
+                                    @endif
+                                    @foreach(range(1, $vacancies->lastPage()) as $i)
+                                        @if($i >= $vacancies->currentPage() - 1 && $i <= $vacancies->currentPage() + 1)
+                                            @if ($i == $vacancies->currentPage())
+                                                <li class="page-item active"><a class="page-link">{{ $i }}</a></li>
+                                            @else
+                                                <li class="page-item "><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url($i) }}">{{ $i }}</a></li>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                    @if($vacancies->currentPage() < $vacancies->lastPage() - 2)
+                                    <li class="page-item"><a class="page-link">...</a></li>
+                                    @endif
+                                    @if($vacancies->currentPage() < $vacancies->lastPage() - 1)
+                                        <li class="page-item hidden-xs"><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->url($vacancies->lastPage()) }}">{{ $vacancies->lastPage() }}</a></li>
+                                    @endif
+                            
+                                    {{-- Next Page Link --}}
+                                    @if ($vacancies->hasMorePages())
+                                        <li><a class="page-link" href="{{ $vacancies->appends(request()->except('page'))->nextPageUrl() }}" rel="next">»</a></li>
+                                    @endif
+                                </ul>               
+                                @endif
+            
+                            </nav>
                             <div>
                         </div>
-                        </div>
-
-
-
-                        
+                        </div>      
                         
                     </div>
                 </div>
@@ -96,51 +142,50 @@
 @endsection
 
 @section('js-link')
-<script src="{{asset('front/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('front/js/slick.min.js')}}"></script>
-<script src="{{asset('front/js/companies-announces.js')}}"></script>
+    <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front/js/slick.min.js')}}"></script>
+    <script src="{{asset('front/js/companies-announces.js')}}"></script>
+
+    <script>
+        function confirmAndDelete(id) {
+            Swal.fire({
+                title: 'Silmək istədiyinzə əminsiz?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Bəli',
+                cancelButtonText: 'Geri',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    deleteVacancy(id);
+                }
+            });
+        }
+
+        function deleteVacancy(id) {
+            $.ajax({
+                type: "GET",
+                url: "{{ route('delete', '') }}" + '/' + id,
+                data: {
+                    "_token": "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    location.reload(); 
+                    Swal.fire({
+                        icon: 'success',
+                        title: '{{ __("messages.vacsil") }}',
+                    });
+                }
+            });
+        }
+    </script>
 @endsection
-
-<script>
-    function confirmAndDelete(id) {
-        Swal.fire({
-            title: 'Silmək istədiyinzə əminsiz?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Bəli',
-            cancelButtonText: 'Geri',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                deleteVacancy(id);
-            }
-        });
-    }
-
-    function deleteVacancy(id) {
-        $.ajax({
-            type: "GET",
-            url: "{{ route('delete', '') }}" + '/' + id,
-            data: {
-                "_token": "{{ csrf_token() }}"
-            },
-            success: function(response) {
-                location.reload(); 
-                Swal.fire({
-                    icon: 'success',
-                    title: '{{ __("messages.vacsil") }}',
-                });
-            }
-        });
-    }
-</script>
-
 
 
 @section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/swiper-bundle.min.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/companies-announces.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
-<link rel="stylesheet" href="{{asset('front/css/header.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/swiper-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/slick-theme.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/companies-announces.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/jobsearch.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/header.css')}}">
 @endsection
