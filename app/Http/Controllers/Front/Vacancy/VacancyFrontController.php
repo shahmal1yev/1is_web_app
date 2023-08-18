@@ -495,8 +495,11 @@ class VacancyFrontController extends Controller
         ->where('vacancies.id', $id)
         ->select('job_type.id as job_type_id','job_type.title_az as job_type_title','companies.id as company_id','cities.id as city_id','categories.id as category_id','cities.title_az as city_title', 'companies.name', 'vacancies.id as vacancy_id',  'sectors.id as sector_id', 'categories.title_az as sectors_title','experiences.title_az as experience_title','vacancies.*')
         ->first();
-        if (!$vacdetail)
+        if (!$vacdetail || $vacdetail->category_id == 0 || $vacdetail->city_id == 0 || $vacdetail->company_id == 0)
         {
+            return abort(404);
+        }
+        if($vacdetail->job_type_id == 0 || $vacdetail->sector_id == 0 || $vacdetail->vacancy_id == 0 || $vacdetail->user_id == 0){
             return abort(404);
         }
 
