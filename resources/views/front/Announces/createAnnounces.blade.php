@@ -238,13 +238,13 @@
                                 
                             </div>
                             
-                            <div class="col-lg-12 mb-4 @error('contact_link') has-error @enderror" id="type_link" @if ($errors->has('contact_link')) style="display:block" @else style="display:none" @endif>
+                            <div class="col-lg-12 mb-4" id="contact_link" style="display:none">
                                 <label for="contact_link" class="form-label">@lang('front.contactlink') <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" id="contact_link" name="contact_link" placeholder="@lang('front.contactlink'):" value="{{old('contact_link')}}">
                                 
                             </div>
                             
-                            <div class="col-lg-12 mb-4 @error('contact_email') has-error @enderror" id="type_email" @if ($errors->has('contact_email')) style="display:block" @else style="display:none" @endif>
+                            <div class="col-lg-12 mb-4" id="contact_email" style="display:none">
                                 <label for="contact_email" class="form-label">@lang('front.conmail') <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" id="contact_email" name="contact_email" placeholder="@lang('front.conmail'):" value="{{old('contact_email')}}">
                                 
@@ -274,7 +274,7 @@
 
 
 @section('js-link')
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="{{asset('front/js/bootstrap.min.js')}}"></script> 
     <script src="{{asset('front/js/slick.min.js')}}"></script>
@@ -480,28 +480,35 @@
                 }
             });
         });
-            function getContact(id){
-                if(id == 0){
-                    $('#type_email').slideDown();
-                    $('#type_link').slideUp();
-                }else if(id == 2){
-                    $('#type_link').slideDown();
-                    $('#type_email').slideUp();
-                }else{
-                    $('#type_email').slideUp();
-                    $('#type_link').slideUp();
-                }
-        }
-
-        function getRegion(id){
-            if(id == 1){
-                $('#type_region').slideDown()
-
-            }else{
-                $('#type_region').slideUp()
-            }
-        }
+        
     </script>
+
+<script>
+    function getContact(id) {
+        if (id == 1) {
+            $('#contact_email').slideUp();
+            $('#contact_link').slideUp();
+        } else if (id == 0) {
+            $('#contact_email').slideDown();
+            $('#contact_link').slideUp();
+        } else if (id == 2) {
+            $('#contact_email').slideUp();
+            $('#contact_link').slideDown();
+        } else {
+            $('#contact_email').slideUp();
+            $('#contact_link').slideUp();
+        }
+    }
+
+    function getRegion(id){
+        if(id == 1){
+            $('#type_region').slideDown()
+
+        }else{
+            $('#type_region').slideUp()
+        }
+    }
+</script>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <script>
@@ -518,11 +525,14 @@
             } );
     
     </script>
+
+    
     <script>
         $(document).ready(function() {
             $('.js-example-basic-single').select2();
         });
-        </script>
+    </script>
+
 @endsection
 
 @section('css-link')
