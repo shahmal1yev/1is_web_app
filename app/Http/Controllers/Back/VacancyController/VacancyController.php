@@ -115,7 +115,6 @@ class VacancyController extends Controller
             $vacancy->contact_info = $request->contact_link;
         }
         $vacancy->deadline = $request->deadline;
-        $vacancy->status = '1';
 
         return redirect()->route('vacanciesList')->with($vacancy->save() ? 'success' : 'error',true);
     }
