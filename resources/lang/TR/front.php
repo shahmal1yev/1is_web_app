@@ -58,7 +58,7 @@ return [
 
 
 //cv ici
-'cvyukle'=>'CV-yi indir',
+'cvyukle'=>'CV-i indir',
 'ismelumat'=>'İş bilgileri',
 'isleyeceyi'=>'Çalışacağı alan',
 'minsalary'=>'Minimum ücret',
