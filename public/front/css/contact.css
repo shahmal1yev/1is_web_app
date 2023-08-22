@@ -84,8 +84,9 @@ a.contact-email {
     padding: 60px;
     background-repeat: no-repeat;
     background-size: cover;
-    background: linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)), url(../images/main.png);
+    background: linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6));
     background-position: center;
+    background-size: cover;
 }
 
 .header-info>div>h3 {
@@ -195,4 +196,10 @@ a.contact-email {
     .form1 {
         flex-direction: column;
     }
+}
+
+.g-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }

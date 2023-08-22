@@ -42,7 +42,7 @@
                                 <div class="input-cv">
                                     <label for="input-cv">
 
-                                        <span>@lang('front.cvfile')</span>
+                                        <span>@lang('front.cvyukle')</span>
                                         <input id="input-cv" type="submit" style="visibility: hidden;" name="upload" accept=".pdf,.docx,.doc,.png,.jpg">
                                         <img src="{{ asset('back/assets/images/icons/input-download.png') }}" alt="download">
                                 </label>

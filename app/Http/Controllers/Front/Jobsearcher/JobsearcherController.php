@@ -81,6 +81,10 @@ class JobsearcherController extends Controller
 
     public function downloadCV($id)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+        
         $jobdetail = Cv::find($id);
 
         $file_path = $jobdetail->cv;
