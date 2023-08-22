@@ -29,10 +29,12 @@ class ContactFrontController extends Controller
                 'surname'=>'required',
                 'email'=>'required|email',                
                 'phone' => 'required|numeric',
-                'message'=>'required'
+                'message'=>'required',
+                'g-recaptcha-response' => 'required|captcha'
+
+
 
             ]);
-
             $contact = new Contact();            
             $contact->name = $request->name;
             $contact->surname = $request->surname;
@@ -40,7 +42,7 @@ class ContactFrontController extends Controller
             $contact->phone = $request->phone;
             $contact->message = $request->message;
             $contact->status = '0';            
-    
+   
 
             $data=[];
             $data['email_name']='1is.az';
@@ -55,9 +57,12 @@ class ContactFrontController extends Controller
             $datam['text']='Sizə email var'; 
             
 
+            if (env("APP_ENV") !== "local")
+            {
             Mail::to('ulduz20022304@gmail.com')->send(new SendButaMail($datam));
 
             Mail::to($contact->email)->send(new SendContactMail($data));
+            }
             $contact->save();
     
             return redirect()->route('contactindex')->with('success',  __('messages.murgonder'));

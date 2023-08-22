@@ -1,9 +1,5 @@
 @extends('front.layouts.master')
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 @section('content')
@@ -131,6 +127,17 @@
                                 <input type="text" placeholder="@lang('front.mesajyaz')..." name="message" required>
                             </div>
                         </div>
+                        <div class="form2">
+                            <div class="form-inner2">
+                                {!! NoCaptcha::renderJs('EN', false, 'onloadCallback') !!}                                
+                                {!! NoCaptcha::display() !!}
+                            </div>
+                        </div>
+                        @if ($errors->has('g-recaptcha-response'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                            </span>
+                        @endif
                         <div class="contact-button">
                             <button class="contact-send" type="submit">@lang('front.gonder')</button>
                         </div>
@@ -148,7 +155,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 @endsection
 
-@section('js')
+@section('js')  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        var onloadCallback = function() {
+            alert("grecaptcha is ready!");
+        };
+    </script>
+
     <script>
         $(document).ready(function() {
             var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
@@ -208,6 +226,11 @@
                         required: true,
 
                     },
+                    'g-recaptcha-response': {
+                        required: function() {
+                            return grecaptcha.getResponse() === ''; // NoCaptcha doğrulama kontrolü
+                        },
+                    },
                     
 
 
@@ -222,7 +245,11 @@
                         },
                         
                     },
-
+                    'g-recaptcha-response': {
+                        required: function() {
+                            return getErrorMessage('required', lang); // NoCaptcha hata mesajı
+                        },
+                    },   
                     name: {
                         required: function() {
                             return getErrorMessage('required', lang);
