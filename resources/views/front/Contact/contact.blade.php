@@ -5,7 +5,7 @@
 @section('content')
     @foreach ($banner as $ban)
 
-    <section class="header-info" style="background-image:linear-gradient(0deg, rgba(0, 10, 10, 0.1), rgba(33, 34, 80, 0.1)), url(http://127.0.0.1:8000/back/assets/images/icons/contact-back.png)}})">
+    <section class="header-info" style="background-image: linear-gradient(0deg, rgba(4, 15, 15, 0.6), rgba(32, 34, 80, 0.6)), url({{asset($ban->image)}});">
     @endforeach
 
             <div>
