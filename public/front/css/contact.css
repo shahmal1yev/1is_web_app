@@ -196,3 +196,9 @@ a.contact-email {
         flex-direction: column;
     }
 }
+
+.g-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
