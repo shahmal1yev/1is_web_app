@@ -25,41 +25,48 @@
                 <div class="card-body">
                     <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                         <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Şirkət</th>
-                            <th>Ad</th>
-                            <th>Baxış</th>
-                            <th>Status</th>
-                            <th>Tarix</th>
-                            <th>Əməliyyatlar</th>
-                        </tr>
+                            <tr>
+                                <th>№</th>
+                                <th>Əlavə edən istifadəçi</th>
+                                <th>Şirkət</th>
+                                <th>Ad</th>
+                                <th>Baxış</th>
+                                @if($isSuperAdmin)
+                                    <th>Status</th>
+                                @endif
+                                <th>Tarix</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        @foreach($vacancies as $key=>$vacancy)
-                            <tr>
-                                <td>{{$key+1}}</td>
-                                <td>@if(isset($vacancy->getCompany()->name))
-                                        <a href="{{route('companiesEdit',$vacancy->getCompany()->id)}}" target="_blank">{{$vacancy->getCompany()->name}}</a>
-                                    @else Şirkət yoxdur @endif</td>
-                                <td>{{$vacancy->position}}</td>
-                                <td>{{$vacancy->view}}</td>
-                                <td>
-                                    <p class="d-none">{{$vacancy->status == 1 ? "Active" : "Deactive"}}</p>
-                                    <input type="checkbox" id="switch{{$vacancy->id}}" switch="none" {{$vacancy->status == 1 ? "checked" : ""}} onchange="changeStatus({{$vacancy->id}})" />
-                                    <label for="switch{{$vacancy->id}}" data-on-label="On" data-off-label="Off"></label>
-                                </td>
-                                <td>{{ \Carbon\Carbon::parse($vacancy->created_at)->format('j F, Y') }}</td>
-                                <td>
-                                    <a href="{{route('vacanciesEdit',$vacancy->id)}}">
-                                        <button class="btn btn-outline-warning"><i class="bx bxs-edit"></i></button>
-                                    </a>
-                                    <button class="btn btn-outline-danger" onclick="deleteCompanies({{$vacancy->id}})"><i class="bx bxs-trash"></i></button>
-                                </td>
-                            </tr>
-                        @endforeach
+                            @foreach($vacancies as $key=>$vacancy)
+                                <tr>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$vacancy->user_name}}</td>
+                                    <td>@if(isset($vacancy->getCompany()->name))
+                                            <a href="{{route('companiesEdit',$vacancy->getCompany()->id)}}" target="_blank">{{$vacancy->getCompany()->name}}</a>
+                                        @else Şirkət yoxdur @endif</td>
+                                    <td>{{$vacancy->position}}</td>
+                                    <td>{{$vacancy->view}}</td>
+                                    @if($isSuperAdmin)
+                                        <td>
+                                            <p class="d-none">{{$vacancy->status == 1 ? "Active" : "Deactive"}}</p>
+                                            <input type="checkbox" id="switch{{$vacancy->id}}" switch="none" {{$vacancy->status == 1 ? "checked" : ""}} onchange="changeStatus({{$vacancy->id}})" />
+                                            <label for="switch{{$vacancy->id}}" data-on-label="On" data-off-label="Off"></label>
+                                        </td>
+                                    @endif
+                                    <td>{{ \Carbon\Carbon::parse($vacancy->created_at)->format('j F, Y') }}</td>
+                                    <td>
+                                        <a href="{{route('vacanciesEdit',$vacancy->id)}}">
+                                            <button class="btn btn-outline-warning"><i class="bx bxs-edit"></i></button>
+                                        </a>
+                                        <button class="btn btn-outline-danger" onclick="deleteCompanies({{$vacancy->id}})"><i class="bx bxs-trash"></i></button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                        
                 </div>
             </div>
         </div> <!-- end col -->

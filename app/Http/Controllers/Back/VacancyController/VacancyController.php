@@ -12,6 +12,8 @@ use App\Models\Experiences;
 use App\Models\JobType;
 use App\Models\Regions;
 use App\Models\Vacancies;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -24,12 +26,20 @@ class VacancyController extends Controller
 
     }
 
-    public function vacanciesList(){
-        $vacancies = Vacancies::orderBy('id', 'DESC')
+    public function vacanciesList() {
+        $user = Auth::user(); 
+        $isSuperAdmin = $user->is_superadmin;
+        $superAdminUserIds = User::where('is_superadmin', 1)->pluck('id')->toArray();
+    
+        $vacancies = Vacancies::join('users', 'users.id', '=', 'vacancies.user_id')
+                                ->select('vacancies.*', 'users.id as user_id', 'users.name as user_name')
+                                ->orderBy('vacancies.created_at', 'DESC')
                                 ->take(1000)
-                                ->get();
-        return view('back.vacancies.list',compact('vacancies'));
+                                ->get(); 
+
+        return view('back.vacancies.list', compact('vacancies', 'isSuperAdmin', 'superAdminUserIds'));
     }
+    
     public function vacanciesAdd(){
         $companies = Companies::where('status','1')->get();
         $categories = Categories::all();
