@@ -17,14 +17,12 @@ class isAdminLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
-            return abort(404);
+        if (Auth::check()) {   
+            if (Auth::user()->is_admin || Auth::user()->is_superadmin) {
+                return $next($request);
+            }
         }
         
-        if (!Auth::user()->is_admin || !Auth::user()->is_superadmin) {
-            return abort(404);
-        }
-        
-        return $next($request);
+        return abort(404); # return redirect()->route('adminLogin');
     }
 }
