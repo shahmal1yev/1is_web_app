@@ -21,7 +21,7 @@ class isAdminLogin
             return abort(404);
         }
         
-        if (!auth()->user->is_admin || !auth()->user->is_superadmin) {
+        if (!Auth::user()->is_admin || !Auth::user()->is_superadmin) {
             return abort(404);
         }
         
