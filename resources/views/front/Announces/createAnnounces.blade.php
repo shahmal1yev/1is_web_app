@@ -47,10 +47,8 @@
                             
                             <div class="form-group company-announce-input-group col-12 ">
                                 <label for="possession">@lang('front.vezife') <span class="text-danger">*</span></label>
-                                <input type="text" name="position" class="form-control" id="possession" placeholder="@lang('front.vezife')" value="{{ old('position') }}"  />
-                                
-                                
-                                </div>
+                                <input type="text" name="position" class="form-control" id="possession" placeholder="@lang('front.vezife')" value="{{ old('position') }}"  />    
+                            </div>
                             <div class="form-group company-announce-input-group col-12">
                                 <label for="city">@lang('front.city') <span class="text-danger">*</span></label>
                                 <select class="form-control" name="city" id="category" onchange="getRegion(this.value)"  >
@@ -71,27 +69,27 @@
                                             @endif
                                         </option>
                                     @endforeach
-                                  </select>  
+                                </select>  
                                                          
-                                </div>
-                                <div class="col-lg-12 mb-4" id="type_region" style="display: none">
-                                    <label for="region" class="form-label d-block"> Bakı rayonları  </label>
-                                    <select name="region" id="region" class="form-control mb-4">
-                                        <option value="" selected disabled>Bakı rayonu...</option>
-                                        @foreach($regions as $region)
-                                            <option value="{{$region->id}}"@if(old('region') == $region->id) selected @endif>
-                                                @if ($lang == 'EN')
-                                                {{$region->title_en}}
-                                            @elseif ($lang == 'RU')
-                                                {{$region->title_ru}}
-                                            @elseif ($lang == 'TR')
-                                                {{$region->title_tr}}
-                                            @else
-                                                {{$region->title_az}}
-                                            @endif</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-4" id="type_region" style="display: none">
+                                <label for="region" class="form-label d-block"> Bakı rayonları  </label>
+                                <select name="region" id="region" class="form-control mb-4">
+                                    <option value="" selected disabled>Bakı rayonu...</option>
+                                    @foreach($regions as $region)
+                                        <option value="{{$region->id}}"@if(old('region') == $region->id) selected @endif>
+                                            @if ($lang == 'EN')
+                                            {{$region->title_en}}
+                                        @elseif ($lang == 'RU')
+                                            {{$region->title_ru}}
+                                        @elseif ($lang == 'TR')
+                                            {{$region->title_tr}}
+                                        @else
+                                            {{$region->title_az}}
+                                        @endif</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-group company-announce-input-group col-md-6">
                                 <label for="category">@lang('front.cat') <span class="text-danger">*</span></label>
                                 <select name="category" id="category" class="form-control" >
@@ -99,17 +97,16 @@
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}"@if(old('category') == $category->id) selected @endif>
                                             @if ($lang == 'EN')
-                                    {{$category->title_en}}
-                                @elseif ($lang == 'RU')
-                                    {{$category->title_ru}}
-                                @elseif ($lang == 'TR')
-                                    {{$category->title_tr}}
-                                @else
-                                    {{$category->title_az}}
-                                @endif</option>
+                                                {{$category->title_en}}
+                                            @elseif ($lang == 'RU')
+                                                {{$category->title_ru}}
+                                            @elseif ($lang == 'TR')
+                                                {{$category->title_tr}}
+                                            @else
+                                                {{$category->title_az}}
+                                            @endif</option>
                                     @endforeach
                                 </select>
-                                
                             </div>
                             <div class="form-group company-announce-input-group col-md-6">
                                 <label for="work_graf">@lang('front.jobtype') <span class="text-danger">*</span></label>
@@ -124,11 +121,10 @@
                                                     {{$jobtype->title_tr}}
                                                 @else
                                                     {{$jobtype->title_az}}
-                                                @endif</option>
-                                                    @endforeach
-                                                </select>
-                                    
-                                </select>
+                                                @endif
+                                            </option>
+                                        @endforeach                                    
+                                    </select>
                             </div>
                             <div class="form-group company-announce-input-group col-md-6">
                                 <input type="number" class="form-control" id="min" name="min_salary" placeholder="@lang('front.minsalary')" value="{{ old('min_salary') }}" />
@@ -155,19 +151,19 @@
 
                                 <select name="experience" id="experience" class="form-control" >
                                     <option value="" selected disabled>@lang('front.expsec')...</option>
-                                    @foreach($experiences as $experience)
-                                        <option value="{{$experience->id}}"@if(old('experience') == $experience->id) selected @endif>
-                                            @if ($lang == 'EN')
-                                                {{$experience->title_en}}
-                                            @elseif ($lang == 'RU')
-                                                {{$experience->title_ru}}
-                                            @elseif ($lang == 'TR')
-                                                {{$experience->title_tr}}
-                                            @else
-                                                {{$experience->title_az}}
-                                            @endif
-                                </option>
-                                    @endforeach
+                                        @foreach($experiences as $experience)
+                                            <option value="{{$experience->id}}"@if(old('experience') == $experience->id) selected @endif>
+                                                @if ($lang == 'EN')
+                                                    {{$experience->title_en}}
+                                                @elseif ($lang == 'RU')
+                                                    {{$experience->title_ru}}
+                                                @elseif ($lang == 'TR')
+                                                    {{$experience->title_tr}}
+                                                @else
+                                                    {{$experience->title_az}}
+                                                @endif
+                                            @endforeach
+                                    </option>
                                 </select>
                                 
                             </div>
@@ -176,19 +172,19 @@
 
                                 <select name="education" id="education" class="form-control" >
                                     <option value="" selected disabled>@lang('front.tehsilsec')...</option>
-                                    @foreach($educations as $education)
-                                        <option value="{{$education->id}}" @if(old('education') == $education->id) selected @endif>
-                                            @if ($lang == 'EN')
-                                                {{$education->title_en}}
-                                            @elseif ($lang == 'RU')
-                                                {{$education->title_ru}}
-                                            @elseif ($lang == 'TR')
-                                                {{$education->title_tr}}
-                                            @else
-                                                {{$education->title_az}}
-                                            @endif
-                                </option>
-                                    @endforeach
+                                        @foreach($educations as $education)
+                                            <option value="{{$education->id}}" @if(old('education') == $education->id) selected @endif>
+                                                @if ($lang == 'EN')
+                                                    {{$education->title_en}}
+                                                @elseif ($lang == 'RU')
+                                                    {{$education->title_ru}}
+                                                @elseif ($lang == 'TR')
+                                                    {{$education->title_tr}}
+                                                @else
+                                                    {{$education->title_az}}
+                                                @endif
+                                            </option>
+                                        @endforeach
                                 </select>
                                 
                             </div>
@@ -221,19 +217,19 @@
                                 <label for="accept_cv">@lang('front.cvqebull')  <span class="text-danger">*</span></label>
                                 <select name="accept_type" id="accept_type" class="form-control" onchange="getContact(this.value)" >
                                     <option selected disabled>@lang('front.birsec')...</option>
-                                    @foreach($types as $key=>$type)
-                                        <option value="{{$key}}" @if(old('accept_type') == $type->id) selected @endif>
-                                            @if ($lang == 'EN')
-                                            {{$type->title_en}}
-                                        @elseif ($lang == 'RU')
-                                            {{$type->title_ru}}
-                                        @elseif ($lang == 'TR')
-                                            {{$type->title_tr}}
-                                        @else
-                                            {{$type->title_az}}
-                                        @endif
-                                    </option>
-                                    @endforeach
+                                        @foreach($types as $key=>$type)
+                                            <option value="{{$key}}" @if(old('accept_type') == $type->id) selected @endif>
+                                                @if ($lang == 'EN')
+                                                    {{$type->title_en}}
+                                                @elseif ($lang == 'RU')
+                                                    {{$type->title_ru}}
+                                                @elseif ($lang == 'TR')
+                                                    {{$type->title_tr}}
+                                                @else
+                                                    {{$type->title_az}}
+                                                @endif
+                                            </option>
+                                        @endforeach
                                 </select>
                                 
                             </div>
@@ -359,17 +355,21 @@
                         required: true,
                     },
                     contact_link: {
-                        required: function(element) {
-                            return $("#accept_type").val() === '2';
+                        required: {
+                            depends: function(element) {
+                                return $("#accept_type").val() === '2';
+                            }
                         }
                     },
                     contact_email: {
-                        required: function(element) {
-                            return $("#accept_type").val() === '0';
+                        required: {
+                            depends: function(element) {
+                                return $("#accept_type").val() === '0';
+                            }
                         },
                         email: true,
-
                     },
+
                     deadline: {
                         required: true,
                     },
@@ -483,32 +483,32 @@
         
     </script>
 
-<script>
-    function getContact(id) {
-        if (id == 1) {
-            $('#contact_email').slideUp();
-            $('#contact_link').slideUp();
-        } else if (id == 0) {
-            $('#contact_email').slideDown();
-            $('#contact_link').slideUp();
-        } else if (id == 2) {
-            $('#contact_email').slideUp();
-            $('#contact_link').slideDown();
-        } else {
-            $('#contact_email').slideUp();
-            $('#contact_link').slideUp();
+    <script>
+        function getContact(id) {
+            if (id == 1) {
+                $('#contact_email').slideUp();
+                $('#contact_link').slideUp();
+            } else if (id == 0) {
+                $('#contact_email').slideDown();
+                $('#contact_link').slideUp();
+            } else if (id == 2) {
+                $('#contact_email').slideUp();
+                $('#contact_link').slideDown();
+            } else {
+                $('#contact_email').slideUp();
+                $('#contact_link').slideUp();
+            }
         }
-    }
 
-    function getRegion(id){
-        if(id == 1){
-            $('#type_region').slideDown()
+        function getRegion(id){
+            if(id == 1){
+                $('#type_region').slideDown()
 
-        }else{
-            $('#type_region').slideUp()
+            }else{
+                $('#type_region').slideUp()
+            }
         }
-    }
-</script>
+    </script>
 
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <script>
