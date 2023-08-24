@@ -260,7 +260,6 @@
     
     </script>
     <script>
-        // In your Javascript (external .js resource or <script> tag)
         $(document).ready(function() {
             $('#companies').select2();
             $('#category').select2();
