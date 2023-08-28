@@ -51,7 +51,7 @@
                         <div>
                             <img src="https://1is-new.netlify.app/images/black-date.png" alt="">
                             <div>
-                                <p>@lang('front.start') :</p>
+                                <p>@lang('front.deadline') :</p>
                                     @if($tdetail->deadline > now())
                                         <span class="last-span">{{$tdetail->deadline}}</span>
                                     @else
