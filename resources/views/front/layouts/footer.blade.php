@@ -72,7 +72,7 @@
     </div>
     <div class="footer-bottom">
         <div class="container footer-bottom-container">
-            <span class="footer-span1">@2023</span>
+            <span class="footer-span1">©2023</span>
             <span>@lang('front.butunhuquq')</span>
             <span><a href="https://www.butagrup.com.tr/?lang=az"> @lang('front.butateref')</a></span>
         </div>
