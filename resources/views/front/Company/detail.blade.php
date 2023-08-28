@@ -349,7 +349,6 @@
                       </label>
 
                       <br />
-                      <label for="name">@lang('front.qiy') <span style="color: rgba(192, 0, 0, 1)">*</span></label>
                       <div></div>
                       <button class="rating-send">@lang('front.gonder')</button>
                   </div>
