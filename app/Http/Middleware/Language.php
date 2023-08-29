@@ -16,18 +16,22 @@ class Language
      * @param  \Closure  $next
      * @return mixed
      */
-   
-    public function handle($request, Closure $next){
-        $allowedLanguages = ['EN', 'TR', 'RU']; 
-        $currentLocale = Session::get('locale', 'AZ'); 
-        
-        if (!in_array($currentLocale, $allowedLanguages)) {
-            Session::put('locale', 'AZ'); 
-            App::setLocale('AZ');
-        }
-
-        return $next($request);
+    public function handle($request, Closure $next)
+{
+    if (!Session::has('locale')) {
+        Session::put('locale', 'AZ');
     }
 
+    $currentLocale = Session::get('locale');
+    
+    if ($currentLocale !== 'EN' && $currentLocale !== 'RU' && $currentLocale !== 'TR' && $currentLocale !== 'AZ') {
+        Session::put('locale', 'AZ'); // İzin verilen diller dışında bir değerse 'AZ' olarak ayarla
+        App::setLocale('AZ');
+    } else {
+        App::setLocale($currentLocale); // İzin verilen dillerden biri ise o dile ayarla
+    }
+
+    return $next($request);
+}
 
 }
