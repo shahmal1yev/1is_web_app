@@ -330,7 +330,7 @@
                   </div>
                   <div class="rate-left-p2">
                       <input type="hidden" name="company_id" value="{{ $compdetail->id }}"> 
-                      <label class="name-label" for="name">@lang('front.adsoyad')  <span style="color: rgba(192, 0, 0, 1)">*</span><br />
+                      <label class="name-label" for="name">@lang('front.adiniz')  <span style="color: rgba(192, 0, 0, 1)">*</span><br />
                         @auth
                           <input type="text" id="name" name="fullname" value="{{ auth()->user()->name }}" />
                         @else
