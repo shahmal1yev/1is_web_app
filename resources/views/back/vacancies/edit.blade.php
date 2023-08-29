@@ -162,7 +162,13 @@
                                 <input class="form-control" type="date" id="deadline"  name="deadline" placeholder="Son müraciət tarixi daxil edin:" value="{{$vacancy->deadline}}">
                             </div>
                         </div>
-
+                        @if($isSuperAdmin)
+                            <td>
+                                <p class="d-none">{{$vacancy->status == 1 ? "Active" : "Deactive"}}</p>
+                                <input type="checkbox" id="switch{{$vacancy->id}}" switch="none" {{$vacancy->status == 1 ? "checked" : ""}} onchange="changeStatus({{$vacancy->id}})" />
+                                <label for="switch{{$vacancy->id}}" data-on-label="On" data-off-label="Off"></label>
+                            </td>
+                        @endif
                         <div class="row justify-content-end" >
                             <div class="col-lg-12 text-center">
                                 <button type="submit" class="btn btn-primary">Redaktə et</button>
@@ -243,8 +249,117 @@
     </style>
 @endsection
 @section('js')
+
+    
+
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script src="{{asset('back/assets/js/pages/sweet-alerts.init.js')}}"></script>
+    <script src="{{asset('back/assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+    <script>
+
+        const changeStatus = (id) => {
+
+            const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                type: "POST",
+                url: "/admin/vacancy/status",
+                data: {
+                    _token: CSRF_TOKEN,
+                    id,
+                },
+                success: function (data) {
+                    if(data == 1){
+                        Swal.fire({
+                            title: "Uğurlu!",
+                            text: "Status uğurla dəyişdirildi!",
+                            icon: "success"
+                        })
+                        setTimeout(()=>{
+                            location.reload();
+                        },1500)
+                    }else{
+                        Swal.fire({
+                            title: "Ooops",
+                            text: "Gözlənilməyən xəta baş verdi!",
+                            icon: "error"
+                        })
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        title: "Ooops",
+                        text: "Gözlənilməyən xəta baş verdi!",
+                        icon: "error"
+                    })
+                }
+            })
+        }
+
+        const deleteCompanies = (id) => {
+            const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            Swal.fire({
+                title: "Əminsiniz?",
+                text: "Silinən məlumat geri qaytarılmır!",
+                icon: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Bəli, sil!",
+                cancelButtonText: "Xeyr, ləğv et!",
+                confirmButtonClass: "btn btn-success mt-2",
+                cancelButtonClass: "btn btn-danger ms-2 mt-2",
+                buttonsStyling: !1
+            }).then(function(t) {
+                if(t.value){
+                    $.ajax({
+                        type: "POST",
+                        url: "/admin/vacancy/delete",
+                        data: {
+                            _token: CSRF_TOKEN,
+                            id,
+
+                        },
+                        success: function (data) {
+                            if(data == 1){
+                                Swal.fire({
+                                    title: "Uğurlu!",
+                                    text: "Vakansiya uğurla silindi.",
+                                    icon: "success"
+                                })
+                                setTimeout(()=>{
+                                    location.reload();
+                                },1500)
+                            }else{
+                                Swal.fire({
+                                    title: "Ooops",
+                                    text: "Gözlənilməyən xəta baş verdi!",
+                                    icon: "error"
+                                })
+                            }
+                        },
+                        error: function () {
+                            Swal.fire({
+                                title: "Ooops",
+                                text: "Gözlənilməyən xəta baş verdi!",
+                                icon: "error"
+                            })
+                        }
+                    })
+
+
+                }else{
+                    t.dismiss === Swal.DismissReason.cancel && Swal.fire({
+                        title: "Cancelled",
+                        text: "Silinmə ləğv edildi!",
+                        icon: "error"
+                    })
+                }
+
+            })
+
+        }
+    </script>
     <script>
         ClassicEditor
             .create( document.querySelector( '#description' ) )
