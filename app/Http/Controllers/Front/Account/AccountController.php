@@ -374,7 +374,7 @@ class AccountController extends Controller
                 return redirect()->back()->with('error', __('messages.passeynideyil'));
             }
         
-            $user->password = Hash::make($newpass);
+            $user->password = bcrypt($newpass); // Şifreyi bcrypt ile şifrele
             $user->save();
         
             return redirect()->back()->with('success', __('messages.sifreyeni'));

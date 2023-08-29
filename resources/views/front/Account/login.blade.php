@@ -176,67 +176,67 @@
 @endsection
 
 @section('js')
-<script>
-    $(document).ready(function() {
-        var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
+    <script>
+        $(document).ready(function() {
+            var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
 
-        function getErrorMessage(field, lang) {
-            var errorMessages = {
-                required: {
-                    'AZ': 'Bu sahə doldurulmalıdır!',
-                    'EN': 'This field is required!',
-                    'RU': 'Поле обязательно для заполнения!',
-                    'TR': 'Bu alan zorunludur!'
-                },
-                email: {
-                    'AZ': 'Düzgün bir email adresi daxil edin.',
-                    'EN': 'Please enter a valid email address.',
-                    'RU': 'Введите действительный адрес электронной почты.',
-                    'TR': 'Geçerli bir email adresi giriniz.'
-                },
-                
-            };
-
-            return errorMessages[field][lang] || errorMessages[field]['AZ']; // Varsayılan olarak İngilizce mesaj kullan
-        }
-
-        $("#login_form").validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-                password: {
-                    required: true
-                }
-            },
-
-            messages: {
-                email: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
+            function getErrorMessage(field, lang) {
+                var errorMessages = {
+                    required: {
+                        'AZ': 'Bu sahə doldurulmalıdır!',
+                        'EN': 'This field is required!',
+                        'RU': 'Поле обязательно для заполнения!',
+                        'TR': 'Bu alan zorunludur!'
                     },
-                    email: function() {
-                        return getErrorMessage('email', lang);
+                    email: {
+                        'AZ': 'Düzgün bir email adresi daxil edin.',
+                        'EN': 'Please enter a valid email address.',
+                        'RU': 'Введите действительный адрес электронной почты.',
+                        'TR': 'Geçerli bir email adresi giriniz.'
                     },
                     
-                },
+                };
 
-                password: {
-                    required: function() {
-                        return getErrorMessage('required', lang);
-                    },
-                    
-                    
-                }
-            },
-            submitHandler: function(form) {
-                form.submit(); // Formu gönder
+                return errorMessages[field][lang] || errorMessages[field]['AZ']; // Varsayılan olarak İngilizce mesaj kullan
             }
-        });
-    });
 
-</script>
+            $("#login_form").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+
+                messages: {
+                    email: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        email: function() {
+                            return getErrorMessage('email', lang);
+                        },
+                        
+                    },
+
+                    password: {
+                        required: function() {
+                            return getErrorMessage('required', lang);
+                        },
+                        
+                        
+                    }
+                },
+                submitHandler: function(form) {
+                    form.submit(); // Formu gönder
+                }
+            });
+        });
+
+    </script>
     <script>
         $(document).ready(function() {
         var lang = "{{ app()->getLocale() }}"; // Dil seçimini al
@@ -374,107 +374,85 @@
                 form.submit(); // Formu gönder
             }
         });
-    });
+        });
 
     </script>
 
-{{-- <script>
-    const login_form = document.querySelector('#login_form');
-    const register_form = document.querySelector('#register_form');
-    const log_tab = document.querySelector('#log_tab'); 
-    const reg_tab = document.querySelector('#reg_tab'); 
 
-    reg_tab.addEventListener('click', () => {
-        login_form.style.display = 'none';
-        register_form.style.display = 'flex';
-        reg_tab.classList.add('active');
-        log_tab.classList.remove('active');
-    });
+    <script>
+        $(document).ready(function() {
+        $('#no-limit .select2').select2({
+            multiple: "multiple",
+        });
 
-    log_tab.addEventListener('click', () => {
-        register_form.style.display = 'none';
-        login_form.style.display = 'flex';
-        reg_tab.classList.remove('active');
-        log_tab.classList.add('active');
-    });
-</script> --}}
+        $('#limit-2 .select2').select2({
+            multiple: "multiple",
+            maximumSelectionLength: 2,
+        });
 
-<script>
-    $(document).ready(function() {
-    $('#no-limit .select2').select2({
-        multiple: "multiple",
-    });
+        $('#limit-2-custom-message .select2').select2({
+            multiple: "multiple",
+            maximumSelectionLength: 2,
+            language: {
+            maximumSelected: (args) => args.maximum + ' 件しか選べないよ！'
+            }
+        });
+        });
+    </script>
 
-    $('#limit-2 .select2').select2({
-        multiple: "multiple",
-        maximumSelectionLength: 2,
-    });
+    <script>
+        const viewBtn = document.getElementById('view-id')
+        const hideBtn = document.getElementById('hide-id')
+        const loginPas = document.getElementById('login-pass')
 
-    $('#limit-2-custom-message .select2').select2({
-        multiple: "multiple",
-        maximumSelectionLength: 2,
-        language: {
-        maximumSelected: (args) => args.maximum + ' 件しか選べないよ！'
-        }
-    });
-    });
-</script>
+        hideBtn.addEventListener('click' , () => {
+            loginPas.type = 'text'
+            hideBtn.style.display = 'none'
+            viewBtn.style.display = 'block'
+        })
 
-<script>
-
-    // LOGIN SHOW AND HIDE
-    const viewBtn = document.getElementById('view-id')
-    const hideBtn = document.getElementById('hide-id')
-    const loginPas = document.getElementById('login-pass')
-
-    hideBtn.addEventListener('click' , () => {
-        loginPas.type = 'text'
-        hideBtn.style.display = 'none'
-        viewBtn.style.display = 'block'
-    })
-
-    viewBtn.addEventListener('click' , () => {
-        loginPas.type = 'password'
-        viewBtn.style.display = 'none'
-        hideBtn.style.display = 'block'
-    })
+        viewBtn.addEventListener('click' , () => {
+            loginPas.type = 'password'
+            viewBtn.style.display = 'none'
+            hideBtn.style.display = 'block'
+        })
 
 
-    // SIGN SHOW AND HIDE
-    const viewBtn2 = document.getElementById('view-id2')
-    const hideBtn2 = document.getElementById('hide-id2')
-    const loginPas2 = document.getElementById('sign-inpt1')
-    const viewBtn3 = document.getElementById('view-id3')
-    const hideBtn3 = document.getElementById('hide-id3')
-    const loginPas3 = document.getElementById('sign-inpt2')
+        // SIGN SHOW AND HIDE
+        const viewBtn2 = document.getElementById('view-id2')
+        const hideBtn2 = document.getElementById('hide-id2')
+        const loginPas2 = document.getElementById('sign-inpt1')
+        const viewBtn3 = document.getElementById('view-id3')
+        const hideBtn3 = document.getElementById('hide-id3')
+        const loginPas3 = document.getElementById('sign-inpt2')
 
-    hideBtn2.addEventListener('click' , () => {
-        loginPas2.type = 'text'
-        hideBtn2.style.display = 'none'
-        viewBtn2.style.display = 'block'
-    })
+        hideBtn2.addEventListener('click' , () => {
+            loginPas2.type = 'text'
+            hideBtn2.style.display = 'none'
+            viewBtn2.style.display = 'block'
+        })
 
-    viewBtn2.addEventListener('click' , () => {
-        loginPas2.type = 'password'
-        viewBtn2.style.display = 'none'
-        hideBtn2.style.display = 'block'
-    })
+        viewBtn2.addEventListener('click' , () => {
+            loginPas2.type = 'password'
+            viewBtn2.style.display = 'none'
+            hideBtn2.style.display = 'block'
+        })
 
-    hideBtn3.addEventListener('click' , () => {
-        loginPas3.type = 'text'
-        hideBtn3.style.display = 'none'
-        viewBtn3.style.display = 'block'
-    })
+        hideBtn3.addEventListener('click' , () => {
+            loginPas3.type = 'text'
+            hideBtn3.style.display = 'none'
+            viewBtn3.style.display = 'block'
+        })
 
-    viewBtn3.addEventListener('click' , () => {
-        loginPas3.type = 'password'
-        viewBtn3.style.display = 'none'
-        hideBtn3.style.display = 'block'
-    })
+        viewBtn3.addEventListener('click' , () => {
+            loginPas3.type = 'password'
+            viewBtn3.style.display = 'none'
+            hideBtn3.style.display = 'block'
+        })
 
-</script>
+    </script>
 @endsection
 
 @section('css-link')
-<link rel="stylesheet" href="{{asset('front/css/login.css')}}">
+    <link rel="stylesheet" href="{{asset('front/css/login.css')}}">
 @endsection

@@ -23,15 +23,12 @@ use DB;
 
 class CompanyFrontController extends Controller 
 {
-    public function addComment(Request $request)
-    {
+    public function addComment(Request $request){
         if (!auth()->check()) {
             return redirect()->route('login');
         }
        
         try {
-            
-    
             $comment = new Review();
             $comment->user_id = Auth::user()->id;
     
@@ -93,14 +90,14 @@ class CompanyFrontController extends Controller
                 return redirect()->route('login');
             }
 
-        $vacancy_id = $request->input('vacancy_id');
-        $user_id = auth()->user()->id;
-        
-        $favorite = new Favorits();
-        $favorite->vacancy_id = $vacancy_id;
-        $favorite->user_id = $user_id;
+            $vacancy_id = $request->input('vacancy_id');
+            $user_id = auth()->user()->id;
+            
+            $favorite = new Favorits();
+            $favorite->vacancy_id = $vacancy_id;
+            $favorite->user_id = $user_id;
 
-        $favorite->save();
+            $favorite->save();
 
     }
 
@@ -124,7 +121,6 @@ class CompanyFrontController extends Controller
 
 
     public function detail($id){
-
         $companyId = Companies::find($id);
 
         if (!$companyId || $companyId->status == 0) {
