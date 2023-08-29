@@ -16,14 +16,18 @@ class Language
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        if (!Session::has('locale')) {
-            Session::put('locale', 'AZ');
+   
+    public function handle($request, Closure $next){
+        $allowedLanguages = ['EN', 'TR', 'RU']; 
+        $currentLocale = Session::get('locale', 'AZ'); 
+        
+        if (!in_array($currentLocale, $allowedLanguages)) {
+            Session::put('locale', 'AZ'); 
+            App::setLocale('AZ');
         }
-
-        App::setLocale(Session::get('locale'));
 
         return $next($request);
     }
+
+
 }
