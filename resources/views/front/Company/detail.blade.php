@@ -310,7 +310,7 @@
                 <div class="rate-left">
                   <div class="rate-left-p1">
                     <span class="rate-per">{{$faizcomment}} %</span>
-                    <form action="{{route('addComment')}}" method="POST" id="ulduz">
+                    <form action="{{route('addComment')}}" method="POST">
                       @csrf
                       <div class="custom-css stars">
                           <input type="radio" id="five" name="rating" value="5">
@@ -339,7 +339,7 @@
                       </label>
                       <br/>
                       <div></div>
-                      <button type="button" class="rating-send">@lang('front.gonder')</button>
+                      <button class="rating-send">@lang('front.gonder')</button>
                     </div>
                 </div>
                 <div class="rate-right">
