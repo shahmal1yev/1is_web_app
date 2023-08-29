@@ -111,10 +111,13 @@ class VacancyController extends Controller
             }
     }
     public function vacanciesEdit($id){
+        $user = Auth::user(); 
+        $isSuperAdmin = $user->is_superadmin;
         $vacancy = Vacancies::find($id);
         if(!$vacancy){
             return redirect()->route('vacanciesList')->with('error',true);
         }
+
         $companies = Companies::where('status','1')->get();
         $categories = Categories::all();
         $cities = Cities::all();
@@ -123,8 +126,9 @@ class VacancyController extends Controller
         $experiences = Experiences::all();
         $educations = Educations::all();
         $types = AcceptType::all();
-        return view('back.vacancies.edit',compact('companies','categories','cities','regions','jobtypes','experiences','educations','types','vacancy'));
+        return view('back.vacancies.edit',get_defined_vars());
     }
+    
     public function vacanciesEditPost(Request $request){
         $request->validate([
             'id'=>'required|numeric',
