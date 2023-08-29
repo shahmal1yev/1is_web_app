@@ -264,8 +264,8 @@
         <img class="my-modal-header-img" src="{{asset($compdetail->image)}}" alt="" />
         <div class="modal-header-details">
           <h1>{!! htmlspecialchars_decode($compdetail->name)!!}</h1>
-          @php
-                $stars = round($compdetail->average);
+            @php
+              $stars = round($compdetail->average);
             @endphp
             @for($i = 1; $i <= 5; $i++)
                 @if($i <= $stars)
@@ -290,17 +290,11 @@
           </ul>
           
         <div class="tab-content" id="myTabContent">
-          <div
-            class="tab-pane fade show active"
-            id="home"
-            role="tabpanel"
-            aria-labelledby="home-tab"
-          >
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <p class="comp-detail">
               {{htmlspecialchars_decode($compdetail->about)}}
-
             </p>
-            <br />
+            <br/>
             <p class="company-details-address">@lang('front.unvan')</p>
             <div class="location-div">
               <img src="https://1is-new.netlify.app/images/location.png" alt="" />
@@ -308,9 +302,7 @@
               <span>{{$compdetail->address}}</span >
             </div>
             <div class="map-loc">
-              
             {!! htmlspecialchars_decode($compdetail->map) !!}
-
             </div>
             <div class="rating-div">
               <h1>@lang('front.qiymet')</h1>
@@ -318,9 +310,9 @@
                 <div class="rate-left">
                   <div class="rate-left-p1">
                     <span class="rate-per">{{$faizcomment}} %</span>
-                    <form action="{{route('addComment')}}" method="POST">
+                    <form action="{{route('addComment')}}" method="POST" id="ulduz">
                       @csrf
-                        <div class="custom-css stars">
+                      <div class="custom-css stars">
                           <input type="radio" id="five" name="rating" value="5">
                           <label for="five"></label>
                           <input type="radio" id="four" name="rating" value="4">
@@ -332,26 +324,23 @@
                           <input type="radio" id="one" name="rating" value="1">
                           <label for="one"></label>
                           <span class="result"></span>
-                    </div>
+                      </div>
                       
                     <span class="rate-span">{{$ratingCount}} rəy</span>
                   </div>
                   <div class="rate-left-p2">
-                    
                       <input type="hidden" name="company_id" value="{{ $compdetail->id }}"> 
-
                       <label class="name-label" for="name">@lang('front.adsoyad')  <span style="color: rgba(192, 0, 0, 1)">*</span><br />
-                              @auth
-                                <input type="text" id="name" name="fullname" value="{{ auth()->user()->name }}" />
-                              @else
-                              <input type="text" id="name" name="fullname" value="" />
-                      @endauth
+                        @auth
+                          <input type="text" id="name" name="fullname" value="{{ auth()->user()->name }}" />
+                        @else
+                          <input type="text" id="name" name="fullname" value="" />
+                        @endauth
                       </label>
-
-                      <br />
+                      <br/>
                       <div></div>
-                      <button class="rating-send">@lang('front.gonder')</button>
-                  </div>
+                      <button type="button" class="rating-send">@lang('front.gonder')</button>
+                    </div>
                 </div>
                 <div class="rate-right">
                   <div class="rate-right-p1">
@@ -361,10 +350,10 @@
                       <div class="loading">
                         <div class="progress-barr">
                           @if ($totalRatings > 0)
-                          <div class="inner" style="width: {{ ($ratingsbar5 / $totalRatings) * 100 }}%;"></div>
-                      @else
-                          <div class="inner" style="width: 0;"></div>
-                      @endif
+                              <div class="inner" style="width: {{ ($ratingsbar5 / $totalRatings) * 100 }}%;"></div>
+                          @else
+                              <div class="inner" style="width: 0;"></div>
+                          @endif
                         </div>
                       </div>
                     </div>
@@ -374,10 +363,10 @@
                         <div class="loading">
                           <div class="progress-barr">
                             @if ($totalRatings > 0)
-                            <div class="inner" style="width: {{ ($ratingsbar4 / $totalRatings) * 100 }}%;"></div>
-                        @else
-                            <div class="inner" style="width: 0;"></div>
-                        @endif
+                              <div class="inner" style="width: {{ ($ratingsbar4 / $totalRatings) * 100 }}%;"></div>
+                            @else
+                                <div class="inner" style="width: 0;"></div>
+                            @endif
                           </div>
                         </div>
                       </div>
@@ -387,10 +376,10 @@
                         <div class="loading">
                           <div class="progress-barr">
                             @if ($totalRatings > 0)
-                            <div class="inner" style="width: {{ ($ratingsbar3 / $totalRatings) * 100 }}%;"></div>
-                        @else
-                            <div class="inner" style="width: 0;"></div>
-                        @endif
+                                <div class="inner" style="width: {{ ($ratingsbar3 / $totalRatings) * 100 }}%;"></div>
+                            @else
+                                <div class="inner" style="width: 0;"></div>
+                            @endif
                           </div>
                         </div>
                       </div>
@@ -400,10 +389,10 @@
                         <div class="loading">
                           <div class="progress-barr">
                             @if ($totalRatings > 0)
-                            <div class="inner" style="width: {{ ($ratingsbar2 / $totalRatings) * 100 }}%;"></div>
-                        @else
-                            <div class="inner" style="width: 0;"></div>
-                        @endif
+                                <div class="inner" style="width: {{ ($ratingsbar2 / $totalRatings) * 100 }}%;"></div>
+                            @else
+                                <div class="inner" style="width: 0;"></div>
+                            @endif
                           </div>
                         </div>
                       </div>
@@ -413,16 +402,14 @@
                         <div class="loading">
                           <div class="progress-barr">
                             @if ($totalRatings > 0)
-                            <div class="inner" style="width: {{ ($ratingsbar1 / $totalRatings) * 100 }}%;"></div>
-                        @else
-                            <div class="inner" style="width: 0;"></div>
-                        @endif
+                                <div class="inner" style="width: {{ ($ratingsbar1 / $totalRatings) * 100 }}%;"></div>
+                            @else
+                                <div class="inner" style="width: 0;"></div>
+                            @endif
                           </div>
                         </div>
                       </div>
                     </div>
-                    
-                    
                     
                   <div class="rate-right-p2">
                     <p class="your-com">@lang('front.reyiniz')</p>
@@ -434,20 +421,11 @@
               </div>
             </div>
           </div>
-          <div
-            class="tab-pane fade"
-            id="profile"
-            role="tabpanel"
-            aria-labelledby="profile-tab"
-          >
-          <p class="comp-detail">
-            {{htmlspecialchars_decode($compdetail->hr)}}
-
-          </p>
-          <br />
-          
-          
-
+            <div class="tab-pane fade"  id="profile"  role="tabpanel" aria-labelledby="profile-tab">
+              <p class="comp-detail">
+                {{htmlspecialchars_decode($compdetail->hr)}}
+              </p>
+              <br/>
             </div>
           </div>
           </div>
@@ -563,45 +541,40 @@
 @section('js-link')
 
   <script src="{{asset('front/js/bootstrap.min.js')}}"></script> 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.1.2/js/star-rating.min.js"
-        integrity="sha512-BjVoLC9Qjuh4uR64WRzkwGnbJ+05UxQZphP2n7TJE/b0D/onZ/vkhKTWpelfV6+8sLtQTUqvZQbvvGnzRZniTQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-      
-      <script src="{{asset('front/js/owl.carousel.min.js')}}"></script> 
-      <script>
-
-        const owlStage = document.querySelector('.owl-stage');
-        const owlCarousel = document.querySelector('.owl-carousel');
-        const owlNav = document.querySelector('.owl-nav');
-
-        if(owlStage.children.length <= 1) {
-          owlCarousel.classList.add('owl-none');
-        }
-
-        console.log(owlCarousel);
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.1.2/js/star-rating.min.js" integrity="sha512-BjVoLC9Qjuh4uR64WRzkwGnbJ+05UxQZphP2n7TJE/b0D/onZ/vkhKTWpelfV6+8sLtQTUqvZQbvvGnzRZniTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script src="{{asset('front/js/owl.carousel.min.js')}}"></script> 
 
 
-        $('.owl-carousel').owlCarousel({
-                loop:true,
-                margin:10,
-                dots: false,
-                responsiveClass:true,
-                responsive:{
-                    0:{
-                        items:1,
-                        nav:true
-                    },
-                    600:{
-                        items:3,
-                        nav:false
-                    },
-                    1000:{
-                        items:4,
-                        nav:true,
-                        loop:false
-                    }
-            }
-        })
-    </script>
+  <script>
+      const owlStage = document.querySelector('.owl-stage');
+      const owlCarousel = document.querySelector('.owl-carousel');
+      const owlNav = document.querySelector('.owl-nav');
+
+      if(owlStage.children.length <= 1) {
+        owlCarousel.classList.add('owl-none');
+      }
+
+      $('.owl-carousel').owlCarousel({
+              loop:true,
+              margin:10,
+              dots: false,
+              responsiveClass:true,
+              responsive:{
+                  0:{
+                      items:1,
+                      nav:true
+                  },
+                  600:{
+                      items:3,
+                      nav:false
+                  },
+                  1000:{
+                      items:4,
+                      nav:true,
+                      loop:false
+                  }
+          }
+      })
+  </script>
 @endsection
