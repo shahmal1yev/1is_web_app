@@ -60,7 +60,9 @@ class AdminLogsController extends Controller
     {
         $activityLogs = Activity::with(['causer', 'subject'])
             ->whereEvent('updated')
+            ->whereNotNull('causer_id')
             ->get();
+
 
         foreach ($activityLogs as $log) {
             $causerType = $log->causer_type;

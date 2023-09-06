@@ -19,9 +19,10 @@ class Vacancies extends Model
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-        ->logOnly(['*'])
-        ->logOnlyDirty();
+            ->logOnly(['user_id', 'category_id', 'id', 'city_id', 'village_id', 'company_id', 'education_id', 'experience_id', 'job_type_id', 'position', 'salary_type', 'slug', 'min_salary', 'max_salary', 'min_age', 'max_age', 'requirement', 'description', 'contact_name', 'accept_type', 'contact_info', 'deadline', 'status'])
+            ->logOnlyDirty();
     }
+
     
     public function getCompany(){
         return $this->hasMany('App\Models\Companies','id','company_id')->first();
