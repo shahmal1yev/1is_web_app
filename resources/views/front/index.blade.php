@@ -307,8 +307,8 @@
                 @endforeach
             </div>
             <div id="load-more-container">
-                <button id="load-more-btn" class="pop-button" data-page="1">@lang('front.dahacox') <img class="btm-arrow" src="https://1is.butagrup.az/back/assets/images/icons/images-bottom-arrow.svg" alt=""></button>
-                <button id="load-less-btn" class="pop-button" data-page="2" style="display: none">@lang('front.dahaaz') <img class="btm-arrow" src="https://1is.butagrup.az/back/assets/images/icons/images-top-arrow.svg"  alt=""></button>
+                <button id="load-more-btn" class="pop-button" data-page="1">@lang('front.dahacox')</button>
+                <button id="load-less-btn" class="pop-button" data-page="2" style="display: none">@lang('front.dahaaz')</button>
 
             </div>
             
@@ -807,10 +807,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--background-color);
         }
 
         .slide-items img {
