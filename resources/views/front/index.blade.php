@@ -300,7 +300,7 @@
                             <!-- </a> -->
                         </p>
                             </div>
-                            <p>@lang('front.vaccount'): {{ $category->total_vacancies }}</p>
+                            <p class="vac-sayi">@lang('front.vaccount'): {{ $category->total_vacancies }}</p>
                         </div>
                         <div class="border-div"></div>
                     </a>
@@ -483,7 +483,7 @@
                                 <p><a href="/vsearch?query=&category=${category.id}&city=&find_worker=&education=&experience=&work_type=" style="color: black">
                                     ${ '{{ app()->getLocale() }}' === 'EN' ? category.title_en : '{{ app()->getLocale() }}' === 'TR' ? category.title_tr : ('{{ app()->getLocale() }}' === 'RU' ? category.title_ru : category.title_az) }
                                 </a></p>
-                                <p>@lang('front.vaccount'): ${category.total_vacancies}</p>
+                                <p class="vac-sayi">@lang('front.vaccount'): ${category.total_vacancies}</p>
                             </div>
                             <div class="border-div"></div>
                         `;
@@ -531,7 +531,7 @@
                             <div class="text-field">
                                 <p><a href="/vsearch?query=&category=${category.id}&city=&find_worker=&education=&experience=&work_type=" style="color: black">
                                     ${ '{{ app()->getLocale() }}' === 'EN' ? category.title_en : '{{ app()->getLocale() }}' === 'TR' ? category.title_tr : ('{{ app()->getLocale() }}' === 'RU' ? category.title_ru : category.title_az) }</a></p>
-                                <p>@lang('front.vaccount'): ${category.total_vacancies}</p>
+                                <p class="vac-sayi">@lang('front.vaccount'): ${category.total_vacancies}</p>
                             </div>
                             <div class="border-div"></div>
                         `;
