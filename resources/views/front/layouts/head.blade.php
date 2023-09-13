@@ -104,11 +104,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 
 <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0695GJVT99"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14ECKJPC6W"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        
-        gtag('config', 'G-0695GJVT99');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'G-14ECKJPC6W');
     </script>
