@@ -545,6 +545,19 @@ button:focus {
   flex-wrap: wrap;
 }
 
+.block-div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 220px;
+  justify-content: flex-start;
+}
+
+.block-div svg {
+  min-width: 48px;
+  min-height: 48px;
+}
+
 .info-block-main {
   width: 100%;
   display: flex;
@@ -1617,6 +1630,10 @@ footer {
 
     .filter1 {
       width: 100%!important;
+    }
+
+    .active-filter-jobsearchinner {
+      gap: 15px!important;
     }
 
 }

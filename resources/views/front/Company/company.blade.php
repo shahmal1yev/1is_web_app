@@ -14,7 +14,7 @@
       </div>
       <form class="main-filter" method="GET" action="{{route('compsearch')}}">
        
-        <div class="active-filter active-filter-jobsearchinner">
+        <div class="active-filter active-filter-jobsearchinner company-search-form">
             <div class="filter1">
                 <img src="https://1is-new.netlify.app/images/search.png" alt="">
                 <input class="filter-input" placeholder="@lang('front.compaxtar')" type="search" name="query" value="{{ old('query') }}">
@@ -209,5 +209,28 @@
         .company-div .mr-0, .mx-0{
         width: 100%;
     }
+
+        @media screen and (max-width: 768px) {
+            .company-search-form {
+                flex-wrap: initial;
+            }
+
+            .section-filter .dropdown-comp-2 {
+                width: 80%;
+                justify-content: space-between;
+            }
+
+            
+        }
+
+        @media screen and (max-width: 578px) {
+            .company-search-form .filter2 {
+                margin-top: 0!important;
+            }
+
+            .section-filter .dropdown-comp-2 {
+                width: 100%;
+            }
+        }
     </style>
 @endsection
