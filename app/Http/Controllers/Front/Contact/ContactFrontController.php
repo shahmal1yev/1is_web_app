@@ -50,16 +50,10 @@ class ContactFrontController extends Controller
             $data['text']='Hörmətli istifadəçi,
         
             Müraciətiniz uğurla göndərildi'; 
-            
-            $datam=[];
-            $datam['email_name']='1is.az';
-            $datam['subject']='Müraciət';
-            $datam['text']='Sizə email var'; 
-            
-
+          
             if (env("APP_ENV") !== "local")
             {
-            Mail::to('ulduz20022304@gmail.com')->send(new SendButaMail($datam));
+            Mail::to('1isofficial.az@gmail.com')->send(new SendButaMail($datam));
 
             Mail::to($contact->email)->send(new SendContactMail($data));
             }
